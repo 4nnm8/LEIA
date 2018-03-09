@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Configurer LIPT</title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+  </head>
+  <body class="conf">	
+    <p>	
+      <label for="lipt">Activer ou désactiver LIPT</i><br/><br/>
+        <select id="lipt">
+          <option value="1">Activer</option>
+          <option value="0">Désactiver</option>
+		</select>
+	  </label>	
+	</p>
+	<p>	
+      <label for="imode">Choix du mode de lecture inclusive<br/><br/>
+        <select id="imode">
+          <option value="1">Mots lus aux deux genres</option>
+          <option value="2">Mots lus au féminin uniquement</option>
+          <option value="3">Mots lus au maculin uniquement</option>
+          <option value="4" disabled>Lecture mot puis suffixes</option>
+		</select>
+	  </label>	
+	</p>
+	<p>
+      <label for="voice">Activer ou désactiver la synthèse vocale intégrée (expérimental)<br/><br/>
+        <select id="voice">
+          <option value="0" selected>Désactiver</option>
+          <option value="1">Activer</option>
+        </select>
+      </label>
+	</p>
+	<p>
+	  <button id="launch">Appliquer les changements</button>
+	</p>
+	<p><b>Raccourcis claviers (hors pavé numérique) :</b></p>
+	<p>
+      <p>Ouvrir le panneau de configuration : <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
+      <p>Choix du mode de lecture inclusive : <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>1</kbd> ou <kbd>2</kbd> ou <kbd>3</kbd></p>
+      <p>Insérer un point médian : <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>.</kbd></p>
+      <p><b>Avec la synthèse vocale intégrée</b></p>
+      <p>Augmenter ou diminuer le débit de lecture : <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>+</kbd> ou <kbd>-</kbd></p>
+      <p>Parcourir et lire les éléments de la page : <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>&uarr;</kbd> ou <kbd>&darr;</kbd></p>  
+    </p>
+    <script>
+	  function getVal(n){
+	    return document.getElementById(n).options[document.getElementById(n).selectedIndex].value
+	  }
+      function passCfg(){
+        var purl = window.opener.location.toString().replace(/(.*)\?.*/,'$1').replace(/\/$/,'');
+        window.opener.location.href = purl+'?lipt='+getVal("lipt")+'&imode='+getVal("imode")+'&voice='+getVal("voice");
+	    window.close();
+	  }
+	  document.getElementById("launch").addEventListener("click",passCfg,false);
+	  window.addEventListener("beforeunload",passCfg,false);
+    </script>
+  </body>
+</html>

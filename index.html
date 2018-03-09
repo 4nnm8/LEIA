@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LÉIA - L'Écriture Inclusive et Accessible !</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <div class="cont">
+      <header>
+        <img src="img/leia.png" tabindex="0" alt="Logo de LÉIA" />
+        <h2>Page de test et de présentation de LÉIA</h2>
+      </header>
+
+	  <div class="row">
+        <section>
+          <article>
+            <h2>Introduction</h2>
+              <p>Bienvenue !</p>
+	          <p><b>LÉIA</b> est un script qui permet de rendre l'écriture inclusive vraiment inclusive ! C'est-à-dire compréhensible par les personnes malvoyantes.</p>
+	          <p>Pour comprendre quel est le problème, je vous invite à aller voir la page "Historique et Développement".</p>
+	          <p>Vous pourrez constater que <b>LÉIA</b> est activé sur cette page par le bouton en haut à droite de la fenêtre.</p>
+	          <p>Pour apprécier <b>LÉIA</b> en fonctionnement avec les différentes phrases tests ci-dessous, je vous invite donc à jouer avec les paramètres disponibles dans le menu.</p>
+          </article>
+	
+          <article>
+            <h2>Exemples de phrases en écriture inclusive</h2>
+            <h4>Désactivez <b>LÉIA</b> avec le menu en haut à droite pour apprécier la différence</h4>
+            <p>
+              <b>Masculin et féminin identiques à l'oral, seul un des deux genres est conservé :</b><br/>
+              <q>Dans ce quartier, les chef·fe·s de cuisine sont turc·que·s ou grec·ques.</q>
+            </p>
+	        <p>
+              <b>Masculin et féminin différents à l'oral, le mot est dupliqué aux deux genres (option par défaut) :</b><br/>
+              <q>Les membres de la chambre haute portent de le titre de sénateur·rice.</q>
+            </p>
+            <p>
+              <b>Les séparateurs · (point médian), . (point), • (puce) et - (tiret) sont acceptés :</b><br/>
+              <q>Les membres de l'expédition sont parti·e·s mais ne sont jamais arrivé-e-s car ils•elles se sont perdu.e.s</q><br/>
+             </p>
+            <p>
+              <b>Les mots composés posent pour le moment problème :</b><br/>
+              <q>sourd·e·s-muet·te·s</q> (sourds-muets sourdes-muettes serait préférable)
+            </p>
+          </article>
+		  
+          <article>
+	        <h2>Essayez la composition de texte</h2>
+	        <h4>Activez la synthèse vocale et testez des mots en écriture inclusive ainsi que le raccourcis clavier du point médian</h4>
+	        <textarea onclick="this.value=''">Souvent, pour s'amuser, femmes et hommes d'équipage,
+Prennent des albatros, vastes oiseaux·elles des mers,
+Qui suivent, indolent·e·s compagnon·agne·s de voyage,
+Le navire glissant sur les gouffres amers.</textarea>
+          </article>
+        </section>
+	    <aside>
+		  <nav>
+		    <h3>Liens</h3>
+		    <a href="doc/tuto.html?leia=0">Reccomandations sur l'écriture inclusive</a>
+		    <hr>
+		    <a href="doc/historique.html" target="_blank">Historique & Développement</a>
+		   <hr>
+		    <a href="doc/graphies.html?leia=0" target="_blank">Table des graphies acceptées</a>
+		    <hr>
+		    <a href="https://github.com/Loarg-Ann/LEIA" target="_blank">Voir le GitHub <img src="img/git.png" /></a>
+		  </nav>
+				  
+		  <article>
+		    <h2>Donation</h2>
+		    <a href="https://www.okpal.com/leia" target="_blank" class="button">Donner ! <img style="width:45px" src="img/okpal.png"/></a>
+		    <p>Aidez-moi à améliorer et à diffuser LÉIA.<br/>Merci 🙂</p>
+		  </article>
+			  
+		  <article>
+		    <h3>Raccourcis clavier</h3>
+		    <p>Point médian <kbd>&nbsp;&nbsp;AltGr&nbsp;&nbsp;</kbd> <kbd>.</kbd></p>
+		    <p>Panneau de configuration <kbd>Alt</kbd> <kbd>Maj</kbd> <kbd>C</kbd></p>
+		    <hr>
+		    <b>Avec la synthèse vocale activée<br/>(expérimental) </b><br/>
+		    <p>Débit de lecture <kbd>Alt</kbd> <kbd>Maj</kbd> <kbd>+</kbd> ou <kbd>-</kbd></p>
+		    <p>Navigation <kbd>Alt</kbd> <kbd>Maj</kbd> <kbd>&#11014;</kbd> ou <kbd>&#11015;</kbd></p> 
+          </article>				  
+		
+ 		  <article>
+		    <h3>Contact</h3>
+            <p class="brouillache">moc.liamn<span>x.y@z.</span>otorp@taruzem.a</p>
+		  </article>
+        </aside>
+      </div>
+      <footer>
+        Ann Mezurat · LÉIA est sous licence 
+        <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank"><img src="img/apache.png"></a> 
+        <img src="img/w3c.png">
+      </footer><br/>
+    </div>
+    <script src="leia.js"></script> 
+  </body>
+</html>
