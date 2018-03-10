@@ -11,7 +11,6 @@ body {
   background:#96D8FB;
   background-image: url(img/bg.png);
   height:100vh;
-  overflow:hidden;
 }
 .cont{
   width:100%;
@@ -30,7 +29,7 @@ header,footer{
     text-align: center;
 	background-color:rgba(0,0,0,0.3);
 }
-section{   
+.left{   
     float: left;
     width: 75%;
 }
@@ -57,10 +56,18 @@ footer {
   padding: 20px;
   text-align: center;
 }
-
-
-a {
-  color:#fff;
+h1,th,body {
+  color:#fff
+}
+td, th, h1, .conf, kbd, .graph {
+  text-align:center;
+}
+td,th {
+  border: 1px solid #fff;
+  padding: 2px 8px 2px 8px
+}
+a,.bof {
+  color:#ffcc66;
   text-decoration:none;
 }
 nav a:before {content:"› "}
@@ -69,7 +76,7 @@ nav a:hover:before {content:"››"}
 nav a:hover:after  {content:"‹‹"}
 nav a:hover { color:#bfe7fb }
 h1 {
-  font-size: 3em;
+  font-size: 2em;
 }
 h2 {
 margin-top:20px
@@ -107,7 +114,7 @@ img {
 
 
 @media (max-width: 800px) {
-    section, aside {   
+    .left, aside {   
         width: 100%;
         padding: 0;
     }
@@ -123,14 +130,12 @@ img {
   text-decoration:none;
   text-align:center;
 }
-.bof {
-color:#FF8000;
-}
+
 .nope{
-color:#DF0101;
+color:#ff8080;
 }
 .oui {
-color:#31B404;
+color:#99ff99;
 }
 hr {
   background-color:#fff;
@@ -174,4 +179,41 @@ textarea:focus {
 }
 textarea {
 
+}
+
+/* PAGE GRAPHIES */
+.graph{
+  color:#000;
+  background-color:#0d719e !important
+}
+.graph u {
+  color:#f00
+}
+table {
+  width:90vw;
+  margin:auto
+}
+td,th {
+  border:1px solid #555;
+
+  font-family: "Acto Book",Verdana,Tahoma,Georgia,sans-serif;
+  font-size:1.2em;
+  padding:4px
+}
+th {
+  background-color:#ab1f4d
+}
+tr:nth-of-type(2n) {
+  background-color:#a7dcea
+}
+tr:nth-of-type(2n+1) {
+  background-color:#5abeea
+}
+.d{
+  background-color:#f777a1;
+  color:#333
+}
+.g{
+  background-color:#0d719e;
+  border:0
 }

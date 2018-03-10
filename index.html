@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <title>LÉIA - L'Écriture Inclusive et Accessible !</title>
@@ -9,65 +9,106 @@
     <div class="cont">
       <header>
         <img src="img/leia.png" tabindex="0" alt="Logo de LÉIA" />
-        <h2>Page de test et de présentation de LÉIA</h2>
+        <h1>Présentation de LÉIA</h1>
       </header>
 
 	  <div class="row">
-        <section>
+        <div class="left">
           <article>
             <h2>Introduction</h2>
               <p>Bienvenue !</p>
 	          <p><b>LÉIA</b> est un script qui permet de rendre l'écriture inclusive vraiment inclusive ! C'est-à-dire compréhensible par les personnes malvoyantes.</p>
-	          <p>Pour comprendre quel est le problème, je vous invite à aller voir la page "Historique et Développement".</p>
-	          <p>Vous pourrez constater que <b>LÉIA</b> est activé sur cette page par le bouton en haut à droite de la fenêtre.</p>
-	          <p>Pour apprécier <b>LÉIA</b> en fonctionnement avec les différentes phrases tests ci-dessous, je vous invite donc à jouer avec les paramètres disponibles dans le menu.</p>
+	          <p>Pour comprendre quel est le problème, je vous invite à cliquer <a href="doc/hist.pdf" target="_blank">sur ce lien</a>.</p>
+	          <p>Vous pourrez constater que <b>LÉIA</b> est activé sur cette page par le bouton en haut à droite de la fenêtre, accessible aussi en début de page avec la touche <kbd>TAB</kbd>, et à n'importe quel moment avec le raccourcis clavier <kbd>Alt</kbd> <kbd>Maj</kbd> <kbd>C</kbd></p>
+	          <p>Pour apprécier <b>LÉIA</b> en fonctionnement avec les différentes phrases tests ci-dessous, je vous invite donc à jouer avec les paramètres disponibles dans ce menu.</p>
+			  <p>Au stade actuel de son développement, <b>LÉIA</b> s'oriente vers une série d'add-ons pour navigateurs web et lecteurs d'écrans.</p>
           </article>
-	
+		  		  
+          <article>
+            <h2>Qu'est–ce que l'écriture inclusive ?</h2>
+            <p>L'écriture inclusive, aussi appellé <i>langage épicène</i> ou encore <i>langage non-sexiste</i>, est une façon d'écrire le français, qui fait la peau à la règle grammaticale qui veut que <q>le masculin l'emporte</q>. En effet, le neutre en français est le genre masculin. Peu importe le nombre de femmes qui composent un groupe, s'il compte un seul homme, on parlera de ce groupe au masculin.</p>
+			<p>L'écriture inclusive permet donc de mieux représenter les individus dont on parle et à qui on s'adresse, sans oublier la moitié de la population !</p>
+			<p>Par exemple, au lieu d'écrire : <q>les membres de la chambre haute sont désignés par le titre de sénateur</q>, on écrira : <q>les membres de la chambre haute sont désigné<del></del>·e·s par le titre de sénateur<del></del>·rice</q>. Simple n'est–ce pas ?</p>
+          </article>
+		  
+          <article>
+            <h2>Comment ça marche ?</h2>
+              <p><b>LÉIA</b> est un programme rédigé en JavaScript (langage informatique).</p>
+			  <p>Le script parcours le code source d'une page web à la recherche de motifs propres à l'écriture inclusive.</p>
+			  <p>En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture qui sera intelligible via la synthèse vocale des lecteurs d'écrans.</p>
+          </article>
+		  
           <article>
             <h2>Exemples de phrases en écriture inclusive</h2>
-            <h4>Désactivez <b>LÉIA</b> avec le menu en haut à droite pour apprécier la différence</h4>
+			<h4>Si vous désactivez <b>LÉIA</b>, vous constaterez que les phrases "Après" ne sont plus converties !</h4>
             <p>
               <b>Masculin et féminin identiques à l'oral, seul un des deux genres est conservé :</b><br/>
-              <q>Dans ce quartier, les chef·fe·s de cuisine sont turc·que·s ou grec·ques.</q>
+              &nbsp;&nbsp;Avant : <q>Dans ce quartier, les chef<del></del>·fe·s de cuisine sont turc<del></del>·que·s ou grec<del></del>·ques.</q><br/>
+			  &nbsp;&nbsp;Après : <q>Dans ce quartier, les chef·fe·s de cuisine sont turc·que·s ou grec·ques.</q>
             </p>
 	        <p>
               <b>Masculin et féminin différents à l'oral, le mot est dupliqué aux deux genres (option par défaut) :</b><br/>
-              <q>Les membres de la chambre haute portent de le titre de sénateur·rice.</q>
+              &nbsp;&nbsp;Avant : <q>Les membres de la chambre haute portent de le titre de sénateur<del></del>·rice.</q><br/>
+			  &nbsp;&nbsp;Après : <q>Les membres de la chambre haute portent de le titre de sénateur·rice.</q>
             </p>
             <p>
-              <b>Les séparateurs · (point médian), . (point), • (puce) et - (tiret) sont acceptés :</b><br/>
-              <q>Les membres de l'expédition sont parti·e·s mais ne sont jamais arrivé-e-s car ils•elles se sont perdu.e.s</q><br/>
+              <b>Les séparateurs · (point médian), ∙ (bullet operator), . (point), • (puce) et - (tiret) sont acceptés :</b><br/>
+              &nbsp;&nbsp;Avant : <q>Les randonneur<del></del>∙euse∙s sont parti<del></del>·e·s mais ne sont jamais arrivé<del></del>-e-s car ils<del></del>•elles se sont perdu<del></del>.e.s</q><br/>
+			  &nbsp;&nbsp;Après : <q>Les randonneur∙euse∙s sont parti·e·s mais ne sont jamais arrivé-e-s car ils•elles se sont perdu.e.s</q>
              </p>
             <p>
               <b>Les mots composés posent pour le moment problème :</b><br/>
-              <q>sourd·e·s-muet·te·s</q> (sourds-muets sourdes-muettes serait préférable)
+              &nbsp;&nbsp;Avant : <q>sourd<del></del>·e·s-muet<del></del>·te·s</q><br/>
+			  &nbsp;&nbsp;Après : <q>sourd·e·s-muet·te·s</q> (sourds-muets sourdes-muettes serait préférable)
             </p>
           </article>
 		  
           <article>
 	        <h2>Essayez la composition de texte</h2>
-	        <h4>Activez la synthèse vocale et testez des mots en écriture inclusive ainsi que le raccourcis clavier du point médian</h4>
-	        <textarea onclick="this.value=''">Souvent, pour s'amuser, femmes et hommes d'équipage,
+	        <h4>Activez la synthèse vocale et testez des mots en écriture inclusive ainsi que le raccourcis clavier du point médian <kbd>&nbsp;&nbsp;AltGr&nbsp;&nbsp;</kbd> <kbd>.</kbd></h4>
+	        <textarea>Souvent, pour s'amuser, femmes et hommes d'équipage,
 Prennent des albatros, vastes oiseaux·elles des mers,
 Qui suivent, indolent·e·s compagnon·agne·s de voyage,
 Le navire glissant sur les gouffres amers.</textarea>
           </article>
-        </section>
+		  <article>
+		  <h2>Ressources utilées pour mener à bien ce projet</h2>
+		  <h4>Livre</h4>
+          <i>BORDE, Davy, 2016.   <a href="http://www.editions-utopia.org/portfolio-view/tirons-la-langue-plaidoyer-contre-le-sexisme-dans-la-langue-francaise/"  target="_blank">Tirons la langue – Plaidoyer contre le sexisme dans la langue française.</a></i> Éditions Utopia.<br/>
+		  <h4>Brochures</h4>
+          <p><i>Haut Conseil à l'Égalité entre les femmes et les hommes (HCE), 2016. <a href="http://bit.ly/2fejwZ7" target="_blank">Pour une communication publique sans stéréotype de sexe.</a></i> Édité par La documentation Française.</p>
+          <p>HADDAD Raphaël & BARIC Carline, 2016. <a href="https://www.motscles.net/s/Manuel-decriture-inclusive-yal5.pdf" target="_blank">Manuel d'écriture inclusive.</a> <i>Édité par l'agence Mots-Clés.</i></p>
+		  <h4>Sites internet</h4>
+		  <a href="https://regexr.com/" target="_blank">https://regexr.com/</a> - test des expressions régulières<br/>
+          <a href="https://stackoverflow.com/" target="_blank">https://stackoverflow.com/</a> - conseils de programmation (forum de développeur et développeuses)<br/>
+          <a href="https://fr.wiktionary.org/" target="_blank">https://fr.wiktionary.org/</a>	- vérification de l'orthographe et de la conjugaison<br/>
+          <a href="http://www.com-edit.com/" target="_blank">http://www.com-edit.com/</a> -	vocabulaire de la typographie<br/>
+          <a href="http://dict.xmatiere.com/" target="_blank">http://dict.xmatiere.com/</a> - recherche de suffixes<br/>
+          <a href="https://www.bertrandboutin.ca/" target="_blank">https://www.bertrandboutin.ca/</a> - pour certaines exceptions de noms et d'adjectifs au féminin<br/>
+		  <a href="https://www.github.com/" target="_blank">https://www.github.com/</a> - pour l'hébergement du développement du script<br/>
+          <h4>Programmes</h4>
+          <b>Notepad++</b> - programmation en JavaScript<br/>
+          <b>OpenOffice</b> - recherches, organisation des informations, rédaction du dossier<br/>
+          <b>KobaSpeech, NVDA, Talkback, JAWS</b> - test des synthèses vocales logicielles<br/>
+          <b>ResponsiveVoice</b> - test de synthèse vocale JavaScript (et pour le moment, synthèse vocale intégrée)<br/>
+          <b>Photoshop CC 2017</b> - design du logo de LÉIA<br/>
+		  </article>
+        </div>
 	    <aside>
 		  <nav>
 		    <h3>Liens</h3>
-		    <a href="doc/tuto.html?leia=0">Reccomandations sur l'écriture inclusive</a>
+			<a href="index.html" tabindex="2">Accueil</a>
 		    <hr>
-		    <a href="doc/historique.html" target="_blank">Historique & Développement</a>
+		    <a href="doc/tuto.html">Reccomandations sur l'écriture inclusive</a>
 		   <hr>
 		    <a href="doc/graphies.html?leia=0" target="_blank">Table des graphies acceptées</a>
 		    <hr>
-		    <a href="https://github.com/Loarg-Ann/LEIA" target="_blank">Voir le GitHub <img src="img/git.png" /></a>
+		    <a href="https://github.com/Loarg-Ann/LEIA" target="_blank">Voir sur GitHub <img src="img/git.png" alt="logo GitHub" /></a>
 		  </nav>
 				  
 		  <article>
 		    <h2>Donation</h2>
-		    <a href="https://www.okpal.com/leia" target="_blank" class="button">Donner ! <img style="width:45px" src="img/okpal.png"/></a>
+		    <a href="https://www.okpal.com/leia" target="_blank" class="button">Donner ! <img style="width:45px" src="img/okpal.png" alt="logo OkPal"/></a>
 		    <p>Aidez-moi à améliorer et à diffuser LÉIA.<br/>Merci 🙂</p>
 		  </article>
 			  
@@ -76,7 +117,7 @@ Le navire glissant sur les gouffres amers.</textarea>
 		    <p>Point médian <kbd>&nbsp;&nbsp;AltGr&nbsp;&nbsp;</kbd> <kbd>.</kbd></p>
 		    <p>Panneau de configuration <kbd>Alt</kbd> <kbd>Maj</kbd> <kbd>C</kbd></p>
 		    <hr>
-		    <b>Avec la synthèse vocale activée<br/>(expérimental) </b><br/>
+		    <b>Avec la synthèse vocale activée<br/>(au stade expérimental) </b><br/>
 		    <p>Débit de lecture <kbd>Alt</kbd> <kbd>Maj</kbd> <kbd>+</kbd> ou <kbd>-</kbd></p>
 		    <p>Navigation <kbd>Alt</kbd> <kbd>Maj</kbd> <kbd>&#11014;</kbd> ou <kbd>&#11015;</kbd></p> 
           </article>				  
@@ -89,8 +130,8 @@ Le navire glissant sur les gouffres amers.</textarea>
       </div>
       <footer>
         Ann Mezurat · LÉIA est sous licence 
-        <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank"><img src="img/apache.png"></a> 
-        <img src="img/w3c.png">
+        <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank"><img src="img/apache.png" alt="logo Licence Apache"></a> 
+        <img src="img/w3c.png" alt="Logo World Wide Web Consortium" />
       </footer><br/>
     </div>
     <script src="leia.js"></script> 

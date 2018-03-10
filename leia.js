@@ -1,12 +1,12 @@
-﻿/** LEIA - Copyright 2018 Ann Mezurat
-LEIA est un donationware sous licence Apache Version 2.0. 
+﻿/** LÉIA - Copyright 2018 Ann Mezurat
+LÉIA est un donationware sous licence Apache Version 2.0. 
 Vous êtes libre de modifier et de distribuer ce code sous 
 toute forme (libre, propriétaire, gratuite ou commerciale)
 à condition de conserver le copyright et le texte de 
 licence lors de toute modification ou distribution.
 http://www.apache.org/licenses/LICENSE-2.0
 
-LEIA a demandé des mois de recherche en linguistique et
+LÉIA a demandé des mois de recherche en linguistique et
 en programmation alors n'hésitez pas à faire un don :) 
 DONS : https://www.okpal.com/leia
 **/
@@ -28,8 +28,8 @@ DONS : https://www.okpal.com/leia
     ['s','e','$1$2 $1$2es','$1$2es','$1$2s'],
   ], pron = [
     ['(il|elle)s?','(il|elle)[-·.•]?(s)?','$2$5 $4$5','elle$5','il$5'],
-	['grec','que[-·.•]?(s)?','grec$3','grecque$3','grec$3'],
-    ['fra[iî]s?','(aî)?che[-·.•]?s?','frais fraîches','fraîches','frais'],
+	['grec','que[-·∙.•]?(s)?','grec$3','grecque$3','grec$3'],
+    ['fra[iî]s?','(aî)?che[-·∙.•]?s?','frais fraîches','fraîches','frais'],
 	['héro(ïne)?s?','os|o?ïne·?(s)?','héros héroïne$4','héroïne$4','héros'],
     ['(c)?(eux|elui)','elles?','$2$3 $2$4','$2$4','$2$3'],
     ['(c)?(elles?)','eux|elui','$2$3 $2$4','$2$3','$2$4'],
@@ -106,7 +106,7 @@ DONS : https://www.okpal.com/leia
 	}
   }
   
-////////// DÉBUT LEIA //////////////////////////////////////////////////////////////////////////
+////////// DÉBUT LÉIA //////////////////////////////////////////////////////////////////////////
 
   if ((!a)||(a == 1)) {	init() }
   
@@ -122,12 +122,12 @@ DONS : https://www.okpal.com/leia
   }
   console.log('Synthèse vocale définie à '+voice);
 
-  /** Dans tous les cas, on ajoute un bouton sur toutes les pages pour configurer à LEIA **/
+  /** Dans tous les cas, on ajoute un bouton sur toutes les pages pour configurer à LÉIA **/
   var style = document.createElement('style');
   style.type = 'text/css';
   style.innerHTML = '#leiaconf{position:fixed;top:5px;right:5px;border:0px;background-color:#eee;border-radius:5px;padding:5px;cursor:pointer;font-size:0.8em}.lgh{visibility:hidden}'; 
   document.getElementsByTagName('head')[0].appendChild(style);
-  document.body.innerHTML += '<button id="leiaconf" tabindex="1">&#128065; Menu LEIA</button>';
+  document.body.innerHTML += '<button id="leiaconf" tabindex="1">&#128065; Menu LÉIA</button>';
 	
   /** Initialisation - définis les paramètres et lance la conversion **/
 
@@ -171,8 +171,8 @@ DONS : https://www.okpal.com/leia
 		nodeList.push(tree.currentNode);
 		var thiis = tree.currentNode;
         for (var i=0 , j=0; i<dl; i++ , j = Math.min(j+1,pl-1)){
-          var r1 = new RegExp('([^\f\n\r\t\v​\. -]+)('+dico[i][0]+')[-·.•]('+dico[i][1]+')[-·.•]?(s)?','gi'),
-              r2 = new RegExp('('+pron[j][0]+')[-·.•]('+pron[j][1]+')','gi');
+          var r1 = new RegExp('([^\f\n\r\t\v​\. -]+)('+dico[i][0]+')[-·∙.•]('+dico[i][1]+')[-·∙.•]?(s)?','gi'),
+              r2 = new RegExp('('+pron[j][0]+')[-·∙.•]('+pron[j][1]+')','gi');
           thiis.nodeValue = thiis.nodeValue.replace(r1,dico[i][imode]);
           thiis.nodeValue = thiis.nodeValue.replace(r2,pron[j][imode]);
           thiis.nodeValue = thiis.nodeValue.replace(/læ/gi,'lahé').replace(/\biel(s)?/gi,'yel$1')
@@ -218,7 +218,10 @@ DONS : https://www.okpal.com/leia
     if(e.target && e.target.id == 'leiaconf'){
       leiaconf()
     }
-  });	 
+  });
+  addEvent(document.getElementById('leiaconf'),'focus',function(){
+    speak('Menu LÉIA')
+  });  
 	 
 /** Fonction d'ajout d'un point médian à la zone de texte active **/ 
   function middot(text){
@@ -254,7 +257,7 @@ DONS : https://www.okpal.com/leia
 	    speak(String.fromCharCode(event.which||event.key));
 	    setTimeout(function(){
 	      if (elem.value.match(/([-·•.,\s\]\)\/]$)/)){
-            var y = (elem.value.match(/\b([a-zâäàçéèêëïîôöùûü·•.'-]+[-·•.,\s\]\)\/])$/gi))[0];
+            var y = (elem.value.match(/\b([a-zâäàçéèêëïîôöùûü·∙•.'-]+[-·•.,\s\]\)\/])$/gi))[0];
             for (var i = 0; i < dl; i++) {
 	          var x = new RegExp('([^\f\n\r\t\v​\. -]+)('+dico[i][0]+')[-·.•]('+dico[i][1]+')[-·.•]?(s)?','gi');
 			      y = y.replace(x,dico[i][imode])
