@@ -1,4 +1,4 @@
-# LIPT
+# LÉIA
 
 ## Préambule
   
@@ -16,9 +16,9 @@ Partant de ce constat, et après avoir constaté sur internet que de nombreuses 
 
 Le problème de l'écriture inclusive est qu'elle amène avec elle de nouvelles graphies (de nouvelles façons d'écrire les mots) inconnues des lecteurs d'écran. De plus, celles-ci utilisent soit des caractères spéciaux (·) ou (•), incompris par ces lecteurs, soit le point (.) ou le tiret (-) qui sont déjà voués à d'autres usages syntaxiques. De plus, tous les lecteurs d'écran n'interprêtent pas ces **séparateurs** de la même façon.
 
-## Que fait LIPT ?
+## Que fait LÉIA ?
 
-Au stade actuel de son développement, **LIPT** est un script rédigé en *JavaScript* et s'oriente vers une série d'add-ons pour navigateurs web. Le script parcours le code source d'une page web à la recherche de motifs propres à l'écriture inclusive. En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture qui sera intelligible via la synthèse vocale des lecteurs d'écrans.
+Au stade actuel de son développement, **LÉIA** est un script rédigé en *JavaScript* et s'oriente vers une série d'add-ons pour navigateurs web. Le script parcours le code source d'une page web à la recherche de motifs propres à l'écriture inclusive. En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture qui sera intelligible via la synthèse vocale des lecteurs d'écrans.
 
 Après réflexion, la solution adoptée fût de supprimer les séparateurs et de rendre audible l'inclusivité. En l'occurence, en lisant le mot écrit à l'inclusif (ex : **artisan·e·s**) à la fois au genre masculin et au genre féminin. On peut penser que cela alourdira le texte vocalisé, cependant l'utilisation de ce type de mots fusionnés ne devrait pas composer la majeure parti d'un texte rédigé en écriture inclusive.
 
@@ -52,9 +52,9 @@ Pour palier à ce manquement, il a fallu intégrer dans un premier temps les gra
 
 ###### Programmation ###### 
 
-Le choix du JavaScript est simple : **LIPT** doit s'appliquer sur l'ordinateur de l'utilisateur·ice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script qui ne serait donc pas paramétrable par l'utilisateur·ice malvoyant·e, et qui ferait disparaître syntaxiquement l'écriture inclusive pour les personnes voyantes.
+Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur de l'utilisateur·ice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script qui ne serait donc pas paramétrable par l'utilisateur·ice malvoyant·e, et qui ferait disparaître syntaxiquement l'écriture inclusive pour les personnes voyantes.
 
-En plus de proposer de rendre l'écriture inclusive accesible, le développement s'oriente également vers une synthèse vocale intégrée à **LIPT** qui permettrait donc aux personnes malvoyantes d'avoir une simulation de lecteur d'écran sur n'importe quel ordinateur qui n'en serait pas équipé (ordinateur public, bibliothèque, etc.).
+En plus de proposer de rendre l'écriture inclusive accesible, le développement s'oriente également vers une synthèse vocale intégrée à **LÉIA** qui permettrait donc aux personnes malvoyantes d'avoir une simulation de lecteur d'écran sur n'importe quel ordinateur qui n'en serait pas équipé (ordinateur public, bibliothèque, etc.).
 
 Pour le reste, je vous laisse analyser le fichier **lipt.js** et le dictionnaire **dico.js** pour mieux comprendre son fonctionnement. La fonction d'analyse du texte sur la page n'est pas parfaite et je cherche actuellement une solution plus légère.
 
