@@ -133,7 +133,7 @@ DONS : https://www.okpal.com/leia
 	  console.log('La synthèse vocale est prête !')
     });
   } else { 
-    voice = false;
+    voice = true;
   }
   console.log('Synthèse vocale définie à '+voice);
 
