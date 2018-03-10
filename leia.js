@@ -216,7 +216,7 @@ DONS : https://www.okpal.com/leia
 /** Définit la popup de configuration **/
   function leiaconf() {
     let si = (document.documentElement.clientWidth || window.innerWidth)/2.5;
-    window.open('config.html','','menubar=no, status=no, scrollbars=yes, menubar=no, width='+si+', height='+si);
+    window.open('https://htmlpreview.github.io/?https://raw.githubusercontent.com/Loarg-Ann/LEIA/master/config.html','','menubar=no, status=no, scrollbars=yes, menubar=no, width='+si+', height='+si);
   }
   addEvent(document,'click',function(e){
     if(e.target && e.target.id == 'leiaconf'){
