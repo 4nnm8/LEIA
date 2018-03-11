@@ -22,7 +22,6 @@ body {
 header,article,footer,nav {
   border-radius:10px;
   margin-top: 20px;
-  background-color:#fff
 }
 header,footer{
     padding: 30px;
@@ -33,13 +32,17 @@ header,footer{
     float: left;
     width: 75%;
 }
-aside article, aside nav{
+aside article, aside, nav{
   text-align:center;
 }
-
-article, nav {
+article {
   padding: 1px 20px 20px 20px;
 }
+nav {
+  padding: 10px 0px 10px 0px;
+}
+nav a { padding-left:35px;  }
+nav a:hover { color:#bfe7fb }
 
 article:nth-of-type(2n),nav{
   background-color:rgba(255, 255, 255,0.1);
@@ -70,11 +73,7 @@ a,.bof {
   color:#ffcc66;
   text-decoration:none;
 }
-nav a:before {content:"› "}
-nav a:after  {content:" ‹"}
-nav a:hover:before {content:"››"}
-nav a:hover:after  {content:"‹‹"}
-nav a:hover { color:#bfe7fb }
+
 h1 {
   font-size: 2em;
 }
@@ -140,13 +139,7 @@ color:#ff8080;
 .oui {
 color:#99ff99;
 }
-hr {
-  background-color:#fff;
-  height:1px;
-  border:none;
-  width:50%;
-  margin-bottom:10px;
-}
+
 kbd{
   display: inline-block;
   background-color: #fff;
@@ -199,7 +192,6 @@ table {
 }
 td,th {
   border:1px solid #555;
-
   font-family: "Acto Book",Verdana,Tahoma,Georgia,sans-serif;
   font-size:1.2em;
   padding:4px

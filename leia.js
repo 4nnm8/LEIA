@@ -26,15 +26,16 @@ DONS : https://www.okpal.com/leia
     ['([aoe]u)x','[sc]{1,2}es?','$1$2 $1$3$4$5','$1$3$4$5','$1$2'],
     ['o?s','[stc]h?e','$1$2 $1$3$4','$1$3$4','$1$2'],
     ['[écfilruû]','(?:f|qu)?[eë]','$1$2$4','$1$2$3$4','$1$2$4'],
-    ['[cdegilnort]u?','(e?ss|[nclthu])?e','$1$2$5 $1$2$3$5','$1$2$3$5','$1$2$5'],
-    ['s','e','$1$2 $1$2es','$1$2es','$1$2s'],
+	['[cdegilnort]u?','(e?ss|[nlthu])?e','$1$2$5 $1$2$3$5','$1$2$3$5','$1$2$5'],
+    ['s','e','$1$2 $1$2es','$1$2es','$1$2'],
   ], pron = [
+    ['tier','ce[-·.•]s','tiers tierces','tierces','tiers'],
+    ['(c)?(eux|elui)','elles?','$2$3 $2$4','$2$4','$2$3'],
+    ['(c)?(elles?)','eux|elui','$2$3 $2$4','$2$3','$2$4'],
     ['(il|elle)s?','(il|elle)[-·.•]?(s)?','$2$5 $4$5','elle$5','il$5'],
 	['grec','que[-·∙.•]?(s)?','grec$3','grecque$3','grec$3'],
     ['fra[iî]s?','(aî)?che[-·∙.•]?s?','frais fraîches','fraîches','frais'],
 	['héro(ïne)?s?','os|o?ïne·?(s)?','héros héroïne$4','héroïne$4','héros'],
-    ['(c)?(eux|elui)','elles?','$2$3 $2$4','$2$4','$2$3','$2$3 $2$4'],
-    ['(c)?(elles?)','eux|elui','$2$3 $2$4','$2$3','$2$4','$2$3 $2$4'],
     ['cet?','t?te','$1 $1$2','$1$2','$1','$1 $2'],
     ['du|au|le','(de|à)? la','$1 $2','$2','$1'],
     ['(de|à)? la','du|au|le','$1 $3','$1','$2'],
@@ -111,62 +112,65 @@ DONS : https://www.okpal.com/leia
   
 ////////// DÉBUT LÉIA //////////////////////////////////////////////////////////////////////////
 
-
-
   if (storageAvailable('localStorage')) {
     leia = localStorage.getItem("leia") || 1;
     imode = localStorage.getItem("imode") || 2;
     voice = localStorage.getItem("voice") || 0;
   }
   else {
-    console.log('Conservation des variables impossible')
+    leia = 1;
+	imode = 2;
+	voice = 0;
   }
-  if (leia == 1) {
-   init()
+  if (leia == 1) { 
+    skim(document.body);	
   }
-  
-  // Si la synthèse vocale intégrée est activée...
   if (voice == 1) {
-    voice = true;
-	// ... on charge ResponsiveVoice (http://code.responsivevoice.org/responsivevoice.js)
     loadScript('responsivevoice.js',function(){
 	  console.log('La synthèse vocale est prête !')
     });
-  } else { 
-    voice = true;
   }
-  console.log('Synthèse vocale définie à '+voice);
 
-  /** Dans tous les cas, on ajoute un bouton sur toutes les pages pour configurer à LÉIA **/
+/** Ajoute un bouton MENU sur toutes les pages **/
   var style = document.createElement('style');
   style.type = 'text/css';
   style.innerHTML = '#leiaconf{position:fixed;top:5px;right:5px;border:0px;background-color:#eee;border-radius:5px;padding:5px;cursor:pointer;font-size:0.8em}.lgh{visibility:hidden}'; 
   document.getElementsByTagName('head')[0].appendChild(style);
   document.body.innerHTML += '<button id="leiaconf" tabindex="1">&#128065; Menu LÉIA</button>';
-	
-  /** Initialisation - définis les paramètres et lance la conversion **/
-
-  function init(){
-    console.log('Mode de lecture n° '+(imode-1));
-	
-	// On lance le remplacement de l'écriture inclusive dans la page
-	skim(document.body);
-	
-  // On ajoute la prise en charge des raccourcis clavier (Alt + Shift + ...) vers les différentes fonctions
-  addEvent(document,'keydown',function(e){
-    let k = e.which || e.keyCode || e.charCode;
-    if (e.altKey && e.shiftKey){
-	    switch (k) {
-          case 38: read('u'); break;  // [up arrow]
-		  case 40: read('d'); break;  // [down arrow]	   
-	      case 67: leiaconf(); break; // [C]
-	      case 107: rt = Math.round((rt+0.2)*10)/10; speak('Débit augmentée à '+rt);break;
-		  case 109: rt = Math.round((rt-0.2)*10)/10; speak('Débit diminuée à '+rt);break;
-        }
-        e.preventDefault();
-      }
-    });
+  addEvent(document,'click',function(e){
+    if(e.target && e.target.id == 'leiaconf'){
+      leiaconf()
+    }
+  });
+  addEvent(document.getElementById('leiaconf'),'focus',function(){
+    speak('Menu LÉIA')
+  });  
+  
+/** Définit la popup **/
+  function leiaconf() {
+    let si = (document.documentElement.clientWidth || window.innerWidth)/2.5;
+    window.open('config.html','','menubar=no, status=no, scrollbars=yes, menubar=no, width='+si+', height='+si);
   }
+  
+/** Fonction d'ajout d'un point médian à la zone de texte active **/ 
+  function middot(text){
+    var input = document.activeElement;
+    text = text || '·';
+    if (document.selection) {
+      input.focus();
+      var sel = document.selection.createRange();
+      sel.text = text; 
+    } 
+	else if (input.selectionStart || input.selectionStart === 0) {
+      var startPos = input.selectionStart;
+      input.value = input.value.substring(0, startPos) + text + input.value.substring(input.selectionEnd, input.value.length);
+      input.selectionStart = startPos + text.length;
+      input.selectionEnd = startPos + text.length; 
+	} 
+	else {
+      input.value += text;
+    }
+  } 
   
 /** Fonction de convertion récursive des mots **/
   function skim(elem){
@@ -175,7 +179,7 @@ DONS : https://www.okpal.com/leia
 		nodeList.push(tree.currentNode);
 		var thiis = tree.currentNode;
         for (var i=0 , j=0; i<dl; i++ , j = Math.min(j+1,pl-1)){
-          var r1 = new RegExp('([^\f\n\r\t\v​\. -]+)('+dico[i][0]+')[-·∙.•]('+dico[i][1]+')[-·∙.•]?(s)?','gi'),
+          var r1 = new RegExp('([^\f\n\r\t\v​\.\' -]+)('+dico[i][0]+')[-·∙.•]('+dico[i][1]+')[-·∙.•]?(s)?','gi'),
               r2 = new RegExp('('+pron[j][0]+')[-·∙.•]('+pron[j][1]+')','gi');
           thiis.nodeValue = thiis.nodeValue.replace(r1,dico[i][imode]);
           thiis.nodeValue = thiis.nodeValue.replace(r2,pron[j][imode]);
@@ -185,7 +189,8 @@ DONS : https://www.okpal.com/leia
 	}
 	nb = nodeList.length;
   }
-/** Fonction de lecture à travers la page **/
+  
+/** Fonction de lecture à travers la page (en cours d'élaboration) **/
   
   function read(w) {
 	  let ph = nodeList[ps].nodeValue
@@ -205,53 +210,33 @@ DONS : https://www.okpal.com/leia
 		}
 	  }
   }
-  /*
+  
   function EndCallback(){
 	if (!nodeList[ps-1].nodeValue.match(/\./gim)){
 	  read('d')
 	}
-  }*/
-
-
-/** Définit la popup de configuration **/
-  function leiaconf() {
-    let si = (document.documentElement.clientWidth || window.innerWidth)/2.5;
-    window.open('https://htmlpreview.github.io/?https://raw.githubusercontent.com/Loarg-Ann/LEIA/master/config.html','','menubar=no, status=no, scrollbars=yes, menubar=no, width='+si+', height='+si);
   }
-  addEvent(document,'click',function(e){
-    if(e.target && e.target.id == 'leiaconf'){
-      leiaconf()
-    }
-  });
-  addEvent(document.getElementById('leiaconf'),'focus',function(){
-    speak('Menu LÉIA')
-  });  
 	 
-/** Fonction d'ajout d'un point médian à la zone de texte active **/ 
-  function middot(text){
-    var input = document.activeElement;
-      text = text || '·';
-      if (document.selection) {
-        input.focus();
-        var sel = document.selection.createRange();
-        sel.text = text; 
-      } else if (input.selectionStart || input.selectionStart === 0) {
-        var startPos = input.selectionStart;
-        var endPos = input.selectionEnd;
-        input.value = input.value.substring(0, startPos) + text + input.value.substring(endPos, input.value.length);
-        input.selectionStart = startPos + text.length;
-        input.selectionEnd = startPos + text.length; 
-	  } else {
-        input.value += text;
-    }
-
-  } 
-
+/***************************************************************************/
   addEvent(document,'keyup',function(e){
     if ((e.which || e.keyCode || e.charCode) == 225){
       altgr=false;
     }
   });
+   // On ajoute la prise en charge des raccourcis clavier (Alt + Shift + ...) vers les différentes fonctions
+  addEvent(document,'keydown',function(e){
+    let k = e.which || e.keyCode || e.charCode;
+    if (e.altKey && e.shiftKey){
+	    switch (k) {
+          case 38: read('u'); break;  // [up arrow]
+		  case 40: read('d'); break;  // [down arrow]	   
+	      case 67: leiaconf(); break; // [C]
+	      case 107: rt = Math.round((rt+0.2)*10)/10; speak('Débit augmentée à '+rt);break;
+		  case 109: rt = Math.round((rt-0.2)*10)/10; speak('Débit diminuée à '+rt);break;
+        }
+        e.preventDefault();
+      }
+    });
   document.querySelectorAll('textarea,input[type=text],input[type=password],input[type=date],input[type=number]').forEach(function(elem){
     addEvent(elem,'keydown',function(e){
       let k = e.which || e.keyCode || e.charCode,
