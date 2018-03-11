@@ -41,7 +41,7 @@ article {
 nav {
   padding: 10px 0px 10px 0px;
 }
-nav a { padding-left:35px;  }
+nav a { padding-left:17px;padding-right:17px  }
 nav a:hover { color:#bfe7fb }
 
 article:nth-of-type(2n),nav{
