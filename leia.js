@@ -28,7 +28,8 @@ DONS : https://www.okpal.com/leia
     ['[écfilruû]','(?:f|qu)?[eë]','$1$2$4','$1$2$3$4','$1$2$4'],
 	['[cdegilnort]u?','(e?ss|[nlthu])?e','$1$2$5 $1$2$3$5','$1$2$3$5','$1$2$5'],
     ['s','e','$1$2 $1$2es','$1$2es','$1$2'],
-  ], pron = [
+  ], dl = dico.length,
+  pron = [
     ['tier','ce[-·.•]s','tiers tierces','tierces','tiers'],
     ['(c)?(eux|elui)','elles?','$2$3 $2$4','$2$4','$2$3'],
     ['(c)?(elles?)','eux|elui','$2$3 $2$4','$2$3','$2$4'],
@@ -40,10 +41,8 @@ DONS : https://www.okpal.com/leia
     ['du|au|le','(de|à)? la','$1 $2','$2','$1'],
     ['(de|à)? la','du|au|le','$1 $3','$1','$2'],
     ['l[ea]','l?([ea])','$1 l$3','la','le']
-  ];
-  var dl = dico.length,	
-      pl = pron.length,
-      rt = 1.2,
+  ], pl = pron.length;
+  var rt = 1.2,
       ps = 0,
       altgr = false,
       leia,
@@ -51,11 +50,13 @@ DONS : https://www.okpal.com/leia
       voice,
       nb,
       nodeList = [],
-      tree = document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{ 
-        acceptNode: function(node) { 
-	  return NodeFilter.FILTER_ACCEPT; 
-        } 
-      },false);
+      tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT,
+	    { 
+          acceptNode: function(node) { 
+	        return NodeFilter.FILTER_ACCEPT; 
+          } 
+        },
+	  false);
 
 ////////// FONCTIONS GÉNÉRALES /////////////////////////////////////////////////////////////////
 
@@ -173,23 +174,24 @@ DONS : https://www.okpal.com/leia
   } 
   
 /** Fonction de convertion récursive des mots **/
-  function skim(elem){
+  function skim(){
     while(tree.nextNode()){
 	  if (tree.currentNode.nodeValue.trim().length > 0){
 		nodeList.push(tree.currentNode);
-		var thiis = tree.currentNode;
-        for (var i=0 , j=0; i<dl; i++ , j = Math.min(j+1,pl-1)){
-          var r1 = new RegExp('([^\f\n\r\t\v​\.\' -]+)('+dico[i][0]+')[-·∙.•]('+dico[i][1]+')[-·∙.•]?(s)?','gi'),
-              r2 = new RegExp('('+pron[j][0]+')[-·∙.•]('+pron[j][1]+')','gi');
-          thiis.nodeValue = thiis.nodeValue.replace(r1,dico[i][imode]);
-          thiis.nodeValue = thiis.nodeValue.replace(r2,pron[j][imode]);
-          thiis.nodeValue = thiis.nodeValue.replace(/læ/gi,'lahé').replace(/\biel(s)?/gi,'yel$1')
-		}
+		leiait(tree.currentNode);
 	  }
 	}
 	nb = nodeList.length;
   }
-  
+  function leiait(a){
+	for (var i=0 , j=0; i<dl; i++ , j = Math.min(j+1,pl-1)){
+      let r1 = new RegExp('([a-zâäàçéèêëïîôöùûü]+)('+dico[i][0]+')[-/·∙.•]('+dico[i][1]+')[-/·∙.•]?(s)?','gi'),//^\f\n\r\t\v​\.\' -
+          r2 = new RegExp('('+pron[j][0]+')[-/·∙.•]('+pron[j][1]+')','gi');
+      a.nodeValue = a.nodeValue.replace(r1,dico[i][imode]); 
+      a.nodeValue = a.nodeValue.replace(r2,pron[j][imode]);
+      a.nodeValue = a.nodeValue.replace(/læ/gi,'lahé').replace(/\biel(s)?/gi,'yel$1') 
+	} 
+  }
 /** Fonction de lecture à travers la page (en cours d'élaboration) **/
   
   function read(w) {
@@ -258,15 +260,16 @@ DONS : https://www.okpal.com/leia
         speak(String.fromCharCode(e.which || e.keyCode || e.charCode));
 	      setTimeout(function(){
 	        if (elem.value.match(/([-∙'".•,\s\]\)\/]$)/)){
-            var y = (elem.value.match(/\b([a-zâäàçéèêëïîôöùûü·∙•.'-]+[-·∙"'•.,\s\]\)\/])$/gi))[0];
-            for (var i = 0; i < dl; i++) {
-	            var x = new RegExp('([^\f\n\r\t\v​\. -]+)('+dico[i][0]+')[-·.•∙]('+dico[i][1]+')[-·.•∙]?(s)?','gi');
-			        y = y.replace(x,dico[i][imode])
-            } 
-		        speak(y);
+              var y = (elem.value.match(/\b([a-zâäàçéèêëïîôöùûü·∙•.'-]+[-·∙"'•.,\s\]\)\/])$/gi));
+              for (var i = 0; i < dl; i++) {
+	              var x = new RegExp('([^\f\n\r\t\v​\. -]+)('+dico[i][0]+')[-·.•∙]('+dico[i][1]+')[-·.•∙]?(s)?','gi');
+			          y = y.replace(x,dico[i][imode])
+              } 
+			  console.log(y)
+		      speak(y);
 	        }
 	      },800);
-      });
+        });
 	  }
   });
   function speak(s){
