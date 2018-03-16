@@ -14,7 +14,6 @@ DONS : https://www.okpal.com/leia
 "use strict"; 
 (function(){
 	
-////////// VARIABLES ///////////////////////////////////////////////////////////////////////////
 const dico = [
   ['[eè]([crt])','(èc)?(h)?e','$1e$3$7 $1è$3$6e$7','$1è$3$6e$7','$1e$3$7'],
   ['(eu)(r)','ice','$1$3$4$6 $1$4$5$6','$1$3$4$6','$1$3$4$6'],
@@ -44,31 +43,14 @@ const dico = [
 ];
 var dl = dico.length, 
     pl = pron.length,
-    ps = 0,
     altgr = false,
-    leia,imode,txtnb,ndLst=[],
+    leia,imode,ndLst=[],
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT,{ 
       acceptNode: function(node) { 
         return NodeFilter.FILTER_ACCEPT; 
       } 
     }, false);
 
-////////// FONCTIONS GÉNÉRALES /////////////////////////////////////////////////////////////////
-
-/** Vérification de la disponibilité du stockage des variables  **/
-function storageAvailable() {
-  try{
-    var storage=window['localStorage'],x='__storage_test__';
-    storage.setItem(x,x);
-    storage.removeItem(x);
-    return true;
-  }
-  catch(e){
-    return false;
-  }
-}
-
-/** Génère des écouteurs d'évènements **/
 function addEvent(obj,evt,fn){
   if (obj.addEventListener){
 	obj.addEventListener(evt,fn,false);
@@ -91,19 +73,37 @@ function addEvent(obj,evt,fn){
   return false;
 }
   
-////////// DÉBUT LÉIA //////////////////////////////////////////////////////////////////////////
-if (storageAvailable()) {
+/** Disponibilité, récupération et définition des variables  **/
+try{
   leia = localStorage.getItem("leia") || 1;
   imode = Number(localStorage.getItem("imode"))+2 || 2;
-  
-} else {
+}
+catch(e){
   leia = 1;
   imode = 2;
 }
+
+/** Fonction de convertion récursive des mots **/
 if (leia == 1){ 
-  skim(document.body);	
+  console.time('SKIM');
+  while(tree.nextNode()){
+    if (tree.currentNode.nodeValue.trim().length > 0){
+	  ndLst.push(tree.currentNode);
+	  for (var i=0 , j=0; i<dl; i++ , j = Math.min(j+1,pl-1)){ 
+        let r1 = new RegExp('([a-zàâäéèêëïîôöùûüçæœ]+)('+dico[i][0]+')[-\/·∙.•]('+dico[i][1]+')[-\/·∙.•]?(s)?(?![a-z])','gi'),
+            r2 = new RegExp('('+pron[j][0]+')[-\/·∙.•]('+pron[j][1]+')','gi');
+        tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1,dico[i][imode]).replace(r2,pron[j][imode]).replace(/læ/gi,'lahé').replace(/\biel(s)?/gi,'yel$1'); 
+      }
+	}
+  }
+  console.timeEnd('SKIM');
 }
-/** Ajoute un bouton MENU sur toutes les pages **/
+
+/** Définit le MENU et sa POPUP **/
+function leiaconf() {
+  let si = (document.documentElement.clientWidth || window.innerWidth)/2.5;
+  window.open('config.html','','menubar=no, status=no, scrollbars=yes, menubar=no, width='+si+',height='+si);
+}
 var style = document.createElement('style');
 style.type = 'text/css';
 style.innerHTML = '#leiaconf{position:fixed;top:5px;right:5px;border:0px;background-color:#eee;border-radius:5px;padding:5px;cursor:pointer;font-size:0.8em}.lgh{visibility:hidden}'; 
@@ -114,13 +114,13 @@ addEvent(document,'click',function(e){
     leiaconf();
   }
 });
+addEvent(document,'keydown',function(e){
+  let k = e.which || e.keyCode || e.charCode;
+  if (e.altKey && e.shiftKey && k == 67){
+    leiaconf();e.preventDefault();
+  }
+});
 
-/** Définit la popup **/
-function leiaconf() {
-  let si = (document.documentElement.clientWidth || window.innerWidth)/2.5;
-  window.open('https://raw.githubusercontent.com/Loarg-Ann/LEIA/master/config.html','','menubar=no, status=no, scrollbars=yes, menubar=no, width='+si+', height='+si);
-}
-  
 /** Fonction d'ajout d'un point médian à la zone de texte active **/ 
 function middot(text){
   var input = document.activeElement;
@@ -138,39 +138,6 @@ function middot(text){
     input.value += text;
   }
 } 
-  
-/** Fonction de convertion récursive des mots **/
-function skim(){
-  console.time('SKIM');
-  while(tree.nextNode()){
-    if (tree.currentNode.nodeValue.trim().length > 0){
-	  ndLst.push(tree.currentNode);
-	  leiait(tree.currentNode);
-	}
-  }
-  txtnb = ndLst.length;
-  console.timeEnd('SKIM');
-}
-function leiait(a){
-  for (var i=0 , j=0; i<dl; i++ , j = Math.min(j+1,pl-1)){ 
-    let r1 = new RegExp('([a-zàâäéèêëïîôöùûüçæœ]+)('+dico[i][0]+')[-\/·∙.•]('+dico[i][1]+')[-\/·∙.•]?(s)?(?![a-z])','gi'),
-        r2 = new RegExp('('+pron[j][0]+')[-\/·∙.•]('+pron[j][1]+')','gi');
-    a.nodeValue = a.nodeValue.replace(r1,dico[i][imode]).replace(r2,pron[j][imode]).replace(/læ/gi,'lahé').replace(/\biel(s)?/gi,'yel$1'); 
-  }
-}
-
-// On ajoute la prise en charge des raccourcis clavier (Alt + Shift + ...) vers les différentes fonctions
-addEvent(document,'keydown',function(e){
-  let k = e.which || e.keyCode || e.charCode;
-  if (e.altKey && e.shiftKey){
-    switch (k) {
-      case 38: read('u'); break;  // [up]
-      case 40: read('d'); break;  // [down]	   
-      case 67: leiaconf(); break; // [C]
-    }
-    e.preventDefault();
-  }
-});
 addEvent(document,'keyup',function(e){
   if ((e.which || e.keyCode || e.charCode) == 225){
     altgr=false;
@@ -183,17 +150,14 @@ document.querySelectorAll('textarea,input[type=text],input[type=password],input[
     if (k==225) {
       altgr=true;
     }
-    if (altgr === true && kp.includes(k)) {
+    if ((altgr === true && kp.includes(k)) || ((e.altLeft || e.altKey && e.ctrlKey) && kp.includes(k))) {
       middot();
       e.preventDefault();
     }
-    if ((e.altLeft || e.altKey && e.ctrlKey) && kp.includes(k)){
-      middot();
-	  e.preventDefault();
-	}
   });
-
 });
+
+
 
 })(); /** FIN DU SCRIPT */
 
