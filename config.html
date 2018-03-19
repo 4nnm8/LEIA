@@ -7,7 +7,7 @@
   </head>
   <body class="conf">	
     <p>	
-      <label for="leia">Activer ou désactiver la converson du texte<br/><br/>
+      <label for="leia">Activer ou désactiver la conversion du texte<br/><br/>
         <select id="leia">
                   <option value="0">Désactiver</option>
                   <option value="1">Activer</option>
@@ -26,11 +26,13 @@
 	<p>
 	  <button id="launch">Appliquer les changements</button>
 	</p>
-	<p><b>Raccourcis claviers (hors pavé numérique) :</b></p><br/>
-	<p>Ouvrir le panneau de configuration : <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
-    <p>Insérer un point médian : <kbd>AltGr</kbd> <kbd>.</kbd></p>
+	<p><b>Raccourcis claviers (hors pavé numérique) :</b></p>
+	<p>Ouvrir le panneau de configuration
+	<p><kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
+    <p>Insérer un point médian</p>
+	<p><kbd>AltGr</kbd> <kbd>.</kbd></p>
     <script>
-    document.getElementById("leia").selectedIndex = localStorage.getItem("leia") || 0;
+    document.getElementById("leia").selectedIndex = localStorage.getItem("leia") || 1;
     document.getElementById("imode").selectedIndex = localStorage.getItem("imode") || 0;
 
     function setVal(n){
