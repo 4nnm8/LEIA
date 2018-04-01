@@ -112,7 +112,7 @@ function leiaconf() {
   let si = (document.documentElement.clientWidth || window.innerWidth)/2.5,
       sr = window.innerWidth - 495;
   
-  window.open('config.html','','dialog=yes, menubar=no, status=no, scrollbars=no, menubar=no, top=75, left='+sr+', toolbar=no, directories=0, personalbar=0, location=no, width=470,height=470');
+  window.open('https://htmlpreview.github.io/?https://github.com/Loarg-Ann/LEIA/blob/master/config.html','','dialog=yes, menubar=no, status=no, scrollbars=no, menubar=no, top=75, left='+sr+', toolbar=no, directories=0, personalbar=0, location=no, width=470,height=470');
 }
 var style = document.createElement('style');
 style.type = 'text/css';
@@ -123,14 +123,14 @@ addEvent(document,'click',function(e){
   if(e.target && e.target.id == 'leiaconf'){
     leiaconf();
   }
-});/*
+});
 addEvent(document,'keydown',function(e){
   let k = e.which || e.keyCode || e.charCode;
   if (e.altKey && e.shiftKey && k == 67){
     leiaconf();
 	e.preventDefault();
   }
-});*/
+});
 
 document.querySelectorAll('textarea,input[type=text],[contenteditable=true]').forEach(function(elem){
   addEvent(elem,'keyup',function(e){
