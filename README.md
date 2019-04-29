@@ -58,7 +58,7 @@ Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur 
 
 En plus de proposer de rendre l'écriture inclusive accesible, le développement s'oriente également vers une synthèse vocale intégrée à **LÉIA** qui permettrait donc aux personnes malvoyantes d'avoir une simulation de lecteur d'écran sur n'importe quel ordinateur qui n'en serait pas équipé (ordinateur public, bibliothèque, etc.).
 
-Pour le reste, je vous laisse analyser le fichier **lipt.js** et le dictionnaire **dico.js** pour mieux comprendre son fonctionnement. La fonction d'analyse du texte sur la page n'est pas parfaite et je cherche actuellement une solution plus légère.
+Pour le reste, je vous laisse analyser le fichier **leia.js** pour mieux comprendre son fonctionnement. 
 
 Si vous constatez le moindre bug, n'hésitez-pas à me le signaler :)
 
