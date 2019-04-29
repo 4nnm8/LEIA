@@ -230,7 +230,8 @@ img {
 .button {
   display:inline-block;
   width:150px;
-  height:2em;
+  height: auto;
+  padding:5px;
   line-height:2em;
   font-size: 1em;
   background-color:#333;
