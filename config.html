@@ -1,51 +1,123 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Configurer LÉIA</title>
-	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-  </head>
-  <body class="conf">	
-    <p>	
-      <label for="leia">Activer ou désactiver la conversion du texte<br/><br/>
-        <select id="leia">
-                  <option value="0">Désactiver</option>
-                  <option value="1">Activer</option>
-		</select>
-	  </label>	
-	</p>
-	<p>	
-      <label for="imode">Choix du mode de lecture inclusive<br/><br/>
-        <select id="imode">
-          <option value="0">Mots lus aux deux genres</option>
-          <option value="1">Mots lus au féminin uniquement</option>
-          <option value="2">Mots lus au maculin uniquement</option>
-		</select>
-	  </label>	
-	</p>
-	<p>
-	  <button id="launch">Appliquer les changements</button>
-	</p>
-	<p><b>Raccourcis claviers (hors pavé numérique) :</b></p>
-	<p>Ouvrir le panneau de configuration
-	<p><kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
-    <p>Insérer un point médian</p>
-	<p><kbd>AltGr</kbd> <kbd>.</kbd></p>
-    <script>
-    document.getElementById("leia").selectedIndex = localStorage.getItem("leia") || 1;
-    document.getElementById("imode").selectedIndex = localStorage.getItem("imode") || 0;
+	<head>
+		<meta charset="utf-8">
+		<title>Configurer LÉIA</title>
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+	</head>
+	<body class="conf">	
+		<h1>Menu LÉIA</h1>
+		<table>
+			<tr>
+				<td> <label for="leia">Activer ou désactiver la conversion du texte</label></td>
+				<td>
+					<select id="leia">
+					  <option value="0">Désactiver</option>
+					  <option value="1">Activer</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="mode">Choix du mode de lecture inclusive</label></td>
+				<td>
+					<select id="mode">
+						<option value="0">Mots lus aux deux genres</option>
+						<option value="1">Mots lus au féminin uniquement</option>
+						<option value="2">Mots lus au maculin uniquement</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="pred">Dictionnaire de saisie prédictive</td></label>
+				<td>
+					<select id="pred">
+						<option value="0">Désactivé</option>
+						<option value="1">Activé</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="kolor">Ajuster le contraste couleur / fond</label></td>
+				<td>
+					<select id="kolor">
+						<option value="0">Désactivé</option>
+						<option value="1">Activé</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="font">Réhausser la taille des polices</label></td>
+				<td>
+					<select id="font">
+						<option value="0">Désactivé</option>
+						<option value="1">Activé</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="high">Surligner l'écriture inlusive</label></td>
+				<td>
+					<select id="high">
+						<option value="0">Désactivé</option>
+						<option value="1">Activé</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="fontType">Polices adaptées à la dyslexie</label></td>
+				<td>
+					<select id="fontType">
+						<option value="0"></option>
+						<option value="1">Andika New Basic</option>
+						<option value="2">Open Dyslexic</option>
+						<option value="3">Dyslexie Font</option>
+						<option value="4">Lexie Readable</option>
+						<option value="5">Tiresias</option>
+						<option value="6">Sassoon Sans</option>
+						<option value="7">Sassoon Sans Slope</option>
+						<option value="8">Sassoon Enfants</option>
+						<option value="9">Sassoon Primaire</option>
+					</select>
+				</td>
+			</tr>
+		</table><br/><br/>
 
-    function setVal(n){
-	  let vl = document.getElementById(n).options[document.getElementById(n).selectedIndex].value;
-      localStorage.setItem(n,vl);
-    }
-	function passCfg(){
-      setVal("leia");setVal("imode");
-      window.opener.location.reload();
-	  window.close();
-    }
-	document.getElementById("launch").addEventListener("click",passCfg,false);
-	window.addEventListener("beforeunload",passCfg,false);
-    </script>
-  </body>
+		
+		<button id="launch">Appliquer les changements</button>
+		
+		<!--<p><b>Raccourcis claviers (hors pavé numérique) :</b></p>
+		<p>Ouvrir le panneau de configuration
+		<p><kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>-->
+		<p>Pour insérer un point médian, pressez deux fois la touche point-virgule <kbd>;</kbd> <kbd>;</kbd></p>
+		<script type="text/javascript">
+			document.getElementById("leia").selectedIndex = localStorage.getItem("leia") || 1;
+			document.getElementById("mode").selectedIndex = localStorage.getItem("mode") || 0;
+			document.getElementById("pred").selectedIndex = localStorage.getItem("pred") || 1;
+			document.getElementById("high").selectedIndex = localStorage.getItem("high") || 0;
+			document.getElementById("kolor").selectedIndex = localStorage.getItem("kolor") || 0;
+			document.getElementById("font").selectedIndex = localStorage.getItem("font") || 0;
+			document.getElementById("fontType").selectedIndex = localStorage.getItem("fontType") || 0;
+			//document.getElementById("fontRatio").value = localStorage.getItem("fontRatio") || 30;
+			//document.getElementById("kolorRatio").value = localStorage.getItem("kolorRatio") || 100;
+
+			function setVal(n){
+			  let vl = document.getElementById(n).options[document.getElementById(n).selectedIndex].value;
+			  localStorage.setItem(n,vl);
+			}
+			
+			function passCfg(){
+			  setVal("leia");
+			  setVal("mode");
+			  setVal("pred");
+			  setVal("high");
+			  setVal("kolor");
+			  setVal("font");
+			  setVal("fontType");
+			  window.opener.location.reload();
+			  //window.close();
+			}
+			document.getElementById("launch").addEventListener("click",passCfg,false);
+			window.addEventListener("beforeunload",passCfg,false);
+		</script>
+	</body>
 </html>
