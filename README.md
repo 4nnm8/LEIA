@@ -1,5 +1,7 @@
 # LÉIA
 
+[Soutenez LÉIA, faites un don !](https://bit.ly/2vuzK7g)
+
 ## Préambule
   
 L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hier et est expérimentée depuis, au moins, les années 70. Cependant, sa popularisation est très récente, suite à de nombreuses luttes visant à faire de notre langue, le français, une langue qui représente mieux les individus dont elle parle et à qui elle s'adresse, tout en combattant la règle sexiste veut que « le masculin l'emporte ».
