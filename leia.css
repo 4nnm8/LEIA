@@ -9,8 +9,8 @@
 }
 @font-face {
     font-family: 'OpenDyslexic';
-    src: url('fonts/DyslexieFont-Bold.woff2') format('woff2'),
-         url('fonts/DyslexieFont-Bold.woff') format('woff');
+    src: url('fonts/OpenDyslexic-Bold.woff2') format('woff2'),
+         url('fonts/OpenDyslexic-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -25,34 +25,6 @@
     font-family: 'OpenDyslexic';
     src: url('fonts/OpenDyslexic-BoldItalic.woff2') format('woff2'),
          url('fonts/OpenDyslexic-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'DyslexieFont';
-    src: url('fonts/DyslexieFont-Regular.woff2') format('woff2'),
-         url('fonts/DyslexieFont-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'DyslexieFont';
-    src: url('fonts/DyslexieFont-Bold.woff2') format('woff2'),
-         url('fonts/DyslexieFont-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'DyslexieFont';
-    src: url('fonts/DyslexieFont-Italic.woff2') format('woff2'),
-         url('fonts/DyslexieFont-Italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'DyslexieFont';
-    src: url('fonts/DyslexieFont-BoldItalic.woff2') format('woff2'),
-         url('fonts/DyslexieFont-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 }
@@ -99,11 +71,67 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'Tiresias Infofont';
-    src: url('fonts/TiresiasInfofontItalic.woff2') format('woff2'),
-         url('fonts/TiresiasInfofontItalic.woff') format('woff');
+    font-family: 'Sassoon Sans Std';
+    src: url('fonts/SassoonSansStd.woff2') format('woff2'),
+         url('fonts/SassoonSansStd.woff') format('woff');
     font-weight: normal;
-    font-style: italic;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sassoon Sans Std';
+    src: url('fonts/SassoonSansStd-Medium.woff2') format('woff2'),
+         url('fonts/SassoonSansStd-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sassoon Sans Std';
+    src: url('fonts/SassoonSansStd-Bold.woff2') format('woff2'),
+         url('fonts/SassoonSansStd-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sassoon Sans Slope Std';
+    src: url('fonts/SassoonSansSlopeStd.woff2') format('woff2'),
+         url('fonts/SassoonSansSlopeStd.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sassoon Sans Slope Std';
+    src: url('fonts/SassoonSansSlopeStd-Medium.woff2') format('woff2'),
+         url('fonts/SassoonSansSlopeStd-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sassoon Infant Std';
+    src: url('fonts/SassoonInfantStd.woff2') format('woff2'),
+         url('fonts/SassoonInfantStd.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sassoon Infant Std';
+    src: url('fonts/SassoonInfantStd-Bold.woff2') format('woff2'),
+         url('fonts/SassoonInfantStd-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sassoon Primary Std';
+    src: url('fonts/SassoonPrimaryStd.woff2') format('woff2'),
+         url('fonts/SassoonPrimaryStd.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sassoon Primary Std';
+    src: url('fonts/SassoonPrimaryStd-Bold.woff2') format('woff2'),
+         url('fonts/SassoonPrimaryStd-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* DYNAMIC ADD */
@@ -159,7 +187,7 @@
   box-sizing: border-box !important;
   color: #7c7c7c;
   box-shadow: 0px 4px 0px -2px rgba(255,255,255,1), 0px 2px 0px 0px rgba(169,169,169,1);
-  padding-top: 13px;
+  padding: 13px 4px 0 4px;
   font-size: 12px;
   font-family: Arial;
   font-weight:bold;
