@@ -1,188 +1,197 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Configurer LÉIA</title>
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="leia.css" type="text/css" media="screen" />
-	</head>
-	<body class="conf">	
-		<h1>Menu LÉIA</h1>
-		<table>
-			<tr>
-				<td> <label for="leia">Activer ou désactiver la conversion du texte</label></td>
-				<td>
-					<select id="leia">
-					  <option value="0">Désactiver</option>
-					  <option value="1">Activer</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="mode">Choix du mode de lecture inclusive</label></td>
-				<td>
-					<select id="mode">
-						<option value="0">Mots lus aux deux genres</option>
-						<option value="1">Mots lus au féminin uniquement</option>
-						<option value="2">Mots lus au maculin uniquement</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="pred">Dictionnaire de saisie prédictive</td></label>
-				<td>
-					<select id="pred">
-						<option value="0">Désactivé</option>
-						<option value="1">Activé</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="kolo">Ajuster le contraste couleur / fond</label></td>
-				<td>
-					<select id="kolo">
-						<option value="0">Désactivé</option>
-						<option value="1">Activé</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="font">Réhausser la taille des polices</label></td>
-				<td>
-					<select id="font">
-						<option value="0">Désactivé</option>
-						<option value="1">Activé</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="high">Surligner l'écriture inlusive</label></td>
-				<td>
-					<select id="high">
-						<option value="0">Désactivé</option>
-						<option value="1">Activé</option>
-					</select>
-					<label for="fontWeight">En gras <input type="checkbox" id="fontWeight" /></label>
-					<label for="txtDeco">Souligné <input type="checkbox" id="txtDeco" /></label><br/>
-					Fond : <input type="color" id="bgColor" /> Texte : <input type="color" id="txtColor" />
-					<p class="ex">Exemple : imprimeur<span id="ex">·euse</span></p>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="fontType">Polices adaptées à la dyslexie</label></td>
-				<td>
-					<select id="fontType">
-						<option value="0"></option>
-						<option value="1">Andika New Basic</option>
-						<option value="2">Open Dyslexic</option>
-						<option value="3">Lexie Readable</option>
-						<option value="4">Sassoon Sans Std</option>
-						<option value="5">Sassoon Sans Slope</option>
-						<option value="6">Sassoon Enfants</option>
-						<option value="7">Sassoon Primaire</option>
-					</select>
-				</td>
-			</tr>
-		</table><br/><br/>
+  <head>
+    <meta charset="utf-8">
+    <title>Configurer LÉIA</title>
+    <link rel="stylesheet" href="leia.css" type="text/css" media="screen" />
+  </head>
+  <body class="conf">  
+    <table>
+      <tr>
+        <td> <label for="leia">Écriture inclusive accessible</label></td>
+        <td>
+          <select id="leia">
+            <option value="0">Désactivé</option>
+            <option value="1">Activé</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="mode">Choix du mode de lecture inclusive</label></td>
+        <td>
+          <select id="mode">
+            <option value="0">Mots lus aux deux genres</option>
+            <option value="1">Mots lus au féminin uniquement</option>
+            <option value="2">Mots lus au maculin uniquement</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="pred">Dictionnaire de saisie prédictive écriture inclusive</td></label>
+        <td>
+          <select id="pred">
+            <option value="0">Désactivé</option>
+            <option value="1">Activé</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="high">Surligner l'écriture inlusive</label></td>
+        <td>
+          <select id="high">
+            <option value="0">Désactivé</option>
+            <option value="1">Activé</option>
+          </select><br/><br/>
+          <input type="color" id="bgColor" /> Couleur de fond&nbsp;<br/>
+          <input type="color" id="txtColor" /> Couleur du texte<br/>
+          <label for="fontWeight"><input type="checkbox" id="fontWeight" /> Gras</label>
+          <label for="txtDeco"><input type="checkbox" id="txtDeco" /> Souligné</label><br/>
+          
+          <p class="ex"><b>Exemple :</b> imprimeur<span id="ex">·euse</span></p>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="kolo">Améliorer le contraste texte / arrière-plan</label></td>
+        <td>
+          <select id="kolo">
+            <option value="0">Désactivé</option>
+            <option value="1">Activé</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="font">Réhausser la taille des polices</label></td>
+        <td>
+          <select id="font">
+            <option value="0">Désactivé</option>
+            <option value="1">Activé</option>
+          </select>
+        </td>
+      </tr>
 
-		
-		<button id="launch">Appliquer les changements</button>
-		
-		<p>Panneau de configuration <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
-		<p>Insérer un point médian <kbd>;</kbd> <kbd>;</kbd></p>
-		
-		<script type="text/javascript">
-			function addEvent(obj, evt, fn) { 
-				if (obj.addEventListener) {
-					obj.addEventListener(evt, fn, false);
-					return true;
-				} else if (obj.attachEvent) {
-					return obj.attachEvent('on' + evt, fn);
-				} else {
-					evt = 'on' + evt;
-					if (typeof obj[evt] === 'function') {
-						fn = (function(f1, f2) {
-							return function() {
-								f1.apply(this, arguments);
-								f2.apply(this, arguments);
-							}
-						})(obj[evt], fn);
-					}
-					obj[evt] = fn;
-					return true;
-				}
-				return false;
-			}
-			function $(id) {
-				return document.getElementById(id)
-			}
-			function get(m) {
-				return localStorage.getItem(m)
-			}
-			function set(n){
-				let vl = $(n).options[$(n).selectedIndex].value;
-				localStorage.setItem(n,vl);
-			}		  
-			function passCfg(){
-			  set("leia");
-			  set("mode");
-			  set("pred");
-			  set("high");
-			  set("kolo");
-			  set("font");
-			  set("fontType");
-			  ($("fontWeight").checked == true) ? localStorage.setItem("fontWeight","bold") : localStorage.setItem("fontWeight","normal");
-			  ($("txtDeco").checked == true) ? localStorage.setItem("txtDeco","underline") : localStorage.setItem("txtDeco","none");
-			  localStorage.setItem("bgColor",$("bgColor").value);
-			  localStorage.setItem("txtColor",$("txtColor").value);
-			  window.opener.location.reload();
-			  window.close();
-			}
-			
-			$("leia").selectedIndex = get("leia") || 1;
-			$("mode").selectedIndex = get("mode") || 0;
-			$("pred").selectedIndex = get("pred") || 1;
-			$("high").selectedIndex = get("high") || 0;
-			$("kolo").selectedIndex = get("kolo") || 0;
-			$("font").selectedIndex = get("font") || 0;
-			$("fontType").selectedIndex = get("fontType") || 0;
-			$("txtColor").value = get("txtColor");
-			$("bgColor").value =  get("bgColor");
-			$("ex").style.textDecoration = get("txtDeco");
-			$("ex").style.fontWeight = get("fontWeight");
-			$("ex").style.backgroundColor = get("bgColor");
-			$("ex").style.color = get("txtColor");
-			(get("fontWeight") == "bold" ) ? $("fontWeight").checked = true : $("fontWeight").checked = false; 
-			(get("txtDeco") == "underline" ) ? $("txtDeco").checked = true : $("txtDeco").checked = false;
-	
-			//document.getElementById("fontRatio").value = localStorage.getItem("fontRatio") || 30;
-			//document.getElementById("kolorRatio").value = localStorage.getItem("kolorRatio") || 100;
-			
-			addEvent($("bgColor"), 'change', function(e) {
-				$("ex").style.backgroundColor = this.value
-			});
-			addEvent($("txtColor"), 'change', function(e) {
-				$("ex").style.color = this.value
-			});
-			addEvent($("fontWeight"), 'change', function(e) {
-				(this.checked == true) ? $('ex').style.fontWeight = 'bold' : $('ex').style.fontWeight = 'normal';
-			});
-			addEvent($("txtDeco"), 'change', function(e) {
-				(this.checked == true) ? $('ex').style.textDecoration = 'underline' : $('ex').style.textDecoration = 'none';
-			});
-			addEvent($("leia"), 'change', function(e) {
-				if (this.selectedIndex == 1) { 
-					$("high").selectedIndex = 0 ;
-					$("mode").removeAttribute("disabled");
-				} else {
-					$("mode").setAttribute("disabled",true);
-				}
-			});
-			addEvent($("high"), 'change', function(e) {
-				if (this.selectedIndex == 1) $("leia").selectedIndex = 0;
-			});
-			addEvent($("launch"), 'click', passCfg);
-			addEvent(window,'beforeunload',passCfg);
-		</script>
-	</body>
+      <tr>
+        <td><label for="fontType">Choix de polices adaptées à la dyslexie</label></td>
+        <td>
+          <select id="fontType">
+            <option value="0">Police par défaut</option>
+            <option value="1">Andika New Basic</option>
+            <option value="2">Open Dyslexic</option>
+            <option value="3">Lexie Readable</option>
+            <option value="4">Sassoon Sans Std</option>
+            <option value="5">Sassoon Sans Slope Std</option>
+            <option value="6">Sassoon Infant Std</option>
+            <option value="7">Sassoon Primary Std</option>
+          </select><br/>
+          <span id="ex2">Voici un exemple</span>
+        </td>
+      </tr>
+    </table>
+    
+    <p><button id="launch">Appliquer les changements</button></p>
+    <p>Panneau de configuration <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
+    <p>Insérer un point médian <kbd>;</kbd> <kbd>;</kbd></p>
+    
+    <script type="text/javascript">
+      function addEvent(obj, evt, fn) { 
+        if (obj.addEventListener) {
+          obj.addEventListener(evt, fn, false);
+          return true;
+        } else if (obj.attachEvent) {
+          return obj.attachEvent('on' + evt, fn);
+        } else {
+          evt = 'on' + evt;
+          if (typeof obj[evt] === 'function') {
+            fn = (function(f1, f2) {
+              return function() {
+                f1.apply(this, arguments);
+                f2.apply(this, arguments);
+              }
+            })(obj[evt], fn);
+          }
+          obj[evt] = fn;
+          return true;
+        }
+        return false;
+      }
+      function $(id) {
+        return document.getElementById(id)
+      }
+      function get(m) {
+        return localStorage.getItem(m)
+      }
+      function set(n){
+        let vl = $(n).options[$(n).selectedIndex].value;
+        localStorage.setItem(n,vl);
+      }      
+      function passCfg(){
+        set("leia");
+        set("mode");
+        set("pred");
+        set("high");
+        set("kolo");
+        set("font");
+        set("fontType");
+        ($("fontWeight").checked == true) ? localStorage.setItem("fontWeight","bold") : localStorage.setItem("fontWeight","normal");
+        ($("txtDeco").checked == true) ? localStorage.setItem("txtDeco","underline") : localStorage.setItem("txtDeco","none");
+        localStorage.setItem("bgColor",$("bgColor").value);
+        localStorage.setItem("txtColor",$("txtColor").value);
+        window.opener.location.reload();
+        window.close();
+      }
+      $("leia").selectedIndex = get("leia") || 1;
+      $("mode").selectedIndex = get("mode") || 0;
+      $("pred").selectedIndex = get("pred") || 1;
+      $("high").selectedIndex = get("high") || 0;
+      $("kolo").selectedIndex = get("kolo") || 0;
+      $("font").selectedIndex = get("font") || 0;
+      $("fontType").selectedIndex = get("fontType") || 0;
+      $("txtColor").value = get("txtColor");
+      $("bgColor").value = get("bgColor");
+      $("ex").style.textDecoration = get("txtDeco");
+      $("ex").style.fontWeight = get("fontWeight");
+      $("ex").style.backgroundColor = get("bgColor");
+      $("ex").style.color = get("txtColor");
+      (get("fontWeight") == "bold" ) ? $("fontWeight").checked = true : $("fontWeight").checked = false; 
+      (get("txtDeco") == "underline" ) ? $("txtDeco").checked = true : $("txtDeco").checked = false;
+      if (get("leia") == 1) {
+        $("high").selectedIndex = 0 ;
+        $("mode").removeAttribute("disabled");
+      } else {
+        $("mode").setAttribute("disabled",true);
+      }
+      //document.getElementById("fontRatio").value = localStorage.getItem("fontRatio") || 30;
+      //document.getElementById("kolorRatio").value = localStorage.getItem("kolorRatio") || 100;
+      
+      addEvent($("bgColor"), 'change', function(e) {
+        $("ex").style.backgroundColor = this.value
+      });
+      addEvent($("txtColor"), 'change', function(e) {
+        $("ex").style.color = this.value
+      });
+      addEvent($("fontWeight"), 'change', function(e) {
+        (this.checked == true) ? $('ex').style.fontWeight = 'bold' : $('ex').style.fontWeight = 'normal';
+      });
+      addEvent($("txtDeco"), 'change', function(e) {
+        (this.checked == true) ? $('ex').style.textDecoration = 'underline' : $('ex').style.textDecoration = 'none';
+      });
+      addEvent($("fontType"), 'change', function(e) {
+        $("ex2").style.fontFamily = this.options[this.selectedIndex].text
+      });
+      addEvent($("leia"), 'change', function(e) {
+        if (this.selectedIndex == 1) { 
+          $("high").selectedIndex = 0 ;
+          $("mode").removeAttribute("disabled");
+        } else {
+          $("mode").setAttribute("disabled",true);
+        }
+      });
+      addEvent($("high"), 'change', function(e) {
+        if (this.selectedIndex == 1) {
+          $("leia").selectedIndex = 0;
+        }
+      });
+      addEvent($("launch"), 'click', passCfg);
+      addEvent(window,'beforeunload',passCfg);
+    </script>
+  </body>
 </html>

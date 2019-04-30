@@ -1,70 +1,70 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: 'OpenDyslexic';
+    font-family: 'Open Dyslexic';
     src: url('fonts/OpenDyslexic-Regular.woff2') format('woff2'),
          url('fonts/OpenDyslexic-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal; 
 }
 @font-face {
-    font-family: 'OpenDyslexic';
+    font-family: 'Open Dyslexic';
     src: url('fonts/OpenDyslexic-Bold.woff2') format('woff2'),
          url('fonts/OpenDyslexic-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
-    font-family: 'OpenDyslexic';
+    font-family: 'Open Dyslexic';
     src: url('fonts/OpenDyslexic-Italic.woff2') format('woff2'),
          url('fonts/OpenDyslexic-Italic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 }
 @font-face {
-    font-family: 'OpenDyslexic';
+    font-family: 'Open Dyslexic';
     src: url('fonts/OpenDyslexic-BoldItalic.woff2') format('woff2'),
          url('fonts/OpenDyslexic-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 }
 @font-face {
-    font-family: 'AndikaNewBasic';
+    font-family: 'Andika New Basic';
     src: url('fonts/AndikaNewBasic-Regular.woff2') format('woff2'),
          url('fonts/AndikaNewBasic-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
-    font-family: 'AndikaNewBasic';
+    font-family: 'Andika New Basic';
     src: url('fonts/AndikaNewBasic-Bold.woff2') format('woff2'),
          url('fonts/AndikaNewBasic-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
-    font-family: 'AndikaNewBasic';
+    font-family: 'Andika New Basic';
     src: url('fonts/AndikaNewBasic-Italic.woff2') format('woff2'),
          url('fonts/AndikaNewBasic-Italic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 }
 @font-face {
-    font-family: 'AndikaNewBasic';
+    font-family: 'Andika New Basic';
     src: url('fonts/AndikaNewBasic-BoldItalic.woff2') format('woff2'),
          url('fonts/AndikaNewBasic-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 }
 @font-face {
-    font-family: 'LexieReadable';
+    font-family: 'Lexie Readable';
     src: url('fonts/LexieReadable-Regular.woff2') format('woff2'),
          url('fonts/LexieReadable-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
-    font-family: 'LexieReadable';
+    font-family: 'Lexie Readable';
     src: url('fonts/LexieReadable-Bold.woff2') format('woff2'),
          url('fonts/LexieReadable-Bold.woff') format('woff');
     font-weight: bold;
@@ -133,6 +133,18 @@
     font-weight: normal;
     font-style: normal;
 }
+.config {
+	cursor: pointer;
+	font-size: 0.8em;
+	z-index: 9999;
+	position: fixed;
+	top: 5px;
+	right: 23px;
+	border: 0;
+	background-color: #eee;
+	border-radius: 5px;
+	padding: 5px;
+}
 
 /* DYNAMIC ADD */
 
@@ -174,9 +186,7 @@
 .conf * {
   box-sizing: border-box;
 }
-.conf p {
-  text-align:left;
-}
+
 .conf kbd {
   display: inline-block;
   background-color: #fff;
@@ -221,4 +231,7 @@
 }
 .conf .ex {
   text-align: center;	
+}
+.conf #ex2{
+  font-size:1.5em
 }
