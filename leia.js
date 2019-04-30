@@ -5,6 +5,8 @@ toute forme (libre, propriétaire, gratuite ou commerciale)
 à condition de conserver le copyright et le texte de 
 licence lors de toute modification ou distribution.
 http://www.apache.org/licenses/LICENSE-2.0
+
+Faites un don : https://bit.ly/2vuzK7g
 **/
 
 "use strict";
@@ -46,6 +48,17 @@ function getStyle(a) {
 	return b;
 }
 
+/********** APPELLER LA FEUILLE DE STYLE LEIA *********************************************************/
+
+var head  = document.getElementsByTagName('head')[0];
+var link  = document.createElement('link');
+link.id   = 'leia';
+link.rel  = 'stylesheet';
+link.type = 'text/css';
+link.href = 'leia.css';
+link.media = 'all';
+head.appendChild(link);
+	
 /********** VARIABLES *********************************************************/
 
 	const dico = [
@@ -140,10 +153,14 @@ function getStyle(a) {
 		pred =  localStorage.getItem("pred") || 1,
 		high = localStorage.getItem("high") || 0,
 		font = localStorage.getItem("font") || 0,
-		kolor = localStorage.getItem("kolor") ||  0,
+		kolo = localStorage.getItem("kolo") ||  0,
 		fontType = localStorage.getItem("fontType") || 0,
 		fontRatio = localStorage.getItem("fontRatio") ||  30,
-		kolorRatio = localStorage.getItem("kolorRatio") ||  100,
+		koloRatio = localStorage.getItem("koloRatio") ||  100,
+		bgColor = localStorage.getItem("bgColor") || "#ccc", 			// couleur de fond écriture inclusive détectée
+		txtColor = localStorage.getItem("txtColor") || "#000", 			// couleur du texte écriture inclusive détectée
+		fontWeight = localStorage.getItem("fontWeight") || "bold", 		// "normal" ou "bold" (gras) écriture inclusive détectée
+		txtDeco = localStorage.getItem("txtDeco") || "none", 			// "none" ou "underline" (souligné) écriture inclusive détectée
 		term, terml, termp = 1,
 		ndLst = [],
 		tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
@@ -152,10 +169,8 @@ function getStyle(a) {
 					return NodeFilter.FILTER_ACCEPT;
 				}
 			}
-		}, false),
-		bgcolor = "#FFF9BD", 		// couleur de fond écriture inclusive détectée
-		color = "#66007f", 			// couleur du texte écriture inclusive détectée
-		fontWeight = "bold"; 	// "normal" ou "bold" (gras) écriture inclusive détectée
+		}, false);
+
 
 /********** POPUP CONFIGURATION ***********************************************************/
 	var	bouton = document.createElement("input");
@@ -177,7 +192,7 @@ function getStyle(a) {
 	function popup(){
 		let si = (document.documentElement.clientWidth || window.innerWidth) / 2.5,
 			sr = window.innerWidth - 495;
-		window.open('config.html', '_blank', 'dialog=yes, menubar=no, status=no, scrollbars=yes, menubar=no, top=75, left=' + sr + ', toolbar=no, directories=0, personalbar=0, location=no, width='+si+',height=470');
+		window.open('config.html', '_blank', 'dialog=yes, titlebar=no, status=no, scrollbars=yes, menubar=no, top=75, left=' + sr + ', toolbar=no, directories=0, personalbar=0, location=no, width='+si+',height=470');
 	}
     addEvent(document, 'keydown', function(e) {
         let k = e.which || e.keyCode || e.charCode;
@@ -204,8 +219,9 @@ function getStyle(a) {
 			var nmark = document.createElement("MARK"),
 				after = node.splitText(r.index);
 			nmark.appendChild(document.createTextNode(r[0]));
-			(bgcolor) ? nmark.style.backgroundColor = bgcolor : nmark.style.backgroundColor = 'transparent';
-			(color) ? nmark.style.color = color : nmark.style.color = '';
+			nmark.style.backgroundColor = bgColor;
+			nmark.style.color = txtColor;
+			nmark.style.textDecoration = txtDeco;
 			nmark.style.fontWeight = fontWeight;
 			after.nodeValue = after.nodeValue.substring(r[0].length);
 			node.parentNode.insertBefore(nmark, after);
@@ -236,71 +252,65 @@ if (font == 1) {
 	// Rétabli body {font-size:100%}
 }
 
+/*
+if (fontType != 0) {
+	document.body.setAttribute('style', 'font-family:'+whichfont(fontType)+' !important');
+}*/
+
 function whichfont(f) {
 	switch (Number(f)) {
 		case 1: return 'AndikaNewBasic'; break;
 		case 2: return 'OpenDyslexic'; break;	
-		case 3: return 'DyslexieFont'; break;	
-		case 4: return 'LexieReadable'; break;
-		case 5: return 'Tiresias Infofont'; break;
-		case 6: return 'Sassoon Sans Std'; break;
-		case 7: return 'Sassoon Sans Slope Std'; break;
-		case 8: return 'Sassoon Infant Std'; break;
-		case 9: return 'Sassoon Primary Std'; break;
+		case 3: return 'LexieReadable'; break;
+		case 4: return 'Sassoon Sans Std'; break;
+		case 5: return 'Sassoon Sans Slope Std'; break;
+		case 6: return 'Sassoon Infant Std'; break;
+		case 7: return 'Sassoon Primary Std'; break;
 	}	
-	
 }
 
 
 function fontSiz(u,v) {
     let aFontSize = parseFloat(v.fontSize),
-		aNewSize = (aFontSize < 16) ? 16 : aFontSize;		 /* Nivellement de toutes les polices < 16px à 16px */
-	u.style.fontSize = Math.round(aNewSize/16) + 'em';
-	u.style.lineHeight = '1.5em';
-	if (v.textAlign == 'justify') {
-	  u.style.textAlign = 'left'
-	}
+		aNewSize = (aFontSize < 16) ? 16 : aFontSize;		
+	u.style.fontSize = Math.round(aNewSize/16) + 'em';			// Nivellement de toutes les polices à 16px minimum */
+	u.style.lineHeight = aFontSize*1.5+'px';					// Augmenter l'interlignage à 1.5x de la taille de la police
+	if (v.textAlign == 'justify') u.style.textAlign = 'left';	// Text aligné à gauche plutôt que justifié						
+	
 	if (v.display != 'inline' && (parseFloat((getStyle(u.parentNode)).height) < u.parentNode.scrollHeight)) {
 	  u.parentNode.className += " zoomable"
 	}
 }
     /*
-	
-	AUGMENTER INTERLIGNAGE 1.5
-	ESPACER PARAGRAPHES A 1.5
 	55 a 70 carac par lignes
 	padding autour du texte
-	Contraste noir/blanc
-	blanc cassé
     */
 	
 /********** CONVERSION ÉCRITURE INCLUSIVE **************************************************/
 
-    
-        //console.time('SKIM');
-        while (tree.nextNode()) {
-            if (tree.currentNode.nodeValue.trim().length > 0) {
-                ndLst.push(tree.currentNode);
-                var pnode = tree.currentNode.parentNode;
-								
-				if (kolor == 1) { pnode.style.color = kontrast(pnode) }
-                if (font == 1)  { fontSiz(pnode,getStyle(pnode)) }
-				if (fontType != 0)  { pnode.style.fontFamily = whichfont(fontType) }
-				if (leia == 1) {
-					for (var i = 0, j = 0; i < dl; i++, j = Math.min(j + 1, pl - 1)) {
-						let r1 = new RegExp('([a-zàâäéèêëïîôöùûüçæœ]+)('+dico[i][0]+')[-/·∙.•]('+dico[i][1]+')[-/·∙.•]?(s)?(?![a-z])','gi'),
-							r2 = new RegExp('(' + pron[j][0] + ')[-\/·∙.•](' + pron[j][1] + ')', 'gi');
-						tree.currentNode.nodeValue = tree.currentNode.nodeValue
-														 .replace(r1,dico[i][mode])
-														 .replace(r2,pron[j][mode])
-														 .replace(/læ/gi,'lahé')
-														 .replace(/\biel(s)?/gi,'yel$1');
-					}
+    //console.time('SKIM');
+	while (tree.nextNode()) {
+		if (tree.currentNode.nodeValue.trim().length > 0) {
+			ndLst.push(tree.currentNode);
+			var pnode = tree.currentNode.parentNode;
+							
+			if (kolo == 1) { pnode.style.color = kontrast(pnode) }
+			if (font == 1)  { fontSiz(pnode,getStyle(pnode)) }
+			if (fontType != 0)  { pnode.style.fontFamily = whichfont(fontType) }
+			if (leia == 1) {
+				for (var i = 0, j = 0; i < dl; i++, j = Math.min(j + 1, pl - 1)) {
+					let r1 = new RegExp('([a-zàâäéèêëïîôöùûüçæœ]+)('+dico[i][0]+')[-/·∙.•]('+dico[i][1]+')[-/·∙.•]?(s)?(?![a-z])','gi'),
+						r2 = new RegExp('(' + pron[j][0] + ')[-\/·∙.•](' + pron[j][1] + ')', 'gi');
+					tree.currentNode.nodeValue = tree.currentNode.nodeValue
+													 .replace(r1,dico[i][mode])
+													 .replace(r2,pron[j][mode])
+													 .replace(/læ/gi,'lahé')
+													 .replace(/\biel(s)?/gi,'yel$1');
 				}
-            }
-        }
-        //console.timeEnd('SKIM');
-    
+			}
+		}
+	}
+    //console.timeEnd('SKIM');
 
 /********** ZONES DE TEXTE - POINT MÉDIAN & PRÉDICTIF INCLUSIF *****************************/
 

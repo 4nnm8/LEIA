@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+         url('fonts/OpenDyslexic-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal; 
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('fonts/DyslexieFont-Bold.woff2') format('woff2'),
+         url('fonts/DyslexieFont-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('fonts/OpenDyslexic-Italic.woff2') format('woff2'),
+         url('fonts/OpenDyslexic-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('fonts/OpenDyslexic-BoldItalic.woff2') format('woff2'),
+         url('fonts/OpenDyslexic-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'DyslexieFont';
+    src: url('fonts/DyslexieFont-Regular.woff2') format('woff2'),
+         url('fonts/DyslexieFont-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DyslexieFont';
+    src: url('fonts/DyslexieFont-Bold.woff2') format('woff2'),
+         url('fonts/DyslexieFont-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DyslexieFont';
+    src: url('fonts/DyslexieFont-Italic.woff2') format('woff2'),
+         url('fonts/DyslexieFont-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'DyslexieFont';
+    src: url('fonts/DyslexieFont-BoldItalic.woff2') format('woff2'),
+         url('fonts/DyslexieFont-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AndikaNewBasic';
+    src: url('fonts/AndikaNewBasic-Regular.woff2') format('woff2'),
+         url('fonts/AndikaNewBasic-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AndikaNewBasic';
+    src: url('fonts/AndikaNewBasic-Bold.woff2') format('woff2'),
+         url('fonts/AndikaNewBasic-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AndikaNewBasic';
+    src: url('fonts/AndikaNewBasic-Italic.woff2') format('woff2'),
+         url('fonts/AndikaNewBasic-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AndikaNewBasic';
+    src: url('fonts/AndikaNewBasic-BoldItalic.woff2') format('woff2'),
+         url('fonts/AndikaNewBasic-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'LexieReadable';
+    src: url('fonts/LexieReadable-Regular.woff2') format('woff2'),
+         url('fonts/LexieReadable-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LexieReadable';
+    src: url('fonts/LexieReadable-Bold.woff2') format('woff2'),
+         url('fonts/LexieReadable-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Tiresias Infofont';
+    src: url('fonts/TiresiasInfofontItalic.woff2') format('woff2'),
+         url('fonts/TiresiasInfofontItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* DYNAMIC ADD */
+
+.bodyadj{
+  font-size: 100% !important;
+}
+
+.bodyadj a {
+  text-decoration: underline !important;
+}
+
+.zoomable{
+    /*border:1px solid #f00 !important;*/
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	overflow:hidden;
+}
+
+.zoomable:hover {
+  height:auto;
+  z-index:9999;
+}
+
+/* POPUP DE CONFIGURATION */
+
+.conf {
+  font-size: 100%;
+  padding:10px;
+  text-align:center;
+  font-family: Helvetica, Verdana, Tahoma, Arial, sans-serif;
+  margin:0;
+  color:#fff;
+  font-size:1.1em;
+  background:#106eaf;
+  background-image: url(img/bg.png);
+  height:100vh;
+}
+
+.conf * {
+  box-sizing: border-box;
+}
+.conf p {
+  text-align:left;
+}
+.conf kbd {
+  display: inline-block;
+  background-color: #fff;
+  min-width: 39px;
+  height: 39px;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  box-sizing: border-box !important;
+  color: #7c7c7c;
+  box-shadow: 0px 4px 0px -2px rgba(255,255,255,1), 0px 2px 0px 0px rgba(169,169,169,1);
+  padding-top: 13px;
+  font-size: 12px;
+  font-family: Arial;
+  font-weight:bold;
+  text-align: center;
+}
+.conf table {
+  width:90vw;
+  margin:auto
+}
+.conf td,th {
+  border:1px solid #555;
+  font-family: "Acto Book",Verdana,Tahoma,Georgia,sans-serif;
+  font-size:1.2em;
+  padding: 2px 8px 2px 8px
+}
+.conf td {
+  color: #000;
+  font-size : 80%;		
+}
+.conf th {
+  background-color:#ab1f4d
+}
+.conf tr:nth-of-type(2n) {
+  background-color:#a7dcea
+}
+.conf tr:nth-of-type(2n+1) {
+  background-color:#5abeea
+}
+.conf h1 {
+  font-size: 2em;
+}
+.conf .ex {
+  text-align: center;	
+}

@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Configurer LÉIA</title>
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="leia.css" type="text/css" media="screen" />
 	</head>
 	<body class="conf">	
 		<h1>Menu LÉIA</h1>
@@ -37,9 +38,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td><label for="kolor">Ajuster le contraste couleur / fond</label></td>
+				<td><label for="kolo">Ajuster le contraste couleur / fond</label></td>
 				<td>
-					<select id="kolor">
+					<select id="kolo">
 						<option value="0">Désactivé</option>
 						<option value="1">Activé</option>
 					</select>
@@ -61,6 +62,10 @@
 						<option value="0">Désactivé</option>
 						<option value="1">Activé</option>
 					</select>
+					<label for="fontWeight">En gras <input type="checkbox" id="fontWeight" /></label>
+					<label for="txtDeco">Souligné <input type="checkbox" id="txtDeco" /></label><br/>
+					Fond : <input type="color" id="bgColor" /> Texte : <input type="color" id="txtColor" />
+					<p class="ex">Exemple : imprimeur<span id="ex">·euse</span></p>
 				</td>
 			</tr>
 			<tr>
@@ -70,13 +75,11 @@
 						<option value="0"></option>
 						<option value="1">Andika New Basic</option>
 						<option value="2">Open Dyslexic</option>
-						<option value="3">Dyslexie Font</option>
-						<option value="4">Lexie Readable</option>
-						<option value="5">Tiresias</option>
-						<option value="6">Sassoon Sans</option>
-						<option value="7">Sassoon Sans Slope</option>
-						<option value="8">Sassoon Enfants</option>
-						<option value="9">Sassoon Primaire</option>
+						<option value="3">Lexie Readable</option>
+						<option value="4">Sassoon Sans</option>
+						<option value="5">Sassoon Sans Slope</option>
+						<option value="6">Sassoon Enfants</option>
+						<option value="7">Sassoon Primaire</option>
 					</select>
 				</td>
 			</tr>
@@ -85,39 +88,101 @@
 		
 		<button id="launch">Appliquer les changements</button>
 		
-		<!--<p><b>Raccourcis claviers (hors pavé numérique) :</b></p>
-		<p>Ouvrir le panneau de configuration
-		<p><kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>-->
-		<p>Pour insérer un point médian, pressez deux fois la touche point-virgule <kbd>;</kbd> <kbd>;</kbd></p>
+		<p>Panneau de configuration <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
+		<p>Insérer un point médian <kbd>;</kbd> <kbd>;</kbd></p>
+		
 		<script type="text/javascript">
-			document.getElementById("leia").selectedIndex = localStorage.getItem("leia") || 1;
-			document.getElementById("mode").selectedIndex = localStorage.getItem("mode") || 0;
-			document.getElementById("pred").selectedIndex = localStorage.getItem("pred") || 1;
-			document.getElementById("high").selectedIndex = localStorage.getItem("high") || 0;
-			document.getElementById("kolor").selectedIndex = localStorage.getItem("kolor") || 0;
-			document.getElementById("font").selectedIndex = localStorage.getItem("font") || 0;
-			document.getElementById("fontType").selectedIndex = localStorage.getItem("fontType") || 0;
-			//document.getElementById("fontRatio").value = localStorage.getItem("fontRatio") || 30;
-			//document.getElementById("kolorRatio").value = localStorage.getItem("kolorRatio") || 100;
-
-			function setVal(n){
-			  let vl = document.getElementById(n).options[document.getElementById(n).selectedIndex].value;
-			  localStorage.setItem(n,vl);
+			function addEvent(obj, evt, fn) { 
+				if (obj.addEventListener) {
+					obj.addEventListener(evt, fn, false);
+					return true;
+				} else if (obj.attachEvent) {
+					return obj.attachEvent('on' + evt, fn);
+				} else {
+					evt = 'on' + evt;
+					if (typeof obj[evt] === 'function') {
+						fn = (function(f1, f2) {
+							return function() {
+								f1.apply(this, arguments);
+								f2.apply(this, arguments);
+							}
+						})(obj[evt], fn);
+					}
+					obj[evt] = fn;
+					return true;
+				}
+				return false;
+			}
+			function $(id) {
+				return document.getElementById(id)
+			}
+			function get(m) {
+				return localStorage.getItem(m)
+			}
+			function set(n){
+				let vl = $(n).options[$(n).selectedIndex].value;
+				localStorage.setItem(n,vl);
+			}		  
+			function passCfg(){
+			  set("leia");
+			  set("mode");
+			  set("pred");
+			  set("high");
+			  set("kolo");
+			  set("font");
+			  set("fontType");
+			  ($("fontWeight").checked == true) ? localStorage.setItem("fontWeight","bold") : localStorage.setItem("fontWeight","normal");
+			  ($("txtDeco").checked == true) ? localStorage.setItem("txtDeco","underline") : localStorage.setItem("txtDeco","none");
+			  localStorage.setItem("bgColor",$("bgColor").value);
+			  localStorage.setItem("txtColor",$("txtColor").value);
+			  window.opener.location.reload();
+			  window.close();
 			}
 			
-			function passCfg(){
-			  setVal("leia");
-			  setVal("mode");
-			  setVal("pred");
-			  setVal("high");
-			  setVal("kolor");
-			  setVal("font");
-			  setVal("fontType");
-			  window.opener.location.reload();
-			  //window.close();
-			}
-			document.getElementById("launch").addEventListener("click",passCfg,false);
-			window.addEventListener("beforeunload",passCfg,false);
+			$("leia").selectedIndex = get("leia") || 1;
+			$("mode").selectedIndex = get("mode") || 0;
+			$("pred").selectedIndex = get("pred") || 1;
+			$("high").selectedIndex = get("high") || 0;
+			$("kolo").selectedIndex = get("kolo") || 0;
+			$("font").selectedIndex = get("font") || 0;
+			$("fontType").selectedIndex = get("fontType") || 0;
+			$("txtColor").value = get("txtColor");
+			$("bgColor").value =  get("bgColor");
+			$("ex").style.textDecoration = get("txtDeco");
+			$("ex").style.fontWeight = get("fontWeight");
+			$("ex").style.backgroundColor = get("bgColor");
+			$("ex").style.color = get("txtColor");
+			(get("fontWeight") == "bold" ) ? $("fontWeight").checked = true : $("fontWeight").checked = false; 
+			(get("txtDeco") == "underline" ) ? $("txtDeco").checked = true : $("txtDeco").checked = false;
+	
+			//document.getElementById("fontRatio").value = localStorage.getItem("fontRatio") || 30;
+			//document.getElementById("kolorRatio").value = localStorage.getItem("kolorRatio") || 100;
+			
+			addEvent($("bgColor"), 'change', function(e) {
+				$("ex").style.backgroundColor = this.value
+			});
+			addEvent($("txtColor"), 'change', function(e) {
+				$("ex").style.color = this.value
+			});
+			addEvent($("fontWeight"), 'change', function(e) {
+				(this.checked == true) ? $('ex').style.fontWeight = 'bold' : $('ex').style.fontWeight = 'normal';
+			});
+			addEvent($("txtDeco"), 'change', function(e) {
+				(this.checked == true) ? $('ex').style.textDecoration = 'underline' : $('ex').style.textDecoration = 'none';
+			});
+			addEvent($("leia"), 'change', function(e) {
+				if (this.selectedIndex == 1) { 
+					$("high").selectedIndex = 0 ;
+					$("mode").removeAttribute("disabled");
+				} else {
+					$("mode").setAttribute("disabled",true);
+				}
+			});
+			addEvent($("high"), 'change', function(e) {
+				if (this.selectedIndex == 1) $("leia").selectedIndex = 0;
+			});
+			addEvent($("launch"), 'click', passCfg);
+			addEvent(window,'beforeunload',passCfg);
 		</script>
 	</body>
 </html>
