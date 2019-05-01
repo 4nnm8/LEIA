@@ -19,6 +19,8 @@
 * Conflit avec les mots composés contenant **t-le** (ex : haut-le-cœur) 
 * Anglicisme ayant un masculin en **-er** et un féminin en **-euse** ou **-trice** non pris en compte (ex : bookmaker·euse
 supporter·trice)
+* Redondance entre le dictionnaire prédictif et le dictionnaire de conversion → Un seul système de dictionnaire plus efficace et moins conflictuel.
+* Optimisation possible du **TreeWalker** et de la fonction **highlight()**
 * Dictionnaire prédictif imparfait
 
 ## Résumé
