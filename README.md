@@ -32,9 +32,9 @@ Au stade actuel de son développement, **LÉIA** s'oriente vers une série d'add
 L'écriture inclusive, aussi appelée langage épicène ou encore langage non-sexiste, est une manière d'écrire le français afin de contrer la règle grammaticale qui veut que « le masculin l'emporte ». Le genre « neutre » en français étant exprimé exclusivement au masculin.
 
 Peu importe le nombre de femmes qui composent un groupe, s'il compte un seul homme, on parlera de ce groupe au masculin.
-Le but est donc de faire de notre langue, le français, une langue qui représente mieux les individus dont elle parle et à qui elle s'adresse.
+Le but est donc de faire de notre langue, le français, une langue qui représente mieux les individus dont elle parle et à qui elle s'adresse. L'écriture inclusive permet également de s'exprimer à propos de personnes ne se reconnaissant ni du masculin, ni du féminin (ex : personnes non-binaires).
 
-L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hier et est expérimentée depuis, au moins, les années 70. Cependant, sa popularisation est très récente. Adoptée par la RATP et la Marie de Paris, elle fut finalement recommandée par le Haut Conseil à l'Égalité entre les Femmes et les Hommes en 2016 et est maintenant employée sur de nombreux sites d'annonces d'emploi, dans des journaux à grand tirage, etc.
+L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hier et est expérimentée depuis, au moins, les années 70. Cependant, sa popularisation est très récente. Adoptée par la RATP, la Marie de Paris, et certains manuels scolaires, elle fut finalement recommandée par le [Haut Conseil à l'Égalité entre les Femmes et les Hommes](http://www.haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/article/pour-une-communication-sans-stereotype-de-sexe-le-guide-pratique-du-haut) en 2016 et est maintenant employée sur de nombreux sites d'annonces d'emploi, dans des journaux à grand tirage, etc.
 
 ### À quoi ça ressemble concrètement ? ###
 
@@ -81,10 +81,10 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 
 ##### Exemple : #####
 
-* Le script détecte **artisan·e·s **
-* Il détecte le motif **racine – séparateur – e – s **
+* Le script détecte **artisan·e·s**
+* Il détecte le motif **racine – séparateur – e – s**
 * La dernière lettre de la racine étant un n, le script appelle une règle concernant les mots dont le féminin et le masculin sont différents à l'oral. 
-* La règle de sortie suivante est utilisée : **racine – suffixe masculin – s [espace] racine – suffixe féminin – s **
+* La règle de sortie suivante est utilisée : **racine – suffixe masculin – s [espace] racine – suffixe féminin – s**
 * Le script replace l'expression originale par **artisans artisanes**
 
 ## Développement
@@ -103,8 +103,9 @@ Pour palier à ce manquement, il a fallu intégrer dans un premier temps les gra
 
 Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur de l'utilisateur·ice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script (ce qui a peu de chance d'arriver) et il ne serait donc pas paramétrable par l'utilisateur·ice malvoyant·e. De plus, cela signifierait faire disparaître syntaxiquement l'écriture inclusive pour toutes les personnes, y compris voyantes.
 
-Pour le reste, je vous laisse analyser le fichier **leia.js** pour mieux comprendre son fonctionnement.
-Si vous constatez le moindre bug, n'hésitez-pas à me le signaler :)
+Pour le reste, je vous laisse analyser le fichier [leia.js](https://github.com/ANN-MB/LEIA/blob/master/leia.js) pour mieux comprendre son fonctionnement.
+
+Si vous constatez le moindre bug, [n'hésitez-pas à me le signaler](mailto:a.mezurat@protonmail.com) :)
 
 ## Reccomandations sur l'usage de l'écriture inclusive
 
@@ -135,9 +136,9 @@ Exemple : **faux·ausses**
 
 Exemple : **tiers·ce·s** ou **tier·ce·s**
 
-• Attention, la graphie artisan(e)s ne sera absolument pas prise en compte par **LEIA** et n'est pas considérée inclusive
+• Attention, la graphie artisan(e)s ne sera absolument pas prise en compte par **LÉIA** et n'est pas considérée inclusive
 
-• La graphie artisanEs, parfois utilisée pour faire emphase sur le féminin n'est pas non plus interprétée par **LEIA**
+• La graphie artisanEs, parfois utilisée pour faire emphase sur le féminin n'est pas non plus interprétée par **LÉIA**
 
 • Pour ne pas alourdir le texte oralisé, il est préconisé de ne pas abuser des mots inclusifs fusionnés et de favoriser des tournures de phrases plus neutres.
 
