@@ -14,9 +14,11 @@
 * Simplification et amélioration du menu de configuration
 
 ## Problèmes connus en recherche de solution
+* DOM flickering pour une raison inconnue
 * Les mots composés tels que **sourd·e-muet·te** donnent **sourd sourde-muet muette** lorsque **sourd-muet sourde-muette** serait préférable
 * Conflit avec les mots composés contenant **t-le** (ex : haut-le-cœur) 
-* DOM flickering pour une raison inconnue
+* Anglicisme ayant un masculin en **-er** et un féminin en **-euse** ou **-trice** non pris en compte (ex : bookmaker·euse
+supporter·trice)
 * Dictionnaire prédictif imparfait
 
 ## Résumé
