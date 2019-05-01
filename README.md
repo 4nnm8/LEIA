@@ -4,6 +4,9 @@
 
 **Contact :** a.mezurat@protonmail.com
 
+**LÉIA** est sous licence Apache
+![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
+
 ## Dernières mises-à jour
 * Enrichissement du dictionnaire prédictif
 * Suppression de certains conflits entre différentes terminaisons
@@ -31,7 +34,7 @@ Le but est donc de faire de notre langue, le français, une langue qui représen
 
 L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hier et est expérimentée depuis, au moins, les années 70. Cependant, sa popularisation est très récente. Adoptée par la RATP et la Marie de Paris, elle fut finalement recommandée par le Haut Conseil à l'Égalité entre les Femmes et les Hommes en 2016 et est maintenant employée sur de nombreux sites d'annonces d'emploi, dans des journaux à grand tirage, etc.
 
-###### À quoi ça ressemble concrètement ? ######
+### À quoi ça ressemble concrètement ? ###
 
 Par exemple, au lieu d'écrire : 
 « Les membres de la chambre haute sont désignés par le titre de **sénateur** »
@@ -70,11 +73,11 @@ Mais aussi (même si ces options seront peut être supprimées à terme pour év
 * Réhausser l'interlignage
 * Remplacer les polices de la page par une police adaptée aux personnes dyslexiques 
 
-###### Comment ça marche ? ######
+### Comment ça marche ? ###
 
 Le script parcours l'architecture d'une page web à la recherche de motifs propres à l'écriture inclusive. En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture.
 
-**Exemple :**
+##### Exemple :#####
 
 * Le script détecte **artisan·e·s **
 * Il détecte le motif **racine – séparateur – e – s **
@@ -86,15 +89,15 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 
 L'élaboration de ce programme, qui a commencé il y a un peu plus d'un an fût particulièrement complexe pour plusieurs raisons :
 
-###### Recherche sur l'orthographe française ######
+### Recherche sur l'orthographe française ###
 
 Les guide de rédaction en écriture inclusive, et notamment celui du [Haut Conseil à l'Égalité](http://bit.ly/2fejwZ7) qui tente de la populariser, proposent seulement une poignée de graphies possibles pour seulement 17 terminaisons et 5 pronoms, adverbes etc. Or, d'après de longues recherches, j'ai identifié 47 terminaisons différentes et 11 pronoms, adverbes, etc, différenciant le masculin et le féminin.
 
-###### Recherche sur les usages populaires de l'écriture inclusive ######
+### Recherche sur les usages populaires de l'écriture inclusive ###
 
 Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux·euse**, certains écrivent **amoureux·se**. J'ai du enfin créer différentes formes de néologismes pour des mots que je n'avais jamais rencontré (ex : tier·ce·s ou tiers·ces).
 
-###### Programmation ######
+### Programmation ###
 
 Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur de l'utilisateur·ice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script (ce qui a peu de chance d'arriver) et il ne serait donc pas paramétrable par l'utilisateur·ice malvoyant·e. De plus, cela signifierait faire disparaître syntaxiquement l'écriture inclusive pour toutes les personnes, y compris voyantes.
 
@@ -116,7 +119,7 @@ S'il est actuellement recommandé par le Haut Conseil à l'Égalité Femme-Homme
 
 • Il n'y a jamais d'espace avant et après un point médian.
 
-Exemple : artisan · e → artisan·e
+Exemple : **artisan · e** → **artisan·e**
 
 • Le s du pluriel, quand il est présent, peut être accolé au **e** du féminin ou séparé par un deuxième point médian
 
