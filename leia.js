@@ -14,7 +14,6 @@ Faites un don : https://bit.ly/2vuzK7g
 
 /********** RACCOURCIS FONCTIONS *********************************************/
 
-// écouteurs d"événements
 function addEvent(obj, evt, fn) { 
   if (obj.addEventListener) {
     obj.addEventListener(evt, fn, false);
@@ -37,7 +36,6 @@ function addEvent(obj, evt, fn) {
   return false;
 }
 
-// obtenir les propriétés stylistiques d"un noeud 
 function getStyle(a) {  
   var b = a.currentStyle || getComputedStyle(a, null);
   return b;
@@ -69,7 +67,7 @@ const dico = [
   ["s", "(s)?([tc])?e", "$1$2 $1$4$4$5e$6", "$1$4$4$5e$6", "$1$2"],
   ["c", "que", "$1$2$4", "$1$3$4", "$1$2$4"],
   ["[éfilruû]", "(?:f)?[eë]", "$1$2$4", "$1$2$3$4", "$1$2$4"],
-    ["[cdegilnort]u?", "(e?ss|[nlthu])?e", "$1$2$5 $1$2$3$5", "$1$2$3$5", "$1$2$5"]
+  ["[cdegilnort]u?", "(e?ss|[nlthu])?e", "$1$2$5 $1$2$3$5", "$1$2$3$5", "$1$2$5"]
 ],
 pron = [
   ["(c)?(eux|elui)", "elles?", "$2$3 $2$4", "$2$4", "$2$3"],
@@ -85,58 +83,61 @@ pron = [
   ["l[ea]", "l?([ea])", "$1 l$3", "la", "le"]
 ],
 t9 = [
-  ["frais", "che", "aîche"], // ok
-  ["chien|rouan|((pay|valai|vevey)san)", "ne"], //NNE
-  ["(cadu|laï|publi|micma|syndi|tur|gre)c", "que"],//CQUE
-  ["blanc|franc", "he"], //CHE
+  // 1 mot
+  ["sauf","auve","ve"],	
+  ["vieux","ieille"],
+  ["copain","ine"],
+  ["bref","ève"],
+  ["compagnon","agne","ne"],
+  ["tiers","ce"],
+  ["doux","ouce","ce"],
+  ["roux","ousse","sse"],
+  ["faux","ausse"],
+  ["hébreu","aïque"],
+  ["frais","che","aîche"],
   ["sec","èche"],
   ["ambassadeur", "drice", "rice", "ice"],
-  ["larron|abbé|âne|bêta|épais|gras|gros|prêtre|bonze|bougre|centaure|chanoine|comte|maître|contremaître|diable|drôle|druide|faune|gonze|hôte|ivrogne|maire|maître|monstre|mulâtre|nègre|notaire|ogre|patronne|pauvre|poète|preste|prêtre|prince|prophète|sauvage|suisse|tigre|traître|vicomte","esse","sse"], // ok
-  // +LE
-  ["trol|nul|pareil|vermeil|vieil|accidentel|actuel|additionnel|annuel|artificiel|bel|bimensuel|conditionnel|criminel|cruel|industriel|nouvel|officiel|réel|sexuel","le"],
-  ["pareil|vermeil|((gradu|désinenti|ponctu|compulsionn|circonstanci|sacrifici|compassionn|optionn|sensori|potenti|manu|asexu|inessenti|casu)el)","le"],
-  ["(fin|pasc|univers|département)aux","ales"],
-  ["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|bourr|gém|pastour|agn|b)eau","elle"],
-  ["tiers","ce"],
-  ["doux","ouce","ce"], // ok
-  ["andalou|époux|jaloux","ouse","se"], // ok
-  ["roux","ousse","sse"], // ok
-  ["[f|m]ou|foufou","olle"], // ok
-  ["faux","ausse"], // ok
-  ["las|bas","se"], 
-  ["chat|rat|favori|dissous|absous","te"],    // ?
-  ["docteur","oresse"], // ok
-  ["hébreu","aïque"], // ok
-  ["devin","eresse"], 
-  ["grec","que"],
-  ["favori","te"],
-  // EUSE >
-  ["(sculpt|transmett|accrédit|sécrét|enquêt|débit)eur","euse","trice","ice"], // euse ou ice
-  ["défendeur","euse","seuse","eresse"], // euse ou seuse ou eresse
-  ["(rapport|gouvern)eur","euse"], // euse
-  ["(b[âa]ill|chass|command|demand|vend|défend|demand|devin|enchant|p[éèê]ch|veng)eur","euse","eresse"],
-  ["vieux","ieille"], //ok
-  ["copain","ine"], //ok
-  ["[vn]euf","euve","ve"], // ok ?
-  ["bref","ève"], // ok ?
-  ["compagnon","agne"], // ok
-  /* fier fière
-  cher chère */
-  // ON - ONNE 
-  ["([bc]|aigl|sax|bar|berrich|bis|b|bouff|bourguign|bret|brouill|b[uû]cher|buffl|champi|coch|compagn|couill|cret|dar|drag|espi|fanfar|fél|folich|forger|frip|maç|lett|garç|gasc|glout|grogn|hériss|hur|laider|lap|lett|li|tatill|teut|champi|vigner|wall|lur|maç|maigrich|nipp|ours|pâlich|phara|piét|pige|pi|pochetr|pochtr|poliss|poltr|rejet|ronch|sauvage|sax|beaucer|bess|bich|boug|brabanç|charr|enfanç|fransquill|godich|hesbign|marmit|nazill|négrill|noblaill|patr|percher|pa|levr|louch|maquign|marr|mat|slav|so[uû]l|mign|mist|mollass|tâcher|tardill)on","ne"],
-  // OT - OTTE
-  ["(bosc|jeun|vieill|s)ot","te"],      
-  // EN - ENNE
-  ["(chatouill|terr|fauch|querell|rebout|gue|cr|cornemus|harengu|lamin|mercur|pr|séléni)eux","euse"],    // EUR - EUSE
-  ["([a-zàâäéèêëïîôöùûüç]+[st]if)|naïf|juif|vif|réflexif","ive","ve"], // ok
-  ["sauf","auve","ve"], // ok 
-  ["(ob)?long","ue"], // ok
+  ["docteur","e","oresse"],
+  ["héros","oïne"],
+  ["aïeux","ieule"],
+  ["esquimau","de"],
+  // 2 mots
+  ["(ob)?long","ue"],
   ["bénin|malin","igne"],
-  ["(ai|ambi|bé|conti|exi|surai|subai)gu","ë"], // ok
-  ["(bis|quadris|tris)?aïeux","ieule"],
-  ["i?ceux","elles"],
-  ["(compl|concr|désu|discr|incompl|indiscr|inqui|préf|repl|secr|qui)et","ète"],
-  ["filou|loulou","te","tte"]
+  ["filou|loulou","te"],
+  ["époux|jaloux","ouse","se"],
+  ["[f|m]ou|foufou","olle"],
+  ["blanc|franc", "he"],
+  ["dissous|absous","oute","te"],
+  ["[vn]euf","euve","ve"],
+  // 7 mots
+  ["(ai|ambi|bé|conti|exi|surai|subai)gu","ë"], // GU·Ë
+  ["(cadu|laï|publi|micma|syndi|tur|gre)c","que"], // C·QUE
+  ["las|bas|gros|gras|épais|andalou|exprès","se"], // S·SE
+  
+  // + de 7 mots
+  ["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et","ète"], // ÈTE (12 mots)
+  ["lascif|nocif|maladif|tardif|naïf|juif|vif|réflexif|([a-zàâäéèêëïîôöùûüç]+[st]if)","ive","ve"], // IF·IVE (8 exceptions + règle générale -tif ou -sif)
+  ["[a-zàâäéèêëïîôöùûüç]+eux","euse"],  // EUX > EUSE règle générale. Exception précedemment gérée : vieux > vieille.
+  
+  // 26 mots pouvant se terminer notamment ou exclusivement par -ERESSE au féminin
+  ["(pêch|acquér|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur","euse","eresse","se"],
+  ["(vainq|assess|gouvern|prédécess)eur","e","euse","eresse","se"],
+  ["devin|quaker|(paqu|codemand|enchant|p[éè]ch)eur","eresse"],
+  ["défendeur","eresse","seuse"],
+
+  // PAS OK (incomplet ou trop général) >>>
+  
+  ["[^t]eur","euse"], // Imparfait. -EUR non précédé d'un T donne généralement EUSE au féminin. Rares exceptions.
+  ["teur","trice","teuse","rice","euse","ice"] // Imparfait. -TEUR donne généralement -TRICE au féminin régulièrement -TEUSE.
+  // ER > ÈRE + règle général IER > IÈRE (prend trop de mots en compte, ex: argousier·ère = incorrect) >
+  ["([a-zàâäéèêëïîôöùûüç]+ier)|(am|arch|berg|bocag|bouch|boulang|cach|caloy|ch|coch|conseill|écaill|écuy|étrang|fromag|gauch|horlog|khm|lég|lignag|ling|magist|maraîch|mast|ménag|mensong|métay|passag|paysag|péag|porch|potag|sup|usag|vach)er","ère"],
+  ["chat|rat|favori|rigolo|coi|favori|((maigri|pâl|bosc|jeun|vieill|s)ot)","te"], // +TE
+  ["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|gém|pastour|agn|b)eaux?","elle"], // EAU > ELLE (singulier et pluriel)
+  ["(fin|pasc|front|département)aux","ales"], // AUX/EAUX > ALES (pluriels)
+  ["([bc]|aigl|sax|bar|berrich|bis|b|bouff|bourguign|bûcher|bret|brouill|b[uû]cher|buffl|champi|coch|couill|cret|dar|drag|espi|fanfar|fél|folich|forger|frip|maç|lett|garç|gasc|glout|grogn|hériss|hur|laider|lap|lett|li|tatill|teut|champi|vigner|wall|lur|maç|maigrich|nipp|ours|pâlich|phara|piét|pige|pi|pochetr|pochtr|poliss|poltr|rejet|ronch|sauvage|sax|beaucer|bess|bich|boug|brabanç|charr|enfanç|fransquill|godich|hesbign|marmit|nazill|négrill|noblaill|patr|percher|pa|levr|louch|maquign|marr|mat|slav|so[uû]l|mign|mist|mollass|tâcher|tardill)on","ne"], // ON·NE
+  ["abbé|âne|bêta|prêtre|bonze|bougre|centaure|chanoine|comte|maître|contremaître|diable|drôle|druide|faune|gonze|hôte|ivrogne|maire|maître|monstre|mulâtre|nègre|notaire|ogre|patronne|pauvre|poète|preste|prêtre|prince|prophète|sauvage|suisse|tigre|traître|vicomte","sse","esse"], // +SSE
+ 
 ];
   
 var dl = dico.length,
