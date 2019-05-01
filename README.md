@@ -11,7 +11,7 @@
 * Page de test adaptée aux nouvelles problématiques
 * Enrichissement du dictionnaire prédictif (terminaisons rares, terminaisons en **-eresse**, **-eur**, **-ète**, **-if**)
 * Suppression de certains conflits entre différentes terminaisons
-* Amélioration de la compatibilité de **LÉIA** avec d'autres scripts (prévention de conflits du DOM)
+* Modification du script pour prévention de conflits du DOM avec d'autres scripts
 * Simplification et amélioration du menu de configuration
 
 ## Problèmes connus en recherche de solution
