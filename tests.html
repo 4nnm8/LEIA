@@ -1,203 +1,392 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <title>LÉIA - Page de tests</title>
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-</head>
-
-<body>
+    <style>
+      * {
+      box-sizing: border-box;
+      }
+      body {
+      font-family: Helvetica, Verdana, Tahoma, Arial, sans-serif;
+      color:#fff;
+      margin:0;
+      padding:0;
+      font-size:1.1em;
+      background:#106eaf;
+      background-image: url(img/bg.png);
+      height:100vh;
+      }
+      .cont{
+      width:100%;
+      height:100%;
+      overflow:auto;
+      padding: 0 20px 0px 20px;
+      background-color:rgba(0,0,0,0.15);
+      }
+      header,article,footer,nav {
+      border-radius:10px;
+      margin-top: 20px;
+      }
+      header,footer{
+      padding: 30px;
+      text-align: center;
+      background-color:rgba(0,0,0,0.3);
+      }
+      .left{   
+      float: left;
+      width: 75%;
+      }
+      aside article, aside, nav{
+      text-align:center;
+      }
+      article {
+      padding: 1px 20px 20px 20px;
+      }
+      nav {
+      padding: 10px 0px 10px 0px;
+      }
+      nav a { padding-left:17px;padding-right:17px  }
+      nav a:hover { color:#bfe7fb }
+      article:nth-of-type(2n),nav{
+      background-color:rgba(255, 255, 255,0.1);
+      }
+      article:nth-of-type(2n+1){
+      background-color:rgba(0, 0, 0,0.1);
+      }
+      aside {
+      float: left;
+      width: 25%;
+      padding-left: 20px;
+      }
+      footer {
+      padding: 20px;
+      text-align: center;
+      }
+      h1,th,body {
+      color:#fff
+      }
+      td,th {
+      border: 1px solid #fff;
+      padding: 2px 8px 2px 8px
+      }
+      a,.bof {
+      color:#ffcc66;
+      text-decoration:none;
+      }
+      h1 {
+      font-size: 2em;
+      }
+      h2 {
+      margin-top:20px
+      }
+      h4 {
+      color:#CEECF5;
+      font-style:italic
+      }
+      code {
+      font-size:1.3em;
+      color:#ee8
+      }
+      header img {
+      height:20vh
+      }
+      q {
+      color:#ccffff;
+      }
+      q:before{
+      content:"« "
+      }
+      q:after{
+      content:" »"
+      }
+      img {
+      vertical-align:middle
+      }
+      /* Clear floats after the columns */
+      .row:after {
+      content: "";
+      display: table;
+      clear: both;
+      }
+      @media (max-width: 800px) {
+      .left, aside {   
+      width: 100%;
+      padding: 0;
+      }
+      }
+      .button {
+      display:inline-block;
+      width:150px;
+      height: auto;
+      padding:5px;
+      line-height:2em;
+      font-size: 1em;
+      background-color:#333;
+      text-decoration:none;
+      text-align:center;
+      }
+      .nope{
+      color:#ff8080;
+      }
+      .oui {
+      color:#99ff99;
+      }
+      kbd{
+      display: inline-block;
+      background-color: #fff;
+      min-width: 39px;
+      height: 39px;
+      border: 1px solid #a9a9a9;
+      border-radius: 5px;
+      box-sizing: border-box !important;
+      color: #7c7c7c;
+      box-shadow: 0px 4px 0px -2px rgba(255,255,255,1), 0px 2px 0px 0px rgba(169,169,169,1);
+      padding: 13px 4px 0 4px;
+      font-size: 12px;
+      font-family: Arial;
+      font-weight:bold;
+      text-align:center;
+      }
+      textarea {
+      width: 70%;
+      height: 150px;
+      border:1px solid #000;
+      color:#888;
+      font-size:0.9em;
+      font-family:sans-serif;
+      }
+      textarea:focus {
+      color:#000
+      }
+      .brouillache {
+      unicode-bidi: bidi-override;
+      direction: rtl;overflow-wrap: break-word;
+      white-space: nowrap;
+      }
+      .brouillache span {
+      display:none;
+      }
+      /* PAGE GRAPHIES */
+      .graph{
+      color:#000;
+      background-color:#0d719e !important
+      }
+      .graph u {
+      color:#f00
+      }
+      table {
+      width:90vw;
+      margin:auto
+      }
+      td,th {
+      border:1px solid #555;
+      font-family: "Acto Book",Verdana,Tahoma,Georgia,sans-serif;
+      font-size:1.2em;
+      padding:4px
+      }
+      th {
+      background-color:#ab1f4d
+      }
+      tr:nth-of-type(2n) {
+      background-color:#a7dcea
+      }
+      tr:nth-of-type(2n+1) {
+      background-color:#5abeea
+      }
+      .d{
+      background-color:#f777a1;
+      color:#333
+      }
+      .g{
+      background-color:#0d719e;
+      border:0
+      }
+    </style>
+  </head>
+  <body>
     <div class="cont">
-        <header>
-            <img src="img/leia.png" tabindex="0" alt="Logo de LÉIA" />
-            <h1>Page de tests</h1>
-			<a href="index.html">Retour</a>
-        </header>
-
-        <div class="row">
-            <section>
-                <article>
-                    <h2>Exemples de phrases en écriture inclusive</h2>
-                    <h4>Si vous désactivez <b>LÉIA</b>, vous constaterez que les phrases "Après" ne sont plus converties !</h4>
-                    <h4>Vous pouvez aussi choisir de n'afficher que les terminaisons au masculin, ou que celles au féminin.</h4>
-                    <p>
-                        <b>Masculin et féminin identiques à l'oral, seul un des deux genres est conservé :</b>
-                        <br/> &nbsp;&nbsp;Avant : <q>Dans ce quartier, les chef<del></del>·fe·s de cuisine sont turc<del></del>·que·s ou grec<del></del>·ques.</q>
-                        <br/> &nbsp;&nbsp;Après : <q>Dans ce quartier, les chef·fe·s de cuisine sont turc·que·s ou grec·ques.</q>
-                    </p>
-                    <p>
-                        <b>Masculin et féminin différents à l'oral, le mot est dupliqué aux deux genres (option par défaut) :</b>
-                        <br/> &nbsp;&nbsp;Avant : <q>Les membres de la chambre haute portent de le titre de sénateur<del></del>·rice.</q>
-                        <br/> &nbsp;&nbsp;Après : <q>Les membres de la chambre haute portent de le titre de sénateur·rice.</q>
-                    </p>
-                    <p>
-                        <b>Les séparateurs · (point médian), ∙ (opérateur puce), . (point), • (puce), - (tiret) et / (slash) sont acceptés :</b>
-                        <br/> &nbsp;&nbsp;Avant : <q>Les randonneur<del></del>∙euse∙s sont parti<del></del>/e/s mais ne sont jamais arrivé<del></del>-e-s car ils<del></del>•elles se sont perdu<del></del>.e.s</q>
-                        <br/> &nbsp;&nbsp;Après : <q>Les randonneur∙euse∙s sont parti/e/s mais ne sont jamais arrivé-e-s car ils•elles se sont perdu.e.s</q>
-                    </p>
-                </article>
-
-                <article>
-                    <h2>Essayez la composition de texte</h2>
-                    <h4>
-						(1) Activez le dictionnaire prédictif dans le menu en haut à droite<br/>
-						(2) Tentez d'écrire quelques mots au masculin.<br/>
-						(3) Un proposition de terminaison inclusive sera proposée.<br/>
-						(4) Si plusieurs terminaisons existent, utilisez les flèches <kbd>&uarr;</kbd> <kbd>&darr;</kbd> pour sélectionner votre préférée.<br/>
-						(5) Faites <kbd>ENTRÉE</kbd> ou <kbd>&rarr;</kbd> pour valider. Ou bien <kbd>ESPACE</kbd> ou n'importe quel autre caractère pour annuler.<br/>
-						Si le dictionnaire ne propose rien ou qu'il est désactivé, entrez vous-même un point médiant en tapant deux fois sur <b>point-virgule</b> <kbd>;</kbd> <kbd>;</kbd></h4>
-                    <textarea></textarea>
-					<!--Souvent, pour s'amuser, femmes et hommes d'équipage, 
-Prennent des albatros, vastes oiseaux·elles des mers, 
-Qui suivent, indolent·e·s compagnon·agne·s de voyage, 
-Le navire glissant sur les gouffres amers.-->
-                </article>
-                <article>
-                    <h2>Visualisation de l'amélioration des contrastes et de la taille des polices</h2>
-                    <h4></h4>
-                    <p style="background-color:#fffcba;color:#ddd">
-						Si vous voyez correctement ce texte, c'est que vous avez activé la fonction d'ajustement des contrastes.
-					</p>
-					<p style="font-size:11px">
-						Ce texte est-il suffisamment grand pour être lu correctement par tou·te·s ?
-					</p>
-                </article>
-					
-                <article>
-                    <h2>Certains mots-composés posent problème</h2>
-                    <p>
-						&nbsp;Avant : <q>sourd<del></del>·e·s-muet<del></del>·te·s</q><br/>
-                        &nbsp;Après : <q>sourd·e·s-muet·te·s</q> (sourds-muets sourdes-muettes serait préférable)
-					</p>
-					<p>directeur·trice·s</p>
-					<p>
-                      haut-le-cœur<br/>
-					  haut-les-cœurs<br/>
-					  haut-le-corps
-                    </p>
-					
-					<p>
-					  <b>Pronoms et adjectifs à vérifier :</b><br/>
-					  mon·ma | ma·mon<br/>
-					  ton·ta | ta·ton<br/>
-					  son·sa | sa·son<br/>
-					  
-					</p>
-					<p>
-					  <b>Exception à ajouter (?) :</b><br/>
-					  hébreu·aïque<br/>
-					  abbé·esse<br/>
-					  péquenot·aude | péquenaude·ot<br/>
-					  butor·de<br/>
-					  canut·use<br/>
-					  bigouden·ène
-					</p>
-
-					
-					<p>
-					<b>ANGLICISMES À RÉGLER OU AJOUTER :</b><br/>
-					  bookmaker·se<br/>
-					  bookmaker·euse<br/>
-					  supporter·trice<br/>
-					  supporter·rice<br/>
-					  supporter·ice<br/>
-					  supporter·euse<br/>
-					  supporter·se<br/>
-					  cowboy·girl<br/>
-					  cowgirl·boy<br/>
-					  supportrice·er <br/>
-					  supportrice·ter ("supporteur" incorrect)<br/>
-					  barman·aid | barman·maid | barmaid·an | barmaid·man<br/>
-					  caméraman·woman | camérawo·man<br/>
-					  one-wo·man show<br/>
-					  star·lette
-					</p>
-				
-					<p><b>Divers mots composés non-inclusifs pour vérification permanente des conflits :</b><br/>
-Fût-il<br/>
-Fut-ce<br/>
-Ainsi soit-il<br/>
-Qu'est-ce que<br/>
-N'est-ce pas<br/>
-arc-en-ciel<br/>
-alcalino-terreux<br/>
-arc-en-ciel<br/>
-arcs-en-ciel<br/>
-arrière-petits-enfants<br/>
-assurance-emploi<br/>
-assurances-emploi<br/>
-avant-centres<br/>
-avants-centres<br/>
-boute-en-train<br/>
-chasse-neige<br/>
-chauffe-eau<br/>
-contre-enquête<br/>
-contre-expertise<br/>
-copie-lettre<br/>
-croc-en-jambe<br/>
-crocs-en-jambe<br/>
-demi-heure<br/>
-demi-queue<br/>
-entraîneurs-chefs<br/>
-entre-nerfs<br/>
-entre-temps<br/>
-faux-semblant<br/>
-faux-sens<br/>
-hors-texte<br/>
-infirmières-chefs<br/>
-laurier-cerise<br/>
-libres-services<br/>
-maréchal-ferrant<br/>
-mécanicien-chef<br/>
-mécaniciens-chefs<br/>
-médecins-chefs<br/>
-mi-temps<br/>
-monte-en-l'air<br/>
-non-engagement<br/>
-non-exécution<br/>
-non-existence<br/>
-nord-est<br/>
-perce-neige<br/>
-pèse-lettre<br/>
-petit-enfant<br/>
-petits-enfants<br/>
-plein-emploi<br/>
-pont-levis<br/>
-porte-enseigne<br/>
-pot-au-feu<br/>
-quatre-temps<br/>
-rez-de-chaussée<br/>
-sans-emploi<br/>
-satellite-espion<br/>
-sous-bois<br/>
-sous-chef<br/>
-sous-emploi<br/>
-sous-ensemble<br/>
-sous-entendu<br/>
-sous-entrepreneur<br/>
-sous-estimation<br/>
-sous-exposition<br/>
-sous-secrétaire<br/>
-sous-secrétaires<br/>
-sous-secrétariat<br/>
-sous-seing<br/>
-sud-est<br/>
-terre-neuve
-                </article>
-            </section>
-            <footer>
-                <a href="index.html">Retour</a>
-            </footer>
-            <footer>
-                Ann Mezurat · LÉIA est sous licence
-                <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank"><img src="img/apache.png" alt="Logo Apache" /></a>
-                <img src="img/w3c.png" alt="Logo World Wide Web Consortium"/>
-            </footer>
-            <br/>
-        </div>
+      <header>
+        <img src="img/leia.png" tabindex="0" alt="Logo de LÉIA" />
+        <h1>Page de tests</h1>
+        <a href="index.html">Retour</a>
+      </header>
+      <div class="row">
+        <section>
+          <article>
+            <h2>Exemples de phrases en écriture inclusive</h2>
+            <h4>Si vous désactivez <b>LÉIA</b>, vous constaterez que les phrases "Après" ne sont plus converties !</h4>
+            <h4>Vous pouvez aussi choisir de n'afficher que les terminaisons au masculin, ou que celles au féminin.</h4>
+            <p>
+              <b>Masculin et féminin identiques à l'oral, seul un des deux genres est conservé :</b>
+              <br/> &nbsp;&nbsp;Avant : <q>Dans ce quartier, les chef<del></del>·fe·s de cuisine sont turc<del></del>·que·s ou grec<del></del>·ques.</q>
+              <br/> &nbsp;&nbsp;Après : <q>Dans ce quartier, les chef·fe·s de cuisine sont turc·que·s ou grec·ques.</q>
+            </p>
+            <p>
+              <b>Masculin et féminin différents à l'oral, le mot est dupliqué aux deux genres (option par défaut) :</b>
+              <br/> &nbsp;&nbsp;Avant : <q>Les membres de la chambre haute portent de le titre de sénateur<del></del>·rice.</q>
+              <br/> &nbsp;&nbsp;Après : <q>Les membres de la chambre haute portent de le titre de sénateur·rice.</q>
+            </p>
+            <p>
+              <b>Les séparateurs · (point médian), ∙ (opérateur puce), . (point), • (puce), - (tiret) et / (slash) sont acceptés :</b>
+              <br/> &nbsp;&nbsp;Avant : <q>Les randonneur<del></del>∙euse∙s sont parti<del></del>/e/s mais ne sont jamais arrivé<del></del>-e-s car ils<del></del>•elles se sont perdu<del></del>.e.s</q>
+              <br/> &nbsp;&nbsp;Après : <q>Les randonneur∙euse∙s sont parti/e/s mais ne sont jamais arrivé-e-s car ils•elles se sont perdu.e.s</q>
+            </p>
+          </article>
+          <article>
+            <h2>Essayez la composition de texte</h2>
+            <h4>
+              (1) Activez le dictionnaire prédictif dans le menu en haut à droite<br/>
+              (2) Tentez d'écrire quelques mots au masculin.<br/>
+              (3) Un proposition de terminaison inclusive sera proposée.<br/>
+              (4) Si plusieurs terminaisons existent, utilisez les flèches <kbd>&uarr;</kbd> <kbd>&darr;</kbd> pour sélectionner votre préférée.<br/>
+              (5) Faites <kbd>ENTRÉE</kbd> ou <kbd>&rarr;</kbd> pour valider. Ou bien <kbd>ESPACE</kbd> ou n'importe quel autre caractère pour annuler.<br/>
+              Si le dictionnaire ne propose rien ou qu'il est désactivé, entrez vous-même un point médiant en tapant deux fois sur <b>point-virgule</b> <kbd>;</kbd> <kbd>;</kbd>
+            </h4>
+            <textarea></textarea>
+            <!--Souvent, pour s'amuser, femmes et hommes d'équipage, 
+              Prennent des albatros, vastes oiseaux·elles des mers, 
+              Qui suivent, indolent·e·s compagnon·agne·s de voyage, 
+              Le navire glissant sur les gouffres amers.-->
+          </article>
+          <article>
+            <h2>Visualisation de l'amélioration des contrastes et de la taille des polices</h2>
+            <h4></h4>
+            <p style="background-color:#fffcba;color:#ddd">
+              Si vous voyez correctement ce texte, c'est que vous avez activé la fonction d'ajustement des contrastes.
+            </p>
+            <p style="font-size:11px">
+              Ce texte est-il suffisamment grand pour être lu correctement par tou·te·s ?
+            </p>
+          </article>
+          <article>
+            <h2>Certains mots-composés posent problème</h2>
+            <p>
+              &nbsp;Avant : <q>sourd<del></del>·e·s-muet<del></del>·te·s</q><br/>
+              &nbsp;Après : <q>sourd·e·s-muet·te·s</q> (sourds-muets sourdes-muettes serait préférable)
+            </p>
+            <p>directeur·trice·s</p>
+            <p>
+              haut-le-cœur<br/>
+              haut-les-cœurs<br/>
+              haut-le-corps
+            </p>
+            <p>
+              <b>Pronoms et adjectifs à vérifier :</b><br/>
+              mon·ma | ma·mon<br/>
+              ton·ta | ta·ton<br/>
+              son·sa | sa·son<br/>
+            </p>
+            <p>
+              <b>Exception à ajouter (?) :</b><br/>
+              hébreu·aïque<br/>
+              abbé·esse<br/>
+              péquenot·aude | péquenaude·ot<br/>
+              butor·de<br/>
+              canut·use<br/>
+              bigouden·ène
+            </p>
+            <p>
+              <b>ANGLICISMES À RÉGLER OU AJOUTER :</b><br/>
+              bookmaker·se<br/>
+              bookmaker·euse<br/>
+              supporter·trice<br/>
+              supporter·rice<br/>
+              supporter·ice<br/>
+              supporter·euse<br/>
+              supporter·se<br/>
+              cowboy·girl<br/>
+              cowgirl·boy<br/>
+              supportrice·er <br/>
+              supportrice·ter ("supporteur" incorrect)<br/>
+              barman·aid | barman·maid | barmaid·an | barmaid·man<br/>
+              caméraman·woman | camérawo·man<br/>
+              one-wo·man show<br/>
+              star·lette
+            </p>
+            <p><b>Divers mots composés non-inclusifs pour vérification permanente des conflits :</b><br/>
+              Fût-il<br/>
+              Fut-ce<br/>
+              Ainsi soit-il<br/>
+              Qu'est-ce que<br/>
+              N'est-ce pas<br/>
+              arc-en-ciel<br/>
+              alcalino-terreux<br/>
+              arc-en-ciel<br/>
+              arcs-en-ciel<br/>
+              arrière-petits-enfants<br/>
+              assurance-emploi<br/>
+              assurances-emploi<br/>
+              avant-centres<br/>
+              avants-centres<br/>
+              boute-en-train<br/>
+              chasse-neige<br/>
+              chauffe-eau<br/>
+              contre-enquête<br/>
+              contre-expertise<br/>
+              copie-lettre<br/>
+              croc-en-jambe<br/>
+              crocs-en-jambe<br/>
+              demi-heure<br/>
+              demi-queue<br/>
+              entraîneurs-chefs<br/>
+              entre-nerfs<br/>
+              entre-temps<br/>
+              faux-semblant<br/>
+              faux-sens<br/>
+              hors-texte<br/>
+              infirmières-chefs<br/>
+              laurier-cerise<br/>
+              libres-services<br/>
+              maréchal-ferrant<br/>
+              mécanicien-chef<br/>
+              mécaniciens-chefs<br/>
+              médecins-chefs<br/>
+              mi-temps<br/>
+              monte-en-l'air<br/>
+              non-engagement<br/>
+              non-exécution<br/>
+              non-existence<br/>
+              nord-est<br/>
+              perce-neige<br/>
+              pèse-lettre<br/>
+              petit-enfant<br/>
+              petits-enfants<br/>
+              plein-emploi<br/>
+              pont-levis<br/>
+              porte-enseigne<br/>
+              pot-au-feu<br/>
+              quatre-temps<br/>
+              rez-de-chaussée<br/>
+              sans-emploi<br/>
+              satellite-espion<br/>
+              sous-bois<br/>
+              sous-chef<br/>
+              sous-emploi<br/>
+              sous-ensemble<br/>
+              sous-entendu<br/>
+              sous-entrepreneur<br/>
+              sous-estimation<br/>
+              sous-exposition<br/>
+              sous-secrétaire<br/>
+              sous-secrétaires<br/>
+              sous-secrétariat<br/>
+              sous-seing<br/>
+              sud-est<br/>
+              terre-neuve
+          </article>
+        </section>
+        <footer>
+          <a href="index.html">Retour</a>
+        </footer>
+        <footer>
+          Ann Mezurat · LÉIA est sous licence
+          <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank"><img src="img/apache.png" alt="Logo Apache" /></a>
+          <img src="img/w3c.png" alt="Logo World Wide Web Consortium"/>
+        </footer>
+        <br/>
+      </div>
     </div>
     <script src="leia.js"></script>
-</body>
-
+  </body>
 </html>
