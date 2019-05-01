@@ -7,21 +7,24 @@
 **LÉIA** est sous licence Apache
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
 
-## Dernières mises-à jour
-* Enrichissement du dictionnaire prédictif
+## Dernières mises-à-jour
+* Page de test adaptée aux nouvelles problématiques
+* Enrichissement du dictionnaire prédictif (terminaisons rares, terminaisons en **-eresse**, **-eur**, **-ète**, **-if**)
 * Suppression de certains conflits entre différentes terminaisons
-* Amélioration de la compatibilité de LÉIA avec d'autres scripts
+* Amélioration de la compatibilité de **LÉIA** avec d'autres scripts (prévention de conflits du DOM)
 * Simplification et amélioration du menu de configuration
 
 ## Problèmes connus en recherche de solution
-* DOM flickering pour une raison inconnue
+* Réflexion sur la suppression des fonctionnalités de **contraste** et de **taille de police** pour éviter redondance avec celles des utilisateur·ices.
+* **DOM flickering** pour une raison inconnue
 * Les mots composés tels que **sourd·e-muet·te** donnent **sourd sourde-muet muette** lorsque **sourd-muet sourde-muette** serait préférable
 * Conflit avec les mots composés contenant **t-le** (ex : haut-le-cœur) 
 * Anglicisme ayant un masculin en **-er** et un féminin en **-euse** ou **-trice** non pris en compte (ex : bookmaker·euse
 supporter·trice)
-* Redondance entre le dictionnaire prédictif et le dictionnaire de conversion → Un seul système de dictionnaire plus efficace et moins conflictuel.
+* Redondance entre le dictionnaire prédictif et le dictionnaire de conversion 
+But → Un seul système de dictionnaire plus efficace et moins conflictuel.
 * Optimisation possible du **TreeWalker** et de la fonction **highlight()**
-* Dictionnaire prédictif imparfait
+* Dictionnaire prédictif imparfait (certaines règles trop globales, terminaisons en **double consonnes + e** pour le moment ignorées)
 
 ## Résumé
 
