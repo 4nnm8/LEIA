@@ -100,9 +100,10 @@ t9 = [
   ["docteur","e","oresse"],
   ["héros","oïne"],
   ["aïeux","ieule"],
-  ["esquimau","de"],
+  ["canut","use"],
   // 2 mots
   ["(ob)?long","ue"],
+  ["butor|esquimau","de"],
   ["bénin|malin","igne"],
   ["filou|loulou","te"],
   ["époux|jaloux","ouse","se"],
@@ -113,7 +114,7 @@ t9 = [
   // 7 mots
   ["(ai|ambi|bé|conti|exi|surai|subai)gu","ë"], // GU·Ë
   ["(cadu|laï|publi|micma|syndi|tur|gre)c","que"], // C·QUE
-  ["las|bas|gros|gras|épais|andalou|exprès","se"], // S·SE
+  ["las|^bas|gros|gras|épais|andalou|exprès","se"], // S·SE
   
   // + de 7 mots
   ["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et","ète"], // ÈTE (12 mots)
@@ -128,16 +129,15 @@ t9 = [
 
   // PAS OK (incomplet ou trop général) >>>
   
-  ["[^t]eur","euse"], // Imparfait. -EUR non précédé d'un T donne généralement EUSE au féminin. Rares exceptions.
-  ["teur","trice","teuse","rice","euse","ice"] // Imparfait. -TEUR donne généralement -TRICE au féminin régulièrement -TEUSE.
-  // ER > ÈRE + règle général IER > IÈRE (prend trop de mots en compte, ex: argousier·ère = incorrect) >
+  ["[a-zàâäéèêëïîôöùûüç]+[^t]eur","euse"], // Imparfait. -EUR non précédé d'un T donne généralement EUSE au féminin, mais rares exceptions.
+  ["[a-zàâäéèêëïîôöùûüç]+teur","trice","teuse","rice","euse","ice"], // Imparfait. -TEUR donne généralement -TRICE au féminin mais aussi régulièrement -TEUSE. Parfois les deux.
+  // ER > ÈRE + Règle générale IER > IÈRE. Imparfait : prend trop de mots en compte, (ex: argousier·ère = incorrect) >
   ["([a-zàâäéèêëïîôöùûüç]+ier)|(am|arch|berg|bocag|bouch|boulang|cach|caloy|ch|coch|conseill|écaill|écuy|étrang|fromag|gauch|horlog|khm|lég|lignag|ling|magist|maraîch|mast|ménag|mensong|métay|passag|paysag|péag|porch|potag|sup|usag|vach)er","ère"],
   ["chat|rat|favori|rigolo|coi|favori|((maigri|pâl|bosc|jeun|vieill|s)ot)","te"], // +TE
   ["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|gém|pastour|agn|b)eaux?","elle"], // EAU > ELLE (singulier et pluriel)
   ["(fin|pasc|front|département)aux","ales"], // AUX/EAUX > ALES (pluriels)
   ["([bc]|aigl|sax|bar|berrich|bis|b|bouff|bourguign|bûcher|bret|brouill|b[uû]cher|buffl|champi|coch|couill|cret|dar|drag|espi|fanfar|fél|folich|forger|frip|maç|lett|garç|gasc|glout|grogn|hériss|hur|laider|lap|lett|li|tatill|teut|champi|vigner|wall|lur|maç|maigrich|nipp|ours|pâlich|phara|piét|pige|pi|pochetr|pochtr|poliss|poltr|rejet|ronch|sauvage|sax|beaucer|bess|bich|boug|brabanç|charr|enfanç|fransquill|godich|hesbign|marmit|nazill|négrill|noblaill|patr|percher|pa|levr|louch|maquign|marr|mat|slav|so[uû]l|mign|mist|mollass|tâcher|tardill)on","ne"], // ON·NE
-  ["abbé|âne|bêta|prêtre|bonze|bougre|centaure|chanoine|comte|maître|contremaître|diable|drôle|druide|faune|gonze|hôte|ivrogne|maire|maître|monstre|mulâtre|nègre|notaire|ogre|patronne|pauvre|poète|preste|prêtre|prince|prophète|sauvage|suisse|tigre|traître|vicomte","sse","esse"], // +SSE
- 
+  ["abbé|âne|bêta|prêtre|bonze|bougre|centaure|chanoine|comte|maître|contremaître|diable|drôle|druide|faune|gonze|hôte|ivrogne|maire|maître|monstre|mulâtre|nègre|notaire|ogre|patronne|pauvre|poète|preste|prêtre|prince|prophète|sauvage|suisse|tigre|traître","sse","esse"], // +SSE
 ];
   
 var dl = dico.length,
@@ -173,6 +173,7 @@ var dl = dico.length,
 bouton.type = "button",
 bouton.value = "Menu LÉIA",
 bouton.className = "config";
+bouton.tabIndex = "1";
 bouton.onclick = function(){ popup() };
 document.body.appendChild(bouton);
 
@@ -325,7 +326,7 @@ function getWord(text, caretPos) {
 
 function seek(x) {
   for (var i = 0; i < pt; i++) {
-    let reg = new RegExp(t9[i][0] + "s?$", "i"),
+    let reg = new RegExp("^" + t9[i][0] + "s?$", "i"),
       mch = x.search(reg)
     if (mch != -1) {
       return t9[i]
