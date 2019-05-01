@@ -7,7 +7,7 @@
 **LÉIA** est sous licence Apache
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
 
-## Dernières mises-à-jour
+## Dernières mises-à-jour (02/05/2019)
 * Page de test adaptée aux nouvelles problématiques
 * Enrichissement du dictionnaire prédictif (terminaisons rares, terminaisons en **-eresse**, **-eur**, **-ète**, **-if**)
 * Suppression de certains conflits entre différentes terminaisons
