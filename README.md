@@ -77,7 +77,7 @@ Mais aussi (même si ces options seront peut être supprimées à terme pour év
 
 Le script parcours l'architecture d'une page web à la recherche de motifs propres à l'écriture inclusive. En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture.
 
-##### Exemple :#####
+##### Exemple : #####
 
 * Le script détecte **artisan·e·s **
 * Il détecte le motif **racine – séparateur – e – s **
