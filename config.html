@@ -50,41 +50,6 @@
           <p class="ex"><b>Exemple :</b> imprimeur<span id="ex">·euse</span></p>
         </td>
       </tr>
-      <tr>
-        <td><label for="kolo">Améliorer le contraste texte / arrière-plan</label></td>
-        <td>
-          <select id="kolo">
-            <option value="0">Désactivé</option>
-            <option value="1">Activé</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="font">Réhausser la taille des polices</label></td>
-        <td>
-          <select id="font">
-            <option value="0">Désactivé</option>
-            <option value="1">Activé</option>
-          </select>
-        </td>
-      </tr>
-
-      <tr>
-        <td><label for="fontType">Choix de polices adaptées à la dyslexie</label></td>
-        <td>
-          <select id="fontType">
-            <option value="0">Police par défaut</option>
-            <option value="1">Andika New Basic</option>
-            <option value="2">Open Dyslexic</option>
-            <option value="3">Lexie Readable</option>
-            <option value="4">Sassoon Sans Std</option>
-            <option value="5">Sassoon Sans Slope Std</option>
-            <option value="6">Sassoon Infant Std</option>
-            <option value="7">Sassoon Primary Std</option>
-          </select><br/>
-          <span id="ex2">Voici un exemple</span>
-        </td>
-      </tr>
     </table>
     
     <p><button id="launch">Appliquer les changements</button></p>
@@ -128,9 +93,6 @@
         set("mode");
         set("pred");
         set("high");
-        set("kolo");
-        set("font");
-        set("fontType");
         ($("fontWeight").checked == true) ? localStorage.setItem("fontWeight","bold") : localStorage.setItem("fontWeight","normal");
         ($("txtDeco").checked == true) ? localStorage.setItem("txtDeco","underline") : localStorage.setItem("txtDeco","none");
         localStorage.setItem("bgColor",$("bgColor").value);
@@ -142,9 +104,6 @@
       $("mode").selectedIndex = get("mode") || 0;
       $("pred").selectedIndex = get("pred") || 1;
       $("high").selectedIndex = get("high") || 0;
-      $("kolo").selectedIndex = get("kolo") || 0;
-      $("font").selectedIndex = get("font") || 0;
-      $("fontType").selectedIndex = get("fontType") || 0;
       $("txtColor").value = get("txtColor");
       $("bgColor").value = get("bgColor");
       $("ex").style.textDecoration = get("txtDeco");
@@ -159,9 +118,6 @@
       } else {
         $("mode").setAttribute("disabled",true);
       }
-      //document.getElementById("fontRatio").value = localStorage.getItem("fontRatio") || 30;
-      //document.getElementById("kolorRatio").value = localStorage.getItem("kolorRatio") || 100;
-      
       addEvent($("bgColor"), 'change', function(e) {
         $("ex").style.backgroundColor = this.value
       });
@@ -173,9 +129,6 @@
       });
       addEvent($("txtDeco"), 'change', function(e) {
         (this.checked == true) ? $('ex').style.textDecoration = 'underline' : $('ex').style.textDecoration = 'none';
-      });
-      addEvent($("fontType"), 'change', function(e) {
-        $("ex2").style.fontFamily = this.options[this.selectedIndex].text
       });
       addEvent($("leia"), 'change', function(e) {
         if (this.selectedIndex == 1) { 

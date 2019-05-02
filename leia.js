@@ -147,12 +147,7 @@ var dl = dico.length,
     mode = Number(localStorage.getItem("mode")) + 2 ||  2,
     pred =  localStorage.getItem("pred") || 1,
     high = localStorage.getItem("high") || 0,
-    font = localStorage.getItem("font") || 0,
-    kolo = localStorage.getItem("kolo") ||  0,
-    fontType = localStorage.getItem("fontType") || 0,
-    fontRatio = localStorage.getItem("fontRatio") ||  30,
-    koloRatio = localStorage.getItem("koloRatio") ||  100,
-    bgColor = localStorage.getItem("bgColor") || "#ccc",
+      bgColor = localStorage.getItem("bgColor") || "#ccc",
     txtColor = localStorage.getItem("txtColor") || "#000",
     fontWeight = localStorage.getItem("fontWeight") || "bold",
     txtDeco = localStorage.getItem("txtDeco") || "none",
@@ -218,47 +213,6 @@ function highlight(node) {
 } 
 if (high == 1) highlight(document.body);
   
-/********** CONTRASTES & POLICE **********************************************/
-
-function kontrast(z) {
-  var bg = window.getComputedStyle(z).backgroundColor;
-  while (bg == ("rgba(0, 0, 0, 0)" || "transparent")) {
-    z = z.parentElement;
-    bg = window.getComputedStyle(z).backgroundColor;
-  }
-  var nb = bg.replace(/rgb\((.*)\)/, "$1").split(","),
-    br = ((nb[0] * 299) + (nb[1] * 587) + (nb[2] * 114)) / 1000;
-  return (br >= 128) ? "#000" : "#fff";
-}
-
-function whichfont(f) {
-  switch (Number(f)) {
-    case 1: return "Andika New Basic"; break;
-    case 2: return "Open Dyslexic"; break;  
-    case 3: return "Lexie Readable"; break;
-    case 4: return "Sassoon Sans Std"; break;
-    case 5: return "Sassoon Sans Slope Std"; break;
-    case 6: return "Sassoon Infant Std"; break;
-    case 7: return "Sassoon Primary Std"; break;
-  }  
-}
-
-function fontSiz(u,v) {
-  let aFontSize = parseFloat(v.fontSize),
-  aNewSize = (aFontSize < 16) ? 16 : aFontSize;    
-  u.style.fontSize = Math.round(aNewSize/16) + "em";
-  u.style.lineHeight = aFontSize*1.5+"px";    
-  if (v.textAlign == "justify") u.style.textAlign = "left";
-  
-  /*if (v.display != "inline" && (parseFloat((getStyle(u.parentNode)).height) < u.parentNode.scrollHeight)) {
-    u.parentNode.className += " zoomable"
-  }*/
-}
-
-if (font == 1) {
-  document.body.className += "bodyadj"
-  document.documentElement.className += "bodyadj"
-}
   
 /********** CONVERSION ÉCRITURE INCLUSIVE ************************************/
 
@@ -267,10 +221,6 @@ while (tree.nextNode()) {
   if (tree.currentNode.nodeValue.trim().length > 0) {
     ndLst.push(tree.currentNode);
     var pnode = tree.currentNode.parentNode;
-            
-    if (kolo == 1) { pnode.style.color = kontrast(pnode) }
-    if (font == 1)  { fontSiz(pnode,getStyle(pnode)) }
-    if (fontType != 0)  { pnode.style.fontFamily = whichfont(fontType) }
     if (leia == 1) {
       for (var i = 0, j = 0; i < dl; i++, j = Math.min(j + 1, pl - 1)) {
         var r1 = new RegExp("([a-zàâäéèêëïîôöùûüçæœ]+)("+dico[i][0]+")[-/·∙.•]("+dico[i][1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
