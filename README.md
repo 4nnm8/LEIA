@@ -15,7 +15,6 @@
 * Simplification et amélioration du menu de configuration
 
 ## Problèmes connus en recherche de solution
-* Réflexion sur la suppression des fonctionnalités de **contraste** et de **taille de police** pour éviter redondance avec celles des utilisateur·ices.
 * **DOM flickering** pour une raison inconnue
 * Les mots composés tels que **sourd·e-muet·te** donnent **sourd sourde-muet muette** lorsque **sourd-muet sourde-muette** serait préférable
 * Conflit avec les mots composés contenant **t-le** (ex : haut-le-cœur) 
