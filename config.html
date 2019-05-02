@@ -2,27 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Configurer LÉIA</title>
+	<title>Configurer LÉIA</title>
     <link rel="stylesheet" href="leia.css" type="text/css" media="screen" />
   </head>
   <body class="conf">  
     <table>
       <tr>
-        <td> <label for="leia">Écriture inclusive accessible</label></td>
-        <td>
-          <select id="leia">
-            <option value="0">Désactivé</option>
-            <option value="1">Activé</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
         <td><label for="mode">Choix du mode de lecture inclusive</label></td>
         <td>
           <select id="mode">
-            <option value="0">Mots lus aux deux genres</option>
-            <option value="1">Mots lus au féminin uniquement</option>
-            <option value="2">Mots lus au maculin uniquement</option>
+		    <option value="0">Aucun - Désactivé</option>
+            <option value="1">Mots lus aux deux genres</option>
+            <option value="2">Mots lus au féminin uniquement</option>
+            <option value="3">Mots lus au maculin uniquement</option>
           </select>
         </td>
       </tr>
@@ -36,7 +28,7 @@
         </td>
       </tr>
       <tr>
-        <td><label for="high">Surligner l'écriture inlusive</label></td>
+        <td><label for="high">Surligner l"écriture inlusive</label></td>
         <td>
           <select id="high">
             <option value="0">Désactivé</option>
@@ -46,7 +38,6 @@
           <input type="color" id="txtColor" /> Couleur du texte<br/>
           <label for="fontWeight"><input type="checkbox" id="fontWeight" /> Gras</label>
           <label for="txtDeco"><input type="checkbox" id="txtDeco" /> Souligné</label><br/>
-          
           <p class="ex"><b>Exemple :</b> imprimeur<span id="ex">·euse</span></p>
         </td>
       </tr>
@@ -62,10 +53,10 @@
           obj.addEventListener(evt, fn, false);
           return true;
         } else if (obj.attachEvent) {
-          return obj.attachEvent('on' + evt, fn);
+          return obj.attachEvent("on" + evt, fn);
         } else {
-          evt = 'on' + evt;
-          if (typeof obj[evt] === 'function') {
+          evt = "on" + evt;
+          if (typeof obj[evt] === "function") {
             fn = (function(f1, f2) {
               return function() {
                 f1.apply(this, arguments);
@@ -89,7 +80,6 @@
         localStorage.setItem(n,vl);
       }      
       function passCfg(){
-        set("leia");
         set("mode");
         set("pred");
         set("high");
@@ -100,8 +90,7 @@
         window.opener.location.reload();
         window.close();
       }
-      $("leia").selectedIndex = get("leia") || 1;
-      $("mode").selectedIndex = get("mode") || 0;
+      $("mode").selectedIndex = get("mode") || 1;
       $("pred").selectedIndex = get("pred") || 1;
       $("high").selectedIndex = get("high") || 0;
       $("txtColor").value = get("txtColor");
@@ -112,39 +101,30 @@
       $("ex").style.color = get("txtColor");
       (get("fontWeight") == "bold" ) ? $("fontWeight").checked = true : $("fontWeight").checked = false; 
       (get("txtDeco") == "underline" ) ? $("txtDeco").checked = true : $("txtDeco").checked = false;
-      if (get("leia") == 1) {
-        $("high").selectedIndex = 0 ;
-        $("mode").removeAttribute("disabled");
-      } else {
-        $("mode").setAttribute("disabled",true);
-      }
-      addEvent($("bgColor"), 'change', function(e) {
+      addEvent($("bgColor"), "change", function(e) {
         $("ex").style.backgroundColor = this.value
       });
-      addEvent($("txtColor"), 'change', function(e) {
+      addEvent($("txtColor"), "change", function(e) {
         $("ex").style.color = this.value
       });
-      addEvent($("fontWeight"), 'change', function(e) {
-        (this.checked == true) ? $('ex').style.fontWeight = 'bold' : $('ex').style.fontWeight = 'normal';
+      addEvent($("fontWeight"), "change", function(e) {
+        (this.checked == true) ? $("ex").style.fontWeight = "bold" : $("ex").style.fontWeight = "normal";
       });
-      addEvent($("txtDeco"), 'change', function(e) {
-        (this.checked == true) ? $('ex').style.textDecoration = 'underline' : $('ex').style.textDecoration = 'none';
+      addEvent($("txtDeco"), "change", function(e) {
+        (this.checked == true) ? $("ex").style.textDecoration = "underline" : $("ex").style.textDecoration = "none";
       });
-      addEvent($("leia"), 'change', function(e) {
-        if (this.selectedIndex == 1) { 
-          $("high").selectedIndex = 0 ;
-          $("mode").removeAttribute("disabled");
-        } else {
-          $("mode").setAttribute("disabled",true);
-        }
-      });
-      addEvent($("high"), 'change', function(e) {
+      addEvent($("high"), "change", function(e) {
         if (this.selectedIndex == 1) {
-          $("leia").selectedIndex = 0;
+          $("mode").selectedIndex = 0;
         }
       });
-      addEvent($("launch"), 'click', passCfg);
-      addEvent(window,'beforeunload',passCfg);
+	  addEvent($("mode"), "change", function(e) {
+        if (this.selectedIndex !== 0) {
+          $("high").selectedIndex = 0;
+        }
+      });
+      addEvent($("launch"),"click",passCfg);
+      addEvent(window,"beforeunload",passCfg);
     </script>
   </body>
 </html>

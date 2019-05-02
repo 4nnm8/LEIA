@@ -9,9 +9,6 @@ http://www.apache.org/licenses/LICENSE-2.0
 Faites un don : https://bit.ly/2vuzK7g
 **/
 
-"use strict";
-
-
 /********** RACCOURCIS FONCTIONS *********************************************/
 
 function addEvent(obj, evt, fn) { 
@@ -52,7 +49,7 @@ link.href = "leia.css";
 link.media = "all";
 head.appendChild(link);
   
-/********** VARIABLES ********************************************************/
+/********** DICTIONNAIRES & VARIABLES ****************************************/
 
 const dico = [
   ["[eè]([crt])", "(èc)?(h)?e", "$1e$3$7 $1è$3$6e$7", "$1è$3$6e$7", "$1e$3$7"],
@@ -143,13 +140,12 @@ t9 = [
 var dl = dico.length,
     pl = pron.length,
     pt = t9.length,
-    leia = localStorage.getItem("leia") || 1,
-    mode = Number(localStorage.getItem("mode")) + 2 ||  2,
-    pred =  localStorage.getItem("pred") || 1,
+    mode = Number(localStorage.getItem("mode")) + 1 || 1,
+    pred = localStorage.getItem("pred") || 1,
     high = localStorage.getItem("high") || 0,
-      bgColor = localStorage.getItem("bgColor") || "#ccc",
+    bgColor = localStorage.getItem("bgColor") || "#ff0",
     txtColor = localStorage.getItem("txtColor") || "#000",
-    fontWeight = localStorage.getItem("fontWeight") || "bold",
+    fontWeight = localStorage.getItem("fontWeight") || "normal",
     txtDeco = localStorage.getItem("txtDeco") || "none",
     term, terml, termp = 1,
     ndLst = [],
@@ -189,8 +185,7 @@ addEvent(document, "keydown", function(e) {
 /********** MISE EN EVIDENCE ECRITURE INCLUSIVE ******************************/
 
 function highlight(node) {
-  if(/^(?:MARK|SCRIPT|STYLE|FORM)$/.test(node.nodeName)) return;
-
+  if(/^(?:MARK|SCRIPT|STYLE|INPUT|TEXTAREA)$/.test(node.nodeName)) return;
   if(node.hasChildNodes()) {
     for(var i = 0 ; i < node.childNodes.length ; i++) {
     highlight(node.childNodes[i]);
@@ -199,20 +194,19 @@ function highlight(node) {
   if(node.nodeType == 3) { 
     var r = r3.exec(node.nodeValue);
     if(r) {
-    var nmark = document.createElement("MARK"),
-        after = node.splitText(r.index);
-    nmark.appendChild(document.createTextNode(r[0]));
-    nmark.style.backgroundColor = bgColor;
-    nmark.style.color = txtColor;
-    nmark.style.textDecoration = txtDeco;
-    nmark.style.fontWeight = fontWeight;
-    after.nodeValue = after.nodeValue.substring(r[0].length);
-    node.parentNode.insertBefore(nmark, after);
+      var nmark = document.createElement("MARK"),
+          after = node.splitText(r.index);
+      nmark.appendChild(document.createTextNode(r[0]));
+      nmark.style.backgroundColor = bgColor;
+      nmark.style.color = txtColor;
+      nmark.style.textDecoration = txtDeco;
+      nmark.style.fontWeight = fontWeight;
+      after.nodeValue = after.nodeValue.substring(r[0].length);
+      node.parentNode.insertBefore(nmark, after);
     }
   }
 } 
 if (high == 1) highlight(document.body);
-  
   
 /********** CONVERSION ÉCRITURE INCLUSIVE ************************************/
 
@@ -221,7 +215,7 @@ while (tree.nextNode()) {
   if (tree.currentNode.nodeValue.trim().length > 0) {
     ndLst.push(tree.currentNode);
     var pnode = tree.currentNode.parentNode;
-    if (leia == 1) {
+    if (mode >= 2) {
       for (var i = 0, j = 0; i < dl; i++, j = Math.min(j + 1, pl - 1)) {
         var r1 = new RegExp("([a-zàâäéèêëïîôöùûüçæœ]+)("+dico[i][0]+")[-/·∙.•]("+dico[i][1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
             r2 = new RegExp("(" + pron[j][0] + ")[-\/·∙.•](" + pron[j][1] + ")", "gi");
