@@ -73,13 +73,6 @@ LÉIA permet diverses choses :
 * Accéder simplement au point médian grâce à un raccourci clavier simple [ ; ] + [ ; ]
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
 
-Mais aussi (même si ces options seront peut être supprimées à terme pour éviter des redondances avec d'autres programmes déjà utilisés) :
-
-* Améliorer les contrastes texte / arrière plan
-* Réhausser la taille des polices à minimum 16 pixels
-* Réhausser l'interlignage
-* Remplacer les polices de la page par une police adaptée aux personnes dyslexiques 
-
 ### Comment ça marche ? ###
 
 Le script parcours l'architecture d'une page web à la recherche de motifs propres à l'écriture inclusive. En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture.
