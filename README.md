@@ -20,7 +20,7 @@
 * Conflit avec les mots composés contenant **t-le** (ex : haut-le-cœur) 
 * Anglicisme ayant un masculin en **-er** et un féminin en **-euse** ou **-trice** non pris en compte (ex : bookmaker·euse
 supporter·trice)
-* Redondance entre le dictionnaire prédictif et le dictionnaire de conversion 
+* Redondance entre le dictionnaire prédictif et le dictionnaire de conversion
 But → Un seul système de dictionnaire plus efficace et moins conflictuel.
 * Optimisation possible du **TreeWalker** et de la fonction **highlight()**
 * Dictionnaire prédictif imparfait (certaines règles trop globales, terminaisons en **double consonnes + e** pour le moment ignorées)
@@ -47,7 +47,7 @@ Par exemple, au lieu d'écrire :
 On écrira :
 « Les membres de la chambre haute sont **désigné·es** par le titre de **sénateur·rice** »
 
-**Même si nous devons nous réjouir de cette réforme de la langue française, celle-ci amène avec elle quelques complications.**
+Même si nous devons nous réjouir de cette réforme de la langue française, celle-ci amène avec elle quelques complications.
 
 ## Alors quel est le problème ?
 
@@ -57,17 +57,15 @@ Bien que l'orthographe grammaticale ne soit pas fondamentalement bouleversée, e
 
 L'écriture inclusive s'emploie généralement avec des caractères spéciaux - point médian (·) ou puce (•) qui sont mal interprétés, soit le point (.) ou le tiret (-) qui sont déjà voués à d'autres usages syntaxiques. De plus, tous les lecteurs d'écran n'interprètent pas ces séparateurs de la même façon.
 
-L'accessibilité web a toujours été une surcouche informatique pénible pour les développeur·euse·s qui ne s'en préoccupent que rarement pour de diverses raisons : manque de temps ou d'information à ce sujet, difficultés à trouver des normes universelles acceptées par tous les navigateurs et systèmes d’exploitation, ou encore parce que les personnes malvoyantes sont parfois considérées comme une minorité pour laquelle il est peut intéressant d'accorder de l'énergie.
+L'accessibilité web a toujours été une surcouche informatique pénible pour les développeur·euse·s qui ne s'en préoccupent que rarement pour de diverses raisons : manque de temps ou d'information à ce sujet, difficultés à trouver des normes universelles acceptées par tous les navigateurs et systèmes d’exploitation, ou encore parce que les personnes malvoyantes sont parfois considérées comme une minorité pour laquelle il est peut intéressant d'accorder du temps et de l'argent.
 
-Partant de ce constat, et après avoir constaté sur internet que de nombreuses personnes malvoyantes regrettaient de ces nouvelles normes, il m'a semblé intéressant de chercher une solution la plus universelle possible pour rendre l'**écriture inclusive réellement inclusive** !
-
-C'est à dire qu'elle soit accessible également pour les personnes malvoyantes.
+Partant de ce constat, et après avoir constaté sur internet que de nombreuses personnes malvoyantes regrettaient de ces nouvelles normes, il m'a semblé intéressant de chercher une solution la plus universelle possible pour que l'écriture inclusive soit également accessible pour les personnes malvoyantes. Et donc, **une écriture inclusive réellement inclusive** !
 
 ## LÉIA
 
 LÉIA permet diverses choses :
 * Supprimer les séparateurs et réécrire les phrases de façon intelligible par les lecteurs d'écran
-(en lisant le mot aux deux genres, ou seulement au masculin, ou seulement au féminin)
+(en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur·rice)
 * Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
 * Accéder simplement au point médian grâce à un raccourci clavier simple [ ; ] + [ ; ]
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
@@ -80,7 +78,7 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 
 * Le script détecte **artisan·e·s**
 * Il détecte le motif **racine – séparateur – e – s**
-* La dernière lettre de la racine étant un n, le script appelle une règle concernant les mots dont le féminin et le masculin sont différents à l'oral. 
+* La dernière lettre de la racine étant un **n**, le script appelle une règle concernant les mots dont le féminin et le masculin "sonnent" différemment à l'oral. 
 * La règle de sortie suivante est utilisée : **racine – suffixe masculin – s [espace] racine – suffixe féminin – s**
 * Le script replace l'expression originale par **artisans artisanes**
 
@@ -90,11 +88,11 @@ L'élaboration de ce programme, qui a commencé il y a un peu plus d'un an fût 
 
 ### Recherche sur l'orthographe française ###
 
-Les guide de rédaction en écriture inclusive, et notamment celui du [Haut Conseil à l'Égalité](http://bit.ly/2fejwZ7) qui tente de la populariser, proposent seulement une poignée de graphies possibles pour seulement 17 terminaisons et 5 pronoms, adverbes etc. Or, d'après de longues recherches, j'ai identifié 47 terminaisons différentes et 11 pronoms, adverbes, etc, différenciant le masculin et le féminin.
+Les guide de rédaction en écriture inclusive, et notamment celui du [Haut Conseil à l'Égalité](http://bit.ly/2fejwZ7) qui tente de la populariser, proposent seulement une poignée de graphies possibles pour seulement 17 terminaisons et 5 pronoms, adverbes etc. Or, d'après de longues recherches, j'ai identifié une **soixantaine de terminaisons différentes** et 11 pronoms, adverbes, etc, différenciant le masculin du féminin.
 
 ### Recherche sur les usages populaires de l'écriture inclusive ###
 
-Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux·euse**, certains écrivent **amoureux·se**. J'ai du enfin créer différentes formes de néologismes pour des mots que je n'avais jamais rencontré (ex : tier·ce·s ou tiers·ces).
+Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux·euse**, certains écrivent **amoureux·se**. J'ai du enfin créer différentes formes de néologismes pour des mots que je n'avais jamais rencontré (ex : **tier·ce·s** ou **tiers·ces**).
 
 ### Programmation ###
 
@@ -105,7 +103,6 @@ Pour le reste, je vous laisse analyser le fichier [leia.js](https://github.com/A
 Si vous constatez le moindre bug, [n'hésitez-pas à me le signaler](mailto:a.mezurat@protonmail.com) :)
 
 ## Reccomandations sur l'usage de l'écriture inclusive
-
 
 Parmi ces 6 séparateurs en usage : point médian (·), tiret (-), point (.), puce (•), opérateur puce (∙) et slash (/), il est recommandé d'utiliser le point médian.
 
