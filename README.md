@@ -117,13 +117,21 @@ S'il est actuellement recommandé par le Haut Conseil à l'Égalité Femme-Homme
 
 Exemple : **artisan · e** → **artisan·e**
 
-• Le s du pluriel, quand il est présent, peut être accolé au **e** du féminin ou séparé par un deuxième point médian
+• Le **s** du pluriel, quand il est présent, peut être accolé au **e** du féminin ou séparé par un deuxième point médian
 
 Exemple : **artisan·es** ou **artisan·e·s**
 
-• Lorsque le mot à un masculin pluriel en **-x** et un féminin pluriel en **-s**, le **s** est collé au féminin
+**SAUF**
+
+(1) Quand le masculin singulier finit déjà par un **S**, auquel cas on accollera le **s** du pluriel.
+
+Exemple : **chinois·es** 
+Incorrect : **chinois·e·s** car **chinois** n'a pas besoin d'un deuxième **s** au pluriel
+
+(2) Lorsque le masculin pluriel finit **-x** et le féminin pluriel en **-s**. Dans ce cas, le **s** est collé au suffixe féminin
 
 Exemple : **faux·ausses**
+Incorrect : **faux·ausse·s** car **faux** ne prend pas de **s** au pluriel
 
 • Lorsque le masculin possède déjà un **s** au singulier, le **s** peut être déplacé à la fin du mot au pluriel.
 
