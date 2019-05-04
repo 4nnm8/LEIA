@@ -117,25 +117,29 @@ S'il est actuellement recommandé par le Haut Conseil à l'Égalité Femme-Homme
 
 Exemple : **artisan · e** → **artisan·e**
 
-• Le **s** du pluriel, quand il est présent, peut être accolé au **e** du féminin ou séparé par un deuxième point médian
+CONCERNANT LES PLURIELS :
 
-Exemple : **artisan·es** ou **artisan·e·s**
+• Le **s** du pluriel, quand il est présent, peut être accolé au suffixe féminin ou séparé par un deuxième point médian
+
+Correct : **artisan·es** ou **artisan·e·s**
 
 **SAUF**
 
-(1) Quand le masculin singulier finit déjà par un **S**, auquel cas on accollera le **s** du pluriel.
+(1) Quand le masculin singulier finit déjà par un **s**, auquel cas on accollera le **s** du pluriel.
 
-Exemple : **chinois·es** 
+Correct : **chinois·es** 
+
 Incorrect : **chinois·e·s** car **chinois** n'a pas besoin d'un deuxième **s** au pluriel
 
-(2) Lorsque le masculin pluriel finit **-x** et le féminin pluriel en **-s**. Dans ce cas, le **s** est collé au suffixe féminin
+On peut aussi supprimer le **s** du masculin singulier car on le retrouvera à la fin.
 
-Exemple : **faux·ausses**
+Exemple : **tier·ce·s** ; **tou·te·s**
+
+(2) Lorsque le masculin pluriel finit **-x** et le féminin pluriel en **-s**. Dans ce cas, le **s** est collé au suffixe féminin.
+
+Correct : **faux·ausses**
+
 Incorrect : **faux·ausse·s** car **faux** ne prend pas de **s** au pluriel
-
-• Lorsque le masculin possède déjà un **s** au singulier, le **s** peut être déplacé à la fin du mot au pluriel.
-
-Exemple : **tiers·ce·s** ou **tier·ce·s**
 
 • Attention, la graphie artisan(e)s ne sera absolument pas prise en compte par **LÉIA** et n'est pas considérée inclusive
 
@@ -144,3 +148,112 @@ Exemple : **tiers·ce·s** ou **tier·ce·s**
 • Pour ne pas alourdir le texte oralisé, il est préconisé de ne pas abuser des mots inclusifs fusionnés et de favoriser des tournures de phrases plus neutres.
 
 Pour plus d'information, consultez le guide du Haut Conseil à l’Égalité Femme Homme : [http://bit.ly/2fejwZ7](http://bit.ly/2fejwZ7)
+
+### Autres exemples de graphies inclusives ###
+
+> **Féminins en -ÈRE ou -ÈTE**
+
+douanier·e *ou* douanièr·e *ou* douanier·ère
+
+complèt·e *ou* complet·e *ou* complet·ète
+
+> **Féminins en -CONSONNE+E**
+
+chinois·e / artisan·e / lourd·e / fort·e
+
+> **Féminins en -DOUBLE CONSONNE+E**
+
+citoyen·ne / gentil·le / cadet·te / gros·se
+
+> **Masculins en -EUR**
+
+vaneur·euse
+
+chasseur·eresse 
+
+facteur·trice *ou* facteur·rice *ou* facteur·ice
+
+ambassadeur·drice *ou* ambassadeur·rice *ou* ambassadeur·ice
+
+docteur·oresse
+
+> **Masculins en -F, féminins en -VE**
+
+sauf·auve *ou* sauf·ve
+
+veuf·euve *ou* veuf·ve / neuf·euve *ou* neuf·ve
+
+bref·ève *ou* bref·ve
+
+inventif·ive *ou* inventif·ve
+
+> **AUTRES RÈGLES GÉNÉRALES**
+
+**-EAU > -ELLE** chameau·elle / chameaux·elles, ...
+
+**-AUX > -ALES** départementaux·ales, ...
+
+> **CAS RARES**
+
+**-OU > -OLLE** (3 cas) 
+
+fou·olle, foufou·olle, mou·olle
+
+**-OUS > -OUTE** (2 cas) 
+
+dissous·oute *ou* dissous·te 
+
+absous·oute *ou* absous·te
+
+**Masculin en -OUX** (4 cas) 
+
+roux·ousse *ou* roux·sse
+
+doux·ouce *ou* doux·ce
+
+époux·ouse *ou* époux·se / jaloux·ouse *ou* jaloux·se
+
+**Masculins en -C, féminins en -QUE** (7 cas) turc·que / grec·que / ...
+
+**-IN > -IGNE** (2 cas) bénin·igne, malin·igne
+
+**+TE** (5 cas) favori·te, rigolo·te, filou·te, loulou·te, coi·te
+
+**-G+UE** (2 cas) oblong·ue, long·ue
+
+**+DE** (2 cas) butor·de, esquimau·de
+
+**-C+HE** (2 cas) blanc·he, franc·he
+
+**INCLASSABLES (uniques)**
+
+frais·aîche *ou* frais·che *ou* frai·che·s (au pluriel)
+
+tiers·ce *ou* tier·ce·s (au pluriel)
+
+héros·oïne *ou* héros·oïne *ou* héro·ïne·s (au pluriel)
+
+faux·ausse *ou* faux·sse
+
+sec·èche *ou* sec·he
+
+bêta·asse *ou* bêta·sse
+
+hébreux·aïque
+
+vieux·ieille
+
+andalou·se
+
+clown·esse
+
+copain·ine
+
+compagnon·agne
+
+aïeux·ieule
+
+
+
+
+
