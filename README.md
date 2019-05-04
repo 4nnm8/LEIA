@@ -76,9 +76,9 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 ##### Exemple : #####
 
 * Le script détecte **artisan·e·s**
-* Il détecte le motif **racine - suffixe masculin – séparateur – e – s**
+* Il détecte le motif **racine + suffixe masculin + séparateur + e + s**
 * La dernière lettre de la racine étant un **n**, le script appelle une règle concernant les mots dont le féminin et le masculin "sonnent" différemment à l'oral. 
-* La règle de sortie suivante est utilisée : **racine – suffixe masculin – s [espace] racine – suffixe féminin – s**
+* La règle de sortie suivante est utilisée : **racine + suffixe masculin + s + [espace] + racine + suffixe féminin + s**
 * Le script replace l'expression originale par **artisans artisanes**
 
 ## Développement
