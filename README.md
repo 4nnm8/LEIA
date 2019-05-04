@@ -20,8 +20,7 @@
 * Conflit avec les mots composés contenant **t-le** (ex : haut-le-cœur) 
 * Anglicisme ayant un masculin en **-er** et un féminin en **-euse** ou **-trice** non pris en compte (ex : bookmaker·euse
 supporter·trice)
-* Redondance entre le dictionnaire prédictif et le dictionnaire de conversion
-But → Un seul système de dictionnaire plus efficace et moins conflictuel.
+* Redondance entre le dictionnaire prédictif et le dictionnaire de conversion. Le but → un seul système de dictionnaire plus efficace et moins conflictuel.
 * Optimisation possible du **TreeWalker** et de la fonction **highlight()**
 * Dictionnaire prédictif imparfait (certaines règles trop globales, terminaisons en **double consonnes + e** pour le moment ignorées)
 
@@ -77,7 +76,7 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 ##### Exemple : #####
 
 * Le script détecte **artisan·e·s**
-* Il détecte le motif **racine – séparateur – e – s**
+* Il détecte le motif **racine - suffixe masculin – séparateur – e – s**
 * La dernière lettre de la racine étant un **n**, le script appelle une règle concernant les mots dont le féminin et le masculin "sonnent" différemment à l'oral. 
 * La règle de sortie suivante est utilisée : **racine – suffixe masculin – s [espace] racine – suffixe féminin – s**
 * Le script replace l'expression originale par **artisans artisanes**
