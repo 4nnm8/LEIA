@@ -33,7 +33,6 @@ function addEvent(obj, evt, fn) {
   return false;
 }
 
-
 /********** APPELLER LA FEUILLE DE STYLE LEIA ********************************/
 
 var head  = document.getElementsByTagName("head")[0];
@@ -112,17 +111,13 @@ t9 = [
   ["^((ai|ambi|bé|conti|exi|surai|subai)gu)","ë"], // GU·Ë
   ["^((cadu|laï|publi|micma|syndi|tur|gre)c)","que"], // C·QUE
   ["^(las|bas|gros|gras|épais|andalou|exprès)","se"], // S·SE
-  
   /* ET > ÈTE (12 mots) */ ["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et","ète"],
   /* > ERESSE (25 mots) */ ["(pêch|acquér|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur","euse","eresse","se"], 
-							["(vainq|assess|gouvern|prédécess)eur","e","euse","eresse","se"], 
-							["devin|(défend|paqu|codemand|enchant|p[éè]ch)eur","eresse"],
+			   ["(vainq|assess|gouvern|prédécess)eur","e","euse","eresse","se"], 
+			   ["devin|(défend|paqu|codemand|enchant|p[éè]ch)eur","eresse"],
   /* E > ESSE (31 mots) */ ["âne|comte|bonze|bougre|buffle|chanoine|sauvage|tigre|traître|type|prêtre|prince|prophète|faune|flique|gonze|hôte|ivrogne|ladre|larronne|maire|maître|monstre|nègre|notaire|ogre|paire|pape|patronne|pauvre|drôle|druide|comte|diable|suisse|mulâtre|centaure|chanoine","sse","esse"],
   /* IF·IVE (8 + gener) */ ["lascif|nocif|maladif|tardif|naïf|juif|vif|réflexif|([a-zàâäéèêëïîôöùûüç]+[st]if)","ive","ve"], 
-    
-  // EUX > EUSE règle générale. Exception précedemment gérée : vieux > vieille.
-  ["[a-zàâäéèêëïîôöùûüç]+eux","euse","se"], 
-
+  ["[a-zàâäéèêëïîôöùûüç]+eux","euse","se"], // EUX > EUSE règle générale. Exception précedemment gérée : vieux > vieille.
   // PAS OK (incomplet ou trop général) >>>
   ["[a-zàâäéèêëïîôöùûüç]+[^t]eur","euse"], // Imparfait. -EUR non précédé d'un T donne généralement EUSE au féminin, mais rares exceptions.
   ["[a-zàâäéèêëïîôöùûüç]+teur","trice","teuse","rice","euse","ice"], // Imparfait. -TEUR donne généralement -TRICE au féminin mais aussi régulièrement -TEUSE. Parfois les deux.
@@ -132,7 +127,6 @@ t9 = [
   ["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|gém|pastour|agn|b)eaux?","elle"], // EAU > ELLE (singulier et pluriel)
   ["(fin|pasc|front|département)aux","ales"], // AUX/EAUX > ALES (pluriels)
   ["([bc]|aigl|sax|bar|berrich|bis|b|bouff|bourguign|bûcher|bret|brouill|b[uû]cher|buffl|champi|coch|couill|cret|dar|drag|espi|fanfar|fél|folich|forger|frip|maç|lett|garç|gasc|glout|grogn|hériss|hur|laider|lap|lett|li|tatill|teut|champi|vigner|wall|lur|maç|maigrich|nipp|ours|pâlich|phara|piét|pige|pi|pochetr|pochtr|poliss|poltr|rejet|ronch|sauvage|sax|beaucer|bess|bich|boug|brabanç|charr|enfanç|fransquill|godich|hesbign|marmit|nazill|négrill|noblaill|patr|percher|pa|levr|louch|maquign|marr|mat|slav|so[uû]l|mign|mist|mollass|tâcher|tardill)on","ne"], // ON·NE
-  
 ];	
   
 var dl = dico.length,
@@ -155,7 +149,7 @@ var dl = dico.length,
       }
     }, false),
     r3 = new RegExp("([·∙•][a-zàâäéèêëïîôöùûüçæœñ]+([·∙•][a-zàâäéèêëïîôöùûüçæœñ]+)?)", "gi"),
-	bouton = document.createElement("input");
+    bouton = document.createElement("input");
 
 /********** POPUP CONFIGURATION **********************************************/
 
@@ -347,7 +341,6 @@ document.body.querySelectorAll("textarea,input[type=text],[contenteditable=true]
           change(-1, this, b);
 		  break;
         default: term = false; terml = termp = 1;
-
         }
       }
     });
