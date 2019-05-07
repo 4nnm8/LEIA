@@ -1,4 +1,4 @@
-/** LÉIA - Copyright 2018-2019 Ann Mezurat
+﻿/** LÉIA - Copyright 2018-2019 Ann Mezurat
 LÉIA est un donationware sous licence Apache Version 2.0. 
 Vous êtes libre de modifier et de distribuer ce code sous 
 toute forme (libre, propriétaire, gratuite ou commerciale)
@@ -9,42 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 Faites un don : https://bit.ly/2vuzK7g
 **/
 
-/********** RACCOURCI FONCTION EVENEMENT *************************************/
-
-function addEvent(obj, evt, fn) { 
-  if (obj.addEventListener) {
-    obj.addEventListener(evt, fn, false);
-    return true;
-  } else if (obj.attachEvent) {
-    return obj.attachEvent("on" + evt, fn);
-  } else {
-    evt = "on" + evt;
-    if (typeof obj[evt] === "function") {
-      fn = (function(f1, f2) {
-        return function() {
-          f1.apply(this, arguments);
-          f2.apply(this, arguments);
-        }
-      })(obj[evt], fn);
-    }
-    obj[evt] = fn;
-    return true;
-  }
-  return false;
-}
-
-/********** APPELLER LA FEUILLE DE STYLE LEIA ********************************/
-
-var head  = document.getElementsByTagName("head")[0];
-var link  = document.createElement("link");
-link.id   = "leia";
-link.rel  = "stylesheet";
-link.type = "text/css";
-link.href = "leia.css";
-link.media = "all";
-head.appendChild(link);
-  
-/********** DICTIONNAIRES & VARIABLES ****************************************/
+/********** DICTIONNAIRES ****************************************************/
 
 const dico = [
   ["[eè]([crt])", "(èc)?(h)?e", "$1e$3$7 $1è$3$6e$7", "$1è$3$6e$7", "$1e$3$7"],
@@ -111,13 +76,17 @@ t9 = [
   ["^((ai|ambi|bé|conti|exi|surai|subai)gu)","ë"], // GU·Ë
   ["^((cadu|laï|publi|micma|syndi|tur|gre)c)","que"], // C·QUE
   ["^(las|bas|gros|gras|épais|andalou|exprès)","se"], // S·SE
+  
   /* ET > ÈTE (12 mots) */ ["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et","ète"],
   /* > ERESSE (25 mots) */ ["(pêch|acquér|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur","euse","eresse","se"], 
-			   ["(vainq|assess|gouvern|prédécess)eur","e","euse","eresse","se"], 
-			   ["devin|(défend|paqu|codemand|enchant|p[éè]ch)eur","eresse"],
+							["(vainq|assess|gouvern|prédécess)eur","e","euse","eresse","se"], 
+							["devin|(défend|paqu|codemand|enchant|p[éè]ch)eur","eresse"],
   /* E > ESSE (31 mots) */ ["âne|comte|bonze|bougre|buffle|chanoine|sauvage|tigre|traître|type|prêtre|prince|prophète|faune|flique|gonze|hôte|ivrogne|ladre|larronne|maire|maître|monstre|nègre|notaire|ogre|paire|pape|patronne|pauvre|drôle|druide|comte|diable|suisse|mulâtre|centaure|chanoine","sse","esse"],
   /* IF·IVE (8 + gener) */ ["lascif|nocif|maladif|tardif|naïf|juif|vif|réflexif|([a-zàâäéèêëïîôöùûüç]+[st]if)","ive","ve"], 
-  ["[a-zàâäéèêëïîôöùûüç]+eux","euse","se"], // EUX > EUSE règle générale. Exception précedemment gérée : vieux > vieille.
+    
+  // EUX > EUSE règle générale. Exception précedemment gérée : vieux > vieille.
+  ["[a-zàâäéèêëïîôöùûüç]+eux","euse","se"], 
+
   // PAS OK (incomplet ou trop général) >>>
   ["[a-zàâäéèêëïîôöùûüç]+[^t]eur","euse"], // Imparfait. -EUR non précédé d'un T donne généralement EUSE au féminin, mais rares exceptions.
   ["[a-zàâäéèêëïîôöùûüç]+teur","trice","teuse","rice","euse","ice"], // Imparfait. -TEUR donne généralement -TRICE au féminin mais aussi régulièrement -TEUSE. Parfois les deux.
@@ -127,8 +96,11 @@ t9 = [
   ["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|gém|pastour|agn|b)eaux?","elle"], // EAU > ELLE (singulier et pluriel)
   ["(fin|pasc|front|département)aux","ales"], // AUX/EAUX > ALES (pluriels)
   ["([bc]|aigl|sax|bar|berrich|bis|b|bouff|bourguign|bûcher|bret|brouill|b[uû]cher|buffl|champi|coch|couill|cret|dar|drag|espi|fanfar|fél|folich|forger|frip|maç|lett|garç|gasc|glout|grogn|hériss|hur|laider|lap|lett|li|tatill|teut|champi|vigner|wall|lur|maç|maigrich|nipp|ours|pâlich|phara|piét|pige|pi|pochetr|pochtr|poliss|poltr|rejet|ronch|sauvage|sax|beaucer|bess|bich|boug|brabanç|charr|enfanç|fransquill|godich|hesbign|marmit|nazill|négrill|noblaill|patr|percher|pa|levr|louch|maquign|marr|mat|slav|so[uû]l|mign|mist|mollass|tâcher|tardill)on","ne"], // ON·NE
-];	
   
+];	
+
+/********** VARIABLES GENERALES **********************************************/
+
 var dl = dico.length,
     pl = pron.length,
     pt = t9.length,
@@ -148,8 +120,44 @@ var dl = dico.length,
         }
       }
     }, false),
-    r3 = new RegExp("([·∙•][a-zàâäéèêëïîôöùûüçæœñ]+([·∙•][a-zàâäéèêëïîôöùûüçæœñ]+)?)", "gi"),
-    bouton = document.createElement("input");
+    r3 = new RegExp("([·∙•][a-zÀ-ÖÙ-öù-üœŒ]+([·∙•][a-zÀ-ÖÙ-öù-üœŒ]+)?)", "gi"),
+	bouton = document.createElement("input");
+	
+	
+/********** RACCOURCI FONCTION EVENEMENT *************************************/
+
+function addEvent(obj, evt, fn) { 
+  if (obj.addEventListener) {
+    obj.addEventListener(evt, fn, false);
+    return true;
+  } else if (obj.attachEvent) {
+    return obj.attachEvent("on" + evt, fn);
+  } else {
+    evt = "on" + evt;
+    if (typeof obj[evt] === "function") {
+      fn = (function(f1, f2) {
+        return function() {
+          f1.apply(this, arguments);
+          f2.apply(this, arguments);
+        }
+      })(obj[evt], fn);
+    }
+    obj[evt] = fn;
+    return true;
+  }
+  return false;
+}
+
+/********** APPELLER LA FEUILLE DE STYLE LEIA ********************************/
+
+var head  = document.getElementsByTagName("head")[0];
+var link  = document.createElement("link");
+link.id   = "leia";
+link.rel  = "stylesheet";
+link.type = "text/css";
+link.href = "leia.css";
+link.media = "all";
+head.appendChild(link);
 
 /********** POPUP CONFIGURATION **********************************************/
 
@@ -177,7 +185,7 @@ addEvent(document, "keydown", function(e) {
 /********** MISE EN EVIDENCE ECRITURE INCLUSIVE ******************************/
 
 function highlight(node) {
-  if(/^(?:MARK|SCRIPT|STYLE|INPUT|TEXTAREA)$/.test(node.nodeName)) return;
+  if(/^(SCRIPT|STYLE|INPUT|TEXTAREA)$/.test(node.nodeName)) return;
   if(node.hasChildNodes()) {
     for(var i = 0 ; i < node.childNodes.length ; i++) {
     highlight(node.childNodes[i]);
@@ -209,7 +217,7 @@ while (tree.nextNode()) {
     var pnode = tree.currentNode.parentNode;
     if (mode >= 2) {
       for (var i = 0, j = 0; i < dl; i++, j = Math.min(j + 1, pl - 1)) {
-        var r1 = new RegExp("([a-zàâäéèêëïîôöùûüçæœ]+)("+dico[i][0]+")[-/·∙.•]("+dico[i][1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
+        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)("+dico[i][0]+")[-/·∙.•]("+dico[i][1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
             r2 = new RegExp("(" + pron[j][0] + ")[-\/·∙.•](" + pron[j][1] + ")", "gi");
         tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1,dico[i][mode]).replace(r2,pron[j][mode]);
         // .replace(/læ/gi,"lahé").replace(/\biel(s)?/gi,"yel$1");
@@ -341,6 +349,7 @@ document.body.querySelectorAll("textarea,input[type=text],[contenteditable=true]
           change(-1, this, b);
 		  break;
         default: term = false; terml = termp = 1;
+
         }
       }
     });
