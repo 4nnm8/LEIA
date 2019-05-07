@@ -1,4 +1,4 @@
-﻿/** LÉIA - Copyright 2018-2019 Ann Mezurat
+/** LÉIA - Copyright 2018-2019 Ann Mezurat
 LÉIA est un donationware sous licence Apache Version 2.0. 
 Vous êtes libre de modifier et de distribuer ce code sous 
 toute forme (libre, propriétaire, gratuite ou commerciale)
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 Faites un don : https://bit.ly/2vuzK7g
 **/
 
-/********** RACCOURCIS FONCTIONS *********************************************/
+/********** RACCOURCI FONCTION EVENEMENT *************************************/
 
 function addEvent(obj, evt, fn) { 
   if (obj.addEventListener) {
@@ -33,10 +33,6 @@ function addEvent(obj, evt, fn) {
   return false;
 }
 
-function getStyle(a) {  
-  var b = a.currentStyle || getComputedStyle(a, null);
-  return b;
-}
 
 /********** APPELLER LA FEUILLE DE STYLE LEIA ********************************/
 
