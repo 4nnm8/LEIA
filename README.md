@@ -7,12 +7,9 @@
 **LÉIA** est sous licence Apache
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
 
-## Dernières mises-à-jour (02/05/2019)
-* Page de test adaptée aux nouvelles problématiques
-* Enrichissement du dictionnaire prédictif (terminaisons rares, terminaisons en **-eresse**, **-eur**, **-ète**, **-if**)
-* Suppression de certains conflits entre différentes terminaisons
-* Modification du script pour prévention de conflits du DOM avec d'autres scripts
-* Simplification et amélioration du menu de configuration
+## Dernières mises-à-jour (07/05/2019)
+* Correction de bugs majeurs dans le dictionnaire prédictif
+* Enrichissement du dictionnaire prédictif
 
 ## Problèmes connus en recherche de solution
 * **DOM flickering** pour une raison inconnue
