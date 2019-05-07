@@ -81,61 +81,63 @@ pron = [
 ],
 t9 = [
   // 1 mot
-  ["sauf","auve","ve"],	
-  ["vieux","ieille"],
-  ["copain","ine"],
-  ["bref","ève"],
-  ["compagnon","agne","ne"],
-  ["tiers","ce"],
-  ["doux","ouce","ce"],
-  ["roux","ousse","sse"],
-  ["faux","ausse"],
-  ["hébreu","aïque"],
-  ["frais","che","aîche"],
-  ["sec","èche"],
-  ["ambassadeur", "drice", "rice", "ice"],
-  ["docteur","e","oresse"],
-  ["héros","oïne"],
-  ["aïeux","ieule"],
-  ["canut","use"],
+  ["^sauf","auve","ve"],
+  ["^[vn]euf","euve","ve"],
+  ["^roux","ousse","sse"],
+  ["^faux","ausse"],
+  ["^vieux","ieille"],
+  ["^copain","ine"],
+  ["^bref","ève"], // f-ve
+  ["^compagnon","agne","ne"],
+  ["^tiers","ce"],
+  ["^doux","ouce","ce"],
+  ["^hébreu","aïque"],
+  ["^frais","che","aîche"],
+  ["^sec","èche"],
+  ["^ambassadeur", "drice", "rice", "ice"],
+  ["^docteur","e","oresse"],
+  ["^héros","oïne"],
+  ["^aïeux","ieule"],
+  ["^canut","use"],
+  ["^chef","fe","fesse"], 
+  ["^duc","hesse"],
+  ["^bêta","sse"],
+  ["^clown","e","esse"],
   // 2 mots
-  ["(ob)?long","ue"],
-  ["butor|esquimau","de"],
-  ["bénin|malin","igne"],
-  ["filou|loulou","te"],
-  ["époux|jaloux","ouse","se"],
-  ["[f|m]ou|foufou","olle"],
-  ["blanc|franc", "he"],
-  ["dissous|absous","oute","te"],
-  ["[vn]euf","euve","ve"],
+  ["^((ob)?long)","ue"],
+  ["^(quaker|acquéreur)","esse"], 
+  ["^(butor|esquimau)","de"],
+  ["^(bénin|malin)","igne"],
+  ["^(dissous|absous)","oute","te"],
+  ["^(époux|jaloux)","ouse","se"	],
+  ["^([f|m]ou|foufou)","olle"],
+  ["^(blanc|franc)", "he"],
   // 7 mots
-  ["(ai|ambi|bé|conti|exi|surai|subai)gu","ë"], // GU·Ë
-  ["(cadu|laï|publi|micma|syndi|tur|gre)c","que"], // C·QUE
-  ["las|^bas|gros|gras|épais|andalou|exprès","se"], // S·SE
+  ["^((ai|ambi|bé|conti|exi|surai|subai)gu)","ë"], // GU·Ë
+  ["^((cadu|laï|publi|micma|syndi|tur|gre)c)","que"], // C·QUE
+  ["^(las|bas|gros|gras|épais|andalou|exprès)","se"], // S·SE
   
-  // + de 7 mots
-  ["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et","ète"], // ÈTE (12 mots)
-  ["lascif|nocif|maladif|tardif|naïf|juif|vif|réflexif|([a-zàâäéèêëïîôöùûüç]+[st]if)","ive","ve"], // IF·IVE (8 exceptions + règle générale -tif ou -sif)
-  ["[a-zàâäéèêëïîôöùûüç]+eux","euse"],  // EUX > EUSE règle générale. Exception précedemment gérée : vieux > vieille.
-  
-  // 26 mots pouvant se terminer notamment ou exclusivement par -ERESSE au féminin
-  ["(pêch|acquér|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur","euse","eresse","se"],
-  ["(vainq|assess|gouvern|prédécess)eur","e","euse","eresse","se"],
-  ["devin|quaker|(paqu|codemand|enchant|p[éè]ch)eur","eresse"],
-  ["défendeur","eresse","seuse"],
+  /* ET > ÈTE (12 mots) */ ["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et","ète"],
+  /* > ERESSE (25 mots) */ ["(pêch|acquér|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur","euse","eresse","se"], 
+							["(vainq|assess|gouvern|prédécess)eur","e","euse","eresse","se"], 
+							["devin|(défend|paqu|codemand|enchant|p[éè]ch)eur","eresse"],
+  /* E > ESSE (31 mots) */ ["âne|comte|bonze|bougre|buffle|chanoine|sauvage|tigre|traître|type|prêtre|prince|prophète|faune|flique|gonze|hôte|ivrogne|ladre|larronne|maire|maître|monstre|nègre|notaire|ogre|paire|pape|patronne|pauvre|drôle|druide|comte|diable|suisse|mulâtre|centaure|chanoine","sse","esse"],
+  /* IF·IVE (8 + gener) */ ["lascif|nocif|maladif|tardif|naïf|juif|vif|réflexif|([a-zàâäéèêëïîôöùûüç]+[st]if)","ive","ve"], 
+    
+  // EUX > EUSE règle générale. Exception précedemment gérée : vieux > vieille.
+  ["[a-zàâäéèêëïîôöùûüç]+eux","euse","se"], 
 
   // PAS OK (incomplet ou trop général) >>>
-  
   ["[a-zàâäéèêëïîôöùûüç]+[^t]eur","euse"], // Imparfait. -EUR non précédé d'un T donne généralement EUSE au féminin, mais rares exceptions.
   ["[a-zàâäéèêëïîôöùûüç]+teur","trice","teuse","rice","euse","ice"], // Imparfait. -TEUR donne généralement -TRICE au féminin mais aussi régulièrement -TEUSE. Parfois les deux.
   // ER > ÈRE + Règle générale IER > IÈRE. Imparfait : prend trop de mots en compte, (ex: argousier·ère = incorrect) >
-  ["([a-zàâäéèêëïîôöùûüç]+ier)|(am|arch|berg|bocag|bouch|boulang|cach|caloy|ch|coch|conseill|écaill|écuy|étrang|fromag|gauch|horlog|khm|lég|lignag|ling|magist|maraîch|mast|ménag|mensong|métay|passag|paysag|péag|porch|potag|sup|usag|vach)er","ère"],
-  ["chat|rat|favori|rigolo|coi|favori|((maigri|pâl|bosc|jeun|vieill|s)ot)","te"], // +TE
+  ["([a-zàâäéèêëïîôöùûüç]+ier)|^(am|arch|berg|bocag|bouch|boulang|cach|caloy|ch|coch|conseill|écaill|écuy|étrang|fromag|gauch|horlog|khm|lég|lignag|ling|magist|maraîch|mast|ménag|mensong|métay|passag|paysag|péag|porch|potag|sup|usag|vach)er","ère"],
+  ["chat|rat|filou|loulou|favori|rigolo|coi|((maigri|pâl|bosc|jeun|vieill|s)ot)","te"], // +TE
   ["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|gém|pastour|agn|b)eaux?","elle"], // EAU > ELLE (singulier et pluriel)
   ["(fin|pasc|front|département)aux","ales"], // AUX/EAUX > ALES (pluriels)
   ["([bc]|aigl|sax|bar|berrich|bis|b|bouff|bourguign|bûcher|bret|brouill|b[uû]cher|buffl|champi|coch|couill|cret|dar|drag|espi|fanfar|fél|folich|forger|frip|maç|lett|garç|gasc|glout|grogn|hériss|hur|laider|lap|lett|li|tatill|teut|champi|vigner|wall|lur|maç|maigrich|nipp|ours|pâlich|phara|piét|pige|pi|pochetr|pochtr|poliss|poltr|rejet|ronch|sauvage|sax|beaucer|bess|bich|boug|brabanç|charr|enfanç|fransquill|godich|hesbign|marmit|nazill|négrill|noblaill|patr|percher|pa|levr|louch|maquign|marr|mat|slav|so[uû]l|mign|mist|mollass|tâcher|tardill)on","ne"], // ON·NE
-  ["abbé|âne|bêta|prêtre|bonze|bougre|centaure|chanoine|comte|maître|contremaître|diable|drôle|druide|faune|gonze|hôte|ivrogne|maire|maître|monstre|mulâtre|nègre|notaire|ogre|patronne|pauvre|poète|preste|prêtre|prince|prophète|sauvage|suisse|tigre|traître","sse","esse"], // +SSE
-];
+  
+];	
   
 var dl = dico.length,
     pl = pron.length,
@@ -230,18 +232,16 @@ while (tree.nextNode()) {
 /********** DICO PRÉDICTIF & POINT MÉDIAN  ***********************************/
 
 function getCaret(x) {
-  if (document.selection) {
-    x.focus();
-    var r = document.selection.createRange(),
-      rs = r.text.length;
-    r.moveStart("character", -x.value.length);
-    var start = r.text.length - rs;
-    return [start, start + rs];
-  } else if (x.selectionStart || x.selectionStart == "0") {
-    return [x.selectionStart, x.selectionEnd];
-  } else {
-    return [0, 0]
-  }
+    if (document.selection) {
+        x.focus();
+        var r = document.selection.createRange(),
+            rs = r.text.length;
+        r.moveStart('character', -x.value.length);
+        var start = r.text.length - rs;
+        return [start, start + rs];
+    } else if (x.selectionStart || x.selectionStart == '0') {
+        return [x.selectionStart, x.selectionEnd];
+    } else return [0,0]
 }
 
 function selekt(elem, start, end) {
@@ -258,24 +258,22 @@ function selekt(elem, start, end) {
 }
 
 function getWord(text, caretPos) {
-  var iOf = text.value.indexOf(caretPos),
-    txt = text.value.substring(0, caretPos);
-  if (txt.indexOf(" ") > 0) {
-    var wrd = txt.split(" ");
-    return wrd[wrd.length - 1];
-  } else {
-    return txt;
-  }
+    var txt = text.value.substring(0, caretPos);
+    if (txt.match(/[\s\(\['"-]/g)) {
+        var wrd = txt.split(/[\s\(\['"-]/);
+        return wrd[wrd.length - 1];
+    } else return txt;
 }
 
 function seek(x) {
-  for (var i = 0; i < pt; i++) {
-    let reg = new RegExp("^" + t9[i][0] + "s?$", "i"),
-      mch = x.search(reg)
-    if (mch != -1) {
-      return t9[i]
+    for (var i = 0; i < pt; i++) {
+        let reg = new RegExp(t9[i][0] + "s?$", "i"),
+            mch = x.search(reg);
+		console.log('seeking in '+x)
+        if (mch != -1) {
+			return t9[i]
+        }
     }
-  }
 }
   
 function change(n, m, b) {
@@ -307,17 +305,19 @@ document.body.querySelectorAll("textarea,input[type=text],[contenteditable=true]
   })
   
   if (pred == 1) {
-    addEvent(elem, "keyup", function(e) {
-      let b = getCaret(this),
-          c = getWord(this, b[1]),
-          d = seek(c) || false;
-      if (seek(c) && c.indexOf("·") == -1) {
-        this.value = this.value.slice(0, b[0]) + "·" + d[termp] + this.value.slice(b[0])
-        selekt(this, b[0], b[0] + d[termp].length + 1);
-        term = seek(c);
-        terml = term.length;
-      }
-    });
+	addEvent(elem, 'keyup', function(e) {
+		let b = getCaret(this),
+            c = getWord(this, b[1]),
+            d = seek(c) || false;
+			console.log('getWord : '+c)
+
+        if (d && c.indexOf('·') == -1) {
+            this.value = this.value.slice(0, b[0]) + '·' + d[termp] + this.value.slice(b[0])
+            selekt(this, b[0], b[0] + d[termp].length + 1);
+            term = d;
+            terml = term.length;
+        }
+    })
     addEvent(elem, "keydown", function(e) {
       let a = e.which || e.keyCode || e.charCode,
           b = getCaret(this);
@@ -350,7 +350,8 @@ document.body.querySelectorAll("textarea,input[type=text],[contenteditable=true]
 		  e.preventDefault();
           change(-1, this, b);
 		  break;
-        default: term = terml = termp = 1;
+        default: term = false; terml = termp = 1;
+
         }
       }
     });
