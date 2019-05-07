@@ -13,6 +13,7 @@
 
 ## Problèmes connus en recherche de solution
 * **DOM flickering** pour une raison inconnue
+* La fonction de surlignage de l'écriture inclusive ne reconnait que les graphies utilisant ces séparateurs : · ∙ •
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 * Conflit avec les mots composés contenant **t-le** (ex : haut-le-cœur) 
 * Anglicisme ayant un masculin en **-er** et un féminin en **-euse** ou **-trice** non pris en compte (ex : bookmaker·euse
