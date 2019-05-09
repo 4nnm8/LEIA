@@ -7,20 +7,18 @@
 **LÉIA** est sous licence Apache
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
 
-## Dernières mises-à-jour (07/05/2019)
-* Correction de bugs majeurs dans le dictionnaire prédictif
-* Enrichissement du dictionnaire prédictif
+## Dernières mises-à-jour (17/05/2019)
+* Saisie prédictive et la fonction de remplacement de l'écriture inclusive utilisent maintenant le même dictionnaire.
+* Enrichissement des graphies interprétées selon différents usages + anglicismes
+* Page de test améliorée : tableau de toutes les terminaisons acceptées
+* Conflits avec certains mots composés évités
 
 ## Problèmes connus en recherche de solution
-* **DOM flickering** pour une raison inconnue
+* Dommages colatéraux des dernières améliorations : moins de suggestions du dictionnaire prédictif, pronoms omis pour le moment (TEMPORAIRE)
 * La fonction de surlignage de l'écriture inclusive ne reconnait que les graphies utilisant ces séparateurs : · ∙ •
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
-* Conflit avec les mots composés contenant **t-le** (ex : haut-le-cœur) 
-* Anglicisme ayant un masculin en **-er** et un féminin en **-euse** ou **-trice** non pris en compte (ex : bookmaker·euse
-supporter·trice)
-* Redondance entre le dictionnaire prédictif et le dictionnaire de conversion. Le but → un seul système de dictionnaire plus efficace et moins conflictuel.
 * Optimisation possible du **TreeWalker** et de la fonction **highlight()**
-* Dictionnaire prédictif imparfait (certaines règles trop globales, terminaisons en **double consonnes + e** pour le moment ignorées)
+
 
 ## Résumé
 
