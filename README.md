@@ -15,10 +15,9 @@
 
 ## Problèmes connus en recherche de solution
 * Dommages colatéraux des dernières améliorations : moins de suggestions du dictionnaire prédictif, pronoms omis pour le moment (TEMPORAIRE)
-* La fonction de surlignage de l'écriture inclusive ne reconnait que les graphies utilisant ces séparateurs : · ∙ •
+* Combinaison possible du **TreeWalker** et de la fonction **highlight()** (surlignage écriture inclusive)
+* La fonction **highlight()** ne reconnait que les graphies utilisant ces séparateurs : · ∙ •
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
-* Optimisation possible du **TreeWalker** et de la fonction **highlight()**
-
 
 ## Résumé
 
@@ -144,112 +143,5 @@ Incorrect : **faux·ausse·s** car **faux** ne prend pas de **s** au pluriel
 • Pour ne pas alourdir le texte oralisé, il est préconisé de ne pas abuser des mots inclusifs fusionnés et de favoriser des tournures de phrases plus neutres.
 
 Pour plus d'information, consultez le guide du Haut Conseil à l’Égalité Femme Homme : [http://bit.ly/2fejwZ7](http://bit.ly/2fejwZ7)
-
-### Autres exemples de graphies inclusives ###
-
-> **Féminins en -ÈRE ou -ÈTE**
-
-douanier·e *ou* douanièr·e *ou* douanier·ère
-
-complèt·e *ou* complet·e *ou* complet·ète
-
-> **Féminins en -CONSONNE+E**
-
-chinois·e / artisan·e / lourd·e / fort·e
-
-> **Féminins en -DOUBLE CONSONNE+E**
-
-citoyen·ne / gentil·le / cadet·te / gros·se
-
-> **Masculins en -EUR**
-
-vaneur·euse
-
-chasseur·eresse 
-
-facteur·trice *ou* facteur·rice *ou* facteur·ice
-
-ambassadeur·drice *ou* ambassadeur·rice *ou* ambassadeur·ice
-
-docteur·oresse
-
-> **Masculins en -F, féminins en -VE**
-
-sauf·auve *ou* sauf·ve
-
-veuf·euve *ou* veuf·ve / neuf·euve *ou* neuf·ve
-
-bref·ève *ou* bref·ve
-
-inventif·ive *ou* inventif·ve
-
-> **AUTRES RÈGLES GÉNÉRALES**
-
-**-EAU > -ELLE** chameau·elle / chameaux·elles, ...
-
-**-AUX > -ALES** départementaux·ales, ...
-
-> **CAS RARES**
-
-**-OU > -OLLE** (3 cas) 
-
-fou·olle, foufou·olle, mou·olle
-
-**-OUS > -OUTE** (2 cas) 
-
-dissous·oute *ou* dissous·te 
-
-absous·oute *ou* absous·te
-
-**Masculin en -OUX** (4 cas) 
-
-roux·ousse *ou* roux·sse
-
-doux·ouce *ou* doux·ce
-
-époux·ouse *ou* époux·se / jaloux·ouse *ou* jaloux·se
-
-**Masculins en -C, féminins en -QUE** (7 cas) turc·que / grec·que / ...
-
-**-IN > -IGNE** (2 cas) bénin·igne, malin·igne
-
-**+TE** (5 cas) favori·te, rigolo·te, filou·te, loulou·te, coi·te
-
-**-G+UE** (2 cas) oblong·ue, long·ue
-
-**+DE** (2 cas) butor·de, esquimau·de
-
-**-C+HE** (2 cas) blanc·he, franc·he
-
-**INCLASSABLES (uniques)**
-
-frais·aîche *ou* frais·che *ou* frai·che·s (au pluriel)
-
-tiers·ce *ou* tier·ce·s (au pluriel)
-
-héros·oïne *ou* héros·oïne *ou* héro·ïne·s (au pluriel)
-
-faux·ausse *ou* faux·sse
-
-sec·èche *ou* sec·he
-
-bêta·asse *ou* bêta·sse
-
-hébreux·aïque
-
-vieux·ieille
-
-andalou·se
-
-clown·esse
-
-copain·ine
-
-compagnon·agne
-
-aïeux·ieule
-
-
-
 
 
