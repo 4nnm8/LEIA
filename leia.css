@@ -1,163 +1,144 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: 'Open Dyslexic';
-    src: url('fonts/OpenDyslexic-Regular.woff2') format('woff2'),
-         url('fonts/OpenDyslexic-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal; 
+  font-family: 'Open Dyslexic';
+  src: url('fonts/OpenDyslexic-Regular.woff2') format('woff2'), url('fonts/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Open Dyslexic';
-    src: url('fonts/OpenDyslexic-Bold.woff2') format('woff2'),
-         url('fonts/OpenDyslexic-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'Open Dyslexic';
+  src: url('fonts/OpenDyslexic-Bold.woff2') format('woff2'), url('fonts/OpenDyslexic-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Open Dyslexic';
-    src: url('fonts/OpenDyslexic-Italic.woff2') format('woff2'),
-         url('fonts/OpenDyslexic-Italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
+  font-family: 'Open Dyslexic';
+  src: url('fonts/OpenDyslexic-Italic.woff2') format('woff2'), url('fonts/OpenDyslexic-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
 }
 @font-face {
-    font-family: 'Open Dyslexic';
-    src: url('fonts/OpenDyslexic-BoldItalic.woff2') format('woff2'),
-         url('fonts/OpenDyslexic-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
+  font-family: 'Open Dyslexic';
+  src: url('fonts/OpenDyslexic-BoldItalic.woff2') format('woff2'), url('fonts/OpenDyslexic-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
 }
 @font-face {
-    font-family: 'Andika New Basic';
-    src: url('fonts/AndikaNewBasic-Regular.woff2') format('woff2'),
-         url('fonts/AndikaNewBasic-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Andika New Basic';
+  src: url('fonts/AndikaNewBasic-Regular.woff2') format('woff2'), url('fonts/AndikaNewBasic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Andika New Basic';
-    src: url('fonts/AndikaNewBasic-Bold.woff2') format('woff2'),
-         url('fonts/AndikaNewBasic-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'Andika New Basic';
+  src: url('fonts/AndikaNewBasic-Bold.woff2') format('woff2'), url('fonts/AndikaNewBasic-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Andika New Basic';
-    src: url('fonts/AndikaNewBasic-Italic.woff2') format('woff2'),
-         url('fonts/AndikaNewBasic-Italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
+  font-family: 'Andika New Basic';
+  src: url('fonts/AndikaNewBasic-Italic.woff2') format('woff2'), url('fonts/AndikaNewBasic-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
 }
 @font-face {
-    font-family: 'Andika New Basic';
-    src: url('fonts/AndikaNewBasic-BoldItalic.woff2') format('woff2'),
-         url('fonts/AndikaNewBasic-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
+  font-family: 'Andika New Basic';
+  src: url('fonts/AndikaNewBasic-BoldItalic.woff2') format('woff2'), url('fonts/AndikaNewBasic-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
 }
 @font-face {
-    font-family: 'Lexie Readable';
-    src: url('fonts/LexieReadable-Regular.woff2') format('woff2'),
-         url('fonts/LexieReadable-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Lexie Readable';
+  src: url('fonts/LexieReadable-Regular.woff2') format('woff2'), url('fonts/LexieReadable-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Lexie Readable';
-    src: url('fonts/LexieReadable-Bold.woff2') format('woff2'),
-         url('fonts/LexieReadable-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'Lexie Readable';
+  src: url('fonts/LexieReadable-Bold.woff2') format('woff2'), url('fonts/LexieReadable-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Sans Std';
-    src: url('fonts/SassoonSansStd.woff2') format('woff2'),
-         url('fonts/SassoonSansStd.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Sassoon Sans Std';
+  src: url('fonts/SassoonSansStd.woff2') format('woff2'), url('fonts/SassoonSansStd.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Sans Std';
-    src: url('fonts/SassoonSansStd-Medium.woff2') format('woff2'),
-         url('fonts/SassoonSansStd-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'Sassoon Sans Std';
+  src: url('fonts/SassoonSansStd-Medium.woff2') format('woff2'), url('fonts/SassoonSansStd-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Sans Std';
-    src: url('fonts/SassoonSansStd-Bold.woff2') format('woff2'),
-         url('fonts/SassoonSansStd-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'Sassoon Sans Std';
+  src: url('fonts/SassoonSansStd-Bold.woff2') format('woff2'), url('fonts/SassoonSansStd-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Sans Slope Std';
-    src: url('fonts/SassoonSansSlopeStd.woff2') format('woff2'),
-         url('fonts/SassoonSansSlopeStd.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Sassoon Sans Slope Std';
+  src: url('fonts/SassoonSansSlopeStd.woff2') format('woff2'), url('fonts/SassoonSansSlopeStd.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Sans Slope Std';
-    src: url('fonts/SassoonSansSlopeStd-Medium.woff2') format('woff2'),
-         url('fonts/SassoonSansSlopeStd-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'Sassoon Sans Slope Std';
+  src: url('fonts/SassoonSansSlopeStd-Medium.woff2') format('woff2'), url('fonts/SassoonSansSlopeStd-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Infant Std';
-    src: url('fonts/SassoonInfantStd.woff2') format('woff2'),
-         url('fonts/SassoonInfantStd.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Sassoon Infant Std';
+  src: url('fonts/SassoonInfantStd.woff2') format('woff2'), url('fonts/SassoonInfantStd.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Infant Std';
-    src: url('fonts/SassoonInfantStd-Bold.woff2') format('woff2'),
-         url('fonts/SassoonInfantStd-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Sassoon Infant Std';
+  src: url('fonts/SassoonInfantStd-Bold.woff2') format('woff2'), url('fonts/SassoonInfantStd-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Primary Std';
-    src: url('fonts/SassoonPrimaryStd.woff2') format('woff2'),
-         url('fonts/SassoonPrimaryStd.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Sassoon Primary Std';
+  src: url('fonts/SassoonPrimaryStd.woff2') format('woff2'), url('fonts/SassoonPrimaryStd.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Sassoon Primary Std';
-    src: url('fonts/SassoonPrimaryStd-Bold.woff2') format('woff2'),
-         url('fonts/SassoonPrimaryStd-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Sassoon Primary Std';
+  src: url('fonts/SassoonPrimaryStd-Bold.woff2') format('woff2'), url('fonts/SassoonPrimaryStd-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
+
 .config {
-	cursor: pointer;
-	font-size: 0.8em;
-	z-index: 9999;
-	position: fixed;
-	top: 5px;
-	right: 23px;
-	border: 0;
-	background-color: #eee;
-	border-radius: 5px;
-	padding: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+  z-index: 9999;
+  position: fixed;
+  top: 5px;
+  right: 23px;
+  border: 0;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 5px;
 }
-/* POPUP DE CONFIGURATION */
 
 .conf {
   font-size: 100%;
-  padding:10px;
-  text-align:center;
+  padding: 10px;
+  text-align: center;
   font-family: Helvetica, Verdana, Tahoma, Arial, sans-serif;
-  margin:0;
-  color:#fff;
-  font-size:1.1em;
-  background:#106eaf;
+  margin: 0;
+  color: #fff;
+  font-size: 1.1em;
+  background: #106eaf;
   background-image: url(img/bg.png);
-  height:100vh;
+  height: 100vh;
 }
 
 .conf * {
@@ -172,42 +153,51 @@
   border: 1px solid #a9a9a9;
   border-radius: 5px;
   color: #7c7c7c;
-  box-shadow: 0px 4px 0px -2px rgba(255,255,255,1), 0px 2px 0px 0px rgba(169,169,169,1);
+  box-shadow: 0px 4px 0px -2px rgba(255, 255, 255, 1), 0px 2px 0px 0px rgba(169, 169, 169, 1);
   padding: 13px 4px 0 4px;
   font-size: 12px;
   font-family: Arial;
-  font-weight:bold;
+  font-weight: bold;
   text-align: center;
 }
+
 .conf table {
-  width:90vw;
-  margin:auto
+  width: 90vw;
+  margin: auto
 }
+
 .conf td,th {
-  border:1px solid #555;
-  font-family: Verdana,Tahoma,Georgia,sans-serif;
-  font-size:1.2em;
+  border: 1px solid #555;
+  font-family: Verdana, Tahoma, Georgia, sans-serif;
+  font-size: 1.2em;
   padding: 2px 8px 2px 8px
 }
+
 .conf td {
   color: #000;
-  font-size : 80%;		
+  font-size: 80%;
 }
+
 .conf th {
-  background-color:#ab1f4d
+  background-color: #ab1f4d
 }
+
 .conf tr:nth-of-type(2n) {
-  background-color:#a7dcea
+  background-color: #a7dcea
 }
+
 .conf tr:nth-of-type(2n+1) {
-  background-color:#5abeea
+  background-color: #5abeea
 }
+
 .conf h1 {
   font-size: 2em;
 }
+
 .conf .ex {
-  text-align: center;	
+  text-align: center;
 }
-.conf #ex2{
-  font-size:1.5em
+
+.conf #ex2 {
+  font-size: 1.5em
 }

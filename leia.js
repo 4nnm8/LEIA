@@ -6,12 +6,12 @@ toute forme (libre, propriétaire, gratuite ou commerciale)
 licence lors de toute modification ou distribution.
 http://www.apache.org/licenses/LICENSE-2.0
 
-Faites un don : https://bit.ly/2vuzK7g
+Faites un don :) https://bit.ly/2vuzK7g
 **/
 
-/********** RACCOURCIS FONCTIONS *********************************************/
+/********** RACCOURCI FONCTION ADDEVENTLISTENER ******************************/
 
-function addEvent(obj, evt, fn) { 
+function addEvent(obj, evt, fn) {
   if (obj.addEventListener) {
     obj.addEventListener(evt, fn, false);
     return true;
@@ -33,141 +33,115 @@ function addEvent(obj, evt, fn) {
   return false;
 }
 
-function getStyle(a) {  
-  var b = a.currentStyle || getComputedStyle(a, null);
-  return b;
-}
-
 /********** APPELLER LA FEUILLE DE STYLE LEIA ********************************/
 
-var head  = document.getElementsByTagName("head")[0];
-var link  = document.createElement("link");
-link.id   = "leia";
-link.rel  = "stylesheet";
-link.type = "text/css";
-link.href = "leia.css";
-link.media = "all";
-head.appendChild(link);
-  
-/********** DICTIONNAIRES & VARIABLES ****************************************/
+var head = document.getElementsByTagName("head")[0],
+    lnk = document.createElement("link");
+    lnk.id = "leia";
+    lnk.rel = "stylesheet";
+    lnk.type = "text/css";
+    lnk.href = "leia.css";
+    lnk.media = "all";
+head.appendChild(lnk);
+
+/********** DICTIONNAIRES ****************************************************/
 
 const dico = [
 //PRE MASC			 PRE FEM			EXT MASC		EXT FEM				PROP 1			PROP 2			PROP 3			PROP 4			PROP 5
-
-[  "sauf"			,"(au)?ve"			,"sauf$5"		,"sauve$5"			,"auve"			,"ve"],
-[  "([vn])euf"		,"(eu)?ve"			,"$2$6"			,"$3euve$6"			,"euve"			,"ve"],
-[  "serf"			,"(er)?ve"			,"serf$5"		,"serve$5"			,"erve"			,"ve"],
-[  "roux"			,"(ou)?sse"			,"roux"			,"rousse$5"			,"ousse"		,"sse"],
-[  "faux"			,"(au)?sse"			,"faux"			,"fausse$5"			,"ausse"		,"sse"],
-[  "vieux"			,"i?eille"			,"vieux"		,"vieille$4"		,"ieille"],
-[  "copain"			,"ine"				,"copain$4"		,"copine$4"			,"ine"],
-[  "br[èe]f"		,"è?ve"				,"bref$4"		,"brève$4"			,"ève"],
-[  "compagnon"		,"agne"				,"compagnon$4"	,"compagne$4"		,"agne"			,"ne"],
-[  "tiers?"			,"ce"				,"tiers"		,"tierce$4"			,"ce"],
-[  "doux"			,"(?:ou)?ce"		,"doux"			,"douce$4"			,"ouce",	"ce"],
-[  "hébreux?"		,"aïque"			,"hébreux"		,"hébraïque$4"		,"aïque"],
-[  "fra[iî]s?"		,"(aî)?che"			,"frais"		,"fraîche$5"		,"che"			,"aîche"],
-[  "s[èe]c"			,"è?c?he"			,"sec$4"		,"sèche$4"			,"èche"			,"he"],
-[  "ambassadeur"	,"d?r?ice"			,"ambassadeur$4","ambassadrice$4"	,"drice",	"rice",	"ice"],
-[  "docteur"		,"oresse"			,"docteur$4"	,"doctoresse$4"		,"e"			,"oresse"],// ?
-[  "héros?"			,"o?ïne"			,"héros"		,"héroïne$4"		,"oïne"],
-[  "aïeux"			,"(?:ieu)?le"		,"aïeux"		,"aïeule$4"			,"ïeule"],
-[  "canut"			,"u?se"				,"canut$4"		,"canuse$4"			,"use"],
-[  "bêta"			,"a?sse"			,"bêta$4"		,"bêtasse$4"		,"sse"			,"asse"],
-[  "clown"			,"esse"				,"clown$4"		,"clownesse$4"		,"e","esse"],// ?
-[  "(bén|mal)in"	,"igne"				,"$3in$5"		,"$3igne$5"			,"igne"],
-[  "(diss|abs)ous?"	,"(ou)?te"			,"$3ous"		,"$3oute$6"			,"oute"			,"te"],
-[  "(ép|jal)oux"	,"(ou)?se"			,"$3oux"		,"$3ouse$6"			,"ouse"			,"se"],
-[  "blanc|franc"	,"he"				,"$2$4"			,"$2he$4"			,"he"],
-[  "prophète"		,"e?sse"			,"prophète$4"	,"prophétesse$4"	,"sse"			,"esse"],
-[  "long"			,"ue"				,"$1long$4"		,"$1longue$4"		,"ue"],
-[  "butor|esquimau"	,"de"				,"$2$4"			,"$2de$4"			,"de"],
-[  "esquimaux"		,"des?"				,"esquimaux"	,"esquimaudes"		,"des"],
-[  "andalou"		,"se"				,"$2$4"			,"$2se$4"			,"se"],
-[  "foufou"			,"olle"				,"foufou$4"		,"fofolle$4"		,"olle"],
-[  "([mf])ou"		,"olle"				,"$3ou$5"		,"$3olle$5"			,"olle"],
-[  "acquéreur"		,"esse|euse"		,"acquéreur$4"	,"acquér$3$4"		,"esse"],
-[  "devin"			,"eresse"			,"devin$4"		,"devineresse$4"	,"eresse"],
+  ["sauf"			,"(au)?ve"			,"sauf$5"		,"sauve$5"			,"auve"			,"ve"],
+  ["([vn])euf"		,"(eu)?ve"			,"$2$6"			,"$3euve$6"			,"euve"			,"ve"],
+  ["serf"			,"(er)?ve"			,"serf$5"		,"serve$5"			,"erve"			,"ve"],
+  ["roux"			,"(ou)?sse"			,"roux"			,"rousse$5"			,"ousse"		,"sse"],
+  ["faux"			,"(au)?sse"			,"faux"			,"fausse$5"			,"ausse"		,"sse"],
+  ["vieux"			,"i?eille"			,"vieux"		,"vieille$4"		,"ieille"],
+  ["copain"			,"ine"				,"copain$4"		,"copine$4"			,"ine"],
+  ["br[èe]f"		,"è?ve"				,"bref$4"		,"brève$4"			,"ève"],
+  ["compagnon"		,"agne"				,"compagnon$4"	,"compagne$4"		,"agne"			,"ne"],
+  ["tiers?"			,"ce"				,"tiers"		,"tierce$4"			,"ce"],
+  ["doux"			,"(?:ou)?ce"		,"doux"			,"douce$4"			,"ouce",		"ce"],
+  ["hébreux?"		,"aïque"			,"hébreux"		,"hébraïque$4"		,"aïque"],
+  ["fra[iî]s?"		,"(aî)?che"			,"frais"		,"fraîche$5"		,"che"			,"aîche"],
+  ["s[èe]c"			,"è?c?he"			,"sec$4"		,"sèche$4"			,"èche"			,"he"],
+  ["ambassadeur"	,"d?r?ice"			,"ambassadeur$4","ambassadrice$4"	,"drice"		,"rice"			,"ice"],
+  ["docteur"		,"oresse"			,"docteur$4"	,"doctoresse$4"		,"e"			,"oresse"],
+  ["héros?"			,"o?ïne"			,"héros"		,"héroïne$4"		,"oïne"],
+  ["aïeux"			,"(?:ieu)?le"		,"aïeux"		,"aïeule$4"			,"ïeule"],
+  ["canut"			,"u?se"				,"canut$4"		,"canuse$4"			,"use"],
+  ["bêta"			,"a?sse"			,"bêta$4"		,"bêtasse$4"		,"sse"			,"asse"],
+  ["clown"			,"esse"				,"clown$4"		,"clownesse$4"		,"e","esse"],// ?
+  ["(bén|mal)in"	,"igne"				,"$3in$5"		,"$3igne$5"			,"igne"],
+  ["(diss|abs)ous?"	,"(ou)?te"			,"$3ous"		,"$3oute$6"			,"oute"			,"te"],
+  ["(ép|jal)oux"	,"(ou)?se"			,"$3oux"		,"$3ouse$6"			,"ouse"			,"se"],
+  ["blanc|franc"	,"he"				,"$2$4"			,"$2he$4"			,"he"],
+  ["prophète"		,"e?sse"			,"prophète$4"	,"prophétesse$4"	,"sse"			,"esse"],
+  ["long"			,"ue"				,"$1long$4"		,"$1longue$4"		,"ue"],
+  ["butor|esquimau"	,"de"				,"$2$4"			,"$2de$4"			,"de"],
+  ["esquimaux"		,"des?"				,"esquimaux"	,"esquimaudes"		,"des"],
+  ["andalou"		,"se"				,"$2$4"			,"$2se$4"			,"se"],
+  ["foufou"			,"olle"				,"foufou$4"		,"fofolle$4"		,"olle"],
+  ["([mf])ou"		,"olle"				,"$3ou$5"		,"$3olle$5"			,"olle"],
+  ["acquéreur"		,"esse|euse"		,"acquéreur$4"	,"acquér$3$4"		,"esse"],
+  ["devin"			,"eresse"			,"devin$4"		,"devineresse$4"	,"eresse"],
 //["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|gém|pastour|agn|b)eaux?","elle"] // pas checké
-[  "eaux"			,"elles?"		 	,"$1$2" 		,"$1$3$4"],
-[  "eau"			,"elle" 			,"$1$2" 		,"$1$3"],
-[  "aux"			,"ales?"			,"$1$2" 		,"$1$3$4"],
-[  "eux"			,"euse" 			,"$1$2$4" 		,"$1$3$4"			,"euse"			,"se"],// exceptions n'ayant pas de fém
-
-["(pêch|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur"
+  ["eaux"			,"elles?"		 	,"$1$2" 		,"$1$3$4"],
+  ["eau"			,"elle" 			,"$1$2" 		,"$1$3"],
+  ["aux"			,"ales?"			,"$1$2" 		,"$1$3$4"],
+  ["eux"			,"euse" 			,"$1$2$4" 		,"$1$3$4"			,"euse"			,"se"],// exceptions n'ayant pas de fém
+  ["(pêch|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur"
 					,"(eu)?se"			,'$3eur$6'		,'$3euse$6'			,"eresse"		,"euse"		,"se"],
-["(vainq|assess|gouvern|prédécess)eur"
+  ["(vainq|assess|gouvern|prédécess)eur"
 					,"(eu)?se"			,"$3eur$6"		,'$3euse$6'			,"e"			,"euse"			,"eresse"	,"se"],
-["(défend|paqu|codemand|enchant|p[éè]ch)eur",
-					"eresse"			,"$3eur$6"		,"$3eresse$6"		,"eresse"],
-
-[  "eu?r"							,"euse" 	,"$1$2$4"	,"$1$3$4"],
-[  "eu?r"							,"se" 		,"$1eur$4"	,"$1euse$4"],
-[  "eur"							,"eresse" 	,"$1$2$4" 	,"$1$3$4"],
-[  "teu?r"							,"trice" 	,"$1$2$4" 	,"$1$3$4"		,"trice"		,"euse"		,"rice"			,"se"],
-[  "eu?r"							,"rice" 	,"$1$2$4" 	,"$1$3$4"],
-[  "eu?r"							,"ice" 		,"$1$2$4" 	,"$1r$3$4"],
-[  "(lasc|noc|malad|tard|na|ju|v|réflex|[st])([ïi])f"
-									,"[iï]?ve"	,"$1$2$6"	,"$1$3$4ve$6"	,"ive"			,"ve"],
-[  "[^e]"							,"esse" 	,"$1$2$4"	,"$1$2$3$4"],
-[  "e"								,"esse" 	,"$1$2$4" 	,"$1$3$4"],
-[  "e"								,"sse" 		,"$1$2$4" 	,"$1$2$3$4"],
-[  "favori|rigolo|filou|loulou|coi"	,"te" 		,"$1$2$4" 	,"$1$2$3$4"],
-  // ète + ère
-[  "er"			,"ère" 			,"$1$2$4"	,"$1ère$4"],
-[  "èr"			,"e" 			,"$1er$4"	,"$1ère$4"],
-["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et"
-				,"ète"				,"$3et$7"	,"$3ète$7"	,"ète"],
-[  "[eè]t"		,"(èt)?e" 	,"$1et$5"	,"$1ète$5"],
-  // Double consonne +E
-[  "t"			,"te" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "n"			,"ne" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "l"			,"le" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "exprès"		,"se" 		,"exprès"	,"expresse$4"],
-["las|bas|gros|gras|épais"
-				,"se"			,"$2"			,"$2se$4"		,"se"],
-[  "s"			,"ses?" 		,"$1s"		,"$1$2$3$4"],// !
-[  ""			,"se" 		,"$1s"		,"$1$2$3$4"],// !
-[  ""			,"ss" 		,"$1sse"		,"$1sse$4"],// !
-[  "s"			,"e" 		,"$1s"		,"$1se$4"],// !
-
-[  "n"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "d"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "t"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["(défend|paqu|codemand|enchant|p[éè]ch)eur"
+					,"eresse"			,"$3eur$6"		,"$3eresse$6"		,"eresse"],
+  ["eu?r"			,"euse" 	,"$1$2$4"	,"$1$3$4"],
+  ["eu?r"			,"se" 		,"$1eur$4"	,"$1euse$4"],
+  ["eur"			,"eresse" 	,"$1$2$4" 	,"$1$3$4"],
+  ["teu?r"			,"trice" 	,"$1$2$4" 	,"$1$3$4"		,"trice"		,"euse"		,"rice"			,"se"],
+  ["eu?r"			,"rice" 	,"$1$2$4" 	,"$1$3$4"],
+  ["eu?r"			,"ice" 		,"$1$2$4" 	,"$1r$3$4"],
+  ["(lasc|noc|malad|tard|na|ju|v|réflex|[st])([ïi])f"
+					,"[iï]?ve"	,"$1$2$6"	,"$1$3$4ve$6"	,"ive"			,"ve"],
+  ["[^e]"			,"esse" 	,"$1$2$4"	,"$1$2$3$4"],
+  ["e"				,"esse" 	,"$1$2$4" 	,"$1$3$4"],
+  ["e"				,"sse" 		,"$1$2$4" 	,"$1$2$3$4"],
+  ["favori|rigolo|filou|loulou|coi"
+					,"te" 		,"$1$2$4" 	,"$1$2$3$4"		,"te"],
+  ["er"				,"ère"		,"$1$2$4"	,"$1ère$4"],
+  ["èr"				,"e" 		,"$1er$4"	,"$1ère$4"],
+  ["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et"
+					,"ète"		,"$3et$7"	,"$3ète$7"	,"ète"],
+  ["[eè]t"		,"(èt)?e" 	,"$1et$5"	,"$1ète$5"],
+  ["t"			,"te" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["n"			,"ne" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["l"			,"le" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["exprès"		,"se" 		,"exprès"	,"expresse$4"],
+  ["las|bas|gros|gras|épais"
+				,"se"		,"$2"		,"$2se$4"		,"se"],
+  ["s"			,"ses?" 	,"$1s"		,"$1$2$3$4"], // !
+  [""			,"se" 		,"$1s"		,"$1$2$3$4"], // !
+  [""			,"ss" 		,"$1sse"	,"$1sse$4"],  // !
+  ["s"			,"e" 		,"$1s"		,"$1se$4"],   // !
+  ["n"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["d"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["t"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
 ],
 muet = [
-[  "chef"										,"fe"		,"chef$4"	,"cheffe$4"			,"fe"			,"fesse"],
-[  "grec"										,"que" 		,"grec$4" 	,"grecque$4"],
-[  "(cadu|laï|publi|micma|syndi|tur|gre|fran)c"	,"que"		,"$1$2$4"	,"$1$3$4"],
-[  "é"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "i"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "l"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "r"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "(ai|ambi|bé|conti|exi|surai|subai)g[uü]"	,"[eë]" 	,"$3gu$5"	,"$3guë$5"],
-[  "u"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-[  "û"											,"e" 		,"$1$2$4"	,"$1u$3$4"],
-
+  ["chef"										,"fe"		,"chef$4"	,"cheffe$4"			,"fe"			,"fesse"],
+  ["grec"										,"que" 		,"grec$4" 	,"grecque$4"		,"que"],
+  ["(cadu|laï|publi|micma|syndi|tur|gre|fran)c"	,"que"		,"$1$2$4"	,"$1$3$4"			,"que"],
+  ["é"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["i"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["l"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["r"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["(ai|ambi|bé|conti|exi|surai|subai)g[uü]"	,"[eë]" 	,"$3gu$5"	,"$3guë$5"],
+  ["u"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["û"											,"e" 		,"$1$2$4"	,"$1u$3$4"],
 ];
-/*
 
-
-  // E > ESSE (31 mots)
-  ["âne|comte|bonze|bougre|buffle|chanoine|sauvage|tigre|traître|type|prêtre|prince|prophète|faune|flique|gonze|hôte|ivrogne|ladre|larronne|maire|maître|monstre|nègre|notaire|ogre|paire|pape|patronne|pauvre|drôle|druide|comte|diable|suisse|mulâtre|centaure|chanoine","sse","esse"], 
-
-
-  // PAS OK (incomplet ou trop général) >>>
-  ["[a-zàâäéèêëïîôöùûüç]+[^t]eur","euse"], // Imparfait. -EUR non précédé d'un T donne généralement EUSE au féminin, mais rares exceptions. 
-  ["[a-zàâäéèêëïîôöùûüç]+teur","trice","teuse","rice","euse","ice"], // Imparfait. -TEUR donne généralement -TRICE au féminin mais aussi régulièrement -TEUSE. Parfois les deux. 
-  // ER > ÈRE + Règle générale IER > IÈRE. Imparfait : prend trop de mots en compte, (ex: argousier·ère = incorrect) >
-  ["([a-zàâäéèêëïîôöùûüç]+ier)|(am|arch|berg|bocag|bouch|boulang|cach|caloy|ch|coch|conseill|écaill|écuy|étrang|fromag|gauch|horlog|khm|lég|lignag|ling|magist|maraîch|mast|ménag|mensong|métay|passag|paysag|péag|porch|potag|sup|usag|vach)er","ère"],
-  ["chat|rat|filou|loulou|favori|rigolo|coi|((maigri|pâl|bosc|jeun|vieill|s)ot)","te"], // +TE 
-
-  // ON·NE >
-  ["([bc]|aigl|sax|bar|berrich|bis|b|bouff|bourguign|bûcher|bret|brouill|b[uû]cher|buffl|champi|coch|couill|cret|dar|drag|espi|fanfar|fél|folich|forger|frip|maç|lett|garç|gasc|glout|grogn|hériss|hur|laider|lap|lett|li|tatill|teut|champi|vigner|wall|lur|maç|maigrich|nipp|ours|pâlich|phara|piét|pige|pi|pochetr|pochtr|poliss|poltr|rejet|ronch|sauvage|sax|beaucer|bess|bich|boug|brabanç|charr|enfanç|fransquill|godich|hesbign|marmit|nazill|négrill|noblaill|patr|percher|pa|levr|louch|maquign|marr|mat|slav|so[uû]l|mign|mist|mollass|tâcher|tardill)on","ne"], 
-*/
-  
+/********** VARIABLES GENERALES **********************************************/
+ 
 var dl = dico.length,
-	ml = muet.length,
+    ml = muet.length,
     mode = localStorage.getItem("mode") || 1,
     pred = localStorage.getItem("pred") || 1,
     high = localStorage.getItem("high") || 0,
@@ -175,7 +149,7 @@ var dl = dico.length,
     txtColor = localStorage.getItem("txtColor") || "#000",
     fontWeight = localStorage.getItem("fontWeight") || "normal",
     txtDeco = localStorage.getItem("txtDeco") || "none",
-    term, terml, termp = 1,
+    term, terml, termp = 4,
     ndLst = [],
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
@@ -185,7 +159,7 @@ var dl = dico.length,
       }
     }, false),
     r3 = new RegExp("([·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?([a-zÀ-ÖÙ-öù-üœŒ]+)?)", "gi"),
-	bouton = document.createElement("input");
+    bouton = document.createElement("input");
 
 /********** POPUP CONFIGURATION **********************************************/
 
@@ -193,13 +167,13 @@ bouton.type = "button",
 bouton.value = "Menu LÉIA",
 bouton.className = "config";
 bouton.tabIndex = "1";
-bouton.onclick = function(){ popup() };
+bouton.onclick = function(){popup()};
 document.body.appendChild(bouton);
 
-function popup(){
+function popup() {
   let si = (document.documentElement.clientWidth || window.innerWidth) / 2.5,
-    sr = window.innerWidth - 495;
-  window.open("config.html", "_blank", "dialog=yes, titlebar=no, status=no, scrollbars=yes, menubar=no, top=75, left=" + sr + ", toolbar=no, directories=0, personalbar=0, location=no, width="+si+",height=470");
+      sr = window.innerWidth - 495;
+  window.open("config.html", "_blank", "dialog=yes, titlebar=no, status=no, scrollbars=yes, menubar=no, top=75, left=" + sr + ", toolbar=no, directories=0, personalbar=0, location=no, width=" + si + ",height=470");
 }
 
 addEvent(document, "keydown", function(e) {
@@ -209,62 +183,59 @@ addEvent(document, "keydown", function(e) {
     e.preventDefault();
   }
 });
-  
+
 /********** MISE EN EVIDENCE ECRITURE INCLUSIVE ******************************/
 
 function highlight(node) {
-  if(/^(?:MARK|SCRIPT|STYLE|INPUT|TEXTAREA)$/.test(node.nodeName)) return;
-   var r = r3.exec(node.nodeValue);
-  if(node.hasChildNodes()) {
-    for(var i = 0 ; i < node.childNodes.length ; i++) {
+  if (/^(?:MARK|SCRIPT|STYLE|INPUT|TEXTAREA)$/.test(node.nodeName)) return;
+  var r = r3.exec(node.nodeValue);
+  if (node.hasChildNodes()) {
+    for (var i = 0; i < node.childNodes.length; i++) {
       highlight(node.childNodes[i]);
     }
   }
-  if(node.nodeType == 3) { 
-   
-    if(r) {
-      var nmark = document.createElement("MARK"),
-          after = node.splitText(r.index);
-      nmark.appendChild(document.createTextNode(r[0]));
-      nmark.style.backgroundColor = bgColor;
-      nmark.style.color = txtColor;
-      nmark.style.textDecoration = txtDeco;
-      nmark.style.fontWeight = fontWeight;
-      after.nodeValue = after.nodeValue.substring(r[0].length);
-      node.parentNode.insertBefore(nmark, after);
-    }
+  if (node.nodeType == 3 && r) {
+    var nmark = document.createElement("MARK"),
+        after = node.splitText(r.index);
+    nmark.appendChild(document.createTextNode(r[0]));
+    nmark.style.backgroundColor = bgColor;
+    nmark.style.color = txtColor;
+    nmark.style.textDecoration = txtDeco;
+    nmark.style.fontWeight = fontWeight;
+    after.nodeValue = after.nodeValue.substring(r[0].length);
+    node.parentNode.insertBefore(nmark, after);
   }
-} 
-if (high == 1) {highlight(document.body)};
-  
+}
+if (high == 1) {
+  highlight(document.body)
+};
+
 /********** CONVERSION ÉCRITURE INCLUSIVE ************************************/
-console.log(localStorage.getItem("mode"))
-console.log(mode)
 
 console.time("SKIM");
 while (tree.nextNode()) {
   if (tree.currentNode.nodeValue.trim().length > 0) {
     ndLst.push(tree.currentNode);
     var pnode = tree.currentNode.parentNode;
-	if (mode == 1) {
-	  for (var i = 0 ; i < dl ; i++) {
-        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?("+dico[i][0]+")[-/·∙.•]("+dico[i][1]+")[-/·∙.•]?(s)?(?![a-z])","gi");   
-		tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1,dico[i][2] + ' ' + dico[i][3])
-      }	
-	  for (var j = 0 ; j < ml ; j++) {
-        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?("+muet[j][0]+")[-/·∙.•]("+muet[j][1]+")[-/·∙.•]?(s)?(?![a-z])","gi");   
-		tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1,muet[j][2]);
-      }	
-	}
-    if (mode > 1) {
-      for (var i = 0; i < dl ; i++) {
-        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?("+dico[i][0]+")[-/·∙.•]("+dico[i][1]+")[-/·∙.•]?(s)?(?![a-z])","gi");   
-		tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1,dico[i][mode]);
+    if (mode == 1) {
+      for (var i = 0; i < dl; i++) {
+        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+        tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][2] + ' ' + dico[i][3])
       }
-	  for (var j = 0 ; j < ml ; j++) {
-        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?("+muet[j][0]+")[-/·∙.•]("+muet[j][1]+")[-/·∙.•]?(s)?(?![a-z])","gi");   
-		tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1,muet[j][mode]);
-      }	
+      for (var j = 0; j < ml; j++) {
+        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+        tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][2]);
+      }
+    }
+    if (mode > 1) {
+      for (var i = 0; i < dl; i++) {
+        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+        tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][mode]);
+      }
+      for (var j = 0; j < ml; j++) {
+        var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+        tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][mode]);
+      }
     }
   }
 }
@@ -312,90 +283,90 @@ function getWord(text, caretPos) {
 }
 
 function seek(x) {
-    for (var i = 0; i < dl; i++) {
-		let reg = new RegExp(dico[i][0] + "s?$", "i"), 
-		    mch = x.search(reg);
-		if (dico[i].length > 4 && mch != -1){
-			return dico[i]
-		}				
+  for (var i = 0; i < dl; i++) {
+    let reg = new RegExp(dico[i][0] + "s?$", "i"),
+      mch = x.search(reg);
+    if (dico[i].length > 4 && mch != -1) {
+      return dico[i]
     }
+  }
 }
-  
+
 function change(n, m, b) {
-    if (n == 1) { /* ↓ */
-	console.log('termp :' + termp)
-        if (termp == terml - 1) {
-            termp = 4
-        } else {
-            termp++
-        }
-		console.log('termp :' + termp)
-    }	
-    if (n == -1) { /* ↑ */
-        if (termp == 4) {
-            termp = term.length - 1
-        } else {
-            termp--
-        }
+  if (n == 1) {
+    if (termp == terml - 1) {
+      termp = 4
+    } else {
+      termp++
     }
-    m.value = m.value.slice(0, b[0]) + '·' + term[termp] + m.value.slice(b[1])
-    selekt(m, b[0], b[0] + term[termp].length + 1);
+  }
+  if (n == -1) {
+    if (termp == 4) {
+      termp = term.length - 1
+    } else {
+      termp--
+    }
+  }
+  m.value = m.value.slice(0, b[0]) + '·' + term[termp] + m.value.slice(b[1])
+  selekt(m, b[0], b[0] + term[termp].length + 1);
 }
 
 document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]').forEach(function(elem) {
-    addEvent(elem, 'keyup', function(e) {
-		let b = getCaret(this),
-            c = getWord(this, b[1]),
-            d = seek(c) || false;
-			console.log('getWord : '+c)
-        if (this.value.indexOf(';;') > -1) {
-            var now = getCaret(this);
-            this.value = this.value.replace(';;', '·');
-            selekt(this, now[0] - 1, now[0] - 1)
-        }
-        if (d && c.indexOf('·') == -1) {
-            this.value = this.value.slice(0, b[0]) + '·' + d[termp] + this.value.slice(b[0])
-            selekt(this, b[0], b[0] + d[termp].length + 1);
-            term = d;
-            terml = term.length;
-        }
-		console.log('Term = '+term+' ; Terml = '+terml+' ; Termp = '+termp)
-    })
+  addEvent(elem, 'keyup', function(e) {
+    let b = getCaret(this),
+      c = getWord(this, b[1]),
+      d = seek(c) || false;
+    if (this.value.indexOf(';;') > -1) {
+      var now = getCaret(this);
+      this.value = this.value.replace(';;', '·');
+      selekt(this, now[0] - 1, now[0] - 1)
+    }
+    if (d && c.indexOf('·') == -1) {
+      this.value = this.value.slice(0, b[0]) + '·' + d[termp] + this.value.slice(b[0])
+      selekt(this, b[0], b[0] + d[termp].length + 1);
+      term = d;
+      terml = term.length;
+    }
+  })
 
-    addEvent(elem, 'keydown', function(e) {
-        let a = e.which || e.keyCode || e.charCode,
-            b = getCaret(this);
-        if (term && b[0] != b[1]) {
-            switch (a) {
-                // Suppr
-                case 8:
-                    e.preventDefault();
-                    this.value = this.value.slice(0, b[0] - 1) + this.value.slice(b[1]);
-                    selekt(this, b[0] - 1, b[0] - 1);
-                    break;
-                    // Left arrow
-                case 37:
-                    e.preventDefault();
-                    this.value = this.value.slice(0, b[0]) + this.value.slice(b[1]);
-                    selekt(this, b[0] - 1, b[0] - 1);
-                    break;
-                    // Enter
-                case 13:
-                    e.preventDefault();
-                    selekt(this, b[1], b[1]);
-                    break;
-                    // Down arrow
-                case 40:
-                    e.preventDefault();
-                    change(1, this, b);
-                    break;
-                    // Up arrow
-                case 38:
-                    e.preventDefault();
-                    change(-1, this, b);
-                    break;
-                default: term = []	; terml = undefined ; termp = 4;
-            }
-        }
-    });
+  addEvent(elem, 'keydown', function(e) {
+    let a = e.which || e.keyCode || e.charCode,
+      b = getCaret(this);
+    if (term && b[0] != b[1]) {
+      switch (a) {
+        // Backspace
+        case 8:
+          e.preventDefault();
+          this.value = this.value.slice(0, b[0] - 1) + this.value.slice(b[1]);
+          selekt(this, b[0] - 1, b[0] - 1);
+          break;
+          // Left arrow
+        case 37:
+          e.preventDefault();
+          this.value = this.value.slice(0, b[0]) + this.value.slice(b[1]);
+          selekt(this, b[0] - 1, b[0] - 1);
+          break;
+          // Enter
+        case 13:
+          e.preventDefault();
+          selekt(this, b[1], b[1]);
+          break;
+          // Down arrow
+        case 40:
+          e.preventDefault();
+          change(1, this, b);
+          break;
+          // Up arrow
+        case 38:
+          e.preventDefault();
+          change(-1, this, b);
+          break;
+		  // case 46: Suppr? 
+        default:
+          term = [];
+          terml = undefined;
+          termp = 4;
+      }
+    }
+  });
 });

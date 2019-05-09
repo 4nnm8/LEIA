@@ -1,25 +1,28 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-	<title>Configurer LÉIA</title>
+    <title>Configurer LÉIA</title>
     <link rel="stylesheet" href="leia.css" type="text/css" media="screen" />
   </head>
-  <body class="conf">  
+  <body class="conf">
     <table>
       <tr>
         <td><label for="mode">Choix du mode de lecture inclusive</label></td>
         <td>
           <select id="mode">
-		    <option value="0">Aucun - Désactivé</option>
+            <option value="0">Aucun - Désactivé</option>
             <option value="1">Mots lus aux deux genres</option>
             <option value="2">Mots lus au maculin uniquement</option>
-			<option value="3">Mots lus au féminin uniquement</option>
+            <option value="3">Mots lus au féminin uniquement</option>
           </select>
         </td>
       </tr>
       <tr>
-        <td><label for="pred">Dictionnaire de saisie prédictive écriture inclusive</td></label>
+        <td><label for="pred">Dictionnaire de saisie prédictive écriture inclusive</td>
+        </label>
         <td>
           <select id="pred">
             <option value="0">Désactivé</option>
@@ -33,7 +36,8 @@
           <select id="high">
             <option value="0">Désactivé</option>
             <option value="1">Activé</option>
-          </select><br/><br/>
+          </select>
+          <br/><br/>
           <input type="color" id="bgColor" /> Couleur de fond&nbsp;<br/>
           <input type="color" id="txtColor" /> Couleur du texte<br/>
           <label for="fontWeight"><input type="checkbox" id="fontWeight" /> Gras</label>
@@ -42,11 +46,9 @@
         </td>
       </tr>
     </table>
-    
     <p><button id="launch">Appliquer les changements</button></p>
     <p>Panneau de configuration <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
     <p>Insérer un point médian <kbd>;</kbd> <kbd>;</kbd></p>
-    
     <script type="text/javascript">
       function addEvent(obj, evt, fn) { 
         if (obj.addEventListener) {
@@ -118,7 +120,7 @@
           $("mode").selectedIndex = 0;
         }
       });
-	  addEvent($("mode"), "change", function(e) {
+      addEvent($("mode"), "change", function(e) {
         if (this.selectedIndex !== 0) {
           $("high").selectedIndex = 0;
         }
@@ -128,3 +130,4 @@
     </script>
   </body>
 </html>
+
