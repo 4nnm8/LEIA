@@ -47,7 +47,7 @@ head.appendChild(lnk);
 /********** DICTIONNAIRES ****************************************************/
 
 const dico = [
-//PRE MASC			 PRE FEM			EXT MASC		EXT FEM				PROP 1			PROP 2			PROP 3			PROP 4			PROP 5
+//PRE MASC			 PRE FEM			EXT MASC		EXT FEM				PROP 1			PROP 2			PROP 3			PROP 4
   ["sauf"			,"(au)?ve"			,"sauf$5"		,"sauve$5"			,"auve"			,"ve"],
   ["([vn])euf"		,"(eu)?ve"			,"$2$6"			,"$3euve$6"			,"euve"			,"ve"],
   ["serf"			,"(er)?ve"			,"serf$5"		,"serve$5"			,"erve"			,"ve"],
@@ -68,7 +68,7 @@ const dico = [
   ["aïeux"			,"(?:ieu)?le"		,"aïeux"		,"aïeule$4"			,"ïeule"],
   ["canut"			,"u?se"				,"canut$4"		,"canuse$4"			,"use"],
   ["bêta"			,"a?sse"			,"bêta$4"		,"bêtasse$4"		,"sse"			,"asse"],
-  ["clown"			,"esse"				,"clown$4"		,"clownesse$4"		,"e","esse"],// ?
+  ["clown"			,"esse"				,"clown$4"		,"clownesse$4"		,"e",			"esse"],
   ["(bén|mal)in"	,"igne"				,"$3in$5"		,"$3igne$5"			,"igne"],
   ["(diss|abs)ous?"	,"(ou)?te"			,"$3ous"		,"$3oute$6"			,"oute"			,"te"],
   ["(ép|jal)oux"	,"(ou)?se"			,"$3oux"		,"$3ouse$6"			,"ouse"			,"se"],
@@ -82,7 +82,6 @@ const dico = [
   ["([mf])ou"		,"olle"				,"$3ou$5"		,"$3olle$5"			,"olle"],
   ["acquéreur"		,"esse|euse"		,"acquéreur$4"	,"acquér$3$4"		,"esse"],
   ["devin"			,"eresse"			,"devin$4"		,"devineresse$4"	,"eresse"],
-//["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|gém|pastour|agn|b)eaux?","elle"] // pas checké
   ["eaux"			,"elles?"		 	,"$1$2" 		,"$1$3$4"],
   ["eau"			,"elle" 			,"$1$2" 		,"$1$3"],
   ["aux"			,"ales?"			,"$1$2" 		,"$1$3$4"],
@@ -90,7 +89,7 @@ const dico = [
   ["(pêch|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur"
 					,"(eu)?se"			,'$3eur$6'		,'$3euse$6'			,"eresse"		,"euse"		,"se"],
   ["(vainq|assess|gouvern|prédécess)eur"
-					,"(eu)?se"			,"$3eur$6"		,'$3euse$6'			,"e"			,"euse"			,"eresse"	,"se"],
+					,"(eu)?se"			,"$3eur$6"		,'$3euse$6'			,"e"			,"euse"		,"eresse"	,"se"],
   ["(défend|paqu|codemand|enchant|p[éè]ch)eur"
 					,"eresse"			,"$3eur$6"		,"$3eresse$6"		,"eresse"],
   ["eu?r"			,"euse" 	,"$1$2$4"	,"$1$3$4"],
@@ -126,16 +125,18 @@ const dico = [
   ["t"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
 ],
 muet = [
-  ["chef"										,"fe"		,"chef$4"	,"cheffe$4"			,"fe"			,"fesse"],
-  ["grec"										,"que" 		,"grec$4" 	,"grecque$4"		,"que"],
-  ["(cadu|laï|publi|micma|syndi|tur|gre|fran)c"	,"que"		,"$1$2$4"	,"$1$3$4"			,"que"],
-  ["é"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-  ["i"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-  ["l"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-  ["r"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-  ["(ai|ambi|bé|conti|exi|surai|subai)g[uü]"	,"[eë]" 	,"$3gu$5"	,"$3guë$5"],
-  ["u"											,"e" 		,"$1$2$4"	,"$1$2$3$4"],
-  ["û"											,"e" 		,"$1$2$4"	,"$1u$3$4"],
+  ["chef"		,"fe"		,"chef$4"	,"cheffe$4"			,"fe"			,"fesse"],
+  ["grec"		,"que" 		,"grec$4" 	,"grecque$4"		,"que"],
+  ["(cadu|laï|publi|micma|syndi|tur|gre|fran)c"	
+				,"que"		,"$1$2$4"	,"$1$3$4"			,"que"],
+  ["é"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["i"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["l"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["r"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["(ai|ambi|bé|conti|exi|surai|subai)g[uü]"	
+				,"[eë]" 	,"$3gu$5"	,"$3guë$5"			,"ë"			,"e"],
+  ["u"			,"e" 		,"$1$2$4"	,"$1$2$3$4"],
+  ["û"			,"e" 		,"$1$2$4"	,"$1u$3$4"],
 ];
 
 /********** VARIABLES GENERALES **********************************************/
@@ -314,8 +315,8 @@ function change(n, m, b) {
 document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]').forEach(function(elem) {
   addEvent(elem, 'keyup', function(e) {
     let b = getCaret(this),
-      c = getWord(this, b[1]),
-      d = seek(c) || false;
+        c = getWord(this, b[1]),
+        d = seek(c) || false;
     if (this.value.indexOf(';;') > -1) {
       var now = getCaret(this);
       this.value = this.value.replace(';;', '·');
@@ -331,7 +332,7 @@ document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]
 
   addEvent(elem, 'keydown', function(e) {
     let a = e.which || e.keyCode || e.charCode,
-      b = getCaret(this);
+        b = getCaret(this);
     if (term && b[0] != b[1]) {
       switch (a) {
         // Backspace
@@ -340,28 +341,29 @@ document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]
           this.value = this.value.slice(0, b[0] - 1) + this.value.slice(b[1]);
           selekt(this, b[0] - 1, b[0] - 1);
           break;
-          // Left arrow
+        // Left arrow
         case 37:
           e.preventDefault();
           this.value = this.value.slice(0, b[0]) + this.value.slice(b[1]);
           selekt(this, b[0] - 1, b[0] - 1);
           break;
-          // Enter
+        // Enter
         case 13:
           e.preventDefault();
           selekt(this, b[1], b[1]);
           break;
-          // Down arrow
+        // Down arrow
         case 40:
           e.preventDefault();
           change(1, this, b);
           break;
-          // Up arrow
+        // Up arrow
         case 38:
           e.preventDefault();
           change(-1, this, b);
           break;
-		  // case 46: Suppr? 
+		// Suppr  
+	    // case 46:
         default:
           term = [];
           terml = undefined;
