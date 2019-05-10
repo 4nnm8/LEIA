@@ -89,6 +89,7 @@
         localStorage.setItem("txtColor",$("txtColor").value);
         //window.opener.location.reload();
         window.close();
+        console.log("Mode : "+get("mode")+" ; Pred : "+get("pred")+" ; High : "+ get("high"))
       }
       $("mode").selectedIndex = get("mode") || 1;
       $("pred").selectedIndex = get("pred") || 1;
