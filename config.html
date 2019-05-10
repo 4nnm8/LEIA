@@ -87,7 +87,7 @@
         ($("txtDeco").checked == true) ? localStorage.setItem("txtDeco","underline") : localStorage.setItem("txtDeco","none");
         localStorage.setItem("bgColor",$("bgColor").value);
         localStorage.setItem("txtColor",$("txtColor").value);
-        window.opener.location.reload();
+        //window.opener.location.reload();
         window.close();
       }
       $("mode").selectedIndex = get("mode") || 1;
