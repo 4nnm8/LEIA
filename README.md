@@ -7,15 +7,16 @@
 **LÉIA** est sous licence Apache
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
 
-## Dernières mises-à-jour (17/05/2019)
-* Saisie prédictive et la fonction de remplacement de l'écriture inclusive utilisent maintenant le même dictionnaire.
-* Enrichissement des graphies interprétées selon différents usages + anglicismes
-* Page de test améliorée : tableau de toutes les terminaisons acceptées
-* Conflits avec certains mots composés évités
+## Dernières mises-à-jour (11/05/2019)
+* ADDON Firefox enfin disponible ! 
+
+Voir [leia.xpi](https://github.com/ANN-MB/LEIA/blob/master/leia.xpi)
+
+Pour le tester, entrez *about:debugging#addons* dans la barre d'adresse et allez sur *Load temporary Add-on...*
 
 ## Problèmes connus en recherche de solution
-* Dommages colatéraux des dernières améliorations : moins de suggestions du dictionnaire prédictif, pronoms omis pour le moment (TEMPORAIRE)
-* Combinaison possible du **TreeWalker** et de la fonction **highlight()** (surlignage écriture inclusive)
+* Problème de stockage de variable sur le nouvel addon, pas encore possible de configurer le script.
+* Moins de suggestions du dictionnaire prédictif, pronoms omis pour le moment (TEMPORAIRE)
 * La fonction **highlight()** ne reconnait que les graphies utilisant ces séparateurs : · ∙ •
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
