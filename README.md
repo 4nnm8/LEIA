@@ -7,18 +7,16 @@
 **LÉIA** est sous licence Apache
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
 
-## Dernières mises-à-jour (11/05/2019)
-* ADDON Firefox enfin disponible ! 
-
-Voir [leia.xpi](https://github.com/ANN-MB/LEIA/blob/master/leia.xpi)
-
-Pour le tester, entrez *about:debugging#addons* dans la barre d'adresse et allez sur *Load temporary Add-on...*
+## Dernières mises-à-jour (12/05/2019)
+* ADDON Firefox enfin disponible ! Voir [leia.xpi](https://github.com/ANN-MB/LEIA/blob/master/leia.xpi)
+* Pour le tester, entrez *about:debugging#addons* dans la barre d'adresse et allez sur *Load temporary Add-on...*
+* Stockage de variables fonctionnel (possibilité de choisir ses préférences)
 
 ## Problèmes connus en recherche de solution
-* Problème de stockage de variable sur le nouvel addon, pas encore possible de configurer le script.
+* Le nouvel add-on ralenti le chargement des pages web lourdes. Changer de méthode pour traverser le DOM envisagé (remplacer le TreeWalker), et simplifier le dictionnaire.
 * Moins de suggestions du dictionnaire prédictif, pronoms omis pour le moment (TEMPORAIRE)
 * La fonction **highlight()** ne reconnait que les graphies utilisant ces séparateurs : · ∙ •
-* Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
+* Les mots composés tels que **tout toute-puissant puissante** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
 ## Résumé
 
@@ -40,7 +38,7 @@ L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hi
 Par exemple, au lieu d'écrire : 
 « Les membres de la chambre haute sont désignés par le titre de **sénateur** »
 On écrira :
-« Les membres de la chambre haute sont **désigné·es** par le titre de **sénateur·rice** »
+« Les membres de la chambre haute sont **désignés** par le titre de **sénateur sénatrice** »
 
 Même si nous devons nous réjouir de cette réforme de la langue française, celle-ci amène avec elle quelques complications.
 
@@ -52,7 +50,7 @@ Bien que l'orthographe grammaticale ne soit pas fondamentalement bouleversée, e
 
 L'écriture inclusive s'emploie généralement avec des caractères spéciaux - point médian (·) ou puce (•) qui sont mal interprétés, soit le point (.) ou le tiret (-) qui sont déjà voués à d'autres usages syntaxiques. De plus, tous les lecteurs d'écran n'interprètent pas ces séparateurs de la même façon.
 
-L'accessibilité web a toujours été une surcouche informatique pénible pour les développeur·euse·s qui ne s'en préoccupent que rarement pour de diverses raisons : manque de temps ou d'information à ce sujet, difficultés à trouver des normes universelles acceptées par tous les navigateurs et systèmes d’exploitation, ou encore parce que les personnes malvoyantes sont parfois considérées comme une minorité pour laquelle il est peut intéressant d'accorder du temps et de l'argent.
+L'accessibilité web a toujours été une surcouche informatique pénible pour les développeurs développeuses qui ne s'en préoccupent que rarement pour de diverses raisons : manque de temps ou d'information à ce sujet, difficultés à trouver des normes universelles acceptées par tous les navigateurs et systèmes d’exploitation, ou encore parce que les personnes malvoyantes sont parfois considérées comme une minorité pour laquelle il est peut intéressant d'accorder du temps et de l'argent.
 
 Partant de ce constat, et après avoir constaté sur internet que de nombreuses personnes malvoyantes regrettaient de ces nouvelles normes, il m'a semblé intéressant de chercher une solution la plus universelle possible pour que l'écriture inclusive soit également accessible pour les personnes malvoyantes. Et donc, **une écriture inclusive réellement inclusive** !
 
@@ -60,7 +58,7 @@ Partant de ce constat, et après avoir constaté sur internet que de nombreuses 
 
 LÉIA permet diverses choses :
 * Supprimer les séparateurs et réécrire les phrases de façon intelligible par les lecteurs d'écran
-(en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur·rice)
+(en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur utilisatrice)
 * Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
 * Accéder simplement au point médian grâce à un raccourci clavier simple [ ; ] + [ ; ]
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
@@ -71,7 +69,7 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 
 ##### Exemple : #####
 
-* Le script détecte **artisan·e·s**
+* Le script détecte **artisans artisanes**
 * Il détecte le motif **racine + suffixe masculin + séparateur + e + s**
 * La dernière lettre de la racine étant un **n**, le script appelle une règle concernant les mots dont le féminin et le masculin "sonnent" différemment à l'oral. 
 * La règle de sortie suivante est utilisée : **racine + suffixe masculin + s + [espace] + racine + suffixe féminin + s**
@@ -87,11 +85,11 @@ Les guide de rédaction en écriture inclusive, et notamment celui du [Haut Cons
 
 ### Recherche sur les usages populaires de l'écriture inclusive ###
 
-Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux·euse**, certains écrivent **amoureux·se**. J'ai du enfin créer différentes formes de néologismes pour des mots que je n'avais jamais rencontré (ex : **tier·ce·s** ou **tiers·ces**).
+Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux amoureuse**, certains écrivent **amoureuxs amoureuxse**. J'ai du enfin créer différentes formes de néologismes pour des mots que je n'avais jamais rencontré (ex : **tiers tierces** ou **tiers tierces**).
 
 ### Programmation ###
 
-Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur de l'utilisateur·ice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script (ce qui a peu de chance d'arriver) et il ne serait donc pas paramétrable par l'utilisateur·ice malvoyant·e. De plus, cela signifierait faire disparaître syntaxiquement l'écriture inclusive pour toutes les personnes, y compris voyantes.
+Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur de l'utilisateur utilisatrice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script (ce qui a peu de chance d'arriver) et il ne serait donc pas paramétrable par l'utilisateur utilisatrice malvoyant malvoyante De plus, cela signifierait faire disparaître syntaxiquement l'écriture inclusive pour toutes les personnes, y compris voyantes.
 
 Pour le reste, je vous laisse analyser le fichier [leia.js](https://github.com/ANN-MB/LEIA/blob/master/leia.js) pour mieux comprendre son fonctionnement.
 
@@ -111,31 +109,31 @@ S'il est actuellement recommandé par le Haut Conseil à l'Égalité Femme-Homme
 
 • Il n'y a jamais d'espace avant et après un point médian.
 
-Exemple : **artisan · e** → **artisan·e**
+Exemple : **artisan · e** → **artisan artisane**
 
 CONCERNANT LES PLURIELS :
 
 • Le **s** du pluriel, quand il est présent, peut être accolé au suffixe féminin ou séparé par un deuxième point médian
 
-Correct : **artisan·es** ou **artisan·e·s**
+Correct : **artisans artisanes** ou **artisans artisanes**
 
 **SAUF**
 
 (1) Quand le masculin singulier finit déjà par un **s**, auquel cas on accollera le **s** du pluriel.
 
-Correct : **chinois·es** 
+Correct : **chinois chinoises** 
 
-Incorrect : **chinois·e·s** car **chinois** n'a pas besoin d'un deuxième **s** au pluriel
+Incorrect : **chinois chinoises** car **chinois** n'a pas besoin d'un deuxième **s** au pluriel
 
 On peut aussi supprimer le **s** du masculin singulier car on le retrouvera à la fin.
 
-Exemple : **tier·ce·s** ; **tou·te·s**
+Exemple : **tiers tierces** ; **tou·te·s**
 
 (2) Lorsque le masculin pluriel finit **-x** et le féminin pluriel en **-s**. Dans ce cas, le **s** est collé au suffixe féminin.
 
-Correct : **faux·ausses**
+Correct : **faux fausses**
 
-Incorrect : **faux·ausse·s** car **faux** ne prend pas de **s** au pluriel
+Incorrect : **faux fausses** car **faux** ne prend pas de **s** au pluriel
 
 • Attention, la graphie artisan(e)s ne sera absolument pas prise en compte par **LÉIA** et n'est pas considérée inclusive
 
