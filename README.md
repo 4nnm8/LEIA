@@ -14,7 +14,7 @@
 
 ## Problèmes connus en recherche de solution
 * Fonction **highlight()** à optimiser (très lent sur l'extension Firefox), supprimé temporairement
-* Moins de suggestions du dictionnaire prédictif, pronoms omis pour le moment (temporaire)
+* Moins de suggestions du dictionnaire prédictif, pronoms omis temporairement
 * Les mots composés tels que **tout toute-puissant puissante** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
 ## Résumé
