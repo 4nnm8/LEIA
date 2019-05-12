@@ -8,14 +8,12 @@
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
 
 ## Dernières mises-à-jour (12/05/2019)
-* ADDON Firefox enfin disponible ! Voir [leia.xpi](https://github.com/ANN-MB/LEIA/blob/master/leia.xpi)
-* Pour le tester, entrez *about:debugging#addons* dans la barre d'adresse et allez sur *Load temporary Add-on...*
+* ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 * Stockage de variables fonctionnel (possibilité de choisir ses préférences)
 
 ## Problèmes connus en recherche de solution
-* Le nouvel add-on ralenti le chargement des pages web lourdes. Changer de méthode pour traverser le DOM envisagé (remplacer le TreeWalker), et simplifier le dictionnaire.
-* Moins de suggestions du dictionnaire prédictif, pronoms omis pour le moment (TEMPORAIRE)
-* La fonction **highlight()** ne reconnait que les graphies utilisant ces séparateurs : · ∙ •
+* Fonction **highlight()** à optimiser (très lent sur l'extension Firefox), supprimé temporairement
+* Moins de suggestions du dictionnaire prédictif, pronoms omis pour le moment (temporaire)
 * Les mots composés tels que **tout toute-puissant puissante** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
 ## Résumé
