@@ -1,11 +1,12 @@
 # LÉIA
+![Icône LÉIA](https://addons.cdn.mozilla.net/user-media/addon_icons/2123/2123183-64.png)
 
 [Soutenez LÉIA, faites un don !](https://bit.ly/2vuzK7g)
 
 **Contact :** a.mezurat@protonmail.com
 
 **LÉIA** est sous licence Apache
-![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/apache.png)
+![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/script%20int%C3%A9grable%20(js)/img/apache.png)
 
 ## Dernières mises-à-jour (12/05/2019)
 * ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
@@ -103,7 +104,7 @@ S'il est actuellement recommandé par le Haut Conseil à l'Égalité Femme-Homme
 
 → Contrairement aux autres séparateurs, le point médian se démarque par une typographie intéressante : il à l'avantage d'avoir une approche et une chasse faible, en plus d'être positionné au niveau de la traverse. Il ne créé donc pas une rupture visuelle ou esthétique particulièrement marquée dans le mot. Il se fait discret tout en s'employant bien à lier le genre masculin et féminin.
 
-![Typographie du point médian](https://raw.githubusercontent.com/ANN-MB/LEIA/master/img/typo.jpg)
+![Typographie du point médian](https://raw.githubusercontent.com/ANN-MB/LEIA/master/script%20int%C3%A9grable%20(js)/img/typo.jpg)
 
 • Il n'y a jamais d'espace avant et après un point médian.
 
