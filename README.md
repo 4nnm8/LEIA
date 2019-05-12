@@ -21,8 +21,6 @@
 
 **LÉIA** est un script codé en langage de programmation JavaScript. Il est voué améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes et dyslexiques aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
 
-Au stade actuel de son développement, **LÉIA** s'oriente vers une série d'add-ons pour navigateurs web et lecteurs d'écrans.
-
 ## Qu'est–ce que l'écriture inclusive ?
 
 L'écriture inclusive, aussi appelée langage épicène ou encore langage non-sexiste, est une manière d'écrire le français afin de contrer la règle grammaticale qui veut que « le masculin l'emporte ». Le genre « neutre » en français étant exprimé exclusivement au masculin.
