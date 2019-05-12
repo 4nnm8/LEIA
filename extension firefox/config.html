@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Préférences LÉIA</title>
+    <link rel="stylesheet" href="leia.css" type="text/css" media="screen" />
+  </head>
+  <body class="confleia">
+	<form id="form">
+    <table>
+      <tr>
+        <td><label for="mode">Choix du mode de lecture inclusive</label></td>
+        <td>
+          <select id="mode">
+            <option value="0">Aucun - Désactivé</option>
+            <option value="1">Mots lus aux deux genres</option>
+            <option value="2">Mots lus au maculin uniquement</option>
+            <option value="3">Mots lus au féminin uniquement</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="pred">Dictionnaire de saisie prédictive écriture inclusive</label></td>
+        <td>
+          <select id="pred">
+            <option value="0">Désactivé</option>
+            <option value="1">Activé</option>
+          </select>
+        </td>
+      </tr><!--
+      <tr>
+        <td><label for="high">Surligner l'écriture inlusive</label></td>
+        <td>
+          <select id="high">
+            <option value="0">Désactivé</option>
+            <option value="1">Activé</option>
+          </select>
+          <br/><br/>
+          <input type="color" id="bgColor" /> Couleur de fond&nbsp;<br/>
+          <input type="color" id="txtColor" /> Couleur du texte<br/>
+          <label for="fontWeight"><input type="checkbox" id="fontWeight" /> Gras</label>
+          <label for="txtDeco"><input type="checkbox" id="txtDeco" /> Souligné</label><br/>
+          <p class="ex"><b>Exemple :</b> imprimeur<span id="ex">·euse</span></p>
+        </td>
+      </tr>-->
+    </table>
+	</form>
+    <p>Panneau de configuration <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
+    <p>Insérer un point médian <kbd>;</kbd> <kbd>;</kbd></p>
+    <script src="config.js"></script>
+  </body>
+</html>

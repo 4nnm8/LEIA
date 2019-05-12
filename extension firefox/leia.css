@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.leiabutt {
+  cursor: pointer;
+  font-size: 0.8em;
+  z-index: 9999;
+  position: fixed;
+  top: 5px;
+  right: 23px;
+  border: 0;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.confleia {
+  font-size: 100%;
+  padding: 10px;
+  text-align: center;
+  font-family: Helvetica, Verdana, Tahoma, Arial, sans-serif;
+  margin: 0;
+  color: #fff;
+  font-size: 1.1em;
+  background: #106eaf;
+  height: 500px;
+  width: 500px;
+}
+
+.confleia * {
+  box-sizing: border-box;
+}
+
+.confleia kbd {
+  display: inline-block;
+  background-color: #fff;
+  min-width: 39px;
+  height: 39px;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  color: #7c7c7c;
+  box-shadow: 0px 4px 0px -2px rgba(255, 255, 255, 1), 0px 2px 0px 0px rgba(169, 169, 169, 1);
+  padding: 13px 4px 0 4px;
+  font-size: 12px;
+  font-family: Arial;
+  font-weight: bold;
+  text-align: center;
+}
+
+.confleia table {
+  width: 480px;
+  margin: auto
+}
+
+.confleia td,th {
+  border: 1px solid #555;
+  font-family: Verdana, Tahoma, Georgia, sans-serif;
+  font-size: 1.2em;
+  padding: 2px 8px 2px 8px
+}
+
+.confleia td {
+  color: #000;
+  font-size: 80%;
+}
+
+.confleia th {
+  background-color: #ab1f4d
+}
+
+.confleia tr:nth-of-type(2n) {
+  background-color: #a7dcea
+}
+
+.confleia tr:nth-of-type(2n+1) {
+  background-color: #5abeea
+}
+
+.confleia h1 {
+  font-size: 2em;
+}
+
+.confleia .ex {
+  text-align: center;
+}
+
+.confleia #ex2 {
+  font-size: 1.5em
+}
