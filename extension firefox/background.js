@@ -1,11 +1,11 @@
 var leia = {
   mode: 1,
   pred: 0,
-//  high: 0,
-// bgColor: "#ff0000",
-//  txtColor: "#000000",
-//  fontWeight: "normal",
-//  txtDeco: "none"
+  high: 0,
+  bgColor: "#ffff00",
+  txtColor: "#000000",
+  fontWeight: "normal",
+  txtDeco: "none"
 }
 function onError(e) {
   console.error(e);

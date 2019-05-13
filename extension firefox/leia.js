@@ -67,7 +67,7 @@ const dico = [
   ["eaux", "elles?", "$1$2", "$1$3$4"],
   ["eau", "elle", "$1$2", "$1$3"],
   ["aux", "ales?", "$1$2", "$1$3$4"],
-  ["eux", "euse", "$1$2$4", "$1$3$4", "euse", "se"], // exceptions n'ayant pas de fém
+  ["eux", "euse", "$1$2$4", "$1$3$4", "euse", "se"],
   ["(pêch|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur", "(eu)?se", "$3eur$6", "$3euse$6", "eresse", "euse", "se"],
   ["(vainq|assess|gouvern|prédécess)eur", "(eu)?se", "$3eur$6", "$3euse$6", "e", "euse", "eresse", "se"],
   ["(défend|paqu|codemand|enchant|p[éè]ch)eur", "eresse", "$3eur$6", "$3eresse$6", "eresse"],
@@ -78,6 +78,16 @@ const dico = [
   ["eu?r", "rice", "$1$2$4", "$1$3$4"],
   ["eu?r", "ice", "$1$2$4", "$1r$3$4"],
   ["(lasc|noc|malad|tard|na|ju|v|réflex|[st])([ïi])f", "[iï]?ve", "$1$2$6", "$1$3$4ve$6", "ive", "ve"],
+  ["le|au|du" ,"(à |de )?l?aquel[-/·∙.•]le" ,"$2quel" ,"$4laquelle"],
+  ["du|au" ,"(?:de|à) la" ,"$2" ,"$3"],
+  ["tous?" ,"te" ,"tous" ,"toutes"],
+  ["le" ,"l?a" ,"le" ,"la"],
+  ["ils?" ,"elle" ,"il$4" ,"elle$4"],
+  ["([mts])on" ,"[mts]a" ,"$3on" ,"$3a"],	
+  ["celui" ,"c?elle" ,"celui" ,"celle"],	
+  ["ceux" ,"c?elle" ,"ceux" ,"celles"],	
+  ["lui" ,"elle" ,"lui" ,"elle"],	
+  ["eux" ,"elles" ,"eux" ,"elles"],	
   ["[^e]", "esse", "$1$2$4", "$1$2$3$4"],
   ["e", "esse", "$1$2$4", "$1$3$4"],
   ["e", "sse", "$1$2$4", "$1$2$3$4"],
@@ -102,7 +112,7 @@ const dico = [
 muet = [
   ["chef", "fe", "chef$4", "cheffe$4", "fe", "fesse"],
   ["grec", "que", "grec$4", "grecque$4", "que"],
-  ["(cadu|laï|publi|micma|syndi|tur|gre|fran)c", "que", "$1$2$4", "$1$3$4", "que"],
+  ["(cadu|laï|publi|micma|syndi|tur|fran)c", "que", "$3c$5", "$3que$5", "que"],
   ["é", "e", "$1$2$4", "$1$2$3$4"],
   ["i", "e", "$1$2$4", "$1$2$3$4"],
   ["l", "e", "$1$2$4", "$1$2$3$4"],
@@ -112,6 +122,7 @@ muet = [
   ["û", "e", "$1$2$4", "$1u$3$4"],
 ];
 var mode,pred,high,txtColor,bgColor,txtDeco,fontWeight,term,terml,termp=4,dl=dico.length,ml=muet.length,
+    r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
         if (node.parentNode.nodeName !== "SCRIPT" && node.nodeValue.trim().length > 0) {
@@ -125,40 +136,36 @@ function onError(e) {
 function init(stored) {
 	mode = stored.leia.mode;
 	pred = stored.leia.pred; 
-	//high = stored.leia.high;
-	//txtColor = stored.leia.txtColor;
-	//bgColor = stored.leia.bgColor;
-	//txtDeco = stored.leia.txtDeco;
-	//fontWeight = stored.leia.fontWeight;
-	//if (high == 1) { 	(document.body); }
+	high = stored.leia.high;
+	txtColor = stored.leia.txtColor;
+	bgColor = stored.leia.bgColor;
+	txtDeco = stored.leia.txtDeco;
+	fontWeight = stored.leia.fontWeight;
 	if (mode !== 0) { skim(); }	
+	if (pred == 1) { predictif(); };
 }
 const gettingStoredSettings = browser.storage.local.get();
 gettingStoredSettings.then(init, onError);
-/*	
+
 function highlight(node) {
-  if (/^(?:SCRIPT|STYLE|INPUT|TEXTAREA)$/.test(node.nodeName)) return;
-  var r = /([·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?([a-zÀ-ÖÙ-öù-üœŒ]+)?)/gi.exec(node.nodeValue);
-  if (node.hasChildNodes()) {
-	for (var i = 0; i < node.childNodes.length; i++) {
-	  highlight(node.childNodes[i]);
-	}
-  }
-  if (node.nodeType == 3 && r) {
-	var nmark = document.createElement("MARK"),
-		after = node.splitText(r.index);
-	nmark.appendChild(document.createTextNode(r[0]));
-	nmark.style.backgroundColor = bgColor;
-	nmark.style.color = txtColor;
-	nmark.style.textDecoration = txtDeco;
-	nmark.style.fontWeight = fontWeight;
-	after.nodeValue = after.nodeValue.substring(r[0].length);
-	node.parentNode.insertBefore(nmark, after);
+  var r = r3.exec(node.nodeValue);
+  if (r) {
+    var nmark = document.createElement("MARK"),
+        after = node.splitText(r.index);
+    nmark.appendChild(document.createTextNode(r[0]));
+    nmark.cssText = "background-color:"+bgColor+";color:"+txtColor+";font-weight:"+fontWeight+";text-decoration:"+txtDeco+";";
+    after.nodeValue = after.nodeValue.substring(r[0].length);
+    node.parentNode.insertBefore(nmark, after);
   }
 }
-*/
+
 function skim() {
   console.time("SKIM");
+  if (mode == 0 && high == 1) {
+    while (tree.nextNode()) {
+      highlight(tree.currentNode);
+    }
+  }
   if (mode == 1) {
     while (tree.nextNode()) {
         for (var i = 0; i < dl; i++) {
@@ -263,7 +270,8 @@ document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]
     });
 });
 	
-if (pred == 1) {
+function predictif() {
+	
   document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]').forEach(function(elem) {
     addEvent(elem, 'keyup', function(e) {
       let b = getCaret(this),
@@ -279,7 +287,8 @@ if (pred == 1) {
 
     addEvent(elem, 'keydown', function(e) {
       let a = e.which || e.keyCode || e.charCode,
-        b = getCaret(this);
+          b = getCaret(this);
+		  console.log('pred keydown')
       if (term && b[0] != b[1]) {
         switch (a) {
           // Backspace
