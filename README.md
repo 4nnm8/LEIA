@@ -5,10 +5,9 @@
 
 **Contact :** a.mezurat@protonmail.com
 
-**LÉIA** est sous licence Apache
-![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/script%20int%C3%A9grable%20(js)/img/apache.png)
+**LÉIA** est sous [licence Apache](https://github.com/ANN-MB/LEIA/blob/master/LICENSE)
 
-* ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
+ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 
 ## Dernières mises-à-jour (15/05/2019)
 
