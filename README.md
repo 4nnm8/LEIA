@@ -10,16 +10,17 @@
 
 ## Dernières mises-à-jour (12/05/2019)
 * ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
-* Stockage de variables fonctionnel (possibilité de choisir ses préférences)
+* Fonction de surlignage **highlight()** optimisée et rétablie
+* Tous les pronoms ajoutés au dictionnaire
 
 ## Problèmes connus en recherche de solution
-* Fonction **highlight()** à optimiser (très lent sur l'extension Firefox), supprimé temporairement
-* Moins de suggestions du dictionnaire prédictif, pronoms omis temporairement
-* Les mots composés tels que **tout toute-puissant puissante** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
+* Fonction **highlight()** ne reconnaît que le point médian et la puce.
+* Dictionnaire prédictif à enrichir
+* Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
 ## Résumé
 
-**LÉIA** est un script codé en langage de programmation JavaScript. Il est voué améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes et dyslexiques aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
+**LÉIA** est une extension pour le navigateur Firefox (et bientôt d'autres). Il est voué à améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes et dyslexiques aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
 
 ## Qu'est–ce que l'écriture inclusive ?
 
@@ -35,7 +36,7 @@ L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hi
 Par exemple, au lieu d'écrire : 
 « Les membres de la chambre haute sont désignés par le titre de **sénateur** »
 On écrira :
-« Les membres de la chambre haute sont **désignés** par le titre de **sénateur sénatrice** »
+« Les membres de la chambre haute sont **désigné·e·s** par le titre de **sénateur·rice** »
 
 Même si nous devons nous réjouir de cette réforme de la langue française, celle-ci amène avec elle quelques complications.
 
@@ -66,7 +67,7 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 
 ##### Exemple : #####
 
-* Le script détecte **artisans artisanes**
+* Le script détecte **artisan·e·s**
 * Il détecte le motif **racine + suffixe masculin + séparateur + e + s**
 * La dernière lettre de la racine étant un **n**, le script appelle une règle concernant les mots dont le féminin et le masculin "sonnent" différemment à l'oral. 
 * La règle de sortie suivante est utilisée : **racine + suffixe masculin + s + [espace] + racine + suffixe féminin + s**
@@ -82,13 +83,11 @@ Les guide de rédaction en écriture inclusive, et notamment celui du [Haut Cons
 
 ### Recherche sur les usages populaires de l'écriture inclusive ###
 
-Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux amoureuse**, certains écrivent **amoureuxs amoureuxse**. J'ai du enfin créer différentes formes de néologismes pour des mots que je n'avais jamais rencontré (ex : **tiers tierces** ou **tiers tierces**).
+Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux·euse**, certains écrivent **amoureux·se**. J'ai du enfin créer différentes formes de néologismes pour des mots que je n'avais jamais rencontré (ex : **tiers·ces** ou **tier·ce·s**).
 
 ### Programmation ###
 
-Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur de l'utilisateur utilisatrice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script (ce qui a peu de chance d'arriver) et il ne serait donc pas paramétrable par l'utilisateur utilisatrice malvoyant malvoyante De plus, cela signifierait faire disparaître syntaxiquement l'écriture inclusive pour toutes les personnes, y compris voyantes.
-
-Pour le reste, je vous laisse analyser le fichier [leia.js](https://github.com/ANN-MB/LEIA/blob/master/leia.js) pour mieux comprendre son fonctionnement.
+Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur de l'utilisateur·rice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script (ce qui a peu de chance d'arriver) et il ne serait donc pas paramétrable par l'utilisateur utilisatrice malvoyant malvoyante De plus, cela signifierait faire disparaître syntaxiquement l'écriture inclusive pour toutes les personnes, y compris voyantes.
 
 Si vous constatez le moindre bug, [n'hésitez-pas à me le signaler](mailto:a.mezurat@protonmail.com) :)
 
@@ -106,31 +105,31 @@ S'il est actuellement recommandé par le Haut Conseil à l'Égalité Femme-Homme
 
 • Il n'y a jamais d'espace avant et après un point médian.
 
-Exemple : **artisan · e** → **artisan artisane**
+Exemple : **artisan · e** → **artisan·e**
 
 CONCERNANT LES PLURIELS :
 
 • Le **s** du pluriel, quand il est présent, peut être accolé au suffixe féminin ou séparé par un deuxième point médian
 
-Correct : **artisans artisanes** ou **artisans artisanes**
+Correct : **artisan·e·s** ou **artisan·es**
 
 **SAUF**
 
 (1) Quand le masculin singulier finit déjà par un **s**, auquel cas on accollera le **s** du pluriel.
 
-Correct : **chinois chinoises** 
+Correct : **chinois·es** 
 
-Incorrect : **chinois chinoises** car **chinois** n'a pas besoin d'un deuxième **s** au pluriel
+Incorrect : **chinois·e·s** car **chinois** n'a pas besoin d'un deuxième **s** au pluriel
 
 On peut aussi supprimer le **s** du masculin singulier car on le retrouvera à la fin.
 
-Exemple : **tiers tierces** ; **tou·te·s**
+Exemple : **tier·ce·s** ou **tou·te·s**
 
 (2) Lorsque le masculin pluriel finit **-x** et le féminin pluriel en **-s**. Dans ce cas, le **s** est collé au suffixe féminin.
 
-Correct : **faux fausses**
+Correct : **faux·ausses**
 
-Incorrect : **faux fausses** car **faux** ne prend pas de **s** au pluriel
+Incorrect : **faux·ausse·s** car **faux** ne prend pas de **s** au pluriel
 
 • Attention, la graphie artisan(e)s ne sera absolument pas prise en compte par **LÉIA** et n'est pas considérée inclusive
 
