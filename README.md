@@ -60,7 +60,7 @@ Partant de ce constat, et après avoir constaté sur internet que de nombreuses 
 
 LÉIA permet diverses choses :
 * Supprimer les séparateurs et réécrire les phrases de façon intelligible par les lecteurs d'écran
-(en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur utilisatrice)
+(en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur·rice)
 * Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
 * Accéder simplement au point médian grâce à un raccourci clavier simple [ ; ] + [ ; ]
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
