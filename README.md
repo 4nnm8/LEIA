@@ -95,52 +95,51 @@ Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur 
 
 Si vous constatez le moindre bug, [n'hésitez-pas à me le signaler](mailto:a.mezurat@protonmail.com) :)
 
-## Reccomandations sur l'usage de l'écriture inclusive
 
-Parmi ces 6 séparateurs en usage : point médian (·), tiret (-), point (.), puce (•), opérateur puce (∙) et slash (/), il est recommandé d'utiliser le point médian.
+## Ressources utilisées pour mener à bien ce projet
 
-S'il est actuellement recommandé par le Haut Conseil à l'Égalité Femme-Homme, c'est qu'il présente plusieurs intérêts :
+##### Livres #####
 
-→ Ce caractère n'est pas précédemment utilisé dans l'orthographe française. Sa seule fonction sera donc de marquer l'inclusivité et il ne pourra être confondu.
+BORDE Davy, 2016. [Tirons la langue – Plaidoyer contre le sexisme dans la langue française.](http://www.editions-utopia.org/portfolio-view/tirons-la-langue-plaidoyer-contre-le-sexisme-dans-la-langue-francaise/) Éditions Utopia.
 
-→ Contrairement aux autres séparateurs, le point médian se démarque par une typographie intéressante : il à l'avantage d'avoir une approche et une chasse faible, en plus d'être positionné au niveau de la traverse. Il ne créé donc pas une rupture visuelle ou esthétique particulièrement marquée dans le mot. Il se fait discret tout en s'employant bien à lier le genre masculin et féminin.
+ZACCOUR Suzanne & LESSARD Michaël, 2018. [Manuel de grammaire non sexiste et inclusive.](https://www.syllepse.net/lng_FR_srub_62_iprod_716-manuel-de-grammaire-non-sexiste-et-inclusive.html) Éditions Syllepse.
 
-![Typographie du point médian](https://raw.githubusercontent.com/ANN-MB/LEIA/master/script%20int%C3%A9grable%20(js)/img/typo.jpg)
+##### Brochures #####
 
-• Il n'y a jamais d'espace avant et après un point médian.
+Haut Conseil à l'Égalité entre les femmes et les hommes (HCE), 2016. [Pour une communication publique sans stéréotype de sexe.](http://bit.ly/2fejwZ7) Édité par La documentation Française.
 
-Exemple : **artisan · e** → **artisan·e**
+HADDAD Raphaël & BARIC Carline, 2016. [Manuel d'écriture inclusive.](https://www.motscles.net/s/Manuel-decriture-inclusive-yal5.pdf) Édité par l'agence Mots-Clés.
 
-CONCERNANT LES PLURIELS :
+##### Sites internet #####
 
-• Le **s** du pluriel, quand il est présent, peut être accolé au suffixe féminin ou séparé par un deuxième point médian
+https://regex101.com/ - test des expressions régulières
 
-Correct : **artisan·e·s** ou **artisan·es**
+https://stackoverflow.com/ - conseils de programmation (forum de développeur et développeuses)
 
-**SAUF**
+https://fr.wiktionary.org/ - vérification de l'orthographe, de la conjugaison, des accords
 
-(1) Quand le masculin singulier finit déjà par un **s**, auquel cas on accollera le **s** du pluriel.
+http://dict.xmatiere.com/ et https://www.listesdemots.net - recherche de suffixes
 
-Correct : **chinois·es** 
+https://www.feminin-pluriel.exionnaire.com/ - quelques déclinaisons irrégulières au féminin
 
-Incorrect : **chinois·e·s** car **chinois** n'a pas besoin d'un deuxième **s** au pluriel
+https://www.bertrandboutin.ca/ - d'autres exceptions de noms et d'adjectifs au féminin
 
-On peut aussi supprimer le **s** du masculin singulier car on le retrouvera à la fin.
+https://www.github.com/ - pour l'hébergement du développement du script
 
-Exemple : **tier·ce·s** ou **tou·te·s**
+https://codepen.io/vincent-valentin/full/woGLVL - pour la réflexion sur les graphies de l'écriture inclusive
 
-(2) Lorsque le masculin pluriel finit **-x** et le féminin pluriel en **-s**. Dans ce cas, le **s** est collé au suffixe féminin.
+https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
-Correct : **faux·ausses**
+http://romy.tetue.net/ - pour ses articles sur l'accessibilité web et l'écriture inclusive 
 
-Incorrect : **faux·ausse·s** car **faux** ne prend pas de **s** au pluriel
+##### Programmes #####
 
-• Attention, la graphie artisan(e)s ne sera absolument pas prise en compte par **LÉIA** et n'est pas considérée inclusive
+**Mozilla Firefox** - navigateur concerné par l'add-on
 
-• La graphie artisanEs, parfois utilisée pour faire emphase sur le féminin n'est pas non plus interprétée par **LÉIA**
+**Notepad++** - programmation en JavaScript
 
-• Pour ne pas alourdir le texte oralisé, il est préconisé de ne pas abuser des mots inclusifs fusionnés et de favoriser des tournures de phrases plus neutres.
+**KobaSpeech, NVDA, Talkback, JAWS** - test des synthèses vocales logicielles
 
-Pour plus d'information, consultez le guide du Haut Conseil à l’Égalité Femme Homme : [http://bit.ly/2fejwZ7](http://bit.ly/2fejwZ7)
+##### Remerciements #####
 
-
+Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours, à l'équipe d'[incluZor·e](http://incluzor.fr/) pour nos échanges, et à plein d'autres ami·e·s anonymes pour leurs conseils et soutiens :)
