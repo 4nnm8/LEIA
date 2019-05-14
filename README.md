@@ -14,6 +14,7 @@
 * Tous les pronoms ajoutés au dictionnaire
 
 ## Problèmes connus en recherche de solution
+* Sur certaines zones de texte, notamment **[contenteditable]**, le prédictif ne fonctionne pas.
 * Fonction **highlight()** ne reconnaît que le point médian et la puce.
 * Dictionnaire prédictif à enrichir
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
