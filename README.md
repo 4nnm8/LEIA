@@ -122,7 +122,7 @@ http://dict.xmatiere.com/ et https://www.listesdemots.net - recherche de suffixe
 
 https://www.feminin-pluriel.exionnaire.com/ - quelques déclinaisons irrégulières au féminin
 
-https://www.bertrandboutin.ca/ - d'autres exceptions de noms et d'adjectifs au féminin
+bertrandboutin.ca (hors ligne) - d'autres exceptions de noms et d'adjectifs au féminin
 
 https://www.github.com/ - pour l'hébergement du développement du script
 
@@ -140,6 +140,6 @@ http://romy.tetue.net/ - pour ses articles sur l'accessibilité web et l'écritu
 
 **KobaSpeech, NVDA, Talkback, JAWS** - test des synthèses vocales logicielles
 
-##### Remerciements #####
+## Remerciements
 
 Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours, à l'équipe d'[incluZor·e](http://incluzor.fr/) pour nos échanges, et à plein d'autres ami·e·s anonymes pour leurs conseils et soutiens :)
