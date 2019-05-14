@@ -29,98 +29,6 @@ function addEvent(obj, evt, fn) {
   }
   return false;
 }
-const dico = [
-  ["sauf", "(au)?ve", "sauf$5", "sauve$5", "auve", "ve"],
-  ["([vn])euf", "(eu)?ve", "$2$6", "$3euve$6", "euve", "ve"],
-  ["serf", "(er)?ve", "serf$5", "serve$5", "erve", "ve"],
-  ["roux", "(ou)?sse", "roux", "rousse$5", "ousse", "sse"],
-  ["faux", "(au)?sse", "faux", "fausse$5", "ausse", "sse"],
-  ["vieux", "i?eille", "vieux", "vieille$4", "ieille"],
-  ["copain", "ine", "copain$4", "copine$4", "ine"],
-  ["br[èe]f", "è?ve", "bref$4", "brève$4", "ève"],
-  ["compagnon", "agne", "compagnon$4", "compagne$4", "agne", "ne"],
-  ["tiers?", "ce", "tiers", "tierce$4", "ce"],
-  ["doux", "(?:ou)?ce", "doux", "douce$4", "ouce", "ce"],
-  ["hébreux?", "aïque", "hébreux", "hébraïque$4", "aïque"],
-  ["fra[iî]s?", "(aî)?che", "frais", "fraîche$5", "che", "aîche"],
-  ["s[èe]c", "è?c?he", "sec$4", "sèche$4", "èche", "he"],
-  ["ambassadeur", "d?r?ice", "ambassadeur$4", "ambassadrice$4", "drice", "rice", "ice"],
-  ["docteur", "oresse", "docteur$4", "doctoresse$4", "e", "oresse"],
-  ["héros?", "o?ïne", "héros", "héroïne$4", "oïne"],
-  ["aïeux", "(?:ieu)?le", "aïeux", "aïeule$4", "ïeule"],
-  ["canut", "u?se", "canut$4", "canuse$4", "use"],
-  ["bêta", "a?sse", "bêta$4", "bêtasse$4", "sse", "asse"],
-  ["clown", "esse", "clown$4", "clownesse$4", "e", "esse"],
-  ["(bén|mal)in", "igne", "$3in$5", "$3igne$5", "igne"],
-  ["(diss|abs)ous?", "(ou)?te", "$3ous", "$3oute$6", "oute", "te"],
-  ["(ép|jal)oux", "(ou)?se", "$3oux", "$3ouse$6", "ouse", "se"],
-  ["blanc|franc", "he", "$2$4", "$2he$4", "he"],
-  ["prophète", "e?sse", "prophète$4", "prophétesse$4", "sse", "esse"],
-  ["long", "ue", "$1long$4", "$1longue$4", "ue"],
-  ["butor|esquimau", "de", "$2$4", "$2de$4", "de"],
-  ["esquimaux", "des?", "esquimaux", "esquimaudes", "des"],
-  ["andalou", "se", "$2$4", "$2se$4", "se"],
-  ["foufou", "olle", "foufou$4", "fofolle$4", "olle"],
-  ["([mf])ou", "olle", "$3ou$5", "$3olle$5", "olle"],
-  ["acquéreur", "esse|euse", "acquéreur$4", "acquér$3$4", "esse"],
-  ["devin", "eresse", "devin$4", "devineresse$4", "eresse"],
-  ["eaux", "elles?", "$1$2", "$1$3$4"],
-  ["eau", "elle", "$1$2", "$1$3"],
-  ["aux", "ales?", "$1$2", "$1$3$4"],
-  ["eux", "euse", "$1$2$4", "$1$3$4", "euse", "se"],
-  ["(pêch|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur", "(eu)?se", "$3eur$6", "$3euse$6", "eresse", "euse", "se"],
-  ["(vainq|assess|gouvern|prédécess)eur", "(eu)?se", "$3eur$6", "$3euse$6", "e", "euse", "eresse", "se"],
-  ["(défend|paqu|codemand|enchant|p[éè]ch)eur", "eresse", "$3eur$6", "$3eresse$6", "eresse"],
-  ["eu?r", "euse", "$1$2$4", "$1$3$4"],
-  ["eu?r", "se", "$1eur$4", "$1euse$4"],
-  ["eur", "eresse", "$1$2$4", "$1$3$4"],
-  ["teu?r", "trice", "$1$2$4", "$1$3$4", "trice", "euse", "rice", "se"],
-  ["eu?r", "rice", "$1$2$4", "$1$3$4"],
-  ["eu?r", "ice", "$1$2$4", "$1r$3$4"],
-  ["(lasc|noc|malad|tard|na|ju|v|réflex|[st])([ïi])f", "[iï]?ve", "$1$2$6", "$1$3$4ve$6", "ive", "ve"],
-  ["le|au|du" ,"(à |de )?l?aquel[-/·∙.•]le" ,"$2quel" ,"$4laquelle"],
-  ["du|au" ,"(?:de|à) la" ,"$2" ,"$3"],
-  ["tous?" ,"te" ,"tous" ,"toutes"],
-  ["le" ,"l?a" ,"le" ,"la"],
-  ["ils?" ,"elle" ,"il$4" ,"elle$4"],
-  ["([mts])on" ,"[mts]a" ,"$3on" ,"$3a"],	
-  ["celui" ,"c?elle" ,"celui" ,"celle"],	
-  ["ceux" ,"c?elle" ,"ceux" ,"celles"],	
-  ["lui" ,"elle" ,"lui" ,"elle"],	
-  ["eux" ,"elles" ,"eux" ,"elles"],	
-  ["[^e]", "esse", "$1$2$4", "$1$2$3$4"],
-  ["e", "esse", "$1$2$4", "$1$3$4"],
-  ["e", "sse", "$1$2$4", "$1$2$3$4"],
-  ["favori|rigolo|filou|loulou|coi", "te", "$1$2$4", "$1$2$3$4", "te"],
-  ["er", "ère", "$1$2$4", "$1ère$4"],
-  ["èr", "e", "$1er$4", "$1ère$4"],
-  ["((in)?compl|concr|désu|(in)?discr|inqui|préf|repl|secr|qui|rondel)et", "ète", "$3et$7", "$3ète$7", "ète"],
-  ["[eè]t", "(èt)?e", "$1et$5", "$1ète$5"],
-  ["t", "te", "$1$2$4", "$1$2$3$4"],
-  ["n", "ne", "$1$2$4", "$1$2$3$4"],
-  ["l", "le", "$1$2$4", "$1$2$3$4"],
-  ["exprès", "se", "exprès", "expresse$4"],
-  ["las|bas|gros|gras|épais", "se", "$2", "$2se$4", "se"],
-  ["s", "ses?", "$1s", "$1$2$3$4"], // !
-  ["", "se", "$1s", "$1$2$3$4"], // !
-  ["", "ss", "$1sse", "$1sse$4"], // !
-  ["s", "e", "$1s", "$1se$4"], // !
-  ["n", "e", "$1$2$4", "$1$2$3$4"],
-  ["d", "e", "$1$2$4", "$1$2$3$4"],
-  ["t", "e", "$1$2$4", "$1$2$3$4"],
-],
-muet = [
-  ["chef", "fe", "chef$4", "cheffe$4", "fe", "fesse"],
-  ["grec", "que", "grec$4", "grecque$4", "que"],
-  ["(cadu|laï|publi|micma|syndi|tur|fran)c", "que", "$3c$5", "$3que$5", "que"],
-  ["é", "e", "$1$2$4", "$1$2$3$4"],
-  ["i", "e", "$1$2$4", "$1$2$3$4"],
-  ["l", "e", "$1$2$4", "$1$2$3$4"],
-  ["r", "e", "$1$2$4", "$1$2$3$4"],
-  ["(ai|ambi|bé|conti|exi|surai|subai)g[uü]", "[eë]", "$3gu$5", "$3guë$5", "ë", "e"],
-  ["u", "e", "$1$2$4", "$1$2$3$4"],
-  ["û", "e", "$1$2$4", "$1u$3$4"],
-];
 var mode,pred,high,txtColor,bgColor,txtDeco,fontWeight,term,terml,termp=4,dl=dico.length,ml=muet.length,
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
@@ -141,7 +49,7 @@ function init(stored) {
 	bgColor = stored.leia.bgColor;
 	txtDeco = stored.leia.txtDeco;
 	fontWeight = stored.leia.fontWeight;
-	if (mode !== 0) { skim(); }	
+	skim();
 	if (pred == 1) { predictif(); };
 }
 const gettingStoredSettings = browser.storage.local.get();
@@ -159,38 +67,56 @@ function highlight(node) {
   }
 }
 
-function skim() {
-  console.time("SKIM");
-  if (mode == 0 && high == 1) {
-    while (tree.nextNode()) {
-      highlight(tree.currentNode);
-    }
-  }
-  if (mode == 1) {
-    while (tree.nextNode()) {
-        for (var i = 0; i < dl; i++) {
-          var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-          tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][2] + ' ' + dico[i][3]);
-        }
-        for (var j = 0; j < ml; j++) {
-          var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-          tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][2]);
-        }
-    }
-  }
-  if (mode > 1) {
-    while (tree.nextNode()) {
-        for (var i = 0; i < dl; i++) {
-          var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-          tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][mode]);
-        }
-        for (var j = 0; j < ml; j++) {
-          var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-          tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][mode]);
-        }
-    }
-  }
-  console.timeEnd("SKIM");
+function skim(){
+console.time("SKIM");
+switch (+mode) {
+	case 0:
+		if (high == 1) {
+			while (tree.nextNode()) {
+				highlight(tree.currentNode)	
+			}
+		}
+	break;
+	case 1:
+		while (tree.nextNode()) {
+			for (var i = 0; i < dl; i++) {
+				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][2] + ' ' + dico[i][3])
+			}
+			for (var j = 0; j < ml; j++) {
+				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][2]);
+			}
+		}
+	break;
+	
+	case 2:case 3:
+		while (tree.nextNode()) {
+			for (var i = 0; i < dl; i++) {
+				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][mode]);
+			}
+			for (var j = 0; j < ml; j++) {
+				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][mode]);
+			}
+		}
+	break;
+	
+	case 4: 
+		while (tree.nextNode()) {
+			for (var i = 0; i < dl; i++) {
+				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][2] + ' ' + dico[i][1])
+			}
+			for (var j = 0; j < ml; j++) {
+				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
+				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][2] + ' ' + muet[j][1]);
+			}
+		}
+	break;		
+}
+console.timeEnd("SKIM");
 }
 
 function getCaret(x) {
