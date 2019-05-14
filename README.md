@@ -8,7 +8,7 @@
 **LÉIA** est sous licence Apache
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/script%20int%C3%A9grable%20(js)/img/apache.png)
 
-## Dernières mises-à-jour (12/05/2019)
+## Dernières mises-à-jour (14/05/2019)
 * ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 * Fonction de surlignage **highlight()** optimisée et rétablie
 * Tous les pronoms ajoutés au dictionnaire
