@@ -12,6 +12,9 @@
 * ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 * Fonction de surlignage **highlight()** optimisée et rétablie
 * Tous les pronoms ajoutés au dictionnaire
+* Dictionnaire séparé dans un autre fichier JS
+* Rétablissement des dimensions correctes de la fenêtre de préférences
+* Optimisation de la fonction **skim()**
 
 ## Problèmes connus en recherche de solution
 * Sur certaines zones de texte, notamment **[contenteditable]**, le prédictif ne fonctionne pas.
