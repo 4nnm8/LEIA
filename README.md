@@ -16,7 +16,7 @@
 * Rétablissement des dimensions correctes de la fenêtre de préférences
 * Optimisation de la fonction **skim()**
 
-## Problèmes connus en recherche de solution
+## Problèmes connus ou évolutions à venir
 * Prédictif et point-médian non fonctionnels sur les balises dotées de **[contenteditable=true]**
 * Fonction **highlight()** ne reconnaît que le point médian et la puce.
 * Dictionnaire prédictif à enrichir
