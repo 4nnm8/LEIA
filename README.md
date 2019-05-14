@@ -8,7 +8,7 @@
 **LÉIA** est sous licence Apache
 ![Licence Apache](https://raw.githubusercontent.com/ANN-MB/LEIA/master/script%20int%C3%A9grable%20(js)/img/apache.png)
 
-## Dernières mises-à-jour (14/05/2019)
+## Dernières mises-à-jour (15/05/2019)
 * ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 * Fonction de surlignage **highlight()** optimisée et rétablie
 * Tous les pronoms ajoutés au dictionnaire
@@ -17,7 +17,7 @@
 * Optimisation de la fonction **skim()**
 
 ## Problèmes connus en recherche de solution
-* Sur certaines zones de texte, notamment **[contenteditable]**, le prédictif ne fonctionne pas.
+* Prédictif et point-médian non fonctionnels sur les balises dotées de **[contenteditable=true]**
 * Fonction **highlight()** ne reconnaît que le point médian et la puce.
 * Dictionnaire prédictif à enrichir
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
