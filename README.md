@@ -11,14 +11,15 @@ ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/add
 
 ## Dernières mises-à-jour (15/05/2019)
 
-* Fonction de surlignage **highlight()** optimisée et rétablie
-* Tous les pronoms ajoutés au dictionnaire
-* Dictionnaire séparé dans un autre fichier JS
+* Fonction de surlignage **highlight()** rétablie
+* Dictionnaire externalisé, enrichi, corrigé et simplifié
+* Correction de bugs de la saisie prédictive
 * Rétablissement des dimensions correctes de la fenêtre de préférences
 * Optimisation de la fonction **skim()**
 
 ## Problèmes connus ou évolutions à venir
 
+* Choix des couleurs de surlignage peu accessible et problème de stockage de ses variables.
 * Prédictif et point-médian non fonctionnels sur les balises dotées de **[contenteditable=true]**
 * Fonction **highlight()** ne reconnaît que le point médian et la puce.
 * Dictionnaire prédictif à enrichir
