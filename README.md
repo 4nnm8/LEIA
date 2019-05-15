@@ -11,7 +11,8 @@ ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/add
 
 ## Dernières mises-à-jour (15/05/2019)
 
-* Fonction de surlignage **highlight()** rétablie
+* Dossier "script intégrable" retiré. Seule l'extension sera mise-à-jour.
+* Fonction de surlignage **highlight()** rétablie.
 * Dictionnaire externalisé, enrichi, corrigé et simplifié
 * Correction de bugs de la saisie prédictive
 * Rétablissement des dimensions correctes de la fenêtre de préférences
