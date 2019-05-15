@@ -42,8 +42,11 @@ L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hi
 ### À quoi ça ressemble concrètement ? ###
 
 Par exemple, au lieu d'écrire : 
+
 « Les membres de la chambre haute sont désignés par le titre de **sénateur** »
+
 On écrira :
+
 « Les membres de la chambre haute sont **désigné·e·s** par le titre de **sénateur·rice** »
 
 Même si nous devons nous réjouir de cette réforme de la langue française, celle-ci amène avec elle quelques complications.
@@ -52,7 +55,9 @@ Même si nous devons nous réjouir de cette réforme de la langue française, ce
 
 Le problème de l'écriture inclusive est qu'elle amène avec elle de nouvelles graphies (de nouvelles façons d'écrire les mots).
 
-Bien que l'orthographe grammaticale ne soit pas fondamentalement bouleversée, elle l'est suffisamment pour poser des problèmes d'interprétation par les **lecteurs d'écran et les plages braille**, dispositifs destinés à l'appréhension du langage écrit par les personnes malvoyantes.
+Bien que l'orthographe grammaticale ne soit pas fondamentalement bouleversée, elle l'est suffisamment pour poser des problèmes d'interprétation par les **lecteurs d'écran et les plages braille**, dispositifs destinés à l'appréhension du langage écrit par les personnes malvoyantes. Mais aussi à des personnes ayant des difficultés avec la lecture (personnes dyslexiques par exemple).
+
+[Voici un article qui en parle](https://aides-techniques.handicap.fr/a-ecriture-inclusive-accessible-10358.php)
 
 L'écriture inclusive s'emploie généralement avec des caractères spéciaux - point médian (·) ou puce (•) qui sont mal interprétés, soit le point (.) ou le tiret (-) qui sont déjà voués à d'autres usages syntaxiques. De plus, tous les lecteurs d'écran n'interprètent pas ces séparateurs de la même façon.
 
@@ -118,11 +123,11 @@ HADDAD Raphaël & BARIC Carline, 2016. [Manuel d'écriture inclusive.](https://w
 
 https://regex101.com/ - test des expressions régulières
 
-https://stackoverflow.com/ - conseils de programmation (forum de développeur et développeuses)
+https://stackoverflow.com/ - conseils de programmation (forum de développeurs et développeuses)
 
 https://fr.wiktionary.org/ - vérification de l'orthographe, de la conjugaison, des accords
 
-http://dict.xmatiere.com/ et https://www.listesdemots.net - recherche de suffixes
+http://dict.xmatiere.com/ et https://www.listesdemots.net - recherche de suffixes M/F
 
 https://www.feminin-pluriel.exionnaire.com/ - quelques déclinaisons irrégulières au féminin
 
@@ -135,6 +140,8 @@ https://codepen.io/vincent-valentin/full/woGLVL - pour la réflexion sur les gra
 https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
 http://romy.tetue.net/ - pour ses articles sur l'accessibilité web et l'écriture inclusive 
+
+
 
 ##### Programmes #####
 
