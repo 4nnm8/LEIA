@@ -29,7 +29,7 @@ function addEvent(obj, evt, fn) {
   }
   return false;
 }
-var mode,pred,high,txtColor,bgColor,txtDeco,fontWeight,term,terml,termp=4,dl=dico.length,ml=muet.length,
+var mode,pred,high,txtColor,bgColor,txtDeco,fontWeight,term,terml,termp=5,dl=dico.length,
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
@@ -42,7 +42,7 @@ function onError(e) {
   console.error(e);
 }
 function init(stored) {
-	mode = stored.leia.mode;
+	mode = Number(stored.leia.mode);
 	pred = stored.leia.pred; 
 	high = stored.leia.high;
 	txtColor = stored.leia.txtColor;
@@ -69,55 +69,30 @@ function highlight(node) {
 
 function skim(){
 console.time("SKIM");
-switch (+mode) {
-	case 0:
-		if (high == 1) {
+	if (mode == 0) {
+		if  (high == 1) {
 			while (tree.nextNode()) {
 				highlight(tree.currentNode)	
 			}
 		}
-	break;
-	case 1:
+	} else if (mode >= 1 && mode <= 3) {
 		while (tree.nextNode()) {
 			for (var i = 0; i < dl; i++) {
 				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][2] + ' ' + dico[i][3])
-			}
-			for (var j = 0; j < ml; j++) {
-				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][2]);
+				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][mode+1]);
 			}
 		}
-	break;
-	
-	case 2:case 3:
-		while (tree.nextNode()) {
-			for (var i = 0; i < dl; i++) {
-				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][mode]);
-			}
-			for (var j = 0; j < ml; j++) {
-				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][mode]);
-			}
-		}
-	break;
-	
-	case 4: 
+	} else if (mode == 4) {
 		while (tree.nextNode()) {
 			for (var i = 0; i < dl; i++) {
 				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
 				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][2] + ' ' + dico[i][1])
 			}
-			for (var j = 0; j < ml; j++) {
-				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + muet[j][0] + ")[-/·∙.•](" + muet[j][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, muet[j][2] + ' ' + muet[j][1]);
-			}
 		}
-	break;		
-}
+	}
 console.timeEnd("SKIM");
 }
+
 
 function getCaret(x) {
   if (document.selection) {
@@ -161,7 +136,7 @@ function seek(x) {
   for (var i = 0; i < dl; i++) {
 	let reg = new RegExp(dico[i][0] + "s?$", "i"),
 	  mch = x.search(reg);
-	if (dico[i].length > 4 && mch != -1) {
+	if (dico[i].length > 5 && mch != -1) {
 	  return dico[i];
 	}
   }
@@ -170,14 +145,14 @@ function seek(x) {
 function change(n, m, b) {
   if (n == 1) {
 	if (termp == terml - 1) {
-	  termp = 4;
+	  termp = 5;
 	} else {
 	  termp++;
 	}
   }
   if (n == -1) {
-	if (termp == 4) {
-
+	if (termp == 5) {
+      termp = terml - 1
 	} else {
 	  termp--;
 	}
@@ -186,7 +161,7 @@ function change(n, m, b) {
   selekt(m, b[0], b[0] + term[termp].length + 1);
 }
 
-document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]').forEach(function(elem) {
+document.body.querySelectorAll('textarea,input[type=text],input[type=search]').forEach(function(elem) {
     addEvent(elem, 'keyup', function(e) {
       if (this.value.indexOf(';;') > -1) {
         var now = getCaret(this);
@@ -197,8 +172,7 @@ document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]
 });
 	
 function predictif() {
-	
-  document.body.querySelectorAll('textarea,input[type=text],[contenteditable=true]').forEach(function(elem) {
+  document.body.querySelectorAll('textarea,input[type=text]').forEach(function(elem) {
     addEvent(elem, 'keyup', function(e) {
       let b = getCaret(this),
           c = getWord(this, b[1]),
@@ -214,33 +188,27 @@ function predictif() {
     addEvent(elem, 'keydown', function(e) {
       let a = e.which || e.keyCode || e.charCode,
           b = getCaret(this);
-		  console.log('pred keydown')
       if (term && b[0] != b[1]) {
         switch (a) {
-          // Backspace
-          case 8:
+          case 8: // Backspace
             e.preventDefault();
             this.value = this.value.slice(0, b[0] - 1) + this.value.slice(b[1]);
             selekt(this, b[0] - 1, b[0] - 1);
             break;
-            // Left arrow
-          case 37:
+          case 37: // Left arrow
             e.preventDefault();
             this.value = this.value.slice(0, b[0]) + this.value.slice(b[1]);
             selekt(this, b[0] - 1, b[0] - 1);
             break;
-            // Enter
-          case 13:
+          case 13: // Enter
             e.preventDefault();
             selekt(this, b[1], b[1]);
             break;
-            // Down arrow
-          case 40:
+          case 40: // Down arrow
             e.preventDefault();
             change(1, this, b);
             break;
-            // Up arrow
-          case 38:
+          case 38: // Up arrow
             e.preventDefault();
             change(-1, this, b);
             break;
@@ -249,7 +217,7 @@ function predictif() {
           default:
             term = [];
             terml = undefined;
-            termp = 4;
+            termp = 5;
         }
       }
     });
