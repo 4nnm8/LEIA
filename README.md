@@ -97,10 +97,9 @@ Pour palier à ce manquement, il a fallu intégrer dans un premier temps les gra
 
 ### Programmation ###
 
-Le choix du JavaScript est simple : **LÉIA** doit s'appliquer sur l'ordinateur de l'utilisateur·rice et non depuis le serveur puisque cela impliquerait que chaque site internet intègre le script (ce qui a peu de chance d'arriver) et il ne serait donc pas paramétrable par l'utilisateur·rice malvoyant·e De plus, cela signifierait faire disparaître syntaxiquement l'écriture inclusive pour toutes les personnes, y compris voyantes.
+**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un dictionnaire, d'[expressions régulières](https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re) (RegExp), de fonctions iteratives et récursives.
 
-Si vous constatez le moindre bug, [n'hésitez-pas à me le signaler](mailto:a.mezurat@protonmail.com) :)
-
+Si vous constatez le moindre bug ou des optimisations possibles [n'hésitez-pas à me contacter](mailto:a.mezurat@protonmail.com) :)
 
 ## Ressources utilisées pour mener à bien ce projet
 
