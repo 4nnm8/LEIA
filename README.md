@@ -9,18 +9,17 @@
 
 ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 
-## Dernières mises-à-jour (17/05/2019)
+## Dernières mises-à-jour (18/05/2019)
 
-* Fenêtre des préférences embellie
-* Fenêtre des préférences totalement fonctionnelle et plus accessible (balises aria, choix des styles de surlignage simplifié, polices agrandies)
-* Optimisation du dictionnaire
+* Optimisation des performances (rapidité) de la fonction de recherche et remplacement de l'écriture inclusive :
+- **RegExps** mises en cache avec la méthode **map()**
+- Méthode **while** remplacée par méthode asynchrone **setTimeout** pour éviter le ralentissement du navigateur
 
 ## Problèmes connus ou évolutions à venir
 
 * Prédictif et point-médian non fonctionnels sur les balises dotées de **[contenteditable=true]**
 * Fonction **highlight()** ne reconnaît que le point médian et la puce.
 * Dictionnaire prédictif à enrichir
-* Dictionnaire à optimiser pour plus de rapidité d'exécution
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
 ## Résumé
