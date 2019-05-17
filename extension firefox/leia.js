@@ -5,10 +5,9 @@ toute forme (libre, propriétaire, gratuite ou commerciale)
 à condition de conserver le copyright et le texte de 
 licence lors de toute modification ou distribution.
 http://www.apache.org/licenses/LICENSE-2.0
-
 Faites un don :) https://bit.ly/2vuzK7g
 **/
-console.log('LEIA launched')
+
 function addEvent(obj, evt, fn) {
   if (obj.addEventListener) {
 	obj.addEventListener(evt, fn, false);
@@ -30,7 +29,7 @@ function addEvent(obj, evt, fn) {
   }
   return false;
 }
-var mode,pred,high,txtColor,bgColor,txtDeco,fontWeight,term,terml,termp=5,dl=dico.length,
+var mode,pred,high,styl,term,terml,termp=5,timeout,dl=dico.length,
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
@@ -47,49 +46,47 @@ function init(stored) {
 	pred = stored.leia.pred; 
 	high = stored.leia.high;
 	styl = stored.leia.styl;
-	console.log('init ok and mode = '+mode+', pred = '+pred+', high = '+high+', styl = '+styl)
-	skim();
+	if (mode > 0) { skim(); }
 	if (pred == 1) { predictif(); };
+	if (high == 1) {
+	  console.time("HIGHLIGHT");
+	  while (tree.nextNode()) {
+        highlight(tree.currentNode.nodeValue)	
+      }
+	  console.timeEnd("HIGHLIGHT");
+	}
 }
 const gettingStoredSettings = browser.storage.local.get();
 gettingStoredSettings.then(init, onError);
 
-function highlight(node) {
-  var r = r3.exec(node.nodeValue);
+function highlight(h) {
+  var r = r3.exec(h);
   if (r) {
     var nmark = document.createElement("MARK"),
-        after = node.splitText(r.index);
+        after = h.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
     nmark.className = styl;
     after.nodeValue = after.nodeValue.substring(r[0].length);
-    node.parentNode.insertBefore(nmark, after);
+    h.parentNode.insertBefore(nmark, after);
   }
 }
 
-function skim(){
-console.time("SKIM");
-	if (mode == 0) {
-		if  (high == 1) {
-			while (tree.nextNode()) {
-				highlight(tree.currentNode)	
-			}
-		}
-	} else if (mode >= 1 && mode <= 3) {
-		while (tree.nextNode()) {
-			for (var i = 0; i < dl; i++) {
-				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][mode+1]);
-			}
-		}
-	} else if (mode == 4) {
-		while (tree.nextNode()) {
-			for (var i = 0; i < dl; i++) {
-				var r1 = new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + dico[i][0] + ")[-/·∙.•](" + dico[i][1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi");
-				tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(r1, dico[i][2] + ' ' + dico[i][1])
-			}
-		}
-	}
-console.timeEnd("SKIM");
+function skim_old(){
+  console.time("SKIM");
+  while (tree.nextNode()) {
+    dicomap.map((replace_entry)=>{
+        tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(replace_entry[0],replace_entry[mode]);
+    });
+  }
+  console.timeEnd("SKIM");
+}
+
+function skim() {
+  if (!tree.nextNode()) {clearTimeout(timeout);}
+    dicomap.map((replace_entry)=>{
+    tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(replace_entry[0],replace_entry[mode]);
+  });
+  timeout = setTimeout(skim,0);
 }
 
 function getCaret(x) {
@@ -155,35 +152,35 @@ function change(n, m, b) {
 	  termp--;
 	}
   }
-  m.value = m.value.slice(0, b[0]) + '·' + term[termp] + m.value.slice(b[1]);
+  m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
   selekt(m, b[0], b[0] + term[termp].length + 1);
 }
 
-document.body.querySelectorAll('textarea,input[type=text],input[type=search]').forEach(function(elem) {
-    addEvent(elem, 'keyup', function(e) {
-      if (this.value.indexOf(';;') > -1) {
+document.body.querySelectorAll("textarea,input[type=text],input[type=search]").forEach(function(elem) {
+    addEvent(elem, "keyup", function(e) {
+      if (this.value.indexOf(";;") > -1) {
         var now = getCaret(this);
-        this.value = this.value.replace(';;', '·');
+        this.value = this.value.replace(";;","·");
         selekt(this, now[0] - 1, now[0] - 1);
       }
     });
 });
 	
 function predictif() {
-  document.body.querySelectorAll('textarea,input[type=text]').forEach(function(elem) {
-    addEvent(elem, 'keyup', function(e) {
+  document.body.querySelectorAll("textarea,input[type=text]").forEach(function(elem) {
+    addEvent(elem, "keyup", function(e) {
       let b = getCaret(this),
           c = getWord(this, b[1]),
           d = seek(c) || false;
-      if (d && c.indexOf('·') == -1) {
-        this.value = this.value.slice(0, b[0]) + '·' + d[termp] + this.value.slice(b[0]);
+      if (d && c.indexOf("·") == -1) {
+        this.value = this.value.slice(0, b[0]) + "·" + d[termp] + this.value.slice(b[0]);
         selekt(this, b[0], b[0] + d[termp].length + 1);
         term = d;
         terml = term.length;
       }
     });
 
-    addEvent(elem, 'keydown', function(e) {
+    addEvent(elem, "keydown", function(e) {
       let a = e.which || e.keyCode || e.charCode,
           b = getCaret(this);
       if (term && b[0] != b[1]) {

@@ -16,7 +16,7 @@ const dico = [
 ["s[èe]c","è?c?he","sec$4 sèche$4","sèche$4","sec$4","èche","he"],
 ["docteur","oresse","docteur$4 doctoresse$4","doctoresse$4","docteur$4","e","oresse"],
 ["héros?","o?ïne","héros héroïne$4","héroïne$4","héros","oïne"],
-["aïeux","(?:ieu)?le","aïeux aïeule$4","aïeule$4","aïeux","ïeule"],
+["aïeux","(?:ïeu)?le","aïeux aïeule$4","aïeule$4","aïeux","ïeule"],
 ["canut","u?se","canut$4 canuse$4","canuse$4","canut$4","use"],
 ["bêta","a?sse","bêta$4 bêtasse$4","bêtasse$4","bêta$4","sse","asse"],
 ["clown","e(?:sse)","clown$4 clown$3$4","clown$3$4","clown$4","e","esse"],
@@ -80,4 +80,10 @@ const dico = [
 ["(ai|ambi|bé|conti|exi|surai|subai)g[uü]","[eë]","$3gu$5","$3guë$5","$3gu$5","ë","e"],
 ["u","e","$1$2$4","$1$2$3$4","$1$2$4"],
 ["û","e","$1$2$4","$1u$3$4","$1$2$4"]
-];
+],
+dicomap = dico.map((entry)=>{
+  return [
+    new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + entry[0] + ")[-/·∙.•](" + entry[1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi"),
+    entry[2],entry[3],entry[4]
+  ];
+});
