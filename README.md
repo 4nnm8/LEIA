@@ -1,5 +1,6 @@
 # LÉIA
-![Icône LÉIA](https://addons.cdn.mozilla.net/user-media/addon_icons/2123/2123183-64.png)
+
+<p align="center"><img src="https://i.ibb.co/3CGFqgc/leia.png" alt="logo léia" /></p>
 
 [Soutenez LÉIA, faites un don !](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZSBRU3M8DXVRS&source=url)
 
