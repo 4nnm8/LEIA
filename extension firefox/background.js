@@ -2,16 +2,10 @@ var leia = {
   mode: 1,
   pred: 0,
   high: 0,
-  bgColor: "#ffff00",
-  txtColor: "#000000",
-  fontWeight: "normal",
-  txtDeco: "none"
+  styl: ''
 }
 function onError(e) {
   console.error(e);
-}
-function handleClick() {
-  browser.runtime.openOptionsPage();
 }
 function checkStoredSettings(storedSettings) {
   if (!storedSettings.leia) {
@@ -20,5 +14,7 @@ function checkStoredSettings(storedSettings) {
 }
 var gettingStoredSettings = browser.storage.local.get();
 gettingStoredSettings.then(checkStoredSettings, onError);
+
+function handleClick() { browser.runtime.openOptionsPage(); }
 browser.browserAction.onClicked.addListener(handleClick);
 browser.runtime.onMessage.addListener(handleClick);

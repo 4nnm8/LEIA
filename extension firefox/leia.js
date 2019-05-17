@@ -8,6 +8,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 Faites un don :) https://bit.ly/2vuzK7g
 **/
+console.log('LEIA launched')
 function addEvent(obj, evt, fn) {
   if (obj.addEventListener) {
 	obj.addEventListener(evt, fn, false);
@@ -45,10 +46,8 @@ function init(stored) {
 	mode = Number(stored.leia.mode);
 	pred = stored.leia.pred; 
 	high = stored.leia.high;
-	txtColor = stored.leia.txtColor;
-	bgColor = stored.leia.bgColor;
-	txtDeco = stored.leia.txtDeco;
-	fontWeight = stored.leia.fontWeight;
+	styl = stored.leia.styl;
+	console.log('init ok and mode = '+mode+', pred = '+pred+', high = '+high+', styl = '+styl)
 	skim();
 	if (pred == 1) { predictif(); };
 }
@@ -61,7 +60,7 @@ function highlight(node) {
     var nmark = document.createElement("MARK"),
         after = node.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
-    nmark.cssText = "background-color:"+bgColor+";color:"+txtColor+";font-weight:"+fontWeight+";text-decoration:"+txtDeco+";";
+    nmark.className = styl;
     after.nodeValue = after.nodeValue.substring(r[0].length);
     node.parentNode.insertBefore(nmark, after);
   }
@@ -92,7 +91,6 @@ console.time("SKIM");
 	}
 console.timeEnd("SKIM");
 }
-
 
 function getCaret(x) {
   if (document.selection) {

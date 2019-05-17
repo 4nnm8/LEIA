@@ -3,51 +3,66 @@
   <head>
     <meta charset="utf-8">
     <title>Préférences LÉIA</title>
-    <link rel="stylesheet" href="leia.css" type="text/css" media="screen" />
+    <link rel = "stylesheet" type="text/css" href="leia.css" />
   </head>
   <body class="confleia">
-	<form id="form">
-    <table>
-      <tr>
-        <td><label for="mode">Choix du mode de lecture inclusive</label></td>
-        <td>
-          <select id="mode">
-            <option value="0">Aucun - Désactivé</option>
-            <option value="1">Mots lus aux deux genres</option>
-            <option value="2">Mots lus au féminin uniquement</option>
-			<option value="3">Mots lus au maculin uniquement</option>
-			<option value="4" disabled>Supprimer les séparateurs</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="pred">Dictionnaire de saisie prédictive écriture inclusive</label></td>
-        <td>
-          <select id="pred">
-            <option value="0">Désactivé</option>
-            <option value="1">Activé</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="high">Surligner l'écriture inlusive</label></td>
-        <td>
-          <select id="high">
-            <option value="0">Désactivé</option>
-            <option value="1">Activé</option>
-          </select>
-          <br/><br/>
-          <input type="color" id="bgColor" /><label for="bgColor"> Couleur de fond&nbsp;</label><br/>
-          <input type="color" id="txtColor" /><label for="txtColor"> Couleur du texte</label><br/>
-          <input type="checkbox" id="fontWeight" /><label for="fontWeight"> Gras</label>
-          <input type="checkbox" id="txtDeco" /><label for="txtDeco"> Souligné</label><br/>
-          <p class="ex"><b>Exemple :</b> imprimeur<span id="ex">·euse</span></p>
-        </td>
-      </tr>
-    </table>
-	</form>
-    <p>Panneau de configuration <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>C</kbd></p>
-    <p>Insérer un point médian <kbd>;</kbd> <kbd>;</kbd></p>
+    <form id="form">
+      <table>
+        <tr>
+          <td><label for="mode">Mode de lecture inclusive</label></td>
+          <td>
+            <select id="mode">
+              <option value="0">Aucun</option>
+              <option value="1">Mots lus aux deux genres</option>
+              <option value="2">Mots lus au féminin uniquement</option>
+              <option value="3">Mots lus au maculin uniquement</option>
+              <!--<option value="4">Supprimer les séparateurs</option>-->
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="pred">Saisie prédictive inclusive</label></td>
+          <td>
+            <select id="pred">
+              <option value="0">Désactivé</option>
+              <option value="1">Activé</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Insérer un point médian</td>
+          <td>
+            <span class="leiasr">tapez deux fois sur point virgule</span><kbd>;</kbd> <kbd>;</kbd>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="high">Surligner les terminaisons inclusives</label></td>
+          <td>
+            <p>
+              <select id="high">
+                <option value="0">Désactivé</option>
+                <option value="1">Activé</option>
+              </select>
+            </p>
+            <p aria-hidden="true">
+              <button name="0" tabindex="-1" class="leiahl emph0"><strike>Aa</strike></button>
+              <button name="1" tabindex="-1" class="leiahl emph1" style="border:0">Aa</button>
+              <button name="2" tabindex="-1" class="leiahl emph2">Aa</button>
+              <button name="3" tabindex="-1" class="leiahl emph3">Aa</button><br/>
+              <button name="4" tabindex="-1" class="leiahl emph4">Aa</button>
+              <button name="5" tabindex="-1" class="leiahl emph5">Aa</button>
+              <button name="6" tabindex="-1" class="leiahl emph6">Aa</button>
+              <button name="7" tabindex="-1" class="leiahl emph7">Aa</button><br/>
+              <button name="8" tabindex="-1" class="leiahl emph8">Aa</button>
+              <button name="9" tabindex="-1" class="leiahl emph9">Aa</button>
+              <button name="10" tabindex="-1" class="leiahl emph10">Aa</button>
+              <button name="11" tabindex="-1" class="leiahl emph11">Aa</button><br/>
+            </p>
+            <p aria-hidden="true" class="xx">imprimeur<span id="ex">·euse</span></p>
+          </td>
+        </tr>
+      </table>
+    </form>
     <script src="config.js"></script>
   </body>
 </html>

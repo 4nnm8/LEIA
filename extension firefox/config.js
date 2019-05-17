@@ -1,88 +1,85 @@
-function addEvent(obj, evt, fn) { 
-  if (obj.addEventListener) {
-    obj.addEventListener(evt, fn, false);
-    return true;
-  } else if (obj.attachEvent) {
-    return obj.attachEvent("on" + evt, fn);
-  } else {
-    evt = "on" + evt;
-    if (typeof obj[evt] === "function") {
-      fn = (function(f1, f2) {
-        return function() {
-          f1.apply(this, arguments);
-          f2.apply(this, arguments);
-        };
-      })(obj[evt], fn);
-    }
-	obj[evt] = fn;
-	return true;
-  }
-  return false;
-}
-function $(id) {
-  return document.getElementById(id);
-}
+var $ = function(a) {
+	var b = [];
+
+	function Reach(elements) {
+		if (typeof a == "string") {
+			b.length = elements.length;
+			for (var i = 0; i < b.length; i++) {
+				b[i] = elements[i];
+			}
+		} else {
+			b.push(elements);
+		}
+	}
+	Reach.prototype.css = function(prop, val) {
+		for (var i = 0; i < b.length; i++) {
+			b[i].style[prop] = val;
+		}
+	};
+	Reach.prototype.setIndex = function(idx) {
+		b[0].selectedIndex = idx;
+	};
+	Reach.prototype.on = function(evt, fn) {
+		for (var i = 0; i < b.length; i++) {
+			if (b[i].addEventListener) {
+				b[i].addEventListener(evt, fn, false);
+			} else if (b[i].attachEvent) {
+				b[i].attachEvent('on' + evt, fn);
+			} else {
+				return false;
+			}
+		}
+	};
+	return (typeof a == "string") ? new Reach(document.querySelectorAll(a)) : new Reach(a);
+    };
+function $$(id) {
+  var n = id.replace("#","")
+  return document.getElementById(n)
+};
+
 function storeSettings() {
-  var modeval = $("mode").options[$("mode").selectedIndex].value,
-      predval = $("pred").options[$("pred").selectedIndex].value,
-      highval = $("high").options[$("high").selectedIndex].value,
-      bgcolorval = $("bgColor").value,
-      txtcolorval = $("txtColor").value,
-      fontweightval = ($("fontWeight").checked == true) ? 'bold' : 'normal',
-      txtdecoval = ($("txtDeco").checked == true) ? 'underline' : 'none';
+  var modeval = $$("mode").options[$$("mode").selectedIndex].value,
+      predval = $$("pred").options[$$("pred").selectedIndex].value,
+      highval = $$("high").options[$$("high").selectedIndex].value,
+      stylval = $$("#ex").className;
 
   browser.storage.local.set({
     leia: {
 	  mode: modeval,
       pred: predval,
       high: highval,
-      bgColor: bgcolorval,
-      txtColor: txtcolorval,
-      fontWeight: fontweightval,
-      txtDeco: txtdecoval
+      styl: stylval
     }
   });
 }
+
 function updateUI(stored) {
-  $("mode").selectedIndex = stored.leia.mode;
-  $("pred").selectedIndex = stored.leia.pred; 
-  $("high").selectedIndex = stored.leia.high;
-  $("txtColor").value = stored.leia.txtColor;
-  $("bgColor").value = stored.leia.bgColor;
-  $("ex").style.textDecoration = stored.leia.txtDeco;
-  $("ex").style.fontWeight = stored.leia.fontWeight;
-  $("ex").style.backgroundColor = stored.leia.bgColor;
-  $("ex").style.color = stored.leia.txtColor;
-  (stored.leia.fontWeight == "bold" ) ? $("fontWeight").checked = true : $("fontWeight").checked = false; 
-  (stored.leia.txtDeco == "underline" ) ? $("txtDeco").checked = true : $("txtDeco").checked = false;
+  $("#mode").setIndex(stored.leia.mode);
+  $("#pred").setIndex(stored.leia.pred); 
+  $("#high").setIndex(stored.leia.high);
+  $$("#ex").className = stored.leia.styl;
 }
 function onError(e) {
   console.error(e);
 }
-addEvent($("mode"), "change", function(e) {
+
+$("#mode").on("change", function(e) {
 	if (this.selectedIndex !== 0) {
-	  $("high").selectedIndex = 0;
+		$("#high").setIndex("0");
+		$$("#ex").className = '';
 	}
 });
-addEvent($("high"), "change", function(e) {
-	if (this.selectedIndex == 1) {
-	  $("mode").selectedIndex = 0;
-	}
+
+$("#high").on("change", function(e) {
+	if (this.selectedIndex == 1) $("#mode").setIndex("0");
 });
-addEvent($("bgColor"), "change", function(e) {
-	$("ex").style.backgroundColor = this.value;
-});
-addEvent($("txtColor"), "change", function(e) {
-	$("ex").style.color = this.value;
-});
-addEvent($("fontWeight"), "change", function(e) {
-	(this.checked == true) ? $("ex").style.fontWeight = "bold" : $("ex").style.fontWeight = "normal";
-});
-addEvent($("txtDeco"), "change", function(e) {
-	(this.checked == true) ? $("ex").style.textDecoration = "underline" : $("ex").style.textDecoration = "none";
-});
-addEvent($("form"), "change", function(e) {
+
+function styling(prop){
+  $$("#ex").className = "emph"+prop.name;
   storeSettings();
-});
+}
+$(".leiahl").on("click", function(e) { e.preventDefault();styling(this); });
+$("form").on("change", function(e) { storeSettings(); });
+
 var gettingStoredSettings = browser.storage.local.get();
 gettingStoredSettings.then(updateUI, onError);
