@@ -1,14 +1,4 @@
-﻿/** LÉIA - Copyright 2018-2019 Ann Mezurat
-LÉIA est un donationware sous licence Apache Version 2.0. 
-Vous êtes libre de modifier et de distribuer ce code sous 
-toute forme (libre, propriétaire, gratuite ou commerciale)
-à condition de conserver le copyright et le texte de 
-licence lors de toute modification ou distribution.
-http://www.apache.org/licenses/LICENSE-2.0
-Faites un don :) https://bit.ly/2vuzK7g
-**/
-
-function addEvent(obj, evt, fn) {
+﻿function addEvent(obj, evt, fn) {
   if (obj.addEventListener) {
 	obj.addEventListener(evt, fn, false);
 	return true;
@@ -37,12 +27,18 @@ var mode,pred,high,styl,term,terml,termp=5,timeout,dl=dico.length,
           return NodeFilter.FILTER_ACCEPT;
         }
       }
-    }, false);
+    }, false),
+	dicomap = dico.map((entry)=>{
+      return [
+        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?("+entry[0]+")[-/·∙.•]("+entry[1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
+        entry[2],entry[3],entry[4]
+      ];
+    });
 function onError(e) {
   console.error(e);
 }
 function init(stored) {
-	mode = Number(stored.leia.mode);
+	mode = stored.leia.mode;
 	pred = stored.leia.pred; 
 	high = stored.leia.high;
 	styl = stored.leia.styl;
@@ -56,6 +52,7 @@ function init(stored) {
 	  console.timeEnd("HIGHLIGHT");
 	}
 }
+
 const gettingStoredSettings = browser.storage.local.get();
 gettingStoredSettings.then(init, onError);
 
@@ -71,22 +68,20 @@ function highlight(h) {
   }
 }
 
-function skim_old(){
-  console.time("SKIM");
-  while (tree.nextNode()) {
-    dicomap.map((replace_entry)=>{
-        tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(replace_entry[0],replace_entry[mode]);
-    });
-  }
-  console.timeEnd("SKIM");
+function check(currentNode){
+  dicomap.map((replace_entry)=>{
+    currentNode.nodeValue = currentNode.nodeValue.replace(replace_entry[0],replace_entry[mode]);
+  })
 }
 
-function skim() {
-  if (!tree.nextNode()) {clearTimeout(timeout);}
-    dicomap.map((replace_entry)=>{
-    tree.currentNode.nodeValue = tree.currentNode.nodeValue.replace(replace_entry[0],replace_entry[mode]);
-  });
-  timeout = setTimeout(skim,0);
+function skim(){
+  console.time("skim");
+  while (tree.nextNode()){
+	setTimeout((function(currentNode){
+		check(currentNode);
+	}(tree.currentNode)), 0);
+  }
+  console.timeEnd("skim");
 }
 
 function getCaret(x) {
@@ -130,7 +125,7 @@ function getWord(text, caretPos) {
 function seek(x) {
   for (var i = 0; i < dl; i++) {
 	let reg = new RegExp(dico[i][0] + "s?$", "i"),
-	  mch = x.search(reg);
+	    mch = x.search(reg);
 	if (dico[i].length > 5 && mch != -1) {
 	  return dico[i];
 	}

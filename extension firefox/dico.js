@@ -80,10 +80,4 @@ const dico = [
 ["(ai|ambi|bé|conti|exi|surai|subai)g[uü]","[eë]","$3gu$5","$3guë$5","$3gu$5","ë","e"],
 ["u","e","$1$2$4","$1$2$3$4","$1$2$4"],
 ["û","e","$1$2$4","$1u$3$4","$1$2$4"]
-],
-dicomap = dico.map((entry)=>{
-  return [
-    new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?(" + entry[0] + ")[-/·∙.•](" + entry[1] + ")[-/·∙.•]?(s)?(?![a-z])", "gi"),
-    entry[2],entry[3],entry[4]
-  ];
-});
+];

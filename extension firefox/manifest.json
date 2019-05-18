@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "LÉIA - L'écriture inclusive accessible",
     "short_name": "LÉIA",
-    "version": "1.4",
+    "version": "1.5",
     "description": "Cette extension est notamment destinée aux personnes malvoyantes ou ayant des difficultés de lecture.\n\nLÉIA PROPOSE:\n\n* De transformer l'écriture inclusive sous une forme interprétable par les lecteurs d'écran.\n\n* Un dictionnaire prédictif d'écriture inclusive dans les zones de texte.\n\n* D'ajouter facilement un point-médian dans les zones de textes en tapant deux fois sur le point-virgule.\n\n* De surligner les terminaisons inclusives pour les séparer visuellement du reste du mot.",
     "applications": {
         "gecko": {
