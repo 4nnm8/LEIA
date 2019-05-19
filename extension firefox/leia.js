@@ -1,25 +1,21 @@
-﻿function addEvent(obj, evt, fn) {
-  if (obj.addEventListener) {
-	obj.addEventListener(evt, fn, false);
-	return true;
-  } else if (obj.attachEvent) {
-	return obj.attachEvent("on" + evt, fn);
-  } else {
-	evt = "on" + evt;
-	if (typeof obj[evt] === "function") {
-	  fn = (function(f1, f2) {
-		return function() {
-		  f1.apply(this, arguments);
-		  f2.apply(this, arguments);
-		};
-	  })(obj[evt], fn);
-	}
-	obj[evt] = fn;
-	return true;
+﻿function addEvent(a, b, c) {
+  if (a.addEventListener) {
+    return a.addEventListener(b, c, !1), !0;
   }
-  return false;
+  if (a.attachEvent) {
+    return a.attachEvent("on" + b, c);
+  }
+  b = "on" + b;
+  "function" === typeof a[b] && (c = function(a, b) {
+    return function() {
+      a.apply(this, arguments);
+      b.apply(this, arguments);
+    };
+  }(a[b], c));
+  a[b] = c;
+  return !0;
 }
-var mode,pred,high,styl,term,terml,termp=5,timeout,dl=dico.length,
+var mode,pred,high,styl,term,terml,termp=5,dl=dico.length,
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
@@ -34,31 +30,40 @@ var mode,pred,high,styl,term,terml,termp=5,timeout,dl=dico.length,
         entry[2],entry[3],entry[4]
       ];
     });
-function onError(e) {
-  console.error(e);
-}
-function init(stored) {
-	mode = stored.leia.mode;
-	pred = stored.leia.pred; 
-	high = stored.leia.high;
-	styl = stored.leia.styl;
-	if (mode > 0) { skim(); }
-	if (pred == 1) { predictif(); };
-	if (high == 1) {
-	  console.time("HIGHLIGHT");
-	  while (tree.nextNode()) {
-        highlight(tree.currentNode.nodeValue)	
-      }
-	  console.timeEnd("HIGHLIGHT");
-	}
-}
+	
+browser.storage.local.get().then(function(a) {
+  mode = a.leia.mode;
+  pred = a.leia.pred;
+  high = a.leia.high;
+  styl = a.leia.styl;
+  if (0 < mode) {
+    for (; tree.nextNode();) {
+      setTimeout((function(currentNode){
+		check(currentNode);
+	  }(tree.currentNode)), 0);
+    }
+  }
+  1 == pred && predictif();
+  if (1 == high) {
+    while (tree.nextNode()) {
+      highlight(tree.currentNode.nodeValue)
+    }
+  }
+}, function(a) {
+  console.error(a);
+});
 
-const gettingStoredSettings = browser.storage.local.get();
-gettingStoredSettings.then(init, onError);
+function check() {
+  var a = tree.currentNode;
+  dicomap.map(function(b) {
+    a.nodeValue = a.nodeValue.replace(b[0], b[mode]);
+  });
+}
 
 function highlight(h) {
   var r = r3.exec(h);
   if (r) {
+	  console.log(r)
     var nmark = document.createElement("MARK"),
         after = h.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
@@ -68,27 +73,11 @@ function highlight(h) {
   }
 }
 
-function check(currentNode){
-  dicomap.map((replace_entry)=>{
-    currentNode.nodeValue = currentNode.nodeValue.replace(replace_entry[0],replace_entry[mode]);
-  })
-}
-
-function skim(){
-  console.time("skim");
-  while (tree.nextNode()){
-	setTimeout((function(currentNode){
-		check(currentNode);
-	}(tree.currentNode)), 0);
-  }
-  console.timeEnd("skim");
-}
-
 function getCaret(x) {
   if (document.selection) {
 	x.focus();
 	var r = document.selection.createRange(),
-	  rs = r.text.length;
+	    rs = r.text.length;
 	r.moveStart("character", -x.value.length);
 	var start = r.text.length - rs;
 	return [start, start + rs];
@@ -126,34 +115,22 @@ function seek(x) {
   for (var i = 0; i < dl; i++) {
 	let reg = new RegExp(dico[i][0] + "s?$", "i"),
 	    mch = x.search(reg);
-	if (dico[i].length > 5 && mch != -1) {
+	if (5 < dico[i].length && -1 != mch) {
 	  return dico[i];
 	}
   }
 }
 
 function change(n, m, b) {
-  if (n == 1) {
-	if (termp == terml - 1) {
-	  termp = 5;
-	} else {
-	  termp++;
-	}
-  }
-  if (n == -1) {
-	if (termp == 5) {
-      termp = terml - 1
-	} else {
-	  termp--;
-	}
-  }
+  1 == n && (termp == terml - 1 ? termp = 5 : termp++);
+  -1 == n && (5 == termp ? termp = terml - 1 : termp--);
   m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
   selekt(m, b[0], b[0] + term[termp].length + 1);
 }
 
 document.body.querySelectorAll("textarea,input[type=text],input[type=search]").forEach(function(elem) {
     addEvent(elem, "keyup", function(e) {
-      if (this.value.indexOf(";;") > -1) {
+      if (-1 < this.value.indexOf(";;")) {
         var now = getCaret(this);
         this.value = this.value.replace(";;","·");
         selekt(this, now[0] - 1, now[0] - 1);

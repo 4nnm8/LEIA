@@ -49,6 +49,7 @@ const dico = [
 ["du|au","(?:de|à) la","$2 $3","$3","$2"],
 ["tous?","te","tous toutes","toutes","tous"],
 ["le","l?a","le la","la","le"],
+["ce","tte","ce cette","cette","ce"],
 ["ils?","elle","il$4 elle$4","elle$4","il$4"],
 ["([mts])on","[mts]a","$3on $3a","$3a","$3a","$3on"],
 ["celui","c?elle","celui celle","celle","celui"],

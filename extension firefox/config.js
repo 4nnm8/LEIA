@@ -1,24 +1,16 @@
 var $ = function(a) {
 	var b = [];
 
-	function Reach(elements) {
-		if (typeof a == "string") {
-			b.length = elements.length;
-			for (var i = 0; i < b.length; i++) {
-				b[i] = elements[i];
+	function Reach(e) {
+		if ("string" == typeof a) {
+			b.length = e.length;
+			for (var i = 0 ; i < b.length; i++) {
+				b[i] = e[i];
 			}
 		} else {
-			b.push(elements);
+			b.push(e);
 		}
 	}
-	Reach.prototype.css = function(prop, val) {
-		for (var i = 0; i < b.length; i++) {
-			b[i].style[prop] = val;
-		}
-	};
-	Reach.prototype.setIndex = function(idx) {
-		b[0].selectedIndex = idx;
-	};
 	Reach.prototype.on = function(evt, fn) {
 		for (var i = 0; i < b.length; i++) {
 			if (b[i].addEventListener) {
@@ -32,17 +24,27 @@ var $ = function(a) {
 	};
 	return (typeof a == "string") ? new Reach(document.querySelectorAll(a)) : new Reach(a);
     };
-function $$(id) {
-  var n = id.replace("#","")
-  return document.getElementById(n)
-};
+
+var modeipt = document.getElementById("mode"),
+    predipt = document.getElementById("pred"),
+	highipt = document.getElementById("high"),
+	stylipt = document.getElementById("styl"),
+	example = document.getElementById("ex");
+	
+browser.storage.local.get().then(function(a) {
+  modeipt.selectedIndex = a.leia.mode;
+  predipt.selectedIndex = a.leia.pred;
+  highipt.selectedIndex = a.leia.high;
+  example.className = a.leia.styl;
+}, function(a) {
+  console.error(a);
+});
 
 function storeSettings() {
-  var modeval = $$("mode").options[$$("mode").selectedIndex].value,
-      predval = $$("pred").options[$$("pred").selectedIndex].value,
-      highval = $$("high").options[$$("high").selectedIndex].value,
-      stylval = $$("#ex").className;
-
+  var modeval = modeipt.options[modeipt.selectedIndex].value,
+      predval = predipt.options[predipt.selectedIndex].value,
+      highval = highipt.options[highipt.selectedIndex].value,
+      stylval = example.className;
   browser.storage.local.set({
     leia: {
 	  mode: modeval,
@@ -53,33 +55,17 @@ function storeSettings() {
   });
 }
 
-function updateUI(stored) {
-  $("#mode").setIndex(stored.leia.mode);
-  $("#pred").setIndex(stored.leia.pred); 
-  $("#high").setIndex(stored.leia.high);
-  $$("#ex").className = stored.leia.styl;
-}
-function onError(e) {
-  console.error(e);
-}
-
 $("#mode").on("change", function(e) {
-	if (this.selectedIndex !== 0) {
-		$("#high").setIndex("0");
-		$$("#ex").className = '';
-	}
+	0 !== this.selectedIndex && (highipt.selectedIndex = "0", example.className = '');
 });
 
 $("#high").on("change", function(e) {
-	if (this.selectedIndex == 1) $("#mode").setIndex("0");
+	1 == this.selectedIndex && (modeipt.selectedIndex = "0");
 });
 
-function styling(prop){
-  $$("#ex").className = "emph"+prop.name;
+$(".leiahl").on("click", function(e) {
+  e.preventDefault();
+  example.className = "emph"+this.name;
   storeSettings();
-}
-$(".leiahl").on("click", function(e) { e.preventDefault();styling(this); });
+});
 $("form").on("change", function(e) { storeSettings(); });
-
-var gettingStoredSettings = browser.storage.local.get();
-gettingStoredSettings.then(updateUI, onError);
