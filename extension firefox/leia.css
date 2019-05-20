@@ -17,7 +17,14 @@
   background-color: #f6f6f6;
   color: #0E5D96;
 }
-
+.confleia label, .confleia .label {
+  display:block;
+  padding: 11px 10px 15px 10px;
+  border-bottom: 1px dotted #106eaf 
+}
+.confleia label:last-child {
+	border:0
+}
 @media all and (max-device-width : 480px) {
   .confleia {
 	width:100vw;
@@ -30,15 +37,6 @@
   .confleia label:nth-of-type(3) {
 	height:61vh;  
   }
-  select { box-sizing: border-box;}
-}
-.confleia label, .confleia .label {
-  display:block;
-  padding: 11px 10px 15px 10px;
-  border-bottom: 1px dotted #106eaf 
-}
-.confleia label:last-child {
-	border:0
 }
 .confleia select {
   background: none repeat scroll 0 0 #FFFFFF;
