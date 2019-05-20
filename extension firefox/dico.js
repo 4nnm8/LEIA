@@ -36,7 +36,7 @@ const dico = [
 ["eaux","elles?","$1$2 $1$3$4","$1$3$4","$1$2"],
 ["eau","elle","$1$2 $1$3","$1$3","$1$2"],
 ["aux","ales?","$1$2 $1$3$4","$1$3$4","$1$2"],
-["eux","euse","$1$2$4 $1$3$4","$1$3$4","$1$2$4","euse","se"],
+["eux","(?:eu)?se","$1eux $1euse$4","$1euse$4","$1eux","euse","se"],
 ["(pêch|chass|b[âa]ill|charm|emmerd|impost|pip|pren|sing|taill|vend|demand|veng)eur","(eu)?se","$3eur$6 $3euse$6","$3euse$6","$3eur$6","eresse","euse","se",""],
 ["(vainq|assess|gouvern|prédécess)eur","(eu)?se","$3eur$6 $3euse$6","$3euse$6","$3eur$6","e","euse","eresse","se"],
 ["(défend|paqu|codemand|enchant|p[éè]ch)eur","eresse","$3eur$6 $3eresse$6","$3eresse$6","$3eur$6","eresse"],

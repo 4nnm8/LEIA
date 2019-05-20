@@ -18,10 +18,12 @@ function addEvent(a, b, c) {
   return !0;
 }
 var mode,pred,high,styl,term,terml,termp=5,dl=dico.length,
+    list = document.body.querySelectorAll("textarea,input"),
+    ll = list.length,pm = [],pr = [],
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
-        if (node.parentNode.nodeName !== "SCRIPT" && node.nodeValue.trim().length > 0) {
+        if (!node.parentNode.nodeName.match(/SCRIPT|TEXTAREA|STYLE|INPUT/i) && node.nodeValue.trim().length > 0) {
           return NodeFilter.FILTER_ACCEPT;
         }
       }
@@ -33,6 +35,17 @@ var mode,pred,high,styl,term,terml,termp=5,dl=dico.length,
       ];
     });
 	
+for (var i = 0; i < ll ; i++) {
+  var thisone = list[i];
+  if (thisone.type == "text" || thisone.type == "textarea") {
+    pm.push(thisone);
+	pr.push(thisone);
+  }
+  if (thisone.type == "search") {
+	pm.push(thisone);
+  }
+}
+
 browser.storage.local.get().then(function(a) {
   mode = a.leia.mode;
   pred = a.leia.pred;
@@ -130,7 +143,7 @@ function change(n, m, b) {
   selekt(m, b[0], b[0] + term[termp].length + 1);
 }
 
-document.body.querySelectorAll("textarea,input[type=text],input[type=search]").forEach(function(elem) {
+pm.forEach(function(elem) {
     addEvent(elem, "keyup", function(e) {
       if (-1 < this.value.indexOf(";;")) {
         var now = getCaret(this);
@@ -141,7 +154,7 @@ document.body.querySelectorAll("textarea,input[type=text],input[type=search]").f
 });
 	
 function predictif() {
-  document.body.querySelectorAll("textarea,input[type=text]").forEach(function(elem) {
+  pr.forEach(function(elem) {
     addEvent(elem, "keyup", function(e) {
       let b = getCaret(this),
           c = getWord(this, b[1]),
