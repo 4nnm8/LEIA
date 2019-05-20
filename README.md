@@ -10,16 +10,18 @@
 
 ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 
-## Dernières mises-à-jour (20/05/2019)
+## Dernières mises-à-jour (21/05/2019)
 
-* Rétablissement de la fonction de surlignage
-* Quelques optimisations de code
+* Extension fonctionnelle dans toutes les frames
+* Correction d'erreurs du dictionnaire
+* Raccourcis point médian et saisie prédictive fonctionnelle dans les ``<input />`` sans type défini (type="text" par défaut)
 
 ## Évolutions à venir
 
 * Saisie prédictive fonctionelle sur les balises dotées de **[contenteditable=true]**
 * Fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
-* Dictionnaire prédictif à enrichir. Dictionnaire de remplacement à simplifier pour meilleurs performances.
+* Dictionnaire prédictif enrichi. 
+* Dictionnaire de remplacement simplifié pour de meilleurs performances.
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
 ## Résumé
