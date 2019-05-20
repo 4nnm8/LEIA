@@ -1,6 +1,4 @@
-# LÉIA
-
-<p align="center"><img src="https://i.ibb.co/3CGFqgc/leia.png" alt="logo léia" /></p>
+<p align="center"><img src="https://i.ibb.co/3CGFqgc/leia.png" alt="logo léia" width="300px" /></p>
 
 [Soutenez LÉIA, faites un don !](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZSBRU3M8DXVRS&source=url)
 
@@ -8,29 +6,34 @@
 
 **LÉIA** est sous [licence Apache](https://github.com/ANN-MB/LEIA/blob/master/LICENSE)
 
-ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
+[Extension Firefox disponible ici](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 
 ## Dernières mises-à-jour (21/05/2019)
 
 * Extension fonctionnelle dans toutes les frames
 * Correction d'erreurs du dictionnaire
-* Raccourcis point médian et saisie prédictive fonctionnelle dans les ``<input />`` sans type défini (type="text" par défaut)
+* Raccourcis point médian et saisie prédictive fonctionnelle dans les ``<input />`` sans type défini (``type="text"`` par défaut)
 * Le remplacement de texte ne s'effectue plus dans les zones de saisie de texte (input, textarea)
 * Mise-à-jour de la [page de tests](https://github.com/ANN-MB/LEIA/blob/master/Page_de_tests.html) avec les nouvelles problématiques
 
 ## Évolutions à venir
 
 * Portage de l'extension sur **Chrome** et **Opera**
-* Sur Firefox Mobile, problème de style sur la page de préférences
-* Saisie prédictive à rendre fonctionnelle sur les balises dotées de **[contenteditable=true]**
-* Fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
-* Dictionnaire prédictif enrichi. 
-* Dictionnaire de remplacement simplifié pour de meilleurs performances.
+* Sur **Firefox Mobile**, problème de style sur la page de préférences
+* Saisie prédictive à rendre fonctionnelle sur les balises dotées de ``[contenteditable=true]``
+* La fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
+* Dictionnaire prédictif à enrichir.
+* Dictionnaire de remplacement à simplifier pour de meilleurs performances.
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
 ## Résumé
 
 **LÉIA** est une extension pour le navigateur Firefox (et bientôt d'autres). Elle est vouée à améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes et dyslexiques aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
+
+<p align="center">
+  <b>LÉIA</b> au <a href="http://hackecritureinclusive.com/" target="_blank">Hackaton Écriture Inclusive 2018</a><br/><br/>
+  <img src="https://pbs.twimg.com/media/DWqSlpLW4AAXtDi.jpg" width="420px" alt="Présentation de LÉIA au Hackaton" />                                                                                       
+</p>
 
 ## Qu'est–ce que l'écriture inclusive ?
 
@@ -90,7 +93,7 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 
 ## Développement
 
-L'élaboration de ce programme, qui a commencé il y a un peu plus d'un an fût particulièrement complexe pour plusieurs raisons :
+L'élaboration de ce programme, qui a commencé fin 2017 fût et reste particulièrement complexe pour plusieurs raisons :
 
 ### Recherche sur l'orthographe française ###
 
@@ -136,13 +139,15 @@ bertrandboutin.ca (hors ligne) - d'autres exceptions de noms et d'adjectifs au f
 
 https://www.github.com/ - pour l'hébergement du développement du script
 
-https://codepen.io/vincent-valentin/full/woGLVL - pour la réflexion sur les graphies de l'écriture inclusive
+https://www.lelutinduweb.fr/blog/ - blog sur l'accessibilité web
+
+http://romy.tetue.net/ - articles sur l'accessibilité web et l'écriture inclusive 
+
+https://epicene.info/marqueurs.html - comparaison des caractères marqueurs d'écriture inclusive
+
+https://codepen.io/vincent-valentin/full/woGLVL - réflexion sur les graphies de l'écriture inclusive
 
 https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
-
-http://romy.tetue.net/ - pour ses articles sur l'accessibilité web et l'écriture inclusive 
-
-
 
 ##### Programmes #####
 
@@ -155,3 +160,21 @@ http://romy.tetue.net/ - pour ses articles sur l'accessibilité web et l'écritu
 ## Remerciements
 
 Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours, à l'équipe d'[incluZor·e](http://incluzor.fr/) pour nos échanges, et à plein d'autres ami·e·s anonymes pour leurs conseils et soutiens :)
+
+## Les initiatives sympa
+
+[Épicène - Normaliser et faciliter l'usage de l'écriture inclusive](https://github.com/MattiSG/epicene.info)
+
+[La disparition est un jeu éducatif textuel qui a pour but l'apprentissage de écriture inclusive](https://github.com/Chrisdml/La-Disparition)
+
+[Dictionnaire Français Hunspell compatible avec l'écriture inclusive](https://github.com/RadicaliseesSurInternet/hunspell-inclusif), [Dico Firefox](https://addons.mozilla.org/fr/firefox/addon/fr-inclusif)
+
+[Alt0183 - Adoptez un caractère inclusif !](https://github.com/Alt0183/Alt0183)
+
+## Les initiatives pas tellement sympa
+
+[Désinclusive - Bloqueur d'écriture inclusive](https://github.com/Nitoref/desinclusive), [Ext Firefox](https://addons.mozilla.org/fr/firefox/addon/d%C3%A9sinclusive/)
+
+[No-inclusive](https://addons.mozilla.org/fr/firefox/addon/no-inclusive/)
+
+[Blocut | Bloqueur écriture inclusive](https://addons.mozilla.org/fr/firefox/addon/blocut/)
