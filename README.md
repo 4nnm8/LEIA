@@ -15,6 +15,8 @@ ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/add
 * Extension fonctionnelle dans toutes les frames
 * Correction d'erreurs du dictionnaire
 * Raccourcis point médian et saisie prédictive fonctionnelle dans les ``<input />`` sans type défini (type="text" par défaut)
+* Le remplacement de texte ne s'effectue plus dans les zones de saisie de texte (input, textarea)
+* Mise-à-jour de la [page de tests](https://github.com/ANN-MB/LEIA/blob/master/Page_de_tests.html) avec les nouvelles problématiques
 
 ## Évolutions à venir
 
