@@ -18,17 +18,17 @@
 
 ## Évolutions à venir
 
-* Portage de l'extension sur **Chrome** et **Opera**
-* Sur **Firefox Mobile**, problème de style sur la page de préférences
+* Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
+* Sur **Firefox Mobile**, correction de l'affichage de la page des préférences.
 * Saisie prédictive à rendre fonctionnelle sur les balises dotées de ``[contenteditable=true]``
 * La fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
 * Dictionnaire prédictif à enrichir.
 * Dictionnaire de remplacement à simplifier pour de meilleurs performances.
-* Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
+* Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable.
 
 ## Résumé
 
-**LÉIA** est une extension pour le navigateur Firefox (et bientôt d'autres). Elle est vouée à améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes et dyslexiques aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
+**LÉIA** est une extension pour le navigateur Firefox (et bientôt d'autres). Elle est vouée à améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes ou ayant des difficultés de lecture, aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
 
 <p align="center">
   <b>LÉIA</b> au <a href="http://hackecritureinclusive.com/" target="_blank">Hackaton Écriture Inclusive 2018</a><br/><br/>
@@ -101,11 +101,11 @@ Les guide de rédaction en écriture inclusive, et notamment celui du [Haut Cons
 
 ### Recherche sur les usages populaires de l'écriture inclusive ###
 
-Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux·euse**, certains écrivent **amoureux·se**. J'ai du enfin créer différentes formes de néologismes pour des mots que je n'avais jamais rencontré (ex : **tiers·ces** ou **tier·ce·s**).
+Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux·euse**, certains écrivent **amoureux·se**. J'ai du enfin créer différentes règles à partir de celles existantes pour des mots que je n'avais jamais rencontré (ex : **tiers·ces** ou **tier·ce·s**).
 
 ### Programmation ###
 
-**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un dictionnaire, d'[expressions régulières](https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re) (RegExp), de fonctions iteratives et récursives.
+**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un [dictionnaire](https://github.com/ANN-MB/LEIA/blob/master/extension%20firefox/dico.js), d'expressions régulières (RegExp), de fonctions iteratives et récursives.
 
 Si vous constatez le moindre bug ou des optimisations possibles [n'hésitez-pas à me contacter](mailto:a.mezurat@protonmail.com) :)
 
@@ -159,7 +159,7 @@ https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
 ## Remerciements
 
-Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours, à l'équipe d'[incluZor·e](http://incluzor.fr/) pour nos échanges, et à plein d'autres ami·e·s anonymes pour leurs conseils et soutiens :)
+Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours et pour [son article](https://www.lelutinduweb.fr/ecriture-inclusive-accessibilite-solutions/), à l'équipe d'[incluZor·e](http://incluzor.fr/) pour nos échanges, et à plein d'autres ami·e·s anonymes pour leurs conseils et soutiens :)
 
 ## Les initiatives sympa
 
