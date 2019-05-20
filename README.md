@@ -20,7 +20,9 @@ ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/add
 
 ## Évolutions à venir
 
-* Saisie prédictive fonctionelle sur les balises dotées de **[contenteditable=true]**
+* Portage de l'extension sur **Chrome** et **Opera**
+* Sur Firefox Mobile, problème de style sur la page de préférences
+* Saisie prédictive à rendre fonctionnelle sur les balises dotées de **[contenteditable=true]**
 * Fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
 * Dictionnaire prédictif enrichi. 
 * Dictionnaire de remplacement simplifié pour de meilleurs performances.
