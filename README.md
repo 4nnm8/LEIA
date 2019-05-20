@@ -1,12 +1,12 @@
-<p align="center"><img src="https://i.ibb.co/3CGFqgc/leia.png" alt="logo léia" width="300px" /></p>
+<p align="center"><img src="https://i.ibb.co/3CGFqgc/leia.png" alt="Logo LÉIA" width="300px" /></p>
 
-[Soutenez LÉIA, faites un don !](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZSBRU3M8DXVRS&source=url)
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZSBRU3M8DXVRS&source=url" target="_blank">Soutenez LÉIA, faites un don !</a>
 
-**Contact :** a.mezurat@protonmail.com
+**Contact :** <a href="mailto:a.mezurat@protonmail.com">mailto:a.mezurat@protonmail.com</a>
 
-**LÉIA** est sous [licence Apache](https://github.com/ANN-MB/LEIA/blob/master/LICENSE)
+**LÉIA** est sous <a href="https://github.com/ANN-MB/LEIA/blob/master/LICENSE" target="_blank">licence Apache</a>
 
-[Extension Firefox disponible ici](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
+<a href="https://addons.mozilla.org/fr/firefox/addon/leiaccessible/" target="_blank">Extension Firefox disponible ici</a>
 
 ## Dernières mises-à-jour (21/05/2019)
 
@@ -14,7 +14,7 @@
 * Correction d'erreurs du dictionnaire
 * Raccourcis point médian et saisie prédictive fonctionnelle dans les ``<input />`` sans type défini (``type="text"`` par défaut)
 * Le remplacement de texte ne s'effectue plus dans les zones de saisie de texte (input, textarea)
-* Mise-à-jour de la [page de tests](https://github.com/ANN-MB/LEIA/blob/master/Page_de_tests.html) avec les nouvelles problématiques
+* Mise-à-jour de la <a href="https://github.com/ANN-MB/LEIA/blob/master/Page_de_tests.html" target="_blank">page de tests</a>
 
 ## Évolutions à venir
 
@@ -32,7 +32,7 @@
 
 <p align="center">
   <b>LÉIA</b> au <a href="http://hackecritureinclusive.com/" target="_blank">Hackaton Écriture Inclusive 2018</a><br/><br/>
-  <img src="https://pbs.twimg.com/media/DWqSlpLW4AAXtDi.jpg" width="420px" alt="Présentation de LÉIA au Hackaton" />                                                                                       
+  <a href="https://twitter.com/HackEcritureInc/status/966746253802594307" target="_blank"><img src="https://pbs.twimg.com/media/DWqSlpLW4AAXtDi.jpg" width="420px" alt="Présentation de LÉIA au Hackaton" /></a>                                                                                  
 </p>
 
 ## Qu'est–ce que l'écriture inclusive ?
@@ -42,7 +42,7 @@ L'écriture inclusive, aussi appelée langage épicène ou encore langage non-se
 Peu importe le nombre de femmes qui composent un groupe, s'il compte un seul homme, on parlera de ce groupe au masculin.
 Le but est donc de faire de notre langue, le français, une langue qui représente mieux les individus dont elle parle et à qui elle s'adresse. L'écriture inclusive permet également de s'exprimer à propos de personnes ne se reconnaissant ni du masculin, ni du féminin (ex : personnes non-binaires).
 
-L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hier et est expérimentée depuis, au moins, les années 70. Cependant, sa popularisation est très récente. Adoptée par la RATP, la Marie de Paris, et certains manuels scolaires, elle fut finalement recommandée par le [Haut Conseil à l'Égalité entre les Femmes et les Hommes](http://www.haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/article/pour-une-communication-sans-stereotype-de-sexe-le-guide-pratique-du-haut) en 2016 et est maintenant employée sur de nombreux sites d'annonces d'emploi, dans des journaux à grand tirage, etc.
+L'écriture inclusive telle que nous la connaissons aujourd'hui ne date pas d'hier et est expérimentée depuis, au moins, les années 70. Cependant, sa popularisation est très récente. Adoptée par la RATP, la Marie de Paris, et certains manuels scolaires, elle fut finalement recommandée par le <a href="http://www.haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/article/pour-une-communication-sans-stereotype-de-sexe-le-guide-pratique-du-haut" target="_blank">Haut Conseil à l'Égalité entre les Femmes et les Hommes</a> en 2016 et est maintenant employée sur de nombreux sites d'annonces d'emploi, dans des journaux à grand tirage, etc.
 
 ### À quoi ça ressemble concrètement ? ###
 
@@ -62,7 +62,7 @@ Le problème de l'écriture inclusive est qu'elle amène avec elle de nouvelles 
 
 Bien que l'orthographe grammaticale ne soit pas fondamentalement bouleversée, elle l'est suffisamment pour poser des problèmes d'interprétation par les **lecteurs d'écran et les plages braille**, dispositifs destinés à l'appréhension du langage écrit par les personnes malvoyantes. Mais aussi à des personnes ayant des difficultés avec la lecture (personnes dyslexiques par exemple).
 
-[Voici un article qui en parle](https://aides-techniques.handicap.fr/a-ecriture-inclusive-accessible-10358.php)
+<a href="https://aides-techniques.handicap.fr/a-ecriture-inclusive-accessible-10358.php" target="_blank">Voici un article qui en parle</a>
 
 L'écriture inclusive s'emploie généralement avec des caractères spéciaux - point médian (·) ou puce (•) qui sont mal interprétés, soit le point (.) ou le tiret (-) qui sont déjà voués à d'autres usages syntaxiques. De plus, tous les lecteurs d'écran n'interprètent pas ces séparateurs de la même façon.
 
@@ -97,7 +97,7 @@ L'élaboration de ce programme, qui a commencé fin 2017 fût et reste particuli
 
 ### Recherche sur l'orthographe française ###
 
-Les guide de rédaction en écriture inclusive, et notamment celui du [Haut Conseil à l'Égalité](http://bit.ly/2fejwZ7) qui tente de la populariser, proposent seulement une poignée de graphies possibles pour seulement 17 terminaisons et 5 pronoms, adverbes etc. Or, d'après de longues recherches, j'ai identifié une **soixantaine de terminaisons différentes** et 11 pronoms, adverbes, etc, différenciant le masculin du féminin.
+Les guide de rédaction en écriture inclusive, et notamment celui du **Haut Conseil à l'Égalité** qui tente de la populariser, proposent seulement une poignée de graphies possibles pour seulement 17 terminaisons et 5 pronoms, adverbes etc. Or, d'après de longues recherches, j'ai identifié une **soixantaine de terminaisons différentes** et 11 pronoms, adverbes, etc, différenciant le masculin du féminin.
 
 ### Recherche sur les usages populaires de l'écriture inclusive ###
 
@@ -105,9 +105,9 @@ Pour palier à ce manquement, il a fallu intégrer dans un premier temps les gra
 
 ### Programmation ###
 
-**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un [dictionnaire](https://github.com/ANN-MB/LEIA/blob/master/extension%20firefox/dico.js), d'expressions régulières (RegExp), de fonctions iteratives et récursives.
+**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un <a href="https://github.com/ANN-MB/LEIA/blob/master/extension%20firefox/dico.js" target="_blank">dictionnaire</a>, d'expressions régulières (RegExp), de fonctions iteratives et récursives.
 
-Si vous constatez le moindre bug ou des optimisations possibles [n'hésitez-pas à me contacter](mailto:a.mezurat@protonmail.com) :)
+Si vous constatez le moindre bug ou des optimisations possibles <a href="mailto:a.mezurat@protonmail.com" target="_blank">n'hésitez-pas à me contacter</a> :)
 
 ## Ressources utilisées pour mener à bien ce projet
 
