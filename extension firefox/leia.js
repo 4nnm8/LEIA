@@ -1,4 +1,6 @@
-﻿function addEvent(a, b, c) {
+﻿"use strict";
+
+function addEvent(a, b, c) {
   if (a.addEventListener) {
     return a.addEventListener(b, c, !1), !0;
   }
@@ -46,7 +48,7 @@ browser.storage.local.get().then(function(a) {
   1 == pred && predictif();
   if (1 == high) {
     while (tree.nextNode()) {
-      highlight(tree.currentNode.nodeValue)
+      highlight(tree.currentNode)
     }
   }
 }, function(a) {
@@ -61,10 +63,10 @@ function check() {
 }
 
 function highlight(h) {
-  var r = r3.exec(h);
+  var r = r3.exec(h.nodeValue);
   if (r) {
-	  console.log(r)
-    var nmark = document.createElement("MARK"),
+	var fragm = document.createDocumentFragment(),
+        nmark = document.createElement("MARK"),
         after = h.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
     nmark.className = styl;

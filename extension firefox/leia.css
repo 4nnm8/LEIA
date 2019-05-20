@@ -6,34 +6,39 @@
 .confleia {
   font-size: 100%;
   margin: 0;
-  padding: 14px;
+  padding: 0 0 15px 0;
   text-align: center;
-  background: #106eaf;
-  height: 465px;
-  width: 530px;
+  height: 665px;
+  width: 360px;
   overflow:hidden;
-}
-.confleia table {
   font-size: 1.25em;
   line-height: 1.2em;
-  border-radius: 10px;
-  border-spacing: 0px;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
   background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
   background-color: #f6f6f6;
-  border: 1px solid #dcdcdc;
-  width:100%;
-}
-.confleia td {
-  padding: 6px 8px 6px 8px;
   color: #0E5D96;
+}
+
+@media all and (max-device-width : 480px) {
+  .confleia {
+	width:100vw;
+	height:100vh;
+	font-size: calc(20px + 0.4vw);
+  }
+  .confleia .label:nth-of-type(1),.confleia label{
+	height:13vh;  
+  }
+  .confleia label:nth-of-type(3) {
+	height:61vh;  
+  }
+  select { box-sizing: border-box;}
+}
+.confleia label, .confleia .label {
+  display:block;
+  padding: 11px 10px 15px 10px;
   border-bottom: 1px dotted #106eaf 
 }
-.confleia td:first-child {
-  border-right: 1px dotted #106eaf 
-}
-.confleia tr:last-child > td {
-  border-bottom: 0 
+.confleia label:last-child {
+	border:0
 }
 .confleia select {
   background: none repeat scroll 0 0 #FFFFFF;
@@ -44,6 +49,7 @@
   padding: 10px;
   width:100%;
   text-align:center;
+  margin: 11px 0 0 0;
 }
 .confleia kbd {
   display: inline-block;
@@ -59,9 +65,15 @@
   font-weight: bold;
   text-align: center;
   box-sizing: border-box;
+  margin-top: 15px;
 }
-.confleia #mode {
-	width:310px;
+.xx {
+  display:inline-block;
+  width:95%;
+  padding: 3px;
+  margin-top:20px;
+  background-color:#dfdfdf;
+  color:#000;
 }
 .leiasr {
   position: absolute;
@@ -87,11 +99,6 @@
   margin-top:5px;
   border: 1px solid #888;
   border-radius: 5px;
-}
-.xx {
-  color:#000;
-  background-color:#ddd;
-  padding: 3px;
 }
 .emph0 {
   visibility:hidden
@@ -144,32 +151,4 @@
 .emph11 {
   background-color:rgba(255,255,0,0.6);
   color:#000000 
-}
-
-@media all and (max-device-width : 480px) {
-  .confleia {
-    padding:0;
-	width:100%;
-	height:100%;
-  }
-  .confleia table {
-	border-radius: 0;
-	border:0;
-	box-shadow: 0;
-	height:100vh;
-	width:100vw;
-  }
-  .confleia td {
-    width:auto;
-    display: block;
-    padding:10px;
-    border-bottom: 1px solid #106eaf 
-  }
-  .confleia td:first-child{
-    border-bottom:0;
-	border-right:0;
-  }
-  .confleia select {
-	  width:100%
-  }
 }

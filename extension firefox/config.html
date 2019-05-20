@@ -7,61 +7,48 @@
   </head>
   <body class="confleia">
     <form id="form">
-      <table>
-        <tr>
-          <td><label for="mode">Mode de lecture inclusive</label></td>
-          <td>
-            <select id="mode">
-              <option value="0">Aucun</option>
-              <option value="1">Mots lus aux deux genres</option>
-              <option value="2">Mots lus au féminin uniquement</option>
-              <option value="3">Mots lus au maculin uniquement</option>
-              <!--<option value="4">Supprimer les séparateurs</option>-->
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="pred">Saisie prédictive inclusive</label></td>
-          <td>
-            <select id="pred">
-              <option value="0">Désactivé</option>
-              <option value="1">Activé</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>Insérer un point médian</td>
-          <td>
-            <span class="leiasr">tapez deux fois sur point virgule</span><kbd>;</kbd> <kbd>;</kbd>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="high">Surligner les terminaisons inclusives</label></td>
-          <td>
-            
-              <select id="high">
-                <option value="0">Désactivé</option>
-                <option value="1" disabled>Activé</option>
-              </select>
-            
-            <p aria-hidden="true">
-              <button name="0" tabindex="-1" class="leiahl emph0"><strike>Aa</strike></button>
-              <button name="1" tabindex="-1" class="leiahl emph1" style="border:0">Aa</button>
-              <button name="2" tabindex="-1" class="leiahl emph2">Aa</button>
-              <button name="3" tabindex="-1" class="leiahl emph3">Aa</button><br/>
-              <button name="4" tabindex="-1" class="leiahl emph4">Aa</button>
-              <button name="5" tabindex="-1" class="leiahl emph5">Aa</button>
-              <button name="6" tabindex="-1" class="leiahl emph6">Aa</button>
-              <button name="7" tabindex="-1" class="leiahl emph7">Aa</button><br/>
-              <button name="8" tabindex="-1" class="leiahl emph8">Aa</button>
-              <button name="9" tabindex="-1" class="leiahl emph9">Aa</button>
-              <button name="10" tabindex="-1" class="leiahl emph10">Aa</button>
-              <button name="11" tabindex="-1" class="leiahl emph11">Aa</button><br/>
-            </p>
-            <p aria-hidden="true" class="xx">imprimeur<span id="ex">·euse</span></p>
-          </td>
-        </tr>
-      </table>
+      <label for="mode">
+        Mode de lecture inclusive
+        <select id="mode">
+          <option value="0">Aucun</option>
+          <option value="1">Mots lus aux deux genres</option>
+          <option value="2">Mots lus au féminin uniquement</option>
+          <option value="3">Mots lus au maculin uniquement</option>
+          <!--<option value="4">Supprimer les séparateurs</option>-->
+        </select>
+      </label>
+      <label for="pred">
+        Saisie prédictive inclusive
+        <select id="pred">
+          <option value="0">Désactivée</option>
+          <option value="1">Activée</option>
+        </select>
+      </label>
+      <div class="label">Insérer un point médian<br/>
+        <span class="leiasr">tapez deux fois sur point virgule</span><kbd>;</kbd> <kbd>;</kbd>
+      </div>
+      <label for="high">
+        Surligner les terminaisons inclusives
+        <select id="high">
+          <option value="0">Désactivé</option>
+          <option value="1">Activé</option>
+        </select>
+        <p aria-hidden="true" id="buttons">
+          <button name="0" class="leiahl emph0">Aa</button>
+          <button name="1" class="leiahl emph1" style="border:0">Aa</button>
+          <button name="2" class="leiahl emph2">Aa</button>
+          <button name="3" class="leiahl emph3">Aa</button><br/>
+          <button name="4" class="leiahl emph4">Aa</button>
+          <button name="5" class="leiahl emph5">Aa</button>
+          <button name="6" class="leiahl emph6">Aa</button>
+          <button name="7" class="leiahl emph7">Aa</button><br/>
+          <button name="8" class="leiahl emph8">Aa</button>
+          <button name="9" class="leiahl emph9">Aa</button>
+          <button name="10" class="leiahl emph10">Aa</button>
+          <button name="11" class="leiahl emph11">Aa</button><br/>
+          <span class="xx">imprimeur<span id="ex">·euse</span></span>
+        </p>
+      </label>
     </form>
     <script src="config.js"></script>
   </body>
