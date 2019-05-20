@@ -2,7 +2,7 @@
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZSBRU3M8DXVRS&source=url" target="_blank">Soutenez LÉIA, faites un don !</a>
 
-**Contact :** <a href="mailto:a.mezurat@protonmail.com">mailto:a.mezurat@protonmail.com</a>
+**Contact :** <a href="mailto:a.mezurat@protonmail.com">a.mezurat@protonmail.com</a>
 
 **LÉIA** est sous <a href="https://github.com/ANN-MB/LEIA/blob/master/LICENSE" target="_blank">licence Apache</a>
 
