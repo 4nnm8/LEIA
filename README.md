@@ -28,7 +28,7 @@
 
 ## Résumé
 
-**LÉIA** est une extension pour le navigateur Firefox (et bientôt d'autres). Elle est vouée à améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes ou ayant des difficultés de lecture, aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
+**LÉIA** est une extension pour le navigateur Firefox (et bientôt d'autres). Elle est vouée à améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes ou ayant des difficultés de lecture aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
 
 <p align="center">
   <b>LÉIA</b> au <a href="http://hackecritureinclusive.com/" target="_blank">Hackaton Écriture Inclusive 2018</a><br/><br/>
