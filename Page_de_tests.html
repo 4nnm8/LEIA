@@ -13,6 +13,7 @@
       margin: 0;
       padding: 0;
       font-size: 1.1em;
+	  line-height:1.5em;
       background: #106eaf;
       background-image: url(img/bg.png);
       height: 100vh;
@@ -35,9 +36,13 @@
       }   
       article {
       padding: 1px 20px 20px 20px;
+	  border: 1px solid #fff;
       }
       article:nth-of-type(2n+1){
-      background-color: rgba(0, 0, 0,0.1);
+      background-color: rgba(0, 0, 0,0.15);
+      }
+	  article:nth-of-type(2n){
+      background-color: rgba(0, 0, 0,0.2);
       }
       footer {
       padding: 20px;
@@ -52,11 +57,14 @@
       }
       h1 {
       font-size: 2em;
+	 
       }
       h2 {
-      margin-top: 20px
+        margin-top: 20px;
+	    text-align:center;
+		
       }
-      h4 {
+      h3 {
       color: #CEECF5;
       font-style: italic
       }
@@ -64,10 +72,11 @@
       height: 20vh
       }
       q {
-      color: #ccffff
+        color: #ffee44
+		
       }
       q:before{
-      content: "« "
+      content: "  « "
       }
       q:after{
       content: " »"
@@ -91,14 +100,14 @@
       font-weight: bold;
       text-align: center;
       }
-      textarea, [contenteditable] {
+      textarea, .contenteditable {
       width: 70%;
       height: 150px;
       border: 1px solid #000;
       color: #000;
       font-size: 1em;
       font-family: sans-serif;
-      background-color:#fff;
+	  background-color:#fff;
       }
       td {
       border:1px solid #fff;
@@ -150,6 +159,15 @@
       opacity: 1;
       height:auto;
       }
+	  code {
+	    color:#62ffa8;
+		font-size:1.2em
+	  }
+	  iframe{
+	  border:0;
+	  width:100%;
+	  height:400px;
+	  }
     </style>
   </head>
   <body>
@@ -161,60 +179,49 @@
         <section>
           <article>
             <h2>Exemples de phrases en écriture inclusive</h2>
-            <h4>Dans le menu, choisissez le &laquo; mode de lecture inclusive &raquo; de votre choix, vous constaterez la conversion entre les phrases &laquo; Avant &raquo; et &laquo; Après &raquo;.</h4>
+            <h3>
+			  * Dans le menu, choisissez le &laquo; mode de lecture inclusive &raquo; de votre choix pour voir la différence.<br/>
+			  * Ou bien essayez la fonction de surlignage de l'écriture inclusive (actuellement fonctionnel pour le point médian et la puce uniquement)
+			</h3>
             <p>
-              <b>Masculin et féminin identiques à l'oral, seul un des deux genres est conservé :</b>
-              <br/>&nbsp;&nbsp;Avant : <q>Dans ce quartier, les chef<del></del>·fe·s de cuisine sont turc<del></del>·que·s ou grec<del></del>·ques.</q>
-              <br/>&nbsp;&nbsp;Après : <q>Dans ce quartier, les chef·fe·s de cuisine sont turc·ques ou grec·ques.</q>
-            </p>
+              <b>Masculin et féminin identiques à l'oral, seul le genre masculin est conservé (aucune différence à l'oreille) :</b>
+              <br/><q>Dans ce quartier, les chef·fe·s de cuisine sont turc·ques ou grec·ques.</q>
             <p>
-              <b>Masculin et féminin différents à l'oral, le mot est dupliqué aux deux genres (option par défaut) :</b>
-              <br/>&nbsp;&nbsp;Avant : <q>Les membres de la chambre haute portent de le titre de sénateur<del></del>·rice.</q>
-              <br/>&nbsp;&nbsp;Après : <q>Les membres de la chambre haute portent de le titre de sénateur·rice.</q>
+              <b>Masculin et féminin différents à l'oral, le mot est restitué aux deux genres (option par défaut) :</b>
+              <br/><q>Les membres de la chambre haute portent de le titre de sénateur·rice.</q>
             </p>
             <p>
               <b>Les séparateurs · (point médian), ∙ (opérateur puce), . (point), • (puce), - (tiret) et / (slash) sont acceptés :</b>
-              <br/>&nbsp;&nbsp;Avant : <q>Les randonneur<del></del>∙euse∙s sont parti<del></del>/e/s mais ne sont jamais arrivé<del></del>-e-s car ils<del></del>•elles se sont perdu<del></del>.e.s.</q>
-              <br/>&nbsp;&nbsp;Après : <q>Les randonneur∙euse∙s sont parti/e/s mais ne sont jamais arrivé-e-s car ils•elles se sont perdu.e.s.</q>
+              <br/><q>Les randonneur∙euse∙s sont parti/e/s mais ne sont jamais arrivé-e-s car ils•elles se sont perdu.e.s.</q>
             </p>
           </article>
           <article>
             <h2>Essayez la composition de texte</h2>
-            <h4>
+            <p>
               (1) Activez le dictionnaire prédictif dans le menu en haut à droite<br/>
               (2) Tentez d'écrire quelques mots au masculin.<br/>
               (3) Un proposition de terminaison inclusive sera proposée.<br/>
               (4) Si plusieurs terminaisons existent, utilisez les flèches <kbd>&uarr;</kbd> et <kbd>&darr;</kbd> pour sélectionner votre préférée.<br/>
               (5) Faites <kbd>ENTRÉE</kbd> ou <kbd>&rarr;</kbd> pour valider. Faites <kbd>ESPACE</kbd> ou n'importe quel autre caractère pour refuser la proposition et continuer la saisie.<br/>
               (6) Si le dictionnaire ne propose rien ou qu'il est désactivé, entrez vous-même un point médiant en tapant deux fois sur <b>point-virgule</b> <kbd>;</kbd> <kbd>;</kbd>
-            </h4>
-            <textarea></textarea>
-            <h4>Et avec un &lt;input type="text" /&gt;</h4>
-            <input type="text" />
+            </p>
+			<h3>Avec une balise <code>&lt;textarea&gt;&lt;/textarea&gt;</code></h3>
+            <textarea>amoureux·euse</textarea>
+			<h3>Avec une balise <code>&lt;input type="text" /&gt;</code></h3>
+			<input type="text" />
+			<h3>Avec une balise <code>&lt;input /&gt;</code> sans attribut <i>type</i> (par défaut, type="text")</h3>
+			<input />
+			<h3>Avec une balise <code>&lt;input type="search" /&gt;</code>, le point médian fonctionne mais pas le prédictif pour éviter un conflit avec d'autres recherches prédictives.</h3>
+			<input type="search" />
+			<h3>Avec un élément doté de l'attribut <code>contenteditable="true"</code> (non fonctionnel à l'heure actuelle)</h3>
+			<div contenteditable="true" class="contenteditable"></div>
           </article>
+		  <article>
+		    <h3>Dans une FRAME :</h2>
+		    <iframe src="https://lecafedufle.fr/ecriture-inclusive/" title="Tests dans iframe" style="overflow: auto;" scrolling="yes"></iframe>
+		  </article>
           <article>
-            <input type="checkbox"  id="spoiler6" /> 
-            <label for="spoiler6">Nouveau : tests pronoms</label>
-            <div class="spoiler">           
-              le·la ; le·a<br/>
-              tout·e ; tous·tes ; tou·te·s<br/>
-              au·à la<br/>
-              du·de la<br/>
-              le·laquel·le ; le·aquel·le ; lesquel·les<br/>
-              au·à laquel·le ; auxquel·le·s<br/>
-              du·de laquel·le ; desquel·le·s<br/>
-              il·elle ; ils·elles ; il·elle·s<br/>
-              lui·elle ; eux·elles<br/>
-              celui·celle ; ceux·celles ; celui·elle ; ceux·elles<br/>
-              un·e<br/>
-              quelqu'un·e<br/>
-              mon·ma<br/>
-              ton·ta<br/>
-              son·sa<br/>
-              mien·ne<br/>
-              sien·ne<br/>
-              tien·ne
-            </div>
+		    
             <input type="checkbox"  id="spoiler" /> 
             <label for="spoiler">Problème des mots composés</label>
             <div class="spoiler">
@@ -225,123 +232,57 @@
             <input type="checkbox"  id="spoiler2" /> 
             <label for="spoiler2">Tests ponctuations</label>
             <div class="spoiler">
-              B.P.C.E. > accronymes<br/>
+              B.P.C.E. > acronymes<br/>
               L'amoureux·euse > apostrophe<br/>
               (amoureux·euse) > parenthèse<br/>
               [amoureux·euse] > crochets<br/>
-              "amoureux·euse" > guillements<br/>
+              "amoureux·euse" > guillemets<br/>
               amoureux·euse. > point final (problème : disparu)<br/>
               amoureux·euse, > virgule<br/>
               -amoureux·euse > tiret<br/>
             </div>
-            <input type="checkbox"  id="spoiler3" /> 
-            <label for="spoiler3">Anglicismes, italianismes, hispanismes à ajouter ?</label>
-            <div class="spoiler">
-              cowboy·girl<br/>
-              barman·aid<br/>
-              barman·maid<br/>
-              caméraman<br/>
-              toréro·a<br/>
-              toréro·as<br/>
-              toréro·a·s<br/>
-              soprano·a<br/>
-              soprani·e<br/>
-            </div>
-            <input type="checkbox"  id="spoiler4" /> 
-            <label for="spoiler4">Test mots composés non-inclusifs</label>
-            <div class="spoiler">
-              celui-là ; celle-là ; ceux-là ; celles-là<br/>
-              celui-ci ; celle-ci ; ceux-ci ; celles-ci<br/>
-              il-y-a<br/>
-              haut-le-cœur<br/>
-              haut-les-cœurs<br/>
-              haut-le-corps<br/>
-              Fût-il<br/>
-              Fut-ce<br/>
-              Ainsi soit-il<br/>
-              Qu'est-ce que<br/>
-              N'est-ce pas<br/>
-              arc-en-ciel<br/>
-              alcalino-terreux<br/>
-              arc-en-ciel<br/>
-              arcs-en-ciel<br/>
-              arrière-petits-enfants<br/>
-              assurance-emploi<br/>
-              assurances-emploi<br/>
-              avant-centres<br/>
-              avants-centres<br/>
-              boute-en-train<br/>
-              chasse-neige<br/>
-              chauffe-eau<br/>
-              contre-enquête<br/>
-              contre-expertise<br/>
-              copie-lettre<br/>
-              croc-en-jambe<br/>
-              crocs-en-jambe<br/>
-              demi-heure<br/>
-              demi-queue<br/>
-              entraîneurs-chefs<br/>
-              entre-nerfs<br/>
-              entre-temps<br/>
-              faux-semblant<br/>
-              faux-sens<br/>
-              hors-texte<br/>
-              infirmières-chefs<br/>
-              laurier-cerise<br/>
-              libres-services<br/>
-              maréchal-ferrant<br/>
-              mécanicien-chef<br/>
-              mécaniciens-chefs<br/>
-              médecins-chefs<br/>
-              mi-temps<br/>
-              monte-en-l'air<br/>
-              non-engagement<br/>
-              non-exécution<br/>
-              non-existence<br/>
-              nord-est<br/>
-              perce-neige<br/>
-              pèse-lettre<br/>
-              petit-enfant<br/>
-              petits-enfants<br/>
-              plein-emploi<br/>
-              pont-levis<br/>
-              porte-enseigne<br/>
-              pot-au-feu<br/>
-              quatre-temps<br/>
-              rez-de-chaussée<br/>
-              sans-emploi<br/>
-              satellite-espion<br/>
-              sous-bois<br/>
-              sous-chef<br/>
-              sous-emploi<br/>
-              sous-ensemble<br/>
-              sous-entendu<br/>
-              sous-entrepreneur<br/>
-              sous-estimation<br/>
-              sous-exposition<br/>
-              sous-secrétaire<br/>
-              sous-secrétaires<br/>
-              sous-secrétariat<br/>
-              sous-seing<br/>
-              sud-est<br/>
-              terre-neuve
-            </div>
-            <input type="checkbox"  id="spoiler5" /> 
-            <label for="spoiler5">Tableau de toutes les terminaisons</label>
-            <div class="spoiler">
+			<input type="checkbox"  id="spoiler5" /> 
+            <label for="spoiler5">Tableau de toutes les graphies acceptées</label>
+            <div class="spoiler" id="graphies">
               <table>
                 <tr>
-                  <td>arrivé·e</td>
-                  <td>arrivé·es</td>
+                  <td>le·la</td>
+                  <td>le·a</td>
                   <td>arrivé·e·s</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>tout·e</td>
+                  <td>tous·tes</td>
+                  <td>tou·te·s</td>
+                  <td>au·à la</td>
+                  <td>du·de la</td>
+                  <td>le·laquel·le</td>
+                  <td>le·aquel·le</td>
+                  <td>lesquel·les</td>
+                </tr>
+				<tr>
+                  <td>au·à laquel·le</td>
+                  <td>auxquel·le·s</td>
+                  <td>arrivé·e·s</td>
+                  <td>du·de laquel·le</td>
+                  <td>desquel·le·s</td>
+                  <td>il·elle</td>
+                  <td>ils·elles</td>
+                  <td>il·elle·s</td>
+                  <td>lui·elle</td>
+                  <td>eux·elles</td>
+                  <td>celui·celle</td>
+                </tr>
+				<tr>   
+                  <td>ceux·celles</td>
+                  <td>celui·elle</td>
+                  <td>ceux·elles</td>
+                  <td>un·e</td>
+                  <td>quelqu'un·e</td>
+                  <td>mon·ma</td>
+                  <td>ton·ta</td>
+                  <td>son·sa</td>
+                  <td>mien·ne ; mien·nes ; mien·ne·s</td>
+                  <td>sien·ne ; sien·nes ; sien·ne·s</td>
+                  <td>tien·ne ; tien·nes ; tien·ne·s</td>
                 </tr>
                 <tr>
                   <td>parti·e</td>
@@ -564,13 +505,26 @@
                   <td></td>
                   <td></td>
                 </tr>
+				<tr>
+                  <td>sérieux·euse</td>
+                  <td>sérieux·euses</td>
+                  <td>sérieux·euse·s</td>
+                  <td>sérieux·se</td>
+                  <td>sérieux·ses</td>
+                  <td>sérieux·se·s</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
                 <tr>
-                  <td> vaneur·euse</td>
-                  <td> vaneur·euses</td>
-                  <td> vaneur·euse·s</td>
-                  <td> vaneur·se</td>
-                  <td> vaneur·ses</td>
-                  <td> vaneur·se·s</td>
+                  <td> vanneur·euse</td>
+                  <td> vanneur·euses</td>
+                  <td> vanneur·euse·s</td>
+                  <td> vanneur·se</td>
+                  <td> vanneur·ses</td>
+                  <td> vanneur·se·s</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -708,12 +662,12 @@
                   <td></td>
                 </tr>
                 <tr>
-                  <td>compte·esse</td>
-                  <td>compte·esses</td>
-                  <td>compte·esse·s</td>
-                  <td>compte·sse</td>
-                  <td>compte·sses</td>
-                  <td>compte·sse·s</td>
+                  <td>comte·esse</td>
+                  <td>comte·esses</td>
+                  <td>comte·esse·s</td>
+                  <td>comte·sse</td>
+                  <td>comte·sses</td>
+                  <td>comte·sse·s</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -799,9 +753,9 @@
                   <td></td>
                 </tr>
                 <tr>
-                  <td>aïeux·ieule</td>
-                  <td>aïeux·ieules</td>
-                  <td>aïeux·ieule·s</td>
+                  <td>aïeux·ïeule</td>
+                  <td>aïeux·ïeules</td>
+                  <td>aïeux·ïeule·s</td>
                   <td>aïeux·le</td>
                   <td>aïeux·les</td>
                   <td>aïeux·le·s</td>
@@ -1164,6 +1118,98 @@
                 </tr>
               </table>
             </div>
+            <input type="checkbox"  id="spoiler3" /> 
+            <label for="spoiler3">Anglicismes, italianismes, hispanismes à ajouter ?</label>
+            <div class="spoiler">
+              cowboy·girl<br/>
+              barman·aid<br/>
+              barman·maid<br/>
+              caméraman<br/>
+              toréro·a<br/>
+              toréro·as<br/>
+              toréro·a·s<br/>
+              soprano·a<br/>
+              soprani·e<br/>
+            </div>
+            <input type="checkbox"  id="spoiler4" /> 
+            <label for="spoiler4">Test mots composés non-inclusifs</label>
+            <div class="spoiler">
+			  celui-là ; celle-là ; ceux-là ; celles-là<br/>
+              celui-ci ; celle-ci ; ceux-ci ; celles-ci<br/>
+              il-y-a<br/>
+              haut-le-cœur<br/>
+              haut-les-cœurs<br/>
+              haut-le-corps<br/>
+              Fût-il<br/>
+              Fut-ce<br/>
+              Ainsi soit-il<br/>
+              Qu'est-ce que<br/>
+              N'est-ce pas<br/>
+              arc-en-ciel<br/>
+              alcalino-terreux<br/>
+              arc-en-ciel<br/>
+              arcs-en-ciel<br/>
+              arrière-petits-enfants<br/>
+              assurance-emploi<br/>
+              assurances-emploi<br/>
+              avant-centres<br/>
+              avants-centres<br/>
+              boute-en-train<br/>
+              chasse-neige<br/>
+              chauffe-eau<br/>
+              contre-enquête<br/>
+              contre-expertise<br/>
+              copie-lettre<br/>
+              croc-en-jambe<br/>
+              crocs-en-jambe<br/>
+              demi-heure<br/>
+              demi-queue<br/>
+              entraîneurs-chefs<br/>
+              entre-nerfs<br/>
+              entre-temps<br/>
+              faux-semblant<br/>
+              faux-sens<br/>
+              hors-texte<br/>
+              infirmières-chefs<br/>
+              laurier-cerise<br/>
+              libres-services<br/>
+              maréchal-ferrant<br/>
+              mécanicien-chef<br/>
+              mécaniciens-chefs<br/>
+              médecins-chefs<br/>
+              mi-temps<br/>
+              monte-en-l'air<br/>
+              non-engagement<br/>
+              non-exécution<br/>
+              non-existence<br/>
+              nord-est<br/>
+              perce-neige<br/>
+              pèse-lettre<br/>
+              petit-enfant<br/>
+              petits-enfants<br/>
+              plein-emploi<br/>
+              pont-levis<br/>
+              porte-enseigne<br/>
+              pot-au-feu<br/>
+              quatre-temps<br/>
+              rez-de-chaussée<br/>
+              sans-emploi<br/>
+              satellite-espion<br/>
+              sous-bois<br/>
+              sous-chef<br/>
+              sous-emploi<br/>
+              sous-ensemble<br/>
+              sous-entendu<br/>
+              sous-entrepreneur<br/>
+              sous-estimation<br/>
+              sous-exposition<br/>
+              sous-secrétaire<br/>
+              sous-secrétaires<br/>
+              sous-secrétariat<br/>
+              sous-seing<br/>
+              sud-est<br/>
+              terre-neuve
+            </div>
           </article>
         </section>
         <footer>
@@ -1173,5 +1219,9 @@
         <br/>
       </div>
     </div>
+    <script>	
+	document.getElementById("graphies").contentEditable = true;
+	</script>
   </body>
 </html>
+
