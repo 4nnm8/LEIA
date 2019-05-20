@@ -10,17 +10,15 @@
 
 ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/addon/leiaccessible/](https://addons.mozilla.org/fr/firefox/addon/leiaccessible/)
 
-## Dernières mises-à-jour (19/05/2019)
+## Dernières mises-à-jour (20/05/2019)
 
-* **background.js** simplfié
-* Surlignage inefficient et non prioritaire : temporairement désactivé
-* Portage de LÉIA sur **Firefox Android**
-* Adaptation de la fenêtre de préférences pour Android 
+* Rétablissement de la fonction de surlignage
+* Quelques optimisations de code
 
 ## Problèmes connus ou évolutions à venir
 
 * Prédictif et point-médian non fonctionnels sur les balises dotées de **[contenteditable=true]**
-* Fonction de surlignage prend trop de ressources
+* Fonction de surlignage prend trop de ressources et ne reconnaît que point médian et puce.
 * Dictionnaire prédictif à enrichir
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
