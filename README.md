@@ -171,7 +171,7 @@ Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours et pour [so
 
 [Alt0183 - Adoptez un caractère inclusif !](https://github.com/Alt0183/Alt0183)
 
-## Les initiatives pas tellement sympa
+## Les initiatives moins sympa
 
 [Désinclusive - Bloqueur d'écriture inclusive](https://github.com/Nitoref/desinclusive) + [Extension Firefox](https://addons.mozilla.org/fr/firefox/addon/d%C3%A9sinclusive/)
 
