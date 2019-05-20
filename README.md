@@ -15,11 +15,11 @@ ADDON Firefox enfin disponible ! Voir [https://addons.mozilla.org/fr/firefox/add
 * Rétablissement de la fonction de surlignage
 * Quelques optimisations de code
 
-## Problèmes connus ou évolutions à venir
+## Évolutions à venir
 
-* Prédictif et point-médian non fonctionnels sur les balises dotées de **[contenteditable=true]**
-* Fonction de surlignage prend trop de ressources et ne reconnaît que point médian et puce.
-* Dictionnaire prédictif à enrichir
+* Saisie prédictive fonctionelle sur les balises dotées de **[contenteditable=true]**
+* Fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
+* Dictionnaire prédictif à enrichir. Dictionnaire de remplacement à simplifier pour meilleurs performances.
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable
 
 ## Résumé
