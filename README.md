@@ -167,13 +167,13 @@ Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours et pour [so
 
 [La disparition est un jeu éducatif textuel qui a pour but l'apprentissage de écriture inclusive](https://github.com/Chrisdml/La-Disparition)
 
-[Dictionnaire Français Hunspell compatible avec l'écriture inclusive](https://github.com/RadicaliseesSurInternet/hunspell-inclusif), [Dico Firefox](https://addons.mozilla.org/fr/firefox/addon/fr-inclusif)
+[Dictionnaire Français Hunspell compatible avec l'écriture inclusive](https://github.com/RadicaliseesSurInternet/hunspell-inclusif) + [Dictionnaire Firefox](https://addons.mozilla.org/fr/firefox/addon/fr-inclusif)
 
 [Alt0183 - Adoptez un caractère inclusif !](https://github.com/Alt0183/Alt0183)
 
 ## Les initiatives pas tellement sympa
 
-[Désinclusive - Bloqueur d'écriture inclusive](https://github.com/Nitoref/desinclusive), [Ext Firefox](https://addons.mozilla.org/fr/firefox/addon/d%C3%A9sinclusive/)
+[Désinclusive - Bloqueur d'écriture inclusive](https://github.com/Nitoref/desinclusive) + [Extension Firefox](https://addons.mozilla.org/fr/firefox/addon/d%C3%A9sinclusive/)
 
 [No-inclusive](https://addons.mozilla.org/fr/firefox/addon/no-inclusive/)
 
