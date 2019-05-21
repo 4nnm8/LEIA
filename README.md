@@ -64,7 +64,8 @@ Bien que l'orthographe grammaticale ne soit pas fondamentalement bouleversée, e
 
 Voici deux articles qui en parlent : 
 
-* <a href="https://aides-techniques.handicap.fr/a-ecriture-inclusive-accessible-10358.php" target="_blank">L'écriture inclusive, indéchiffrable pour les non-voyants</a>, <a href="https://www.rtl.fr/girls/identites/ecriture-inclusive-la-federation-des-aveugles-denonce-une-langue-illisible-7791065702" target="_blank">Écriture inclusive : la fédération des Aveugles dénonce une "langue illisible"</a>
+* <a href="https://aides-techniques.handicap.fr/a-ecriture-inclusive-accessible-10358.php" target="_blank">L'écriture inclusive, indéchiffrable pour les non-voyants</a>
+* <a href="https://www.rtl.fr/girls/identites/ecriture-inclusive-la-federation-des-aveugles-denonce-une-langue-illisible-7791065702" target="_blank">Écriture inclusive : la fédération des Aveugles dénonce une "langue illisible"</a>
 
 L'écriture inclusive s'emploie généralement avec des caractères spéciaux - point médian (·) ou puce (•) qui sont mal interprétés, soit le point (.) ou le tiret (-) qui sont déjà voués à d'autres usages syntaxiques. De plus, tous les lecteurs d'écran n'interprètent pas ces séparateurs de la même façon.
 
