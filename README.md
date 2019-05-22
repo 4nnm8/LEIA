@@ -8,6 +8,8 @@
 
 <a href="https://addons.mozilla.org/fr/firefox/addon/leiaccessible/" target="_blank">Extension Firefox disponible ici</a>
 
+<hr/>
+
 ## Dernières mises-à-jour (21/05/2019)
 
 * Extension fonctionnelle dans toutes les frames
@@ -26,7 +28,9 @@
 * Dictionnaire de remplacement à simplifier pour de meilleurs performances.
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable.
 
-## Résumé
+<hr/>
+
+## LÉIA, c'est quoi ?
 
 **LÉIA** est une extension pour le navigateur Firefox (et bientôt d'autres). Elle est vouée à améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes ou ayant des difficultés de lecture aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
 
@@ -34,6 +38,30 @@
   <b>LÉIA</b> au <a href="http://hackecritureinclusive.com/" target="_blank">Hackaton Écriture Inclusive 2018</a><br/><br/>
   <a href="https://twitter.com/HackEcritureInc/status/966746253802594307" target="_blank"><img src="https://pbs.twimg.com/media/DWqSlpLW4AAXtDi.jpg" width="420px" alt="Présentation de LÉIA au Hackaton" /></a>                                                                                  
 </p>
+
+## Les fonctionnalités de LÉIA
+
+* Supprimer les séparateurs et réécrire les phrases de façon intelligible par les lecteurs d'écran
+(en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur·rice)
+* Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
+* Accéder simplement au point médian grâce à un raccourci clavier simple [ ; ] + [ ; ]
+* Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
+
+### Comment ça marche ? ###
+
+**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un <a href="https://github.com/ANN-MB/LEIA/blob/master/extension%20firefox/dico.js" target="_blank">dictionnaire</a>, d'expressions régulières (RegExp), de fonctions iteratives et récursives.
+
+Le script parcours l'architecture d'une page web à la recherche de motifs propres à l'écriture inclusive. En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture.
+
+##### Exemple : #####
+
+* Le script détecte **artisan·e·s**
+* Il détecte le motif **racine + suffixe masculin + séparateur + e + s**
+* Le dictionnaire est convoqué pour retrouver le motif détecté, et propose le motif de sortie adapté.
+* Ici, la règle utilisée sera : **racine + suffixe masculin + S + ESPACE + racine + suffixe féminin + S**
+* Le script replace l'expression originale par **artisans artisanes**
+
+</hr>
 
 ## Qu'est–ce que l'écriture inclusive ?
 
@@ -56,13 +84,13 @@ On écrira :
 
 Même si nous devons nous réjouir de cette réforme de la langue française, celle-ci amène avec elle quelques complications.
 
-## Alors quel est le problème ?
+## Pourquoi c'est un problème ?
 
 Le problème de l'écriture inclusive est qu'elle amène avec elle de nouvelles graphies (de nouvelles façons d'écrire les mots).
 
 Bien que l'orthographe grammaticale ne soit pas fondamentalement bouleversée, elle l'est suffisamment pour poser des problèmes d'interprétation par les **lecteurs d'écran et les plages braille**, dispositifs destinés à l'appréhension du langage écrit par les personnes malvoyantes. Mais aussi à des personnes ayant des difficultés avec la lecture (personnes dyslexiques par exemple).
 
-Voici deux articles qui en parlent : 
+### Voici deux articles qui en parlent : ###
 
 * <a href="https://aides-techniques.handicap.fr/a-ecriture-inclusive-accessible-10358.php" target="_blank">L'écriture inclusive, indéchiffrable pour les non-voyants</a>
 * <a href="https://www.rtl.fr/girls/identites/ecriture-inclusive-la-federation-des-aveugles-denonce-une-langue-illisible-7791065702" target="_blank">Écriture inclusive : la fédération des Aveugles dénonce une "langue illisible"</a>
@@ -73,44 +101,20 @@ L'accessibilité web a toujours été une surcouche informatique pénible pour l
 
 Partant de ce constat, et après avoir constaté sur internet que de nombreuses personnes malvoyantes regrettaient de ces nouvelles normes, il m'a semblé intéressant de chercher une solution la plus universelle possible pour que l'écriture inclusive soit également accessible pour les personnes malvoyantes. Et donc, **une écriture inclusive réellement inclusive** !
 
-## LÉIA
-
-LÉIA permet diverses choses :
-* Supprimer les séparateurs et réécrire les phrases de façon intelligible par les lecteurs d'écran
-(en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur·rice)
-* Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
-* Accéder simplement au point médian grâce à un raccourci clavier simple [ ; ] + [ ; ]
-* Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
-
-### Comment ça marche ? ###
-
-Le script parcours l'architecture d'une page web à la recherche de motifs propres à l'écriture inclusive. En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture.
-
-##### Exemple : #####
-
-* Le script détecte **artisan·e·s**
-* Il détecte le motif **racine + suffixe masculin + séparateur + e + s**
-* La dernière lettre de la racine étant un **n**, le script appelle une règle concernant les mots dont le féminin et le masculin "sonnent" différemment à l'oral. 
-* La règle de sortie suivante est utilisée : **racine + suffixe masculin + s + [espace] + racine + suffixe féminin + s**
-* Le script replace l'expression originale par **artisans artisanes**
-
-## Développement
-
-L'élaboration de ce programme, qui a commencé fin 2017 fût et reste particulièrement complexe pour plusieurs raisons :
-
-### Recherche sur l'orthographe française ###
-
-Les guide de rédaction en écriture inclusive, et notamment celui du **Haut Conseil à l'Égalité** qui tente de la populariser, proposent seulement une poignée de graphies possibles pour seulement 17 terminaisons et 5 pronoms, adverbes etc. Or, d'après de longues recherches, j'ai identifié une **soixantaine de terminaisons différentes** et 11 pronoms, adverbes, etc, différenciant le masculin du féminin.
-
 ### Recherche sur les usages populaires de l'écriture inclusive ###
 
-Pour palier à ce manquement, il a fallu intégrer dans un premier temps les graphies déjà utilisées par tout le monde sur internet, dans la presse ou dans des documents politiques. Difficulté de taille puisque les usages populaires, donc non codifiés, sont parfois assez différents pour un seul et même mot. Là ou certaines écrivent **amoureux·euse**, certains écrivent **amoureux·se**. J'ai du enfin créer différentes règles à partir de celles existantes pour des mots que je n'avais jamais rencontré (ex : **tiers·ces** ou **tier·ce·s**).
+L'élaboration de ce programme, qui a commencé fin 2017 est particulièrement complexe pour diverses raisons :
 
-### Programmation ###
+Les guide de rédaction en écriture inclusive actuellement disponibles, proposent rarement plus de 20 règles de terminaisons. De plus, étant non codifiées officiellement, le même mot peut être retrouvé écrit de diverses façons (exemple : **amoureux·euse**, ou **amoureux·se**).
 
-**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un <a href="https://github.com/ANN-MB/LEIA/blob/master/extension%20firefox/dico.js" target="_blank">dictionnaire</a>, d'expressions régulières (RegExp), de fonctions iteratives et récursives.
+Après de longues recherches, j'ai identifié une **soixantaine de terminaisons différentes** différenciant le masculin du féminin. Il a donc fallu extrapoler des règles avec des terminaisons non disponibles dans les guides, soit par analogie avec les graphies existantes, soit en recherchant des usages populaires (sur internet, dans la presse, etc).
 
-Si vous constatez le moindre bug ou des optimisations possibles <a href="mailto:a.mezurat@protonmail.com" target="_blank">n'hésitez-pas à me contacter</a> :)
+De plus, comme l'écriture inclusive s'emploie parfois avec le tiret (-) ou le point (.), il faut faire en sorte que le script ne modifie pas des mots "ressemblant à de l'écriture inclusive". C'est notamment problématique concernant les mots composés avec tirets et des sigles et acrronymes avec points.
+
+
+## Remerciements
+
+Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours et pour [son article](https://www.lelutinduweb.fr/ecriture-inclusive-accessibilite-solutions/), à l'équipe d'[incluZor·e](http://incluzor.fr/) pour nos échanges, et à plein d'autres ami·e·s anonymes pour leurs conseils et soutiens :)
 
 ## Ressources utilisées pour mener à bien ce projet
 
@@ -159,10 +163,6 @@ https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 **Notepad++** - programmation en JavaScript
 
 **KobaSpeech, NVDA, Talkback, JAWS** - test des synthèses vocales logicielles
-
-## Remerciements
-
-Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours et pour [son article](https://www.lelutinduweb.fr/ecriture-inclusive-accessibilite-solutions/), à l'équipe d'[incluZor·e](http://incluzor.fr/) pour nos échanges, et à plein d'autres ami·e·s anonymes pour leurs conseils et soutiens :)
 
 ## Les initiatives sympa
 
