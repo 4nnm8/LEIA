@@ -13,6 +13,9 @@
 ## Dernières mises-à-jour (24/05/2019)
 
 * La conversion du texte et le surlignage ne s'applique plus sur les balises dotées de l'attribut ``contenteditable`` ou ``contenteditable="true"``
+* Optimisation générale du code (gestion de scope), et de la fenêtre de préférences.
+* Séparation du dictionnaire de conversion, et concaténation de celui ci pour diminuer le nombre d'itérations.
+* Second dictionnaire créé pour la saisie prédictive et enrichissement du dictionnaire prédictif.
 
 ## Évolutions à venir
 
@@ -24,7 +27,6 @@ Exemple : **Cette personne est frileux·euse.** > **Cette personne est frileux f
 * Saisie prédictive à rendre fonctionnelle sur les balises dotées de ``[contenteditable=true]``
 * La fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
 * Dictionnaire prédictif à enrichir.
-* Dictionnaire de remplacement à simplifier pour de meilleurs performances.
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable.
 
 <hr/>
