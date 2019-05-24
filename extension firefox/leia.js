@@ -23,14 +23,14 @@ var mode,pred,high,styl,term,terml,termp=5,dl=dico.length,
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
-        if (!node.parentNode.nodeName.match(/SCRIPT|TEXTAREA|STYLE|INPUT/i) && node.nodeValue.trim().length > 0) {
+        if (!node.parentNode.nodeName.match(/SCRIPT|TEXTAREA|INPUT/i) && node.parentNode.contentEditable !== "true" && node.nodeValue.trim().length > 0) {
           return NodeFilter.FILTER_ACCEPT;
         }
       }
     }, false),
 	dicomap = dico.map((entry)=>{
       return [
-        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+)?("+entry[0]+")[-/·∙.•]("+entry[1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
+        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?("+entry[0]+")[-/·∙.•]("+entry[1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
         entry[2],entry[3],entry[4]
       ];
     });
