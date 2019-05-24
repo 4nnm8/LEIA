@@ -10,17 +10,16 @@
 
 <hr/>
 
-## Dernières mises-à-jour (21/05/2019)
+## Dernières mises-à-jour (24/05/2019)
 
-* Extension fonctionnelle dans toutes les frames
-* Correction d'erreurs du dictionnaire
-* Raccourcis point médian et saisie prédictive fonctionnelle dans les ``<input />`` sans type défini (``type="text"`` par défaut)
-* Le remplacement de texte ne s'effectue plus dans les zones de saisie de texte (input, textarea)
-* Mise-à-jour de la <a href="https://github.com/ANN-MB/LEIA/blob/master/Page_de_tests.html" target="_blank">page de tests</a>
+* La conversion du texte et le surlignage ne s'applique plus sur les balises dotées de l'attribut ``contenteditable`` ou ``contenteditable="true"``
 
 ## Évolutions à venir
 
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
+* Correction du ``RegExp`` pour éviter la disparition du point-final au singulier inclusif.
+
+Exemple : **Cette personne est frileux·euse.** > **Cette personne est frileux frileuse**
 * Sur **Firefox Mobile**, correction de l'affichage de la page des préférences.
 * Saisie prédictive à rendre fonctionnelle sur les balises dotées de ``[contenteditable=true]``
 * La fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
