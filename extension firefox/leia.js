@@ -1,22 +1,5 @@
-﻿"use strict";
+"use strict"; 
 
-function addEvent(a, b, c) {
-  if (a.addEventListener) {
-    return a.addEventListener(b, c, !1), !0;
-  }
-  if (a.attachEvent) {
-    return a.attachEvent("on" + b, c);
-  }
-  b = "on" + b;
-  "function" === typeof a[b] && (c = function(a, b) {
-    return function() {
-      a.apply(this, arguments);
-      b.apply(this, arguments);
-    };
-  }(a[b], c));
-  a[b] = c;
-  return !0;
-}
 var mode,pred,high,styl,term,terml,termp=5,dl=dico.length,
     list = document.body.querySelectorAll("textarea,input"),
     ll = list.length,pm = [],pr = [],
@@ -144,18 +127,18 @@ function change(n, m, b) {
 }
 
 pm.forEach(function(elem) {
-    addEvent(elem, "keyup", function(e) {
-      if (-1 < this.value.indexOf(";;")) {
+    elem.addEventListener("keyup", function(e) {
+      if (-1 < this.value.indexOf("·")) {
         var now = getCaret(this);
-        this.value = this.value.replace(";;","·");
+        this.value = this.value.replace("·","·");
         selekt(this, now[0] - 1, now[0] - 1);
       }
-    });
+    },false);
 });
 	
 function predictif() {
   pr.forEach(function(elem) {
-    addEvent(elem, "keyup", function(e) {
+    elem.addEventListener("keyup", function(e) {
       let b = getCaret(this),
           c = getWord(this, b[1]),
           d = seek(c) || false;
@@ -165,9 +148,9 @@ function predictif() {
         term = d;
         terml = term.length;
       }
-    });
+    }, false);
 
-    addEvent(elem, "keydown", function(e) {
+    elem.addEventListener("keydown", function(e) {
       let a = e.which || e.keyCode || e.charCode,
           b = getCaret(this);
       if (term && b[0] != b[1]) {
@@ -202,6 +185,6 @@ function predictif() {
             termp = 5;
         }
       }
-    });
+    },false);
   });
 }
