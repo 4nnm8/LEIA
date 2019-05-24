@@ -1,10 +1,9 @@
-"use strict"; 
-
-var mode,pred,high,styl,term,terml,termp=5,dl=dico.length,
-    list = document.body.querySelectorAll("textarea,input"),
-    ll = list.length,pm = [],pr = [],
+﻿var mode, pred, high, styl,
+	term, terml, termp = 1,
+    list = document.body.querySelectorAll("textarea,input"), ll = list.length, pm = [], pr = [],
+    t9l = t9.length, 
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
-    tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
         if (!node.parentNode.nodeName.match(/SCRIPT|TEXTAREA|INPUT/i) && node.parentNode.contentEditable !== "true" && node.nodeValue.trim().length > 0) {
           return NodeFilter.FILTER_ACCEPT;
@@ -17,60 +16,63 @@ var mode,pred,high,styl,term,terml,termp=5,dl=dico.length,
         entry[2],entry[3],entry[4]
       ];
     });
-	
 for (var i = 0; i < ll ; i++) {
-  var thisone = list[i];
-  if (thisone.type == "text" || thisone.type == "textarea") {
-    pm.push(thisone);
-	pr.push(thisone);
+  var a = list[i];
+  if (a.type == "text" || a.type == "textarea") {
+    pm.push(a);
+	pr.push(a);
   }
-  if (thisone.type == "search") {
-	pm.push(thisone);
+  if (a.type == "search") {
+	pm.push(a);
   }
 }
-
+pm.forEach(function(elem) {
+  elem.addEventListener("keyup", function(e) { addMiddot(e,this) }, false);
+});
 browser.storage.local.get().then(function(a) {
   mode = a.leia.mode;
   pred = a.leia.pred;
   high = a.leia.high;
   styl = a.leia.styl;
   if (0 < mode) {
-    for (; tree.nextNode();) {
+    while (walker.nextNode()) {
       setTimeout((function(currentNode){
 		check(currentNode);
-	  }(tree.currentNode)), 0);
+	  }(walker.currentNode)), 0);
     }
   }
-  1 == pred && predictif();
   if (1 == high) {
-    while (tree.nextNode()) {
-      highlight(tree.currentNode)
+    while (walker.nextNode()) {
+      highlight(walker.currentNode)
     }
+  }
+  if (1 == pred) {
+	pr.forEach(function(elem) {
+      elem.addEventListener("keyup", function(e) { feminize(this); },false);
+      elem.addEventListener("keydown", function(e) { switcher(e,this) },false);
+    }); 
   }
 }, function(a) {
   console.error(a);
 });
-
 function check() {
-  var a = tree.currentNode;
+  var a = walker.currentNode;
   dicomap.map(function(b) {
     a.nodeValue = a.nodeValue.replace(b[0], b[mode]);
   });
 }
-
-function highlight(h) {
-  var r = r3.exec(h.nodeValue);
+function highlight(k) {
+  var r = r3.exec(k.nodeValue);
   if (r) {
 	var fragm = document.createDocumentFragment(),
         nmark = document.createElement("MARK"),
-        after = h.splitText(r.index);
+        after = k.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
     nmark.className = styl;
     after.nodeValue = after.nodeValue.substring(r[0].length);
-    h.parentNode.insertBefore(nmark, after);
+    k.parentNode.insertBefore(nmark, after);
   }
 }
-
 function getCaret(x) {
   if (document.selection) {
 	x.focus();
@@ -85,7 +87,6 @@ function getCaret(x) {
 	return [0, 0];
   }
 }
-
 function selekt(elem, start, end) {
   if (elem.setSelectionRange) {
 	elem.focus();
@@ -98,7 +99,6 @@ function selekt(elem, start, end) {
 	range.select();
   }
 }
-
 function getWord(text, caretPos) {
   let txt = text.value.substring(0, caretPos);
   if (txt.indexOf(" ") > 0) {
@@ -108,83 +108,72 @@ function getWord(text, caretPos) {
 	return txt;
   }
 }
-
-function seek(x) {
-  for (var i = 0; i < dl; i++) {
-	let reg = new RegExp(dico[i][0] + "s?$", "i"),
-	    mch = x.search(reg);
-	if (5 < dico[i].length && -1 != mch) {
-	  return dico[i];
+function seek(z) {
+  for (var j = 0; j < t9l; j++) {
+	let reg = new RegExp(t9[j][0] + "s?$", "i"),
+	    mch = z.search(reg);
+	if (-1 != mch) {
+	  return t9[j];
 	}
   }
 }
-
 function change(n, m, b) {
-  1 == n && (termp == terml - 1 ? termp = 5 : termp++);
+  1 == n && (termp == terml - 1 ? termp = 1 : termp++);
   -1 == n && (5 == termp ? termp = terml - 1 : termp--);
   m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
   selekt(m, b[0], b[0] + term[termp].length + 1);
 }
-
-pm.forEach(function(elem) {
-    elem.addEventListener("keyup", function(e) {
-      if (-1 < this.value.indexOf("·")) {
-        var now = getCaret(this);
-        this.value = this.value.replace("·","·");
-        selekt(this, now[0] - 1, now[0] - 1);
-      }
-    },false);
-});
-	
-function predictif() {
-  pr.forEach(function(elem) {
-    elem.addEventListener("keyup", function(e) {
-      let b = getCaret(this),
-          c = getWord(this, b[1]),
-          d = seek(c) || false;
-      if (d && c.indexOf("·") == -1) {
-        this.value = this.value.slice(0, b[0]) + "·" + d[termp] + this.value.slice(b[0]);
-        selekt(this, b[0], b[0] + d[termp].length + 1);
-        term = d;
-        terml = term.length;
-      }
-    }, false);
-
-    elem.addEventListener("keydown", function(e) {
-      let a = e.which || e.keyCode || e.charCode,
-          b = getCaret(this);
-      if (term && b[0] != b[1]) {
-        switch (a) {
-          case 8: // Backspace
-            e.preventDefault();
-            this.value = this.value.slice(0, b[0] - 1) + this.value.slice(b[1]);
-            selekt(this, b[0] - 1, b[0] - 1);
-            break;
-          case 37: // Left arrow
-            e.preventDefault();
-            this.value = this.value.slice(0, b[0]) + this.value.slice(b[1]);
-            selekt(this, b[0] - 1, b[0] - 1);
-            break;
-          case 13: // Enter
-            e.preventDefault();
-            selekt(this, b[1], b[1]);
-            break;
-          case 40: // Down arrow
-            e.preventDefault();
-            change(1, this, b);
-            break;
-          case 38: // Up arrow
-            e.preventDefault();
-            change(-1, this, b);
-            break;
-            // Suppr  
-            // case 46:
-          default:
-            term = [];
-            terml = undefined;
-            termp = 5;
-        }
-      }
-    },false);
-  });
+function switcher(e,h) {
+  let a = e.keyCode,
+	  b = getCaret(h);
+  if (term && b[0] != b[1]) {
+	switch (a) {
+	  case 8: // Backspace
+		e.preventDefault();
+		h.value = h.value.slice(0, b[0] - 1) + h.value.slice(b[1]);
+		selekt(h, b[0] - 1, b[0] - 1);
+		break;
+	  case 37: // Left arrow
+		e.preventDefault();
+		h.value = h.value.slice(0, b[0]) + h.value.slice(b[1]);
+		selekt(h, b[0] - 1, b[0] - 1);
+		break;
+	  case 13: // Enter
+		e.preventDefault();
+		selekt(h, b[1], b[1]);
+		break;
+	  case 40: // Down arrow
+		e.preventDefault();
+		change(1, h, b);
+		break;
+	  case 38: // Up arrow
+	    e.preventDefault();
+		change(-1, h, b);
+		break;
+		// Suppr  
+		// case 46:
+	  default:
+		term = [];
+		terml = undefined;
+		termp = 1;
+	}
+  }  
+}
+function feminize(g) {
+  let b = getCaret(g),
+      c = getWord(g, b[1]),
+      d = seek(c) || false;
+  if (d && c.indexOf("·") == -1) {
+	g.value = g.value.slice(0, b[0]) + "·" + d[termp] + g.value.slice(b[0]);
+	selekt(g, b[0], b[0] + d[termp].length + 1);
+	term = d;
+	terml = term.length;
+  }
+}
+function addMiddot(e,f) {
+  if (f.value.indexOf(";;") > -1) {
+    var now = getCaret(f);
+    f.value = f.value.replace(";;","·");
+    selekt(f, now[0] - 1, now[0] - 1);
+  }
 }
