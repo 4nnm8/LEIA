@@ -14,8 +14,9 @@
 
 * La conversion du texte et le surlignage ne s'applique plus sur les balises dotées de l'attribut ``contenteditable`` ou ``contenteditable="true"``
 * Optimisation générale du code (gestion de scope), et de la fenêtre de préférences.
-* Séparation du dictionnaire de conversion, et concaténation de celui ci pour diminuer le nombre d'itérations.
-* Second dictionnaire créé pour la saisie prédictive et enrichissement du dictionnaire prédictif.
+* Séparation du dictionnaire en deux (un de conversion et un de saisie prédictive).
+* Concaténation du dictionnaire de conversion pour diminuer le nombre d'itérations.
+* Enrichissement du dictionnaire prédictif.
 
 ## Évolutions à venir
 
@@ -44,9 +45,9 @@ Exemple : **Cette personne est frileux·euse.** > **Cette personne est frileux f
 
 * Supprimer les séparateurs et réécrire les phrases de façon intelligible par les lecteurs d'écran
 (en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur·rice)
-* Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
-* Accéder simplement au point médian grâce à un raccourci clavier simple [ ; ] + [ ; ]
+* Accéder simplement au point médian grâce à un raccourci clavier simple (deux fois la touche point-virgule).
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
+* Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
 
 ### Comment ça marche ? ###
 
