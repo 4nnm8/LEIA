@@ -120,19 +120,19 @@ Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours et pour [so
 
 ## Ressources utilisées pour mener à bien ce projet
 
-##### Livres #####
+#### Livres ####
 
 BORDE Davy, 2016. [Tirons la langue – Plaidoyer contre le sexisme dans la langue française.](http://www.editions-utopia.org/portfolio-view/tirons-la-langue-plaidoyer-contre-le-sexisme-dans-la-langue-francaise/) Éditions Utopia.
 
 ZACCOUR Suzanne & LESSARD Michaël, 2018. [Manuel de grammaire non sexiste et inclusive.](https://www.syllepse.net/lng_FR_srub_62_iprod_716-manuel-de-grammaire-non-sexiste-et-inclusive.html) Éditions Syllepse.
 
-##### Brochures #####
+#### Brochures ####
 
 Haut Conseil à l'Égalité entre les femmes et les hommes (HCE), 2016. [Pour une communication publique sans stéréotype de sexe.](http://bit.ly/2fejwZ7) Édité par La documentation Française.
 
 HADDAD Raphaël & BARIC Carline, 2016. [Manuel d'écriture inclusive.](https://www.motscles.net/s/Manuel-decriture-inclusive-yal5.pdf) Édité par l'agence Mots-Clés.
 
-##### Sites internet #####
+#### Sites internet ####
 
 https://regex101.com/ - test des expressions régulières
 
@@ -158,11 +158,11 @@ https://codepen.io/vincent-valentin/full/woGLVL - réflexion sur les graphies de
 
 https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
-##### Programmes #####
+#### Programmes ####
 
-**Mozilla Firefox** - navigateur concerné par l'add-on
+**[Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/)** - navigateur concerné par l'add-on
 
-**Notepad++** - programmation en JavaScript
+**[Notepad++](https://notepad-plus-plus.org/fr/)** - programmation en JavaScript
 
 **[KobaSpeech](https://kobaspeech.com/en/), [NVDA](https://www.nvda-fr.org/), [Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=fr), [JAWS](http://www.accessolutions.fr/Jaws-pour-Windows.html)** - test des synthèses vocales logicielles
 
