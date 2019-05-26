@@ -123,42 +123,6 @@ function change(n, m, b) {
   m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
   selekt(m, b[0], b[0] + term[termp].length + 1);
 }
-function switcher(e,h) {
-  let a = e.keyCode,
-	  b = getCaret(h);
-  if (term && b[0] != b[1]) {
-	switch (a) {
-	  case 8: // Backspace
-		e.preventDefault();
-		h.value = h.value.slice(0, b[0] - 1) + h.value.slice(b[1]);
-		selekt(h, b[0] - 1, b[0] - 1);
-		break;
-	  case 37: // Left arrow
-		e.preventDefault();
-		h.value = h.value.slice(0, b[0]) + h.value.slice(b[1]);
-		selekt(h, b[0] - 1, b[0] - 1);
-		break;
-	  case 13: // Enter
-		e.preventDefault();
-		selekt(h, b[1], b[1]);
-		break;
-	  case 40: // Down arrow
-		e.preventDefault();
-		change(1, h, b);
-		break;
-	  case 38: // Up arrow
-	    e.preventDefault();
-		change(-1, h, b);
-		break;
-		// Suppr  
-		// case 46:
-	  default:
-		term = [];
-		terml = undefined;
-		termp = 1;
-	}
-  }  
-}
 function feminize(g) {
   let b = getCaret(g),
       c = getWord(g, b[1]),
@@ -176,4 +140,38 @@ function addMiddot(e,f) {
     f.value = f.value.replace(";;","·");
     selekt(f, now[0] - 1, now[0] - 1);
   }
+}
+function switcher(e,h) {
+  let a = e.keyCode,
+	  b = getCaret(h);
+  if (term && b[0] != b[1]) {
+	switch (a) {
+	  case 8:
+		e.preventDefault();
+		h.value = h.value.slice(0, b[0] - 1) + h.value.slice(b[1]);
+		selekt(h, b[0] - 1, b[0] - 1);
+		break;
+	  case 37:
+		e.preventDefault();
+		h.value = h.value.slice(0, b[0]) + h.value.slice(b[1]);
+		selekt(h, b[0] - 1, b[0] - 1);
+		break;
+	  case 13:
+		e.preventDefault();
+		selekt(h, b[1], b[1]);
+		break;
+	  case 40:
+		e.preventDefault();
+		change(1, h, b);
+		break;
+	  case 38:
+	    e.preventDefault();
+		change(-1, h, b);
+		break;
+	  default:
+		term = [];
+		terml = undefined;
+		termp = 1;
+	}
+  }  
 }

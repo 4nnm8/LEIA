@@ -37,14 +37,6 @@
   text-align:center;
   margin: 11px 0 0 0;
 }
-@media all and (max-device-width : 480px) {
-  .confleia {
-	width:100vw;
-	height:100vh;
-	font-size: calc(20px + 0.4vw);
-	
-  }
-}
 .confleia kbd {
   display: inline-block;
   background-color: #fff;

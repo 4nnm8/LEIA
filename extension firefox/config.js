@@ -14,7 +14,6 @@ browser.storage.local.get().then(function(a) {
 }, function(a) {
   console.error(a);
 });
-
 function storeSettings() {
   var modeval = modeipt.options[modeipt.selectedIndex].value,
       predval = predipt.options[predipt.selectedIndex].value,
@@ -29,7 +28,6 @@ function storeSettings() {
     }
   });
 }
-
 buttons.addEventListener("click", function(e) {
   e.preventDefault();
   if ("BUTTON" == e.target.tagName) {
@@ -38,7 +36,6 @@ buttons.addEventListener("click", function(e) {
 	storeSettings();
   }
 });
-
 document.getElementById("form").addEventListener("change",function(e) { 
   switch (e.target.id) {
 	case "mode":
