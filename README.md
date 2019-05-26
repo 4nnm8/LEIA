@@ -164,7 +164,7 @@ https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
 **Notepad++** - programmation en JavaScript
 
-**KobaSpeech, NVDA, Talkback, JAWS** - test des synthèses vocales logicielles
+**[KobaSpeech](https://kobaspeech.com/en/), [NVDA](https://www.nvda-fr.org/), [Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=fr), [JAWS](http://www.accessolutions.fr/Jaws-pour-Windows.html)** - test des synthèses vocales logicielles
 
 ## Les initiatives sympa
 
