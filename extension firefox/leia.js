@@ -145,12 +145,12 @@ function init() {
   if (1 == high) {
     while (walker.nextNode()) {
       setTimeout((function(currentNode){
-		highlight(currentNode);
-	  }(walker.currentNode)), 0);
+        highlight(currentNode);
+      }(walker.currentNode)), 0);
     }
   }
   if (1 == pred) {
-      pr.forEach(function(x) {
+    pr.forEach(function(x) {
       x.addEventListener("keyup", function(e) { feminize(this); },false);
       x.addEventListener("keydown", function(e) { switcher(e,this); },false);
     }); 
