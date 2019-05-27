@@ -12,7 +12,7 @@
 
 ## Dernières mises-à-jour (28/05/2019)
 
-* Ajout des fonctions « raccourcis point-médian » et « prédictif inclusif » sur les balises dotées de l'attribut ``contenteditable`` et ``contenteditable="true"``. Malheureusement non fonctionnel sur certaines zones de textes ayant des écouteurs d'événement venant bloquer les fonctions extérieures.
+* Ajout des fonctions « raccourcis point-médian » et « prédictif inclusif » sur les balises dotées de l'attribut ``contenteditable`` et ``contenteditable="true"``. Malheureusement non fonctionnel sur certaines zones de textes ayant des écouteurs d'événement venant bloquer les fonctions externes.
 * Le surlignage de texte, à la basé destiné aux personnes dyslexiques, est remplacé par une stylisation des terminaisons inclusives (gras, souligné, petit, coloré, détaché...) basé sur la coloration syllabique.
 
 ## Évolutions à venir
@@ -42,6 +42,8 @@
 * Accéder simplement au point médian grâce à un raccourci clavier simple (deux fois la touche point-virgule).
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
 * Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
+
+<p style="text-align:center"><img src="https://addons.cdn.mozilla.net/user-media/previews/full/219/219901.png" alt="Conversion du texte avant et après activation de LÉIA" /></p>
 
 ### Comment ça marche ? ###
 
