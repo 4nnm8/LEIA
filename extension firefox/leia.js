@@ -1,11 +1,11 @@
 ﻿var mode, pred, high, styl,
-	term, terml, termp = 1,
+    term, terml, termp = 1,
     list = document.body.querySelectorAll("textarea,input"), ll = list.length, pm = [], pr = [],
     t9l = t9.length, 
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
-        if (!node.parentNode.nodeName.match(/SCRIPT|TEXTAREA|INPUT/i) && node.parentNode.contentEditable !== "true" && node.nodeValue.trim().length > 0) {
+        if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) && node.parentNode.contentEditable !== "true" && node.nodeValue.trim().length > 0) {
           return NodeFilter.FILTER_ACCEPT;
         }
       }
@@ -18,16 +18,11 @@
     });
 for (var i = 0; i < ll ; i++) {
   var a = list[i];
-  if (a.type == "text" || a.type == "textarea") {
-    pm.push(a);
-	pr.push(a);
-  }
-  if (a.type == "search") {
-	pm.push(a);
-  }
+  (a.type == "text" || a.type == "textarea") && (pm.push(a), pr.push(a));
+  ("search" == a.term) && pm.push(a);
 }
-pm.forEach(function(elem) {
-  elem.addEventListener("keyup", function(e) { addMiddot(e,this) }, false);
+pm.forEach(function(x) {
+  x.addEventListener("keyup", function(e) { addMiddot(e,this) }, false);
 });
 browser.storage.local.get().then(function(a) {
   mode = a.leia.mode;
@@ -47,25 +42,23 @@ browser.storage.local.get().then(function(a) {
     }
   }
   if (1 == pred) {
-	pr.forEach(function(elem) {
-      elem.addEventListener("keyup", function(e) { feminize(this); },false);
-      elem.addEventListener("keydown", function(e) { switcher(e,this) },false);
+      pr.forEach(function(x) {
+      x.addEventListener("keyup", function(e) { feminize(this); },false);
+      x.addEventListener("keydown", function(e) { switcher(e,this) },false);
     }); 
   }
 }, function(a) {
   console.error(a);
 });
-function check() {
-  var a = walker.currentNode;
+function check(n) {
   dicomap.map(function(b) {
-    a.nodeValue = a.nodeValue.replace(b[0], b[mode]);
+    n.nodeValue = n.nodeValue.replace(b[0], b[mode]);
   });
 }
 function highlight(k) {
   var r = r3.exec(k.nodeValue);
   if (r) {
-	var fragm = document.createDocumentFragment(),
-        nmark = document.createElement("MARK"),
+    var nmark = document.createElement("MARK"),
         after = k.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
     nmark.className = styl;
@@ -110,11 +103,11 @@ function getWord(text, caretPos) {
 }
 function seek(z) {
   for (var j = 0; j < t9l; j++) {
-	let reg = new RegExp(t9[j][0] + "s?$", "i"),
-	    mch = z.search(reg);
-	if (-1 != mch) {
-	  return t9[j];
-	}
+    let reg = new RegExp(t9[j][0] + "s?$", "i"),
+        mch = z.search(reg);
+    if (-1 != mch) {
+      return t9[j];
+    }
   }
 }
 function change(n, m, b) {
@@ -128,47 +121,47 @@ function feminize(g) {
       c = getWord(g, b[1]),
       d = seek(c) || false;
   if (d && c.indexOf("·") == -1) {
-	g.value = g.value.slice(0, b[0]) + "·" + d[termp] + g.value.slice(b[0]);
-	selekt(g, b[0], b[0] + d[termp].length + 1);
-	term = d;
-	terml = term.length;
+    g.value = g.value.slice(0, b[0]) + "·" + d[termp] + g.value.slice(b[0]);
+    selekt(g, b[0], b[0] + d[termp].length + 1);
+    term = d;
+    terml = term.length;
   }
 }
 function addMiddot(e,f) {
-  if (f.value.indexOf(";;") > -1) {
+  if (f.value.indexOf("·") > -1) {
     var now = getCaret(f);
-    f.value = f.value.replace(";;","·");
+    f.value = f.value.replace("·","·");
     selekt(f, now[0] - 1, now[0] - 1);
   }
 }
 function switcher(e,h) {
   let a = e.keyCode,
-	  b = getCaret(h);
+      b = getCaret(h);
   if (term && b[0] != b[1]) {
-	switch (a) {
-	  case 8:
+    switch (a) {
+      case 8:
 		e.preventDefault();
 		h.value = h.value.slice(0, b[0] - 1) + h.value.slice(b[1]);
 		selekt(h, b[0] - 1, b[0] - 1);
 		break;
-	  case 37:
+      case 37:
 		e.preventDefault();
 		h.value = h.value.slice(0, b[0]) + h.value.slice(b[1]);
 		selekt(h, b[0] - 1, b[0] - 1);
 		break;
-	  case 13:
+      case 13:
 		e.preventDefault();
 		selekt(h, b[1], b[1]);
 		break;
-	  case 40:
+      case 40:
 		e.preventDefault();
 		change(1, h, b);
 		break;
-	  case 38:
-	    e.preventDefault();
+      case 38:
+	        e.preventDefault();
 		change(-1, h, b);
 		break;
-	  default:
+      default:
 		term = [];
 		terml = undefined;
 		termp = 1;
