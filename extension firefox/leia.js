@@ -1,4 +1,4 @@
-﻿var mode, pred, high, styl,
+var mode, pred, high, styl,
     term, terml, termp = 1,
     list = document.body.querySelectorAll("textarea,input"), ll = list.length, pm = [], pr = [],
     t9l = t9.length, 
@@ -22,7 +22,7 @@ for (var i = 0; i < ll ; i++) {
   ("search" == a.term) && pm.push(a);
 }
 pm.forEach(function(x) {
-  x.addEventListener("keyup", function(e) { addMiddot(e,this) }, false);
+  x.addEventListener("keyup", function(e) { middot(e,this) }, false);
 });
 browser.storage.local.get().then(function(a) {
   mode = a.leia.mode;
@@ -92,31 +92,25 @@ function selekt(elem, start, end) {
     range.select();
   }
 }
-function getWord(text, caretPos) {
-  let txt = text.value.substring(0, caretPos);
-  if (txt.indexOf(" ") > 0) {
-    var wrd = txt.split(" ");
-    return wrd[wrd.length - 1];
-  } else {
-    return txt;
-  }
-}
-function seek(z) {
-  for (var j = 0; j < t9l; j++) {
-    let reg = new RegExp(t9[j][0] + "s?$", "i"),
-        mch = z.search(reg);
-    if (-1 != mch) {
-      return t9[j];
+function feminize(g) {
+  function getWord(text, caretPos) {
+    var txt = text.value.substring(0, caretPos);
+    if (txt.indexOf(" ") > 0) {
+      var wrd = txt.split(" ");
+      return wrd[wrd.length - 1];
+    } else {
+      return txt;
     }
   }
-}
-function change(n, m, b) {
-  1 == n && (termp == terml - 1 ? termp = 1 : termp++);
-  -1 == n && (5 == termp ? termp = terml - 1 : termp--);
-  m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
-  selekt(m, b[0], b[0] + term[termp].length + 1);
-}
-function feminize(g) {
+  function seek(z) {
+    for (var j = 0; j < t9l; j++) {
+      var reg = new RegExp(t9[j][0] + "s?$", "i"),
+          mch = z.search(reg);
+      if (-1 != mch) {
+        return t9[j];
+      }
+    }
+  }
   let b = getCaret(g),
       c = getWord(g, b[1]),
       d = seek(c) || false;
@@ -127,15 +121,21 @@ function feminize(g) {
     terml = term.length;
   }
 }
-function addMiddot(e,f) {
-  if (f.value.indexOf("·") > -1) {
+function middot(e,f) {	
+  if (f.value.indexOf(";;") > -1) {
     var now = getCaret(f);
-    f.value = f.value.replace("·","·");
+    f.value = f.value.replace(";;","·");
     selekt(f, now[0] - 1, now[0] - 1);
   }
 }
 function switcher(e,h) {
-  let a = e.keyCode,
+  function change(n, m, b) {
+    1 == n && (termp == terml - 1 ? termp = 1 : termp++);
+   -1 == n && (5 == termp ? termp = terml - 1 : termp--);
+    m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
+    selekt(m, b[0], b[0] + term[termp].length + 1);
+  }
+  var a = e.keyCode,
       b = getCaret(h);
   if (term && b[0] != b[1]) {
     switch (a) {
