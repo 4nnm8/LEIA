@@ -16,49 +16,15 @@ var mode, pred, high, styl,
         entry[2],entry[3],entry[4]
       ];
     });
-for (var i = 0; i < ll ; i++) {
-  var a = list[i];
-  (a.type == "text" || a.type == "textarea") && (pm.push(a), pr.push(a));
-  ("search" == a.term) && pm.push(a);
-}
-pm.forEach(function(x) {
-  x.addEventListener("keyup", function(e) { middot(e,this) }, false);
-});
-browser.storage.local.get().then(function(a) {
-  mode = a.leia.mode;
-  pred = a.leia.pred;
-  high = a.leia.high;
-  styl = a.leia.styl;
-  if (0 < mode) {
-    while (walker.nextNode()) {
-      setTimeout((function(currentNode){
-        check(currentNode);
-      }, 0);
-    }
-  }
-  if (1 == high) {
-    while (walker.nextNode()) {
-      highlight(walker.currentNode)
-    }
-  }
-  if (1 == pred) {
-      pr.forEach(function(x) {
-      x.addEventListener("keyup", function(e) { feminize(this); },false);
-      x.addEventListener("keydown", function(e) { switcher(e,this) },false);
-    }); 
-  }
-}, function(a) {
-  console.error(a);
-});
 function check(n) {
   dicomap.map(function(b) {
     n.nodeValue = n.nodeValue.replace(b[0], b[mode]);
   });
 }
 function highlight(k) {
-  var r = r3.exec(k.nodeValue);
+  let r = r3.exec(k.nodeValue);
   if (r) {
-    var nmark = document.createElement("MARK"),
+    let nmark = document.createElement("MARK"),
         after = k.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
     nmark.className = styl;
@@ -69,10 +35,10 @@ function highlight(k) {
 function getCaret(x) {
   if (document.selection) {
     x.focus();
-    var r = document.selection.createRange(),
+    let r = document.selection.createRange(),
         rs = r.text.length;
     r.moveStart("character", -x.value.length);
-    var start = r.text.length - rs;
+    let start = r.text.length - rs;
     return [start, start + rs];
   } else if (x.selectionStart || x.selectionStart == "0") {
     return [x.selectionStart, x.selectionEnd];
@@ -85,7 +51,7 @@ function selekt(elem, start, end) {
     elem.focus();
     elem.setSelectionRange(start, end);
   } else if (elem.createTextRange) {
-    var range = elem.createTextRange();
+    let range = elem.createTextRange();
     range.collapse(true);
     range.moveEnd("character", end);
     range.moveStart("character", start);
@@ -94,17 +60,17 @@ function selekt(elem, start, end) {
 }
 function feminize(g) {
   function getWord(text, caretPos) {
-    var txt = text.value.substring(0, caretPos);
+    let txt = text.value.substring(0, caretPos);
     if (txt.indexOf(" ") > 0) {
-      var wrd = txt.split(" ");
+      let wrd = txt.split(" ");
       return wrd[wrd.length - 1];
     } else {
       return txt;
     }
   }
   function seek(z) {
-    for (var j = 0; j < t9l; j++) {
-      var reg = new RegExp(t9[j][0] + "s?$", "i"),
+    for (let j = 0; j < t9l; j++) {
+      let reg = new RegExp(t9[j][0] + "s?$", "i"),
           mch = z.search(reg);
       if (-1 != mch) {
         return t9[j];
@@ -123,19 +89,19 @@ function feminize(g) {
 }
 function middot(e,f) {	
   if (f.value.indexOf(";;") > -1) {
-    var now = getCaret(f);
+    let now = getCaret(f);
     f.value = f.value.replace(";;","·");
     selekt(f, now[0] - 1, now[0] - 1);
   }
 }
 function switcher(e,h) {
-  function change(n, m, b) {
+  function change(n, m, o) {
     1 == n && (termp == terml - 1 ? termp = 1 : termp++);
-   -1 == n && (5 == termp ? termp = terml - 1 : termp--);
-    m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
-    selekt(m, b[0], b[0] + term[termp].length + 1);
+    -1 == n && (1 == termp ? termp = terml - 1 : termp--);
+    m.value = m.value.slice(0, o[0]) + "·" + term[termp] + m.value.slice(o[1]);
+    selekt(m, o[0], o[0] + term[termp].length + 1);
   }
-  var a = e.keyCode,
+  let a = e.keyCode,
       b = getCaret(h);
   if (term && b[0] != b[1]) {
     switch (a) {
@@ -168,3 +134,44 @@ function switcher(e,h) {
     }
   }  
 }
+function init() {
+  if (0 < mode) {
+    while (walker.nextNode()) {
+ 	  setTimeout((function(currentNode){
+		check(currentNode);
+	  }(walker.currentNode)), 0);
+    }
+  }
+  if (1 == high) {
+    while (walker.nextNode()) {
+      setTimeout((function(currentNode){
+		highlight(currentNode);
+	  }(walker.currentNode)), 0);
+    }
+  }
+  if (1 == pred) {
+      pr.forEach(function(x) {
+      x.addEventListener("keyup", function(e) { feminize(this); },false);
+      x.addEventListener("keydown", function(e) { switcher(e,this); },false);
+    }); 
+  }
+}
+for (let i = 0; i < ll ; i++) {
+  let a = list[i];
+  (a.type == "text" || a.type == "textarea") && (pm.push(a), pr.push(a));
+  (a.type == "search") && pm.push(a);
+}
+pm.forEach(function(x) {
+  x.addEventListener("keyup", function(e) { middot(e,this); }, false);
+});
+browser.storage.local.get().then(function(a) {
+  mode = a.leia.mode;
+  pred = a.leia.pred;
+  high = a.leia.high;
+  styl = a.leia.styl;
+  init();
+}, function(a) {
+  console.error(a);
+  mode = 1;pred = 0;high = 0;styl = "emph9";
+  init();
+});
