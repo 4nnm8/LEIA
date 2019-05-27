@@ -41,7 +41,7 @@
 (en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur·rice)
 * Accéder simplement au point médian grâce à un raccourci clavier simple (deux fois la touche point-virgule).
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
-* Surligner les terminaisons inclusives pour les mettre en évidence et simplifier la lecture
+* Stylisation syllabique des terminaisons inclusives pour faciliter la lecture
 
 <p style="text-align:center"><img src="https://addons.cdn.mozilla.net/user-media/previews/full/219/219901.png" alt="Conversion du texte avant et après activation de LÉIA" /></p>
 
