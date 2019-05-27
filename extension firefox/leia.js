@@ -10,7 +10,7 @@
         }
       }
     }, false),
-	dicomap = dico.map((entry)=>{
+    dicomap = dico.map((entry)=>{
       return [
         new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?("+entry[0]+")[-/·∙.•]("+entry[1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
         entry[2],entry[3],entry[4]
@@ -32,8 +32,8 @@ browser.storage.local.get().then(function(a) {
   if (0 < mode) {
     while (walker.nextNode()) {
       setTimeout((function(currentNode){
-		check(currentNode);
-	  }(walker.currentNode)), 0);
+        check(currentNode);
+      }, 0);
     }
   }
   if (1 == high) {
@@ -68,37 +68,37 @@ function highlight(k) {
 }
 function getCaret(x) {
   if (document.selection) {
-	x.focus();
-	var r = document.selection.createRange(),
-	    rs = r.text.length;
-	r.moveStart("character", -x.value.length);
-	var start = r.text.length - rs;
-	return [start, start + rs];
+    x.focus();
+    var r = document.selection.createRange(),
+        rs = r.text.length;
+    r.moveStart("character", -x.value.length);
+    var start = r.text.length - rs;
+    return [start, start + rs];
   } else if (x.selectionStart || x.selectionStart == "0") {
-	return [x.selectionStart, x.selectionEnd];
+    return [x.selectionStart, x.selectionEnd];
   } else {
-	return [0, 0];
+    return [0, 0];
   }
 }
 function selekt(elem, start, end) {
   if (elem.setSelectionRange) {
-	elem.focus();
-	elem.setSelectionRange(start, end);
+    elem.focus();
+    elem.setSelectionRange(start, end);
   } else if (elem.createTextRange) {
-	var range = elem.createTextRange();
-	range.collapse(true);
-	range.moveEnd("character", end);
-	range.moveStart("character", start);
-	range.select();
+    var range = elem.createTextRange();
+    range.collapse(true);
+    range.moveEnd("character", end);
+    range.moveStart("character", start);
+    range.select();
   }
 }
 function getWord(text, caretPos) {
   let txt = text.value.substring(0, caretPos);
   if (txt.indexOf(" ") > 0) {
-	var wrd = txt.split(" ");
-	return wrd[wrd.length - 1];
+    var wrd = txt.split(" ");
+    return wrd[wrd.length - 1];
   } else {
-	return txt;
+    return txt;
   }
 }
 function seek(z) {
@@ -140,31 +140,31 @@ function switcher(e,h) {
   if (term && b[0] != b[1]) {
     switch (a) {
       case 8:
-		e.preventDefault();
-		h.value = h.value.slice(0, b[0] - 1) + h.value.slice(b[1]);
-		selekt(h, b[0] - 1, b[0] - 1);
-		break;
+        e.preventDefault();
+        h.value = h.value.slice(0, b[0] - 1) + h.value.slice(b[1]);
+        selekt(h, b[0] - 1, b[0] - 1);
+        break;
       case 37:
-		e.preventDefault();
-		h.value = h.value.slice(0, b[0]) + h.value.slice(b[1]);
-		selekt(h, b[0] - 1, b[0] - 1);
-		break;
+        e.preventDefault();
+        h.value = h.value.slice(0, b[0]) + h.value.slice(b[1]);
+        selekt(h, b[0] - 1, b[0] - 1);
+        break;
       case 13:
-		e.preventDefault();
-		selekt(h, b[1], b[1]);
-		break;
+        e.preventDefault();
+        selekt(h, b[1], b[1]);
+        break;
       case 40:
-		e.preventDefault();
-		change(1, h, b);
-		break;
+        e.preventDefault();
+        change(1, h, b);
+        break;
       case 38:
-	        e.preventDefault();
-		change(-1, h, b);
-		break;
+        e.preventDefault();
+        change(-1, h, b);
+        break;
       default:
-		term = [];
-		terml = undefined;
-		termp = 1;
-	}
+        term = [];
+        terml = undefined;
+        termp = 1;
+    }
   }  
 }
