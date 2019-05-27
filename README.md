@@ -10,22 +10,16 @@
 
 <hr/>
 
-## Dernières mises-à-jour (24/05/2019)
+## Dernières mises-à-jour (28/05/2019)
 
-* La conversion du texte et le surlignage ne s'applique plus sur les balises dotées de l'attribut ``contenteditable`` ou ``contenteditable="true"``
-* Optimisation générale du code (gestion de scope), et de la fenêtre de préférences.
-* Séparation du dictionnaire en deux (un de conversion et un de saisie prédictive).
-* Concaténation du dictionnaire de conversion pour diminuer le nombre d'itérations.
-* Enrichissement du dictionnaire prédictif.
+* Ajout des fonctions « raccourcis point-médian » et « prédictif inclusif » sur les balises dotées de l'attribut ``contenteditable`` et ``contenteditable="true"``. Malheureusement non fonctionnel sur certaines zones de textes ayant des écouteurs d'événement venant bloquer les fonctions extérieures.
+* Le surlignage de texte, à la basé destiné aux personnes dyslexiques, est remplacé par une stylisation des terminaisons inclusives (gras, souligné, petit, coloré, détaché...) basé sur la coloration syllabique.
 
 ## Évolutions à venir
 
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
 * Correction du ``RegExp`` pour éviter la disparition du point-final au singulier inclusif.
-
-Exemple : **Cette personne est frileux·euse.** > **Cette personne est frileux frileuse**
 * Sur **Firefox Mobile**, correction de l'affichage de la page des préférences.
-* Saisie prédictive à rendre fonctionnelle sur les balises dotées de ``[contenteditable=true]``
 * La fonction de surlignage prendra en compte tous les séparateurs (point, slash, tiret).
 * Dictionnaire prédictif à enrichir.
 * Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable.
