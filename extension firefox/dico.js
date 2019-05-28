@@ -1,4 +1,4 @@
-var dico = [
+const dico = [
 ["br[èe]f","è?ve","bref$4 brève$4","brève$4","bref$4","ève"],
 ["s[èe]c","è?c?he","sec$4 sèche$4","sèche$4","sec$4","èche","he"],
 ["exprès","se","exprès expresse$4","expresse$4","exprès"],
@@ -34,12 +34,12 @@ var dico = [
 ["[ndt]","e","$1$2$4 $1$2$3$4","$1$2$3$4","$1$2$4"],
 ["([féilru])|(c)","(f|qu)?[ëe]","$1$3$4$7","$1$3$5$7","$1$3$4"],
 ["û","e","$1u$4","$1ue$4","$1u$4"],
-["s?","s?e","$1s $1se$4","$1se$4","$1s"]
+["s","e","$1s $1se$4","$1se$4","$1s"],
+["","se","$1s $1se$4","$1se$4","$1s"]
 ],
 t9 = [
 ["br[èe]f","ève"],
 ["exprès","exprès"],
-["s[èe]c","he","èche"],
 ["fra[iî]s?","che","aîche"],
 ["prophète","sse","esse"],
 ["foufou","olle"],
@@ -47,10 +47,8 @@ t9 = [
 ["aïeux","ïeule"],
 ["héros","oïne"],
 ["(ai|ambi|bé|conti|exi|surai|subai)g[uü]","ë","e"],
-["chef","fe","fesse"],
 ["(gre|cadu|laï|publi|micma|syndi|tur|fran)c","que"],
-["las|bas|gros|gras|épais","se"],
-["eux","euse","se"],
+["[a-zÀ-ÖÙ-öù-üœŒ]+eux","euse","se"],
 ["lesquel|auxquel|desquel","les"],
 ["clown","e","esse"],
 ["esquimaux","des?","des"],
@@ -60,7 +58,6 @@ t9 = [
 ["copain","ine"],
 ["compagnon","agne"],
 ["(bén|mal)in","igne"],
-["([mf])ou","olle"],
 ["([bc]|aigl|sax|bar|berrich|bis|b|bouff|bourguign|bûcher|bret|brouill|b[uû]cher|buffl|champi|coch|couill|cret|dar|drag|espi|fanfar|fél|folich|forger|frip|maç|lett|garç|gasc|glout|grogn|hériss|hur|laider|lap|lett|li|tatill|teut|champi|vigner|wall|lur|maç|maigrich|nipp|ours|pâlich|phara|piét|pige|pi|pochetr|pochtr|poliss|poltr|rejet|ronch|sauvage|sax|beaucer|bess|bich|boug|brabanç|charr|enfanç|fransquill|godich|hesbign|marmit|nazill|négrill|noblaill|patr|percher|pa|levr|louch|maquign|marr|mat|slav|so[uû]l|mign|mist|mollass|tâcher|tardill)on","ne"],
 ["âne|comte|bonze|bougre|buffle|chanoine|sauvage|tigre|traître|type|prêtre|prince|prophète|faune|flique|gonze|hôte|ivrogne|ladre|larronne|maire|maître|monstre|nègre|notaire|ogre|paire|pape|patronne|pauvre|drôle|druide|comte|diable|suisse|mulâtre|centaure|chanoine","sse","esse"],
 ["(damois|cham|jum|puc|tourang|tourter|jouvenc|maquer|ois|nouv|gém|pastour|agn|b)eaux?","elle"],
@@ -80,5 +77,10 @@ t9 = [
 ["roux","ousse","sse"],
 ["faux","ausse","sse"],
 ["vieux","ieille"],
-["doux","ouce","ce"]
+["doux","ouce","ce"],
+["^([mf])ou","olle"],
+["^s[èe]c","he","èche"],
+["^chef","fe","fesse"],
+["^(las|bas|gros|gras|épais)","se"],
+["[a-zÀ-ÖÙ-öù-üœŒ]+teur","rice","euse"]
 ];

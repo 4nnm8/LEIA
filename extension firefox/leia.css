@@ -53,7 +53,7 @@
   box-sizing: border-box;
   margin-top: 11px;
 }
-.xx {
+.confleia .xx {
   display:inline-block;
   width:95%;
   padding: 3px;
@@ -61,7 +61,10 @@
   background-color:#dfdfdf;
   color:#000;
 }
-.leiasr {
+.confleia #buttons {
+  color:#000;
+}
+.confleia .leiasr {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -86,55 +89,50 @@
   border: 1px solid #888;
   border-radius: 5px;
 }
-.emph0 {
-  visibility:hidden
-}
+
 .emph1 {
-  color:#000;
   font-weight:bold;
 }
 .emph2 {
-  background-color:#000000;
-  font-weight:bold;
-  color:#ffffff 
+  color:#ffffff;
+  text-shadow: -2px 0 2px #222, 0 2px 2px #222, 2px 0 2px #222, 0 -2px 2px #222;
 }
 .emph3 {
-  background-color:#000000;
-  color:#ffffff
+  opacity:0.4
 }
 .emph4 {
-  background-color:#ffffff;
-  color:#000000 
+  color:#9400D3;
+  text-shadow: -2px 0 2px #FFF, 0 2px 2px #FFF, 2px 0 2px #FFF, 0 -2px 2px #FFF;
 }
 .emph5 {
   background-color:#ffffff;
-  font-weight:bold;
+  padding-right:3px;
   color:#000000 
 }
 .emph6 {
-  background-color:#318FFE;
-  color:#ffffff 
+  background-color:#000;
+  padding-right:3px;
+  color:#fff 
 }
 .emph7 {
   background-color:#318FFE;
-  font-weight:bold;
-  color:#ffffff 
+  color:#ffffff;
+  padding-right:3px
 }
 .emph8 {
-  background-color:#ffff00;
-  font-weight:bold;
-  color:#000000 
+  background-color:rgba(255,255,0,0.6);
+  color:#000000 ;
+  padding-right:3px;
 }
 .emph9 {
-  background-color:#FFFF00;
-  color:#000000 
+  text-decoration:underline
 }
 .emph10 {
-  background-color:rgba(255,255,0,0.6);
-  font-weight:bold;
-  color:#000000 
+  font-size:80%
 }
 .emph11 {
-  background-color:rgba(255,255,0,0.6);
-  color:#000000 
+  text-decoration: wavy underline 
+}
+.emph12 {
+  margin-left:7px
 }
