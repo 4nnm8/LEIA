@@ -15,7 +15,7 @@
 * Ajout des fonctions « raccourcis point-médian » et « prédictif inclusif » sur les balises dotées de l'attribut ``contenteditable`` et ``contenteditable="true"``. Malheureusement non fonctionnel sur certaines zones de textes ayant des écouteurs d'événement venant bloquer les fonctions externes.
 * Le surlignage de texte, à la basé destiné aux personnes dyslexiques, est remplacé par une stylisation des terminaisons inclusives (gras, souligné, petit, coloré, détaché...) basé sur la coloration syllabique.
 * Correction du dictionnaire pour éviter le remplacement de terminaisons lorsque celles-ci sont volontairement mises entre balises.
-* La fonction de coloration syllabique se fait avec des balises <SPAN> au lieu de <MARK> pou éviter des styles préinstallés
+* La fonction de coloration syllabique se fait avec des balises ``<SPAN>`` au lieu de ``<MARK>`` pou éviter les styles par défaut.
   
 ## Évolutions à venir
 
