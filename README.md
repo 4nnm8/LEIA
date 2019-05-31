@@ -16,7 +16,18 @@
 wisigoth·e, visigoth·e, ostrogoth·e, goth·e, bigouden·ène, kanak·e, tadjik·e, kalmouk·e, mameluk·e, mamelouk·e,
 uzbek·èke, ouzbek·èke, amazigh·e, tifinagh·e, loubavitch·e, kazakh·e, sikh·e, chleuh·e, kirghiz·e 
 
-**Note :** a priori, toutes les terminaisons sont maintenant prises en compte, excepté des anglicismes aux terminaisons particulières telles que **barman·maid**, et les italianismes et hispanicismes qui seront ajoutés prochainement.
+**Note :** le but est d'être au maximum exhaustif sans ajouter trop de règles qui ralentiraient la lecture du dictionnaire.
+Ainsi, voici quelques mots qui ne seront a priori pas inclus dans le dictionnaire :
+
+Anglicismes : **barman·maid**, **speaker·ine**
+Titres : **bailli·ve**, **margrave·ine**
+Régionalismes : **petitou·ne**, **baes·ine**
+Gentilés : **génofévain·ine**, **mandelinot·nienn**, **malbar·aise**, **attikamek·èque**, **béothuk·que**
+Animaux : **loup·ve**, etc.
+Désuet : **champi·sse**
+
+
+Les italianismes et hispanicismes seront, en revanche, ajoutés prochainement.
 
 ## Évolutions à venir
 
