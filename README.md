@@ -10,13 +10,14 @@
 
 <hr/>
 
-## Dernières mises-à-jour (28/05/2019)
+## Dernières mises-à-jour (31/05/2019)
 
-* Ajout des fonctions « raccourcis point-médian » et « prédictif inclusif » sur les balises dotées de l'attribut ``contenteditable`` et ``contenteditable="true"``. Malheureusement non fonctionnel sur certaines zones de textes ayant des écouteurs d'événement venant bloquer les fonctions externes.
-* Le surlignage de texte, à la basé destiné aux personnes dyslexiques, est remplacé par une stylisation des terminaisons inclusives (gras, souligné, petit, coloré, détaché...) basé sur la coloration syllabique.
-* Correction du dictionnaire pour éviter le remplacement de terminaisons lorsque celles-ci sont volontairement mises entre balises.
-* La fonction de coloration syllabique se fait avec des balises ``<SPAN>`` au lieu de ``<MARK>`` pou éviter les styles par défaut.
-  
+* Ajout de quelques règles supplémentaires au dictionnaire concernant des terminaisons rares :
+wisigoth·e, visigoth·e, ostrogoth·e, goth·e, bigouden·ène, kanak·e, tadjik·e, kalmouk·e, mameluk·e, mamelouk·e,
+uzbek·èke, ouzbek·èke, amazigh·e, tifinagh·e, loubavitch·e, kazakh·e, sikh·e, chleuh·e, kirghiz·e 
+
+**Note :** a priori, toutes les terminaisons sont maintenant prises en compte, excepté des anglicismes aux terminaisons particulières telles que (exemple : **barman·maid**), et dans italianismes ou hispanicismes qui seront ajoutés prochainement.
+
 ## Évolutions à venir
 
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
