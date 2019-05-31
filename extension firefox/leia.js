@@ -1,28 +1,31 @@
-﻿var mode,pred,high,styl,
-    term,terml,termp=1,
+﻿var mode, pred, high, styl,
+    term, terml, termp = 1,
     t9l = t9.length,
+    bl = false,
     r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
     walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode: function(node){
+      acceptNode: function(node) {
         if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) && "true" !== node.parentNode.contentEditable && 0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
       }
     }, false),
-    dicomap = dico.map((entry)=>{
+    dicomap = dico.map((entry) => {
       return [
-        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?("+entry[0]+")[-/·∙.•]("+entry[1]+")[-/·∙.•]?(s)?(?![a-z])","gi"),
-        entry[2],entry[3],entry[4]
+        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?(" + entry[0] + ")[-/·∙.•](" + entry[1] + ")(?:[-/·∙.•](?!$))?(s)?(?![a-z])", "gi"),
+        entry[2], entry[3], entry[4]
       ];
     });
-function check(n){
-  dicomap.map(function(b){
+
+function check(n) {
+  dicomap.map(function(b) {
     n.nodeValue = n.nodeValue.replace(b[0], b[mode]);
   });
 }
-function highlight(k){
+
+function highlight(k) {
   let r = r3.exec(k.nodeValue);
-  if (r){
+  if (r) {
     let nmark = document.createElement("SPAN"),
-        after = k.splitText(r.index);
+      after = k.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
     nmark.className = styl;
     after.nodeValue = after.nodeValue.substring(r[0].length);
@@ -32,7 +35,7 @@ function highlight(k){
 
 function seek(z) {
   for (let j = 0; j < t9l; j++) {
-    let reg = new RegExp(t9[j][0] + "s?$", "i"),
+    let reg = new RegExp("(" + t9[j][0] + ")$", "i"),
       mch = z.search(reg);
     if (-1 != mch) {
       return t9[j];
@@ -64,7 +67,6 @@ function getCaretCE(x) {
     preCaretRange.selectNodeContents(x);
     preCaretRange.setEnd(range.endContainer, range.endOffset);
     start = preCaretRange.toString().length - sel;
-
     if (sel == 0) {
       return [start, start];
     } else {
@@ -124,14 +126,15 @@ function feminize(g) {
     }
   }
   let b = getCaret(g),
-    c = getWord(g, b[1]),
-    d = seek(c) || false;
-  if (d && c.indexOf("·") == -1) {
+      c = getWord(g, b[1]),
+      d = seek(c) || false;
+  if (d && c.indexOf("·") == -1 && !bl) {
     g.value = g.value.slice(0, b[0]) + "·" + d[termp] + g.value.slice(b[0]);
     selekt(g, b[0], b[0] + d[termp].length + 1);
     term = d;
     terml = term.length;
   }
+  bl = false;
 }
 
 function feminizeCE() {
@@ -145,27 +148,28 @@ function feminizeCE() {
     }
   }
   let a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode,
-    b = getCaretCE(a),
-    c = getWordCE(a, b[0]),
-    d = seek(c) || false;
+      b = getCaretCE(a),
+      c = getWordCE(a, b[0]),
+      d = seek(c) || false;
 
-  if (d && getWordCE(a, b[0] + 1).indexOf("·") == -1) {
+  if (d && getWordCE(a, b[0] + 1).indexOf("·") == -1 && !bl) {
     a.innerText = a.innerText.slice(0, b[0]) + "·" + d[termp] + a.innerText.slice(b[0]);
     selektCE(a, b[0], b[0] + d[termp].length + 1);
     term = d;
     terml = term.length;
   }
+  bl = false;
 }
 
 function switcher(e, h) {
   function change(n, m, b) {
-    1 == n && (termp == terml - 1 ? termp = 1 : termp++); -
-    1 == n && (5 == termp ? termp = terml - 1 : termp--);
+    1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
+	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
     m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
     selekt(m, b[0], b[0] + term[termp].length + 1);
   }
   var a = e.keyCode,
-    b = getCaret(h);
+      b = getCaret(h);
   if (term && b[0] != b[1]) {
     switch (a) {
       case 8:
@@ -190,6 +194,9 @@ function switcher(e, h) {
         e.preventDefault();
         change(-1, h, b);
         break;
+      case 46:
+        bl = true;
+        break;
       default:
         term = [];
         terml = undefined;
@@ -202,13 +209,13 @@ function switcherCE(e) {
   var h = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode;
 
   function changeCE(n, b) {
-    1 == n && (termp == terml - 1 ? termp = 1 : termp++); -
-    1 == n && (1 == termp ? termp = terml - 1 : termp--);
+    1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
+	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
     h.innerText = h.innerText.slice(0, b[0]) + "·" + term[termp] + h.innerText.slice(b[1]);
     selektCE(h, b[0], b[0] + term[termp].length + 1);
   }
   let a = e.keyCode,
-    b = getCaretCE(h);
+      b = getCaretCE(h);
   if (term && b[0] != b[1]) {
     switch (a) {
       case 8: // backspace
@@ -233,6 +240,9 @@ function switcherCE(e) {
         e.preventDefault();
         changeCE(-1, b);
         break;
+      case 46:
+        bl = true;
+        break;
       default:
         term = [];
         terml = undefined;
@@ -241,51 +251,90 @@ function switcherCE(e) {
   }
 }
 
-function init(){
-  if (0 < mode){
-    while (walker.nextNode()){
- 	  setTimeout((function(currentNode){
-		check(currentNode);
-	  }(walker.currentNode)), 0);
+function init() {
+  if (0 < mode) {
+    while (walker.nextNode()) {
+      setTimeout((function(currentNode) {
+        check(currentNode);
+      }(walker.currentNode)), 0);
     }
   }
-  if (1 == high){
-    while (walker.nextNode()){
-      setTimeout((function(currentNode){
-		highlight(currentNode);
-	  }(walker.currentNode)), 0);
+  if (1 == high) {
+    while (walker.nextNode()) {
+      setTimeout((function(currentNode) {
+        highlight(currentNode);
+      }(walker.currentNode)), 0);
     }
   }
-  if (1 == pred){
+  if (1 == pred) {
+
     document.querySelectorAll("input,textarea").forEach(function(x) {
-	  if (x.type.match(/TEXT|TEXTAREA/i)) {
-        x.addEventListener("keyup", function(e) { feminize(this); },false);
-        x.addEventListener("keydown", function(e) { switcher(e,this) },false);
-	  }
-    }); 
-	document.querySelectorAll('[contenteditable=true],[contenteditable]').forEach(function(y) {
-	  y.addEventListener('keyup', function(e) { feminizeCE(this); }, false);	
-	  y.addEventListener('keydown', function(e) { switcherCE(e); }, false);	
-	});
+      if (x.type.match(/TEXT|TEXTAREA/i)) {
+        x.addEventListener("keyup", function(e) {
+          feminize(this);
+        }, false);
+        x.addEventListener("keydown", function(e) {
+          switcher(e, this)
+        }, false);
+      }
+    });
+    document.querySelectorAll('[contenteditable=true],[contenteditable]').forEach(function(y) {
+      y.addEventListener('keyup', function(e) {
+        feminizeCE(this);
+      }, false);
+      y.addEventListener('keydown', function(e) {
+        switcherCE(e);
+      }, false);
+    });
+
   }
 }
+
 document.querySelectorAll("input,textarea").forEach(function(x) {
   if (x.type.match(/SEARCH|TEXT|TEXTAREA/i)) {
-    x.addEventListener("keyup", function(e) { middot(e,this) }, false);
+    x.addEventListener("keyup", function(e) {
+      middot(e, this)
+    }, false);
   }
 });
+
 document.querySelectorAll("[contenteditable],[contenteditable=true]").forEach(function(x) {
-  x.addEventListener("keyup", function(e) { middotCE(e,this) }, false);
+  x.addEventListener("keyup", function(e) {
+    middotCE(e, this)
+  }, false);
 });
 
-browser.storage.local.get().then(function(a){
+browser.storage.local.get().then(function(a) {
   mode = a.leia.mode;
   pred = a.leia.pred;
   high = a.leia.high;
   styl = a.leia.styl;
   init();
-}, function(a){
+}, function(a) {
   console.error(a);
-  mode = 1;pred = high = 0;styl = "emph4";
+  mode = 1;
+  pred = high = 0;
+  styl = "emph4";
   init();
 });
+
+/*
+document.addEventListener("keyup",function(e){
+	let targ = e.target;
+	if (targ.tagName.match(/INPUT|TEXTAREA/i) && targ.type.match(/SEARCH|TEXT|TEXTAREA/i)) {
+		middot(e,targ);
+		!targ.type.match(/SEARCH/i) && feminize(targ);	
+	} else if ("true" == targ.contentEditable) {	
+		middotCE(e,targ);
+		feminizeCE(targ);
+	}	
+});
+document.addEventListener("keydown",function(e){
+	let targ = e.target;
+	if (targ.tagName.match(/INPUT|TEXTAREA/i) && targ.type.match(/TEXT|TEXTAREA/i)) {
+		switcher(e,targ)	
+	} else if ("true" == targ.contentEditable) {	
+		switcherCE(e,targ)
+	}	
+});
+*/
