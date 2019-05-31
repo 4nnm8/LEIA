@@ -19,7 +19,7 @@ const dico = [
 ["e?aux?","elle|ale","$1$2 $1$3$4","$1$3$4","$1$2"],
 ["a?in|agnon|ou|ut|a","[ia]g?ne|olle|asse|use","$1$2$4 $1$3$4","$1$3$4","$1$2$4"], //sauf canut·se et bêta·sse
 ["(absou|dissou|tou|tier)s?","(ou)?(te)|(ce)","$3s $3$6$7$8","$3$6$7$8","$3s"],
-["[èe]([rt])","(?:è[rt])?e","$1e$3$5 $1è$3e$5","$1è$3e$5","$1e$3$5"],
+["[èe]([rknt])","(?:è[rknt])?e","$1e$3$5 $1è$3e$5","$1è$3e$5","$1e$3$5"], // ajout N et K pour bigouden-e et ouzbek-e
 ["le|au|du", "(à |de )?l?aquel[-/·∙.•]le","$2quel $4 laquelle","$4 laquelle","$2quel"],
 ["du|au","(?:de|à) la","$2 $3","$3","$2"],
 ["le","l?a","le la","la","le"],
@@ -32,7 +32,7 @@ const dico = [
 ["(e)|([^e])","e?sse","$1$3$4$6 $1$4esse","$1$4esse","$1$3$4$6"], 
 ["s","se","$1s $1$2$3$4","$1$2$3$4","$1s"],
 ["[ndt]","e","$1$2$4 $1$2$3$4","$1$2$3$4","$1$2$4"],
-["([féilru])|(c)","(f|qu)?[ëe]","$1$3$4$7","$1$3$5$7","$1$3$4"],
+["([féilruzhk])|(c)","(f|qu)?[ëe]","$1$3$4$7","$1$3$5$7","$1$3$4"], // ajout Z,H,K
 ["û","e","$1u$4","$1ue$4","$1u$4"],
 ["s","e","$1s $1se$4","$1se$4","$1s"],
 ["","se","$1s $1se$4","$1se$4","$1s"]
@@ -46,6 +46,8 @@ t9 = [
 ["hébreux?","aïque"],
 ["aïeux","ïeule"],
 ["héros","oïne"],
+["bigouden","ène"],
+["o?uzbek","èke"],
 ["(ai|ambi|bé|conti|exi|surai|subai)g[uü]","ë","e"],
 ["(gre|cadu|laï|publi|micma|syndi|tur|fran)c","que"],
 ["[a-zÀ-ÖÙ-öù-üœŒ]+eux","euse","se"],
