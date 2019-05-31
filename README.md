@@ -10,34 +10,31 @@
 
 <hr/>
 
-## Dernières mises-à-jour (31/05/2019)
+## Dernières mises-à-jour (01/06/2019)
 
-* Ajout de quelques règles supplémentaires au dictionnaire concernant des terminaisons rares :
-wisigoth·e, visigoth·e, ostrogoth·e, goth·e, bigouden·ène, kanak·e, tadjik·e, kalmouk·e, mameluk·e, mamelouk·e,
-uzbek·èke, ouzbek·èke, amazigh·e, tifinagh·e, loubavitch·e, kazakh·e, sikh·e, chleuh·e, kirghiz·e 
+* Correction du bug ``RegExp`` qui faisait disparaître le point-final suivants les mots au singulier inclusif.
 
-**Note :** le but est d'être au maximum exhaustif sans ajouter trop de règles qui ralentiraient la lecture du dictionnaire.
-Ainsi, voici quelques mots qui ne seront a priori pas inclus dans le dictionnaire :
+``([a-zÀ-ÖÙ-öù-üœŒ]+?)?(``**suffixe masculin**``)[-/·∙.•](``**suffixe féminin**``)(?:[-/·∙.•](?!$))?(s)?(?![a-z])``
 
-Anglicismes : **barman·maid**, **speaker·ine**
+* Correction en enrichissement massif du dictionnaire de conversion.
 
-Titres : **bailli·ve**, **margrave·ine**
+→ Disctinction des mots en **-ille** se prononçant différemment à l'oral en [ij] (gentille) des mots indistinguables à l'oral en [ɛj] (pareille) donc identiques à l'oral pour éviter les répétitions.
 
-Régionalismes : **petitou·ne**, **baes·ine**
+→ Ajout de gentilés (exemple : **wisigoth·e, bigouden·ène, kanak·e, amazigh·e, kazakh·e, kirghiz·e**)
 
-Gentilés : **génofévain·ine**, **mandelinot·nienn**, **malbar·aise**, **attikamek·èque**, **béothuk·que**
+→ Ajout de **nouvel, bel, vieil, fol, mol**
 
-Animaux : **loup·ve**, etc.
+* Correction et amélioration de la fonction de dictionnaire prédictif
 
-Désuet : **champi·sse**
+→ possibilité de faire *Suppr* sans se voir reproposer la même terminaison et donc annuler la proposition
 
+→ bug de prédiction réglé
 
-Les italianismes et hispanicismes seront, en revanche, ajoutés prochainement.
 
 ## Évolutions à venir
 
+* Ajouter italianismes et hispanicismes au dictionnaire.
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
-* Correction du ``RegExp`` pour éviter la disparition du point-final au singulier inclusif.
 * Sur **Firefox Mobile**, correction de l'affichage de la page des préférences.
 * La fonction de sylisation syllabique prendra en compte tous les séparateurs (point, slash, tiret).
 * Dictionnaire prédictif à enrichir.
