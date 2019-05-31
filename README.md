@@ -20,10 +20,15 @@ uzbek·èke, ouzbek·èke, amazigh·e, tifinagh·e, loubavitch·e, kazakh·e, si
 Ainsi, voici quelques mots qui ne seront a priori pas inclus dans le dictionnaire :
 
 Anglicismes : **barman·maid**, **speaker·ine**
+
 Titres : **bailli·ve**, **margrave·ine**
+
 Régionalismes : **petitou·ne**, **baes·ine**
+
 Gentilés : **génofévain·ine**, **mandelinot·nienn**, **malbar·aise**, **attikamek·èque**, **béothuk·que**
+
 Animaux : **loup·ve**, etc.
+
 Désuet : **champi·sse**
 
 
