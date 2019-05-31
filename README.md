@@ -16,7 +16,7 @@
 wisigoth·e, visigoth·e, ostrogoth·e, goth·e, bigouden·ène, kanak·e, tadjik·e, kalmouk·e, mameluk·e, mamelouk·e,
 uzbek·èke, ouzbek·èke, amazigh·e, tifinagh·e, loubavitch·e, kazakh·e, sikh·e, chleuh·e, kirghiz·e 
 
-**Note :** a priori, toutes les terminaisons sont maintenant prises en compte, excepté des anglicismes aux terminaisons particulières telles que (exemple : **barman·maid**), et dans italianismes ou hispanicismes qui seront ajoutés prochainement.
+**Note :** a priori, toutes les terminaisons sont maintenant prises en compte, excepté des anglicismes aux terminaisons particulières telles que **barman·maid**, et les italianismes et hispanicismes qui seront ajoutés prochainement.
 
 ## Évolutions à venir
 
