@@ -37,8 +37,6 @@
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
 * Sur **Firefox Mobile**, correction de l'affichage de la page des préférences.
 * La fonction de sylisation syllabique prendra en compte tous les séparateurs (point, slash, tiret).
-* Dictionnaire prédictif à enrichir.
-* Les mots composés tels que **tout·e-puissant·e** donnent **tout toute-puissant puissante** lorsque **tout-puissant toute-puissante** serait préférable.
 
 <hr/>
 
