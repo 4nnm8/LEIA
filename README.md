@@ -14,7 +14,7 @@
 
 * Correction du bug ``RegExp`` qui faisait disparaître le point-final suivants les mots au singulier inclusif. La partie ajoutée est en gras.
 
-``([a-zÀ-ÖÙ-öù-üœŒ]+?)?(``suffixe masculin``)[-/·∙.•](``suffixe féminin``)``**(?:**``[-/·∙.•]``**(?!$))**``?(s)?(?![a-z])``
+``([a-zÀ-ÖÙ-öù-üœŒ]+?)?(``suffixe masculin``)[-/·∙.•](``suffixe féminin``)``**(?:**``[-/·∙.•]``**(?!$|\s))**``?(s)?(?![a-z])``
 
 * Correction en enrichissement massif du dictionnaire de conversion.
 
