@@ -1,4 +1,4 @@
-﻿var mode, pred, high, styl,
+var mode, pred, high, styl,
     term, terml, termp = 1,
     t9l = t9.length,
     bl = false,
@@ -10,7 +10,7 @@
     }, false),
     dicomap = dico.map((entry) => {
       return [
-        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?(" + entry[0] + ")[-/·∙.•](" + entry[1] + ")(?:[-/·∙.•](?!$))?(s)?(?![a-z])", "gi"),
+        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?(" + entry[0] + ")[-/·∙.•](" + entry[1] + ")(?:[-/·∙.•](?!$|\s))?(s)?(?![a-z])", "gi"),
         entry[2], entry[3], entry[4]
       ];
     });
@@ -36,7 +36,7 @@ function highlight(k) {
 function seek(z) {
   for (let j = 0; j < t9l; j++) {
     let reg = new RegExp("(" + t9[j][0] + ")$", "i"),
-      mch = z.search(reg);
+        mch = z.search(reg);
     if (-1 != mch) {
       return t9[j];
     }
@@ -47,7 +47,7 @@ function getCaret(x) {
   if (document.selection) {
     x.focus();
     let r = document.selection.createRange(),
-      rs = r.text.length;
+        rs = r.text.length;
     r.moveStart("character", -x.value.length);
     let start = r.text.length - rs;
     return [start, start + rs];
@@ -62,8 +62,8 @@ function getCaretCE(x) {
   let start = 0;
   if (typeof window.getSelection !== "undefined") {
     let range = window.getSelection().getRangeAt(0),
-      sel = range.toString().length,
-      preCaretRange = range.cloneRange();
+        sel = range.toString().length,
+        preCaretRange = range.cloneRange();
     preCaretRange.selectNodeContents(x);
     preCaretRange.setEnd(range.endContainer, range.endOffset);
     start = preCaretRange.toString().length - sel;
@@ -91,7 +91,7 @@ function selekt(elem, start, end) {
 
 function selektCE(elem, start, end) {
   let range = document.createRange(),
-    sel = window.getSelection();
+      sel = window.getSelection();
   range.setStart(elem.firstChild, start);
   range.setEnd(elem.firstChild, end);
   sel.removeAllRanges();
@@ -164,7 +164,7 @@ function feminizeCE() {
 function switcher(e, h) {
   function change(n, m, b) {
     1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
-	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
+    -1 == n && (1 == termp ? termp = terml - 1 : termp--);
     m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
     selekt(m, b[0], b[0] + term[termp].length + 1);
   }
@@ -210,7 +210,7 @@ function switcherCE(e) {
 
   function changeCE(n, b) {
     1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
-	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
+    -1 == n && (1 == termp ? termp = terml - 1 : termp--);
     h.innerText = h.innerText.slice(0, b[0]) + "·" + term[termp] + h.innerText.slice(b[1]);
     selektCE(h, b[0], b[0] + term[termp].length + 1);
   }
@@ -267,7 +267,6 @@ function init() {
     }
   }
   if (1 == pred) {
-
     document.querySelectorAll("input,textarea").forEach(function(x) {
       if (x.type.match(/TEXT|TEXTAREA/i)) {
         x.addEventListener("keyup", function(e) {
