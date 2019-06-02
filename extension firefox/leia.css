@@ -20,11 +20,12 @@
 
 .confleia label, .confleia .label {
   display:block;
+  position:relative;
   padding: 11px 10px 15px 10px;
   border-bottom: 1px dotted #106eaf 
 }
 .confleia label:last-child {
-	border:0
+  border:0
 }
 .confleia select {
   background: none repeat scroll 0 0 #FFFFFF;
@@ -36,6 +37,32 @@
   width:100%;
   text-align:center;
   margin: 11px 0 0 0;
+  -moz-appearance: none;
+  appearance: none; 
+  cursor:pointer;
+  transition: box-shadow .3s;
+}
+.confleia select:hover {
+  box-shadow: 0 0 5px #0E5D96 inset;
+}
+.confleia label:before{
+  content:"";
+  color: transparent;
+  position:absolute;
+  display:block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 13.0px 7.5px 0 7.5px;
+  border-color: #666 transparent transparent transparent;
+  border-radius:4px;
+  right:21px; 
+  top:63px; 
+  pointer-events:none;
+}
+.confleia label:hover:before {
+  content:"";
+  border-color: #0E5D96 transparent transparent transparent;
 }
 .confleia kbd {
   display: inline-block;

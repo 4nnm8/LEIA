@@ -1,4 +1,4 @@
-var mode, pred, high, styl,
+﻿var mode, pred, high, styl,
     term, terml, termp = 1,
     t9l = t9.length,
     bl = false,
@@ -10,7 +10,7 @@ var mode, pred, high, styl,
     }, false),
     dicomap = dico.map((entry) => {
       return [
-        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?(" + entry[0] + ")[-/·∙.•](" + entry[1] + ")(?:[-/·∙.•](?!$|\s))?(s)?(?![a-z])", "gi"),
+        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?(" + entry[0] + ")[-/·∙.•](" + entry[1] + ")(?:[-/·∙.•](?!$|\\s))?(s)?(?![a-z])", "gi"),
         entry[2], entry[3], entry[4]
       ];
     });
@@ -25,7 +25,7 @@ function highlight(k) {
   let r = r3.exec(k.nodeValue);
   if (r) {
     let nmark = document.createElement("SPAN"),
-      after = k.splitText(r.index);
+        after = k.splitText(r.index);
     nmark.appendChild(document.createTextNode(r[0]));
     nmark.className = styl;
     after.nodeValue = after.nodeValue.substring(r[0].length);
@@ -35,11 +35,9 @@ function highlight(k) {
 
 function seek(z) {
   for (let j = 0; j < t9l; j++) {
-    let reg = new RegExp("(" + t9[j][0] + ")$", "i"),
+    let reg = new RegExp("(^|[\\s\u0028\u005b\u0027\u00ab\u201c\u0022\u002d])(" + t9[j][0] + ")$", "i"),
         mch = z.search(reg);
-    if (-1 != mch) {
-      return t9[j];
-    }
+    if (-1 != mch) { return t9[j]; }
   }
 }
 
@@ -117,9 +115,10 @@ function middotCE() {
 
 function feminize(g) {
   function getWord(text, caretPos) {
-    let txt = text.value.substring(0, caretPos);
-    if (txt.indexOf(" ") > 0) {
-      let wrd = txt.split(" ");
+    let txt = text.value.substring(0, caretPos),
+	    mch = txt.match(/\s/gm);
+    if (mch) {
+      let wrd = txt.split(mch[mch.length - 1]);
       return wrd[wrd.length - 1];
     } else {
       return txt;
@@ -164,7 +163,7 @@ function feminizeCE() {
 function switcher(e, h) {
   function change(n, m, b) {
     1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
-    -1 == n && (1 == termp ? termp = terml - 1 : termp--);
+	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
     m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
     selekt(m, b[0], b[0] + term[termp].length + 1);
   }
@@ -210,7 +209,7 @@ function switcherCE(e) {
 
   function changeCE(n, b) {
     1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
-    -1 == n && (1 == termp ? termp = terml - 1 : termp--);
+	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
     h.innerText = h.innerText.slice(0, b[0]) + "·" + term[termp] + h.innerText.slice(b[1]);
     selektCE(h, b[0], b[0] + term[termp].length + 1);
   }
@@ -267,6 +266,7 @@ function init() {
     }
   }
   if (1 == pred) {
+
     document.querySelectorAll("input,textarea").forEach(function(x) {
       if (x.type.match(/TEXT|TEXTAREA/i)) {
         x.addEventListener("keyup", function(e) {
