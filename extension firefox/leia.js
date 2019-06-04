@@ -2,15 +2,17 @@
     term, terml, termp = 1,
     t9l = t9.length,
     bl = false,
-    r3 = new RegExp("[·∙•][a-zÀ-ÖÙ-öù-üœŒ]+[·∙•]?(?!e$)([a-zÀ-ÖÙ-öù-üœŒ]+)?", "gi"),
+    r3 = new RegExp("[\u00b7\u2219\u2022][a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+[\u00b7\u2219\u2022]?(?!e$)([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+)?", "gi"),
     walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
-        if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) && "true" !== node.parentNode.contentEditable && 0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
+        if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) && 
+		    "true" !== node.parentNode.contentEditable && 
+			0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
       }
     }, false),
     dicomap = dico.map((entry) => {
       return [
-        new RegExp("([a-zÀ-ÖÙ-öù-üœŒ]+?)?(" + entry[0] + ")[-/·∙.•](" + entry[1] + ")(?:[-/·∙.•](?!$|\\s))?(s)?(?![a-z])", "gi"),
+        new RegExp("([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+?)?(" + entry[0] + ")[-/.\u00b7\u2219\u2022](" + entry[1] + ")(?:[-/.\u00b7\u2219\u2022](?!$|\\s))?(s)?(?![a-z\u00e0-\u00f6\u00f9-\u00ff\u0153])", "gi"),
         entry[2], entry[3], entry[4]
       ];
     });
@@ -99,7 +101,7 @@ function selektCE(elem, start, end) {
 function middot(e, f) {
   if (f.value.indexOf(";;") > -1) {
     let now = getCaret(f);
-    f.value = f.value.replace(";;", "·");
+    f.value = f.value.replace(";;", "\u00b7");
     selekt(f, now[0] - 1, now[0] - 1);
   }
 }
@@ -108,7 +110,7 @@ function middotCE() {
   var a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode;
   if (a.innerText.indexOf(";;") > -1) {
     let now = getCaretCE(a);
-    a.innerText = a.innerText.replace(";;", "·");
+    a.innerText = a.innerText.replace(";;", "\u00b7");
     selektCE(a, now[0] - 1, now[0] - 1);
   }
 }
@@ -127,8 +129,8 @@ function feminize(g) {
   let b = getCaret(g),
       c = getWord(g, b[1]),
       d = seek(c) || false;
-  if (d && c.indexOf("·") == -1 && !bl) {
-    g.value = g.value.slice(0, b[0]) + "·" + d[termp] + g.value.slice(b[0]);
+  if (d && c.indexOf("\u00b7") == -1 && !bl) {
+    g.value = g.value.slice(0, b[0]) + "\u00b7" + d[termp] + g.value.slice(b[0]);
     selekt(g, b[0], b[0] + d[termp].length + 1);
     term = d;
     terml = term.length;
@@ -151,8 +153,8 @@ function feminizeCE() {
       c = getWordCE(a, b[0]),
       d = seek(c) || false;
 
-  if (d && getWordCE(a, b[0] + 1).indexOf("·") == -1 && !bl) {
-    a.innerText = a.innerText.slice(0, b[0]) + "·" + d[termp] + a.innerText.slice(b[0]);
+  if (d && getWordCE(a, b[0] + 1).indexOf("\u00b7") == -1 && !bl) {
+    a.innerText = a.innerText.slice(0, b[0]) + "\u00b7" + d[termp] + a.innerText.slice(b[0]);
     selektCE(a, b[0], b[0] + d[termp].length + 1);
     term = d;
     terml = term.length;
@@ -164,7 +166,7 @@ function switcher(e, h) {
   function change(n, m, b) {
     1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
 	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
-    m.value = m.value.slice(0, b[0]) + "·" + term[termp] + m.value.slice(b[1]);
+    m.value = m.value.slice(0, b[0]) + "\u00b7" + term[termp] + m.value.slice(b[1]);
     selekt(m, b[0], b[0] + term[termp].length + 1);
   }
   var a = e.keyCode,
@@ -195,6 +197,7 @@ function switcher(e, h) {
         break;
       case 46:
         bl = true;
+		termp = 1;
         break;
       default:
         term = [];
@@ -210,7 +213,7 @@ function switcherCE(e) {
   function changeCE(n, b) {
     1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
 	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
-    h.innerText = h.innerText.slice(0, b[0]) + "·" + term[termp] + h.innerText.slice(b[1]);
+    h.innerText = h.innerText.slice(0, b[0]) + "\u00b7" + term[termp] + h.innerText.slice(b[1]);
     selektCE(h, b[0], b[0] + term[termp].length + 1);
   }
   let a = e.keyCode,
@@ -241,6 +244,7 @@ function switcherCE(e) {
         break;
       case 46:
         bl = true;
+		termp = 1;
         break;
       default:
         term = [];
