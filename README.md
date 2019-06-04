@@ -12,17 +12,11 @@
 
 ## Dernières mises-à-jour (01/06/2019)
 
-* Correction du bug ``RegExp`` qui faisait disparaître le point-final suivants les mots au singulier inclusif. La partie ajoutée est en gras.
+* Sur **Firefox Mobile**, affichage de la page des préférences corrigée.
 
-``([a-zà-öù-ÿœ]+?)?(``suffixe masculin``)[-/·∙.•](``suffixe féminin``)``**(?:**``[-/·∙.•]``**(?!$|\\s))**``?(s)?(?![a-zà-öù-ÿœ])``
+* Correction du bug ``RegExp`` qui faisait disparaître le point-final suivants les mots au singulier inclusif.
 
 * Correction en enrichissement massif du dictionnaire de conversion.
-
-→ Disctinction des mots en **-ille** se prononçant différemment à l'oral en [ij] (gentille) des mots indistinguables à l'oral en [ɛj] (pareille) donc identiques à l'oral pour éviter les répétitions.
-
-→ Ajout de gentilés (exemple : **wisigoth·e, bigouden·ène, kanak·e, amazigh·e, kazakh·e, kirghiz·e**)
-
-→ Ajout de **nouvel, bel, vieil, fol, mol**
 
 * Correction et amélioration de la fonction de dictionnaire prédictif
 
@@ -30,12 +24,11 @@
 
 → bug de prédiction réglé
 
-
 ## Évolutions à venir
 
+* Dictionnaire compatible avec les sites encodés en **ISO-8859-1/5, latin1/9 et windows-1252**
 * Ajouter italianismes et hispanicismes au dictionnaire.
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
-* Sur **Firefox Mobile**, correction de l'affichage de la page des préférences.
 * La fonction de sylisation syllabique prendra en compte tous les séparateurs (point, slash, tiret).
 
 <hr/>
