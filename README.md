@@ -10,23 +10,12 @@
 
 <hr/>
 
-## Dernières mises-à-jour (01/06/2019)
+## Dernières mises-à-jour (04/06/2019)
 
-* Sur **Firefox Mobile**, affichage de la page des préférences corrigée.
-
-* Correction du bug ``RegExp`` qui faisait disparaître le point-final suivants les mots au singulier inclusif.
-
-* Correction en enrichissement massif du dictionnaire de conversion.
-
-* Correction et amélioration de la fonction de dictionnaire prédictif
-
-→ possibilité de faire *Suppr* sans se voir reproposer la même terminaison et donc annuler la proposition
-
-→ bug de prédiction réglé
+* Dictionnaire compatible avec les sites encodés en **ISO-8859-1/5, latin1/9 et windows-1252**
 
 ## Évolutions à venir
 
-* Dictionnaire compatible avec les sites encodés en **ISO-8859-1/5, latin1/9 et windows-1252**
 * Ajouter italianismes et hispanicismes au dictionnaire.
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
 * La fonction de sylisation syllabique prendra en compte tous les séparateurs (point, slash, tiret).
