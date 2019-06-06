@@ -5,9 +5,9 @@
     r3 = new RegExp("[\u00b7\u2219\u2022][a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+[\u00b7\u2219\u2022]?(?!e$)([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+)?", "gi"),
     walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
-        if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) && 
-		    "true" !== node.parentNode.contentEditable && 
-			0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
+        if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) &&
+          "true" !== node.parentNode.contentEditable &&
+          0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
       }
     }, false),
     dicomap = dico.map((entry) => {
@@ -39,7 +39,7 @@ function seek(z) {
   for (let j = 0; j < t9l; j++) {
     let reg = new RegExp("(^|[\\s\u0028\u005b\u0027\u00ab\u201c\u0022\u002d])(" + t9[j][0] + ")$", "i"),
         mch = z.search(reg);
-    if (-1 != mch) { return t9[j]; }
+    if (-1 != mch) return t9[j];
   }
 }
 
@@ -47,7 +47,7 @@ function getCaret(x) {
   if (document.selection) {
     x.focus();
     let r = document.selection.createRange(),
-        rs = r.text.length;
+      rs = r.text.length;
     r.moveStart("character", -x.value.length);
     let start = r.text.length - rs;
     return [start, start + rs];
@@ -118,7 +118,7 @@ function middotCE() {
 function feminize(g) {
   function getWord(text, caretPos) {
     let txt = text.value.substring(0, caretPos),
-	    mch = txt.match(/\s/gm);
+        mch = txt.match(/\s/gm);
     if (mch) {
       let wrd = txt.split(mch[mch.length - 1]);
       return wrd[wrd.length - 1];
@@ -197,7 +197,7 @@ function switcher(e, h) {
         break;
       case 46:
         bl = true;
-		termp = 1;
+        termp = 1;
         break;
       default:
         term = [];
@@ -220,31 +220,31 @@ function switcherCE(e) {
       b = getCaretCE(h);
   if (term && b[0] != b[1]) {
     switch (a) {
-      case 8: // backspace
+      case 8:
         e.preventDefault();
         h.innerText = h.innerText.slice(0, b[0] - 1) + h.innerText.slice(b[1]);
         selektCE(h, b[0] - 1, b[0] - 1);
         break;
-      case 37: // gauche
+      case 37:
         e.preventDefault();
         h.innerText = h.innerText.slice(0, b[0]) + h.innerText.slice(b[1]);
         selektCE(h, b[0] - 1, b[0] - 1);
         break;
-      case 13: // entrée
+      case 13:
         e.preventDefault();
         selektCE(h, b[1], b[1]);
         break;
-      case 40: // bas
+      case 40:
         e.preventDefault();
         changeCE(1, b);
         break;
-      case 38: // haut
+      case 38:
         e.preventDefault();
         changeCE(-1, b);
         break;
       case 46:
         bl = true;
-		termp = 1;
+        termp = 1;
         break;
       default:
         term = [];
@@ -261,51 +261,34 @@ function init() {
         check(currentNode);
       }(walker.currentNode)), 0);
     }
-  }
-  if (1 == high) {
+  } else if (1 == high) {
     while (walker.nextNode()) {
       setTimeout((function(currentNode) {
         highlight(currentNode);
       }(walker.currentNode)), 0);
     }
   }
+  document.addEventListener("keyup", function(e) {
+    let targ = e.target;
+    if (targ.tagName.match(/INPUT|TEXTAREA/i) && targ.type.match(/SEARCH|TEXT|TEXTAREA/i)) {
+      middot(e, targ);
+      (1 == pred && !targ.type.match(/SEARCH/i)) && feminize(targ);
+    } else if ("true" == targ.contentEditable) {
+      middotCE(e, targ);
+      1 == pred && feminizeCE(targ);
+    }
+  });
   if (1 == pred) {
-
-    document.querySelectorAll("input,textarea").forEach(function(x) {
-      if (x.type.match(/TEXT|TEXTAREA/i)) {
-        x.addEventListener("keyup", function(e) {
-          feminize(this);
-        }, false);
-        x.addEventListener("keydown", function(e) {
-          switcher(e, this)
-        }, false);
+    document.addEventListener("keydown", function(e) {
+      let targ = e.target;
+      if (targ.tagName.match(/INPUT|TEXTAREA/i) && targ.type.match(/TEXT|TEXTAREA/i)) {
+        switcher(e, targ)
+      } else if ("true" == targ.contentEditable) {
+        switcherCE(e, targ)
       }
     });
-    document.querySelectorAll('[contenteditable=true],[contenteditable]').forEach(function(y) {
-      y.addEventListener('keyup', function(e) {
-        feminizeCE(this);
-      }, false);
-      y.addEventListener('keydown', function(e) {
-        switcherCE(e);
-      }, false);
-    });
-
   }
 }
-
-document.querySelectorAll("input,textarea").forEach(function(x) {
-  if (x.type.match(/SEARCH|TEXT|TEXTAREA/i)) {
-    x.addEventListener("keyup", function(e) {
-      middot(e, this)
-    }, false);
-  }
-});
-
-document.querySelectorAll("[contenteditable],[contenteditable=true]").forEach(function(x) {
-  x.addEventListener("keyup", function(e) {
-    middotCE(e, this)
-  }, false);
-});
 
 browser.storage.local.get().then(function(a) {
   mode = a.leia.mode;
@@ -320,24 +303,3 @@ browser.storage.local.get().then(function(a) {
   styl = "emph4";
   init();
 });
-
-/*
-document.addEventListener("keyup",function(e){
-	let targ = e.target;
-	if (targ.tagName.match(/INPUT|TEXTAREA/i) && targ.type.match(/SEARCH|TEXT|TEXTAREA/i)) {
-		middot(e,targ);
-		!targ.type.match(/SEARCH/i) && feminize(targ);	
-	} else if ("true" == targ.contentEditable) {	
-		middotCE(e,targ);
-		feminizeCE(targ);
-	}	
-});
-document.addEventListener("keydown",function(e){
-	let targ = e.target;
-	if (targ.tagName.match(/INPUT|TEXTAREA/i) && targ.type.match(/TEXT|TEXTAREA/i)) {
-		switcher(e,targ)	
-	} else if ("true" == targ.contentEditable) {	
-		switcherCE(e,targ)
-	}	
-});
-*/
