@@ -10,9 +10,10 @@
 
 <hr/>
 
-## Dernières mises-à-jour (04/06/2019)
+## Dernières mises-à-jour (07/06/2019)
 
-* Dictionnaire compatible avec les sites encodés en **ISO-8859-1/5, latin1/9 et windows-1252**
+* Événements écoutés sur `document` au lieu des zones de saisie de texte
+* Correction mineure du dictionnaire
 
 ## Évolutions à venir
 
