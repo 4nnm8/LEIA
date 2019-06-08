@@ -149,6 +149,8 @@ https://epicene.info/marqueurs.html - comparaison des caractères marqueurs d'é
 
 https://codepen.io/vincent-valentin/full/woGLVL - réflexion sur les graphies de l'écriture inclusive
 
+https://qaz.wtf/u/show.cgi - conversion de caractères en code Unicode
+
 https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
 #### Programmes ####
