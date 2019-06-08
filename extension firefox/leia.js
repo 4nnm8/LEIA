@@ -1,159 +1,127 @@
-﻿var mode, pred, high, styl,
+var mode, pred, high, styl,
     term, terml, termp = 1,
     t9l = t9.length,
     bl = false,
     r3 = new RegExp("[\u00b7\u2219\u2022][a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+[\u00b7\u2219\u2022]?(?!e$)([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+)?", "gi"),
-    walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
-        if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) &&
-          "true" !== node.parentNode.contentEditable &&
-          0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
+        if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) && "true" !== node.parentNode.contentEditable && 0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
       }
     }, false),
-    dicomap = dico.map((entry) => {
+    dm = dico.map((entry) => {
       return [
-        new RegExp("([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+?)?(" + entry[0] + ")[-/.\u00b7\u2219\u2022](" + entry[1] + ")(?:[-/.\u00b7\u2219\u2022](?!$|\\s))?(s)?(?![a-z\u00e0-\u00f6\u00f9-\u00ff\u0153])", "gi"),
+        new RegExp("([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+?)?(" + entry[0] + ")[-/.\u00b7\u2219\u2022\u0028](" + entry[1] + ")(?:[-/.\u00b7\u2219\u2022\u0029](?!$|\\s))?(s)?(?![a-z\u00e0-\u00f6\u00f9-\u00ff\u0153])", "gi"),
         entry[2], entry[3], entry[4]
       ];
     });
 
-function check(n) {
-  dicomap.map(function(b) {
-    n.nodeValue = n.nodeValue.replace(b[0], b[mode]);
+function check(a) {
+  dm.map(function(b) {
+    a.nodeValue = a.nodeValue.replace(b[0], b[mode]);
   });
-}
-
-function highlight(k) {
-  let r = r3.exec(k.nodeValue);
-  if (r) {
-    let nmark = document.createElement("SPAN"),
-        after = k.splitText(r.index);
-    nmark.appendChild(document.createTextNode(r[0]));
-    nmark.className = styl;
-    after.nodeValue = after.nodeValue.substring(r[0].length);
-    k.parentNode.insertBefore(nmark, after);
-  }
 }
 
 function seek(z) {
   for (let j = 0; j < t9l; j++) {
-    let reg = new RegExp("(^|[\\s\u0028\u005b\u0027\u00ab\u201c\u0022\u002d])(" + t9[j][0] + ")$", "i"),
-        mch = z.search(reg);
-    if (-1 != mch) return t9[j];
+    if (-1 != z.search(new RegExp("(^|[\\s\u0028\u005b\u0027\u00ab\u201c\u0022\u002d])(" + t9[j][0] + ")$", "i"))) return t9[j]
   }
 }
 
-function getCaret(x) {
-  if (document.selection) {
-    x.focus();
-    let r = document.selection.createRange(),
-      rs = r.text.length;
-    r.moveStart("character", -x.value.length);
-    let start = r.text.length - rs;
-    return [start, start + rs];
-  } else if (x.selectionStart || x.selectionStart == "0") {
-    return [x.selectionStart, x.selectionEnd];
-  } else {
-    return [0, 0];
-  }
-}
-
-function getCaretCE(x) {
-  let start = 0;
-  if (typeof window.getSelection !== "undefined") {
-    let range = window.getSelection().getRangeAt(0),
-        sel = range.toString().length,
-        preCaretRange = range.cloneRange();
-    preCaretRange.selectNodeContents(x);
-    preCaretRange.setEnd(range.endContainer, range.endOffset);
-    start = preCaretRange.toString().length - sel;
-    if (sel == 0) {
-      return [start, start];
-    } else {
-      return [start, start + sel]
-    }
-  }
-  return [start, start]
-}
-
-function selekt(elem, start, end) {
-  if (elem.setSelectionRange) {
-    elem.focus();
-    elem.setSelectionRange(start, end);
-  } else if (elem.createTextRange) {
-    let range = elem.createTextRange();
-    range.collapse(true);
-    range.moveEnd("character", end);
-    range.moveStart("character", start);
-    range.select();
-  }
-}
-
-function selektCE(elem, start, end) {
-  let range = document.createRange(),
-      sel = window.getSelection();
-  range.setStart(elem.firstChild, start);
-  range.setEnd(elem.firstChild, end);
-  sel.removeAllRanges();
-  sel.addRange(range);
-}
-
-function middot(e, f) {
-  if (f.value.indexOf(";;") > -1) {
-    let now = getCaret(f);
-    f.value = f.value.replace(";;", "\u00b7");
-    selekt(f, now[0] - 1, now[0] - 1);
-  }
+function middot(a) {
+  let b = getCaret(a);
+  -1 < a.value.indexOf(";;") && (a.value = a.value.replace(";;", "\u00b7"), selekt(a, b[0] - 1, b[0] - 1));
 }
 
 function middotCE() {
-  var a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode;
-  if (a.innerText.indexOf(";;") > -1) {
-    let now = getCaretCE(a);
-    a.innerText = a.innerText.replace(";;", "\u00b7");
-    selektCE(a, now[0] - 1, now[0] - 1);
+  let a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode, b = getCaretCE(a);
+  -1 < a.innerText.indexOf(";;") && (a.innerText = a.innerText.replace(";;", "\u00b7"), selektCE(a, b[0] - 1, b[0] - 1));  
+}
+
+function Hi(a) {
+  let b = r3.exec(a.nodeValue);
+  if (b) {
+    let c = document.createElement("SPAN"), d = a.splitText(b.index);
+    c.appendChild(document.createTextNode(b[0]));
+    c.className = styl;
+    d.nodeValue = d.nodeValue.substring(b[0].length);
+    a.parentNode.insertBefore(c, d);
   }
 }
 
-function feminize(g) {
-  function getWord(text, caretPos) {
-    let txt = text.value.substring(0, caretPos),
-        mch = txt.match(/\s/gm);
-    if (mch) {
-      let wrd = txt.split(mch[mch.length - 1]);
-      return wrd[wrd.length - 1];
-    } else {
-      return txt;
-    }
+function getCaret(a) {
+  if (document.selection) {
+    a.focus();
+    let b = document.selection.createRange(), c = b.text.length;
+    b.moveStart("character", -a.value.length);
+    a = b.text.length - c;
+    return [a, a + c];
   }
-  let b = getCaret(g),
-      c = getWord(g, b[1]),
-      d = seek(c) || false;
-  if (d && c.indexOf("\u00b7") == -1 && !bl) {
-    g.value = g.value.slice(0, b[0]) + "\u00b7" + d[termp] + g.value.slice(b[0]);
-    selekt(g, b[0], b[0] + d[termp].length + 1);
-    term = d;
-    terml = term.length;
+  return a.selectionStart || "0" == a.selectionStart ? [a.selectionStart, a.selectionEnd] : [0, 0];
+}
+
+function getCaretCE(a) {
+  let b = 0;
+  if ("undefined" !== typeof window.getSelection) {
+    let c = window.getSelection().getRangeAt(0), d = c.toString().length, e = c.cloneRange();
+    e.selectNodeContents(a);
+    e.setEnd(c.endContainer, c.endOffset);
+    b = e.toString().length - d;
+    if (d != 0) return [b, b + d];
   }
+  return [b,b]
+}
+
+function selekt(a, b, c) {
+  if (a.setSelectionRange) {
+    a.focus();
+    a.setSelectionRange(b, c);
+  } else if (a.createTextRange) {
+    let d = a.createTextRange();
+    d.collapse(true);
+    d.moveEnd("character", c);
+    d.moveStart("character", b);
+    d.select();
+  }
+}
+
+function selektCE(a, b, c) {
+  let d = document.createRange(), e = window.getSelection();
+  d.setStart(a.firstChild, b);
+  d.setEnd(a.firstChild, c);
+  e.removeAllRanges();
+  e.addRange(d);
+}
+
+function feminize(a) {
+  let b = getCaret(a),
+      c = a.value.substring(0, b[1]),
+      d = c.match(/\s/gm),
+	  e = d ? (w = c.split(d[d.length - 1]), w[w.length - 1]) : c,
+      f = seek(e);
+  f && e.indexOf("\u00b7") == -1 && !bl && (
+    a.value = a.value.slice(0, b[0]) + "\u00b7" + f[termp] + a.value.slice(b[0]),
+    selekt(a, b[0], b[0] + f[termp].length + 1),
+    term = f,
+    terml = term.length);
   bl = false;
 }
 
 function feminizeCE() {
-  function getWordCE(text, caretPos) {
-    let txt = text.innerText.substring(0, caretPos);
-    if (txt.indexOf(" ")) {
-      let wrd = txt.split(" ");
-      return wrd[wrd.length - 1];
+  function gWc(t, caretPos) {
+    let u = t.innerText.substring(0, caretPos);
+    if (u.indexOf(" ")) {
+      let w = u.split(" ");
+      return w[w.length - 1];
     } else {
-      return txt;
+      return u;
     }
   }
   let a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode,
       b = getCaretCE(a),
-      c = getWordCE(a, b[0]),
-      d = seek(c) || false;
+      c = gWc(a, b[0]),
+      d = seek(c);
 
-  if (d && getWordCE(a, b[0] + 1).indexOf("\u00b7") == -1 && !bl) {
+  if (d && gWc(a, b[0] + 1).indexOf("\u00b7") == -1 && !bl) {
     a.innerText = a.innerText.slice(0, b[0]) + "\u00b7" + d[termp] + a.innerText.slice(b[0]);
     selektCE(a, b[0], b[0] + d[termp].length + 1);
     term = d;
@@ -164,13 +132,12 @@ function feminizeCE() {
 
 function switcher(e, h) {
   function change(n, m, b) {
-    1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
+    1 == n && (termp == terml - 1 ? termp = 1 : termp++);
 	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
     m.value = m.value.slice(0, b[0]) + "\u00b7" + term[termp] + m.value.slice(b[1]);
     selekt(m, b[0], b[0] + term[termp].length + 1);
   }
-  var a = e.keyCode,
-      b = getCaret(h);
+  let a = e.keyCode, b = getCaret(h);
   if (term && b[0] != b[1]) {
     switch (a) {
       case 8:
@@ -201,7 +168,7 @@ function switcher(e, h) {
         break;
       default:
         term = [];
-        terml = undefined;
+        terml = void 0;
         termp = 1;
     }
   }
@@ -211,7 +178,7 @@ function switcherCE(e) {
   var h = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode;
 
   function changeCE(n, b) {
-    1 == n && (termp == terml - 1 ? termp = 1 : termp++); 
+    1 == n && (termp == terml - 1 ? termp = 1 : termp++);
 	-1 == n && (1 == termp ? termp = terml - 1 : termp--);
     h.innerText = h.innerText.slice(0, b[0]) + "\u00b7" + term[termp] + h.innerText.slice(b[1]);
     selektCE(h, b[0], b[0] + term[termp].length + 1);
@@ -248,46 +215,37 @@ function switcherCE(e) {
         break;
       default:
         term = [];
-        terml = undefined;
+        terml = void 0;
         termp = 1;
     }
   }
 }
 
 function init() {
-  if (0 < mode) {
-    while (walker.nextNode()) {
+ if (0 < mode) {
+    for (; tree.nextNode();) {
       setTimeout((function(currentNode) {
         check(currentNode);
-      }(walker.currentNode)), 0);
+      }(tree.currentNode)), 0);
     }
-  } else if (1 == high) {
-    while (walker.nextNode()) {
-      setTimeout((function(currentNode) {
-        highlight(currentNode);
-      }(walker.currentNode)), 0);
+  } else {
+    if (1 == high) {
+      for (; tree.nextNode();) {
+        setTimeout((function(currentNode) {
+          Hi(currentNode);
+        }(tree.currentNode)), 0);
+      }
     }
   }
   document.addEventListener("keyup", function(e) {
-    let targ = e.target;
-    if (targ.tagName.match(/INPUT|TEXTAREA/i) && targ.type.match(/SEARCH|TEXT|TEXTAREA/i)) {
-      middot(e, targ);
-      (1 == pred && !targ.type.match(/SEARCH/i)) && feminize(targ);
-    } else if ("true" == targ.contentEditable) {
-      middotCE(e, targ);
-      1 == pred && feminizeCE(targ);
-    }
+    let t = e.target;
+    t.tagName.match(/INPUT|TEXTAREA/i) && t.type.match(/SEARCH|TEXT(AREA)?/i) ? (middot(t), 1 == pred && feminize(t)) : "true" == t.contentEditable && (middotCE(), 1 == pred && feminizeCE(t));
   });
-  if (1 == pred) {
-    document.addEventListener("keydown", function(e) {
-      let targ = e.target;
-      if (targ.tagName.match(/INPUT|TEXTAREA/i) && targ.type.match(/TEXT|TEXTAREA/i)) {
-        switcher(e, targ)
-      } else if ("true" == targ.contentEditable) {
-        switcherCE(e, targ)
-      }
-    });
-  }
+  
+  1 == pred && document.addEventListener("keydown", function(e) {
+    let t = e.target;
+    t.tagName.match(/INPUT|TEXTAREA/i) && t.type.match(/TEXT(AREA)?/i) ? switcher(e, t) : "true" == t.contentEditable && switcherCE(e, t);
+  });
 }
 
 browser.storage.local.get().then(function(a) {
