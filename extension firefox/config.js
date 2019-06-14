@@ -1,9 +1,9 @@
 var modeipt = document.getElementById("mode"),
     predipt = document.getElementById("pred"),
-	highipt = document.getElementById("high"),
-	stylipt = document.getElementById("styl"),
-	example = document.getElementById("ex"),
-	buttons = document.getElementById("buttons");
+    highipt = document.getElementById("high"),
+    stylipt = document.getElementById("styl"),
+    example = document.getElementById("ex"),
+    buttons = document.getElementById("buttons");
 
 browser.storage.local.get().then(function(a) {
   modeipt.selectedIndex = a.leia.mode;
@@ -21,7 +21,7 @@ function storeSettings() {
       stylval = stylipt.value;
   browser.storage.local.set({
     leia: {
-	  mode: modeval,
+      mode: modeval,
       pred: predval,
       high: highval,
       styl: stylval
@@ -31,19 +31,19 @@ function storeSettings() {
 buttons.addEventListener("click", function(e) {
   e.preventDefault();
   if ("BUTTON" == e.target.tagName) {
-	var newstyl = "emph"+e.target.name
+    var newstyl = "emph"+e.target.name
     example.className = stylipt.value = newstyl;
-	storeSettings();
+    storeSettings();
   }
 });
 document.getElementById("form").addEventListener("change",function(e) { 
   switch (e.target.id) {
-	case "mode":
-	  0 !== modeipt.selectedIndex && (highipt.selectedIndex = "0", buttons.style.visibility = "hidden");
-	  break;
-	case "high":
+    case "mode":
+      0 !== modeipt.selectedIndex && (highipt.selectedIndex = "0", buttons.style.visibility = "hidden");
+    break;
+    case "high":
       (1 == highipt.selectedIndex) ? (modeipt.selectedIndex = "0", buttons.style.visibility = "visible") : buttons.style.visibility = "hidden";
-	  break;
+    break;
   }
   storeSettings(); 
 });
