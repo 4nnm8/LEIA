@@ -10,10 +10,11 @@
 
 <hr/>
 
-## Dernières mises-à-jour (07/06/2019)
+## Dernières mises-à-jour (14/06/2019)
 
-* Événements écoutés sur `document` au lieu des zones de saisie de texte
-* Correction mineure du dictionnaire
+* Optimisation générale du code 
+* Corrections de bugs et amélioration de la saisie prédictive
+* Réduction à un seul fichier pour les ``content_scripts``
 
 ## Évolutions à venir
 
