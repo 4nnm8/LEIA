@@ -18,9 +18,11 @@
 
 ## Évolutions à venir
 
-* Ajouter italianismes et hispanicismes au dictionnaire.
+* Mode « inclusif partiel » au choix (meilleur nom à trouver). Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**), les autres sont resitués en entier (exemple : **chanteur chanteuse**). Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
 * La fonction de sylisation syllabique prendra en compte tous les séparateurs (point, slash, tiret).
+* Ajouter italianismes et hispanicismes au dictionnaire.
+* Enrichissement et amélioration de la pertinence du dictionnaire prédictif.
 
 <hr/>
 
