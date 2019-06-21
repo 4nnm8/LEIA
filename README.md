@@ -20,7 +20,7 @@
 ## Évolutions à venir
 
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
-* Mode « inclusif partiel » au choix (meilleur nom à trouver). Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**), les autres sont resitués en entier (exemple : **chanteur chanteuse**). Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
+* Mode « inclusif partiel » au choix (meilleur nom à trouver). Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**), les autres sont restitués en entier (exemple : **chanteur chanteuse**). Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
 * Amélioration de la fonction de stylisation syllabique :
 
 → prendra en compte tous les séparateurs (point, slash, tiret).
