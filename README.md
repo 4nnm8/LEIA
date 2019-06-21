@@ -23,9 +23,9 @@
 * Mode « inclusif partiel » au choix (meilleur nom à trouver). Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**), les autres sont restitués en entier (exemple : **chanteur chanteuse**). Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
 * Amélioration de la fonction de stylisation syllabique :
 
-→ prendra en compte tous les séparateurs (point, slash, tiret).
+     → prendra en compte tous les séparateurs (point, slash, tiret).
 
-→ la coloration s'adaptera à la couleur de fond
+     → la coloration s'adaptera à la couleur de fond
 
 * Enrichissement et amélioration de la pertinence du dictionnaire prédictif.
 * Ajouter italianismes et hispanicismes au dictionnaire.
