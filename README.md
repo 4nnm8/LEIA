@@ -10,19 +10,25 @@
 
 <hr/>
 
-## Dernières mises-à-jour (14/06/2019)
+## Dernières mises-à-jour (21/06/2019)
 
 * Optimisation générale du code 
 * Corrections de bugs et amélioration de la saisie prédictive
 * Réduction à un seul fichier pour les ``content_scripts``
+* Les parenthèses sont interprêtées. Exemple : **intégrateur(trice)** → **intégrateur intégratrice**
 
 ## Évolutions à venir
 
-* Mode « inclusif partiel » au choix (meilleur nom à trouver). Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**), les autres sont resitués en entier (exemple : **chanteur chanteuse**). Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
-* La fonction de sylisation syllabique prendra en compte tous les séparateurs (point, slash, tiret).
-* Ajouter italianismes et hispanicismes au dictionnaire.
+* Mode « inclusif partiel » au choix (meilleur nom à trouver). Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**), les autres sont resitués en entier (exemple : **chanteur chanteuse**). Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
+* Amélioration de la fonction de stylisation syllabique :
+
+→ prendra en compte tous les séparateurs (point, slash, tiret).
+
+→ la coloration s'adaptera à la couleur de fond
+
 * Enrichissement et amélioration de la pertinence du dictionnaire prédictif.
+* Ajouter italianismes et hispanicismes au dictionnaire.
 
 <hr/>
 
