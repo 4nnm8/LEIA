@@ -25,9 +25,7 @@ Peut être une alternative intéressante pour les personnes ayant des difficult�
      → prendra en compte tous les séparateurs (point, slash, tiret).
 
      → la coloration s'adaptera à la couleur de fond
-
 * Enrichissement et amélioration de la pertinence du dictionnaire prédictif.
-* Ajouter italianismes et hispanicismes au dictionnaire.
 
 <hr/>
 
