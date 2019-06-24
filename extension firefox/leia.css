@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0 0 15px 0;
   text-align: center;
-  height: 665px;
+  height: 680px;
   width: 360px;
   overflow:hidden;
   font-size: 1.25em;
@@ -18,13 +18,13 @@
   color: #0E5D96;
 }
 
-.confleia label, .confleia .label {
+.confleia .label {
   display:block;
   position:relative;
   padding: 11px 10px 15px 10px;
   border-bottom: 1px dotted #106eaf 
 }
-.confleia label:last-child {
+.confleia .label:last-child {
   border:0
 }
 .confleia select {
@@ -45,7 +45,7 @@
 .confleia select:hover {
   box-shadow: 0 0 5px #0E5D96 inset;
 }
-.confleia label:before{
+.confleia .label:before{
   content:"";
   color: transparent;
   position:absolute;
@@ -60,7 +60,11 @@
   top:63px; 
   pointer-events:none;
 }
-.confleia label:hover:before {
+.confleia .label:nth-of-type(3):before{
+  content:"";
+  border:0;
+}
+.confleia .label:hover:before {
   content:"";
   border-color: #0E5D96 transparent transparent transparent;
 }
@@ -112,9 +116,8 @@
   width:40px;
   padding:3px;
   cursor:pointer;
-  margin-top:5px;
-  border: 1px solid #888;
-  border-radius: 5px;
+  margin-top:6px;
+  margin-right:3px;
 }
 
 .emph1 {

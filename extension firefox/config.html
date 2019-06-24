@@ -4,54 +4,63 @@
     <meta charset="utf-8">
     <title>Préférences LÉIA</title>
     <link rel="stylesheet" type="text/css" href="leia.css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
   </head>
   <body class="confleia">
     <form id="form">
-      <label for="mode">
-        Mode de lecture inclusive
-        <select id="mode">
-          <option value="0">Aucun</option>
-          <option value="1">Mots lus aux deux genres</option>
-          <option value="2">Mots lus au féminin uniquement</option>
-          <option value="3">Mots lus au masculin uniquement</option>
-          <option value="4" disabled>Supprimer les séparateurs</option>
-        </select>
-      </label>
-      <label for="pred">
-        Saisie prédictive inclusive
-        <select id="pred">
-          <option value="0">Désactivée</option>
-          <option value="1">Activée</option>
-        </select>
-      </label>
+      <div class="label">
+        <label for="mode">
+          Mode de lecture inclusive
+          <select id="mode">
+            <option value="0">Aucun</option>
+            <option value="1">Mots lus aux deux genres</option>
+            <option value="2">Mots lus au féminin uniquement</option>
+            <option value="3">Mots lus au masculin uniquement</option>
+          </select>
+        </label>
+        <br/><br/>
+        <label for="semi" aria-hidden="true">
+        <input type="checkbox" id="semi" /> Mode inclusif partiel
+        </label>
+      </div>
+      <div class="label">
+        <label for="pred">
+          Saisie prédictive inclusive
+          <select id="pred">
+            <option value="0">Désactivée</option>
+            <option value="1">Activée</option>
+          </select>
+        </label>
+      </div>
       <div class="label">Insérer un point médian<br/>
         <span class="leiasr">tapez deux fois sur point virgule</span><kbd>;</kbd> <kbd>;</kbd>
       </div>
-      <label for="high">
-        Styliser les terminaisons inclusives
-        <select id="high">
-          <option value="0">Désactivé</option>
-          <option value="1">Activé</option>
-        </select>
-		<input type="hidden" id="styl" />
-        <p aria-hidden="true" id="buttons">
-          <button name="1" class="leiahl emph1" style="border:0">Aa</button>
-          <button name="2" class="leiahl emph2" style="border:0">Aa</button>
-          <button name="3" class="leiahl emph3" style="border:0">Aa</button>
-          <button name="4" class="leiahl emph4" style="border:0">Aa</button><br/>
-		  <button name="9" class="leiahl emph9" style="border:0">Aa</button>
-		  <button name="10" class="leiahl emph10" style="border:0">Aa</button>
-          <button name="11" class="leiahl emph11" style="border:0">Aa</button>
-		  <button name="12" class="leiahl emph12" style="border:0;margin-left:-1px">&#8250;&#8250;Aa</button><br/>
-		  <button name="5" class="leiahl emph5">Aa</button>
-          <button name="6" class="leiahl emph6">Aa</button>
-          <button name="7" class="leiahl emph7">Aa</button>
-		  <button name="8" class="leiahl emph8">Aa</button>
-          <br/>
-          <span class="xx">imprimeur<span id="ex">·euse</span></span>
-        </p>
-      </label>
+      <div class="label">
+        <label for="high">
+          Styliser les terminaisons inclusives
+          <select id="high">
+            <option value="0">Désactivé</option>
+            <option value="1">Activé</option>
+          </select>
+          <input type="hidden" id="styl" />
+          <p aria-hidden="true" id="buttons">
+            <button name="1" class="leiahl emph1">Aa</button>
+            <button name="2" class="leiahl emph2">Aa</button>
+            <button name="3" class="leiahl emph3">Aa</button>
+            <button name="4" class="leiahl emph4">Aa</button>
+            <button name="9" class="leiahl emph9">Aa</button>
+			<button name="12" class="leiahl emph12">&#8250;&#8250;Aa</button><br/>
+            <button name="10" class="leiahl emph10">Aa</button>
+            <button name="11" class="leiahl emph11">Aa</button>
+            <button name="5" class="leiahl emph5" style="border:1px solid #aaa">Aa</button>
+            <button name="6" class="leiahl emph6">Aa</button>
+            <button name="7" class="leiahl emph7">Aa</button>
+            <button name="8" class="leiahl emph8" style="border:1px solid #aaa">Aa</button>
+            <br/>
+            <span class="xx">imprimeur<span id="ex">&middot;euse</span></span>
+          </p>
+        </label>
+      </div>
     </form>
     <script src="config.js"></script>
   </body>

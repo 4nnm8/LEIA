@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "LÉIA - L'écriture inclusive accessible",
   "short_name": "LÉIA",
-  "version": "2.4",
+  "version": "2.7",
   "description": "Cette extension est notamment destinée aux personnes malvoyantes ou ayant des difficultés de lecture.",
   "applications": {
       "gecko": {
@@ -35,7 +35,7 @@
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "js": ["dico.js","leia.js"],
+    "js": ["leia.js"],
     "all_frames": true,
     "css": ["leia.css"],
     "run_at":"document_idle"

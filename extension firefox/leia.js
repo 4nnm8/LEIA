@@ -5,11 +5,8 @@
 ["prophète","e?sse","prophète$4 prophétesse$4","prophétesse$4","prophète$4"],
 ["foufou","olle","foufou$4 fofolle$4","fofolle$4","foufou$4"],
 ["héros?","o?ïne","héros héroïne$4","héroïne$4","héros"],
-["franc","que","franc$4 franque$4","franque$4","franc$4"],
-["grec","que","grec$4","grecque$4","grec$4"],
 ["aïeux","(?:ïeu)?le","aïeux aïeule$4","aïeule$4","aïeux"],
 ["vieux","i?eille","vieux vieille$4","vieille$4","vieux"], 
-["clown|blanc|franc(?![-/.\u00b7\u2219\u2022]que)|long|butor|esquimau|andalou|devin|favori|rigolo|filou|loulou|coi|ce","(?:er)?esse|[hudst]e|tte","$2$4 $2$3$4","$2$3$4","$2$4"],
 ["eur","(?:[oe]r)?esse","$1$2$4 $1$3$4","$1$3$4","$1$2$4"],
 ["([td])eu?r","[td]?r?ice","$1$2$5 $1$3rice$5","$1$3rice$5","$1$2$5"],
 ["e(u)?r","(?:eu)?se","$1e$3r$5 $1euse$5","$1euse$5","$1e$3r$5"],
@@ -17,14 +14,17 @@
 ["([eoa]u)x","(?:[oea]u)?([sdc]{1,2}e)","$1$3x $1$3$5$6","$1$3$5$6","$1$3x"],
 ["e?aux?","elle|ale","$1$2 $1$3$4","$1$3$4","$1$2"],
 ["a?in|agnon|ou|ut|a","[ia]g?ne|olle|asse|use","$1$2$4 $1$3$4","$1$3$4","$1$2$4"], 
-["(absou|dissou|tou|tier)s?","(ou)?(te)|(ce)","$3s $3$6$7$8","$3$6$7$8","$3s"],
 ["[èe]([rnt])","(?:è[rnt])?e","$1e$3$5 $1è$3e$5","$1è$3e$5","$1e$3$5"], 
 ["le|au|du", "(à |de )?l?aquel[-/.\u00b7\u2219\u2022]le","$2quel $4 laquelle","$4 laquelle","$2quel"],
 ["du|au","(?:de|à) la","$2 $3","$3","$2"],
 ["le","l?a","le la","la","le"],
 ["([mts])on","[mts]a","$3on $3a","$3a","$3a","$3on"],
 ["ils?","elle","il$4 elle$4","elle$4","il$4"],
-["eux|e?lui|ils?","c?elle","$1$2 $1elle$4","$1elle$4","$1$2"],
+["eux|e?lui|ils?","c?elle","$1$2 $1elle$4","$1elle$4","$1$2"], //semi
+["franc","que","franc$4 franque$4","franque$4","franc$4"],
+["grec","que","grec$4","grecque$4","grec$4"],
+["(absou|dissou|tou|tier)s?","(ou)?(te)|(ce)","$3s $3$6$7$8","$3$6$7$8","$3s"],
+["clown|blanc|franc(?![-/.\u00b7\u2219\u2022]que)|long|butor|esquimau|andalou|devin|favori|rigolo|filou|loulou|coi|ce","(?:er)?esse|[hudst]e|tte","$2$4 $2$3$4","$2$3$4","$2$4"],
 ["t","te","$1$2$4 $1$2$3$4","$1$2$3$4","$1$2$4"],
 ["n","ne","$1$2$4 $1$2$3$4","$1$2$3$4","$1$2$4"],
 ["pareil|vermeil|bel|nouvel|vieil|fol|mol","le","$2","$2le","$2"],
@@ -90,7 +90,7 @@ t9 = [
 ["(las|bas|gros|gras|épais)","se"],
 ["[a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+teur","rice","euse"]
 ];
-var mode, pred, high, styl,
+var mode, pred, high, styl, semi,
     term, terml, termp = 1,
     t9l = t9.length,
     bl = false,
@@ -271,6 +271,7 @@ function NxtCE(e) {
 }
 function init() {
  if (0 < mode) {
+	if (semi == 1) dm.length = 22;
     for (; tree.nextNode();) {
       setTimeout((function(currentNode) {
         Chk(currentNode);
@@ -301,11 +302,12 @@ browser.storage.local.get().then(function(a) {
   pred = a.leia.pred;
   high = a.leia.high;
   styl = a.leia.styl;
+  semi = a.leia.semi;
   init();
 }, function(a) {
   console.error(a);
   mode = 1;
-  pred = high = 0;
+  pred = high = semi = 0;
   styl = "emph4";
   init();
 });
