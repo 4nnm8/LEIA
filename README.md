@@ -10,17 +10,16 @@
 
 <hr/>
 
-## Dernières mises-à-jour (21/06/2019)
+## Dernières mises-à-jour (24/06/2019)
 
-* Optimisation générale du code 
-* Corrections de bugs et amélioration de la saisie prédictive
-* Réduction à un seul fichier pour les ``content_scripts``
-* Les parenthèses sont interprêtées. Exemple : **intégrateur(trice)** → **intégrateur intégratrice**
+* Ajout de l'option « inclusif partiel » (meilleur nom à trouver). <br/>
+Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**).<br/>
+Les autres sont restitués en entier (exemple : **chanteur chanteuse**).<br/>
+Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
 
 ## Évolutions à venir
 
 * Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
-* Mode « inclusif partiel » au choix (meilleur nom à trouver). Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**), les autres sont restitués en entier (exemple : **chanteur chanteuse**). Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
 * Amélioration de la fonction de stylisation syllabique :
 
      → prendra en compte tous les séparateurs (point, slash, tiret).
