@@ -10,12 +10,9 @@
 
 <hr/>
 
-## Dernières mises-à-jour (24/06/2019)
+## Dernières mises-à-jour (30/06/2019)
 
-* Ajout de l'option « inclusif partiel » (meilleur nom à trouver). <br/>
-Les mots lisibles entièrement au masculin et au féminin sont conservés avec le point médian (exemple : **content·e**).<br/>
-Les autres sont restitués en entier (exemple : **chanteur chanteuse**).<br/>
-Peut être une alternative intéressante pour les personnes ayant des difficultés de lecture.
+* Amélioration de l'accessibilité de la fenêtre de préférences.
 
 ## Évolutions à venir
 
