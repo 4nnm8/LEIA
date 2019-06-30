@@ -8,58 +8,86 @@
   </head>
   <body class="confleia">
     <form id="form">
-      <div class="label">
-        <label for="mode">
-          Mode de lecture inclusive
-          <select id="mode">
+      <div class="section">
+        <label for="mode" title="Mode de lecture inclusive" >Mode de lecture inclusive
+          <span class="custom-sel">
+		  <select id="mode">
             <option value="0">Aucun</option>
             <option value="1">Mots lus aux deux genres</option>
             <option value="2">Mots lus au féminin uniquement</option>
             <option value="3">Mots lus au masculin uniquement</option>
           </select>
+		  </span>
         </label>
-        <br/><br/>
-        <label for="semi" aria-hidden="true">
-        <input type="checkbox" id="semi" /> Mode inclusif partiel
+        <label for="semi" title="Mode inclusif partiel : Séparateur conservé pour les mots lisibles entièrement au masculin et au féminin. Exemple : content-e">
+		  <span class="sr-only">Mode inclusif partiel : Séparateur conservé pour les mots lisibles entièrement au masculin et au féminin. Exemple : content-e</span>
+          <input type="checkbox" id="semi" /> Mode inclusif partiel <sup aria-hidden="true">&#9432;</sup>
         </label>
       </div>
-      <div class="label">
-        <label for="pred">
-          Saisie prédictive inclusive
+      <div class="section">
+        <label for="pred" title="Saisie prédictive inclusive">Saisie prédictive inclusive
+		  <span class="custom-sel">
           <select id="pred">
             <option value="0">Désactivée</option>
             <option value="1">Activée</option>
           </select>
+		  </span>
         </label>
       </div>
-      <div class="label">Insérer un point médian<br/>
-        <span class="leiasr">tapez deux fois sur point virgule</span><kbd>;</kbd> <kbd>;</kbd>
+      <div class="section">Insérer un point médian&nbsp;&nbsp;
+        <span class="sr-only">Tapez deux fois sur point virgule</span><kbd>;</kbd> <kbd>;</kbd>
       </div>
-      <div class="label">
-        <label for="high">
+      <div class="section">
+        <label for="high" title="Styliser les terminaisons inclusives">
           Styliser les terminaisons inclusives
+          <span class="custom-sel">
           <select id="high">
             <option value="0">Désactivé</option>
             <option value="1">Activé</option>
           </select>
+		  </span>
+		</label>
           <input type="hidden" id="styl" />
-          <p aria-hidden="true" id="buttons">
-            <button name="1" class="leiahl emph1">Aa</button>
-            <button name="2" class="leiahl emph2">Aa</button>
-            <button name="3" class="leiahl emph3">Aa</button>
-            <button name="4" class="leiahl emph4">Aa</button>
-            <button name="9" class="leiahl emph9">Aa</button>
-			<button name="12" class="leiahl emph12">&#8250;&#8250;Aa</button><br/>
-            <button name="10" class="leiahl emph10">Aa</button>
-            <button name="11" class="leiahl emph11">Aa</button>
-            <button name="5" class="leiahl emph5" style="border:1px solid #aaa">Aa</button>
-            <button name="6" class="leiahl emph6">Aa</button>
-            <button name="7" class="leiahl emph7">Aa</button>
-            <button name="8" class="leiahl emph8" style="border:1px solid #aaa">Aa</button>
-            <br/>
-            <span class="xx">imprimeur<span id="ex">&middot;euse</span></span>
-          </p>
-        </label>
+          <fieldset id="buttons">
+		    <legend>Choisissez un style de coloration syntaxique</legend>
+			<input type="radio" id="emph1" name="emph-styles" />
+			<label for="emph1" class="emph1" title="Texte en gras"><span aria-hidden="true">Aa</span><span>Terminaison en gras</span></label>
+			
+			<input type="radio" id="emph2" name="emph-styles" />
+			<label for="emph2" class="emph2" title="Terminaison en blanc contouré de noir"><span aria-hidden="true">Aa</span><span>Terminaison en blanc contouré de noir</span></label>
+			
+			<input type="radio" id="emph3" name="emph-styles" />
+			<label for="emph3" title="Terminaison plus transparente" style="opacity:1;color:#9bb8cd"><span aria-hidden="true">Aa</span><span>Terminaison plus transparente</span></label>
+						
+			<input type="radio" id="emph4" name="emph-styles" />
+			<label for="emph4" class="emph4" title="Terminaison colorée"><span aria-hidden="true">Aa</span><span>Terminaison colorée</span></label><br/>	
+						
+			<input type="radio" id="emph9" name="emph-styles" />
+			<label for="emph9" class="emph9" title="Terminaison soulignée"><span aria-hidden="true">Aa</span><span>Terminaison soulignée</span></label>
+			
+			<input type="radio" id="emph11" name="emph-styles" />
+			<label for="emph11" class="emph11" title="Terminaison soulignée par une vague"><span aria-hidden="true">Aa</span><span>Terminaison soulignée par une vague</span></label>
+
+			<input type="radio" id="emph12" name="emph-styles" />
+			<label for="emph12" title="Terminaison espacée du mot"><span aria-hidden="true">&rsaquo;&rsaquo;Aa</span><span>Terminaison espacée du mot</span></label>
+			
+			<input type="radio" id="emph10" name="emph-styles" />
+			<label for="emph10" class="emph10" title="Terminaison plus petite" style="padding-bottom:2px;padding-top:6px"><span aria-hidden="true">Aa</span><span>Terminaison plus petite</span></label><br/>
+			
+			<input type="radio" id="emph5" name="emph-styles" />
+			<label for="emph5" class="emph5" title="Terminaison noire sur fond blanc" style="border:1px solid #aaa"><span aria-hidden="true">Aa</span><span>Terminaison noire sur fond blanc</span></label>
+			
+			<input type="radio" id="emph6" name="emph-styles" />
+			<label for="emph6" class="emph6" title="Terminaison blanche sur fond noir"><span aria-hidden="true">Aa</span><span>Terminaison blanche sur fond noir</span></label>
+						
+			<input type="radio" id="emph7" name="emph-styles" />
+			<label for="emph7" class="emph7" title="Terminaison blanche sur fond bleu"><span aria-hidden="true">Aa</span><span>Terminaison blanche sur fond bleu</span></label>
+						
+			<input type="radio" id="emph8" name="emph-styles" />
+			<label for="emph8" class="emph8" title="Terminaison noire sur fond jaune" style="border:1px solid #aaa"><span aria-hidden="true">Aa</span><span>Terminaison noire sur fond jaune</span></label>
+			
+            <span class="exampl" aria-hidden="true">imprimeur<span id="ex">&middot;euse</span></span>
+          </fieldset>
       </div>
     </form>
     <script src="config.js"></script>

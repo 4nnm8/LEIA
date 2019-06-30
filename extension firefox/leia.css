@@ -2,157 +2,182 @@
 
 .confleia * {
   font-family: Arial, Tahoma, Verdana, Helvetica, Georgia, sans-serif;
-}
-.confleia {
-  font-size: 100%;
-  margin: 0;
-  padding: 0 0 15px 0;
   text-align: center;
-  height: 680px;
-  width: 360px;
-  overflow:hidden;
-  font-size: 1.25em;
-  line-height: 1.2em;
-  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-  background-color: #f6f6f6;
-  color: #0E5D96;
 }
 
-.confleia .label {
-  display:block;
-  position:relative;
-  padding: 11px 10px 15px 10px;
-  border-bottom: 1px dotted #106eaf 
+.confleia {
+  margin: 0; padding: 0;
+  width: 370px; height: 600px;
+  font-size: 20px;
+  color: #0e578b;
+  line-height: 1.23em;
+  background-color: #f6f6f6;
+  overflow:hidden;
 }
-.confleia .label:last-child {
-  border:0
+
+.confleia .section {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 10px 12px 10px;
+  border-bottom: 1px solid #aaa;
+  background-color: #f6f6f6;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fff), to(#f6f6f6));
+  background: -webkit-linear-gradient(top, #fff 5%, #f6f6f6 100%);
+  background: linear-gradient(to bottom, #fff 5%, #f6f6f6 100%);
 }
-.confleia select {
-  background: none repeat scroll 0 0 #FFFFFF;
-  border: 1px solid #ddd;
-  border-radius: 5px 5px 5px 5px;
-  box-shadow: 0 0 10px #E8E8E8 inset;
-  font-size: 0.9em;
-  padding: 10px;
-  width:100%;
-  text-align:center;
-  margin: 11px 0 0 0;
-  -moz-appearance: none;
-  appearance: none; 
-  cursor:pointer;
-  transition: box-shadow .3s;
+.confleia .section:first-child label:nth-of-type(2) {
+ display: inline-block;
+ padding-top: 10px;
 }
-.confleia select:hover {
-  box-shadow: 0 0 5px #0E5D96 inset;
+.confleia .section:last-child {
+  border:0;
+  padding-bottom:0;
 }
-.confleia .label:before{
+.custom-sel {
+  display:block; position: relative;
+  margin-top: 11px;
+  height: 45px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.custom-sel:after {
   content:"";
-  color: transparent;
-  position:absolute;
-  display:block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 13.0px 7.5px 0 7.5px;
-  border-color: #666 transparent transparent transparent;
-  border-radius:4px;
-  right:21px; 
-  top:63px; 
-  pointer-events:none;
+  display : block; position: absolute; 
+  right:14px; top:16px;
+  width: 8px; height: 8px;
+  border-right: 4px solid #898989;
+  border-bottom: 4px solid #898989;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg); 
+  -webkit-transition: border-top 0.1s; 
+  transition: border-top 0.1s;
+  pointer-events:none
 }
-.confleia .label:nth-of-type(3):before{
+.custom-sel:hover:after {
+  border-right: 4px solid #0e5d96;
+  border-bottom: 4px solid #0e5d96;
+}
+
+.confleia select { 
+  width: 100%; height: 100%;
+  border:0;
+  background: none repeat scroll 0 0 #fff;
+  font-size: 0.9em;
+  box-shadow: inset 0 0 10px #e8e8e8;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+          appearance: none; 
+  cursor: pointer;
+  -webkit-transition: -webkit-box-shadow .15s;
+  -webkit-transition: box-shadow .15s;
+  transition: box-shadow .15s;
+}
+
+.confleia select:hover {
+  box-shadow: 0 0 5px #0e5d96 inset;
+}
+
+.confleia .section:nth-of-type(3):before{
   content:"";
   border:0;
 }
-.confleia .label:hover:before {
+.confleia .section:hover:before {
   content:"";
   border-color: #0E5D96 transparent transparent transparent;
 }
 .confleia kbd {
   display: inline-block;
-  background-color: #fff;
-  width: 39px;
-  height: 39px;
-  border: 1px solid #a9a9a9;
-  border-radius: 5px;
-  color: #222222;
-  box-shadow: 0px 4px 0px -3px rgba(255, 255, 255, 1), 0px 2px 0px 0px rgba(169, 169, 169, 1);
+  width: 39px; height: 39px;
   padding: 8px 4px 0 4px;
   font-size: 0.8em;
   font-weight: bold;
-  text-align: center;
-  box-sizing: border-box;
-  margin-top: 11px;
+  color: #222;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 4px 0px -3px rgba(255, 255, 255, 1), 0px 2px 0px 0px rgba(169, 169, 169, 1);
+  box-sizing: border-box
 }
-.confleia .xx {
-  display:inline-block;
-  width:95%;
-  padding: 3px;
-  margin-top:20px;
+.confleia fieldset {
+  border:0
+}
+.confleia sup, label {
+  cursor: pointer
+}
+.confleia .exampl {
+  display: inline-block;
+  width: 95%;
+  margin-top: 20px; padding: 3px;
+  color: #000;
   background-color:#dfdfdf;
-  color:#000;
 }
-.confleia #buttons {
-  color:#000;
+
+.confleia input[type=radio] + label {
+  display: inline-block;
+  margin: 3px 2px 3px 2px; padding: 4px;
+  width: 40px; height: 25px;
+  border: none
 }
-.confleia .leiasr {
+
+.confleia input[type=radio]:focus + label, .confleia input[type=radio]:active + label {
+  margin: 0px 1px 0px 1px;
+  border: 1px dashed #000 !important
+}
+.confleia input[type=radio]:focus + label.emph5, .confleia input[type=radio]:active + label.emph5, .confleia input[type=radio]:active + label.emph8,  .confleia input[type=radio]:focus + label.emph8 {
+  margin: 1px 2px 0px 2px;
+  border: 1px dashed #000 !important
+}
+.confleia input[type=radio]:focus + label.emph6, .confleia input[type=radio]:active + label.emph6, .confleia input[type=radio]:focus + label.emph7, .confleia input[type=radio]:active + label.emph7  {
+  margin: 1px;
+  border: 1px dashed #fff !important
+}
+
+.sr-only, .confleia #buttons label span:nth-of-type(2n), .confleia legend, .confleia input[type=radio]{
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
   border: 0;
-}
-.leiahl {
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
-  cursor: pointer;
-  display:inline-block;
-  width:40px;
-  padding:3px;
-  cursor:pointer;
-  margin-top:6px;
-  margin-right:3px;
+  white-space: nowrap;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden; 
 }
 
 .emph1 {
-  font-weight:bold;
+  font-weight: bold
 }
 .emph2 {
-  color:#ffffff;
-  text-shadow: -2px 0 2px #222, 0 2px 2px #222, 2px 0 2px #222, 0 -2px 2px #222;
+  color: #fff;
+  text-shadow: -1px 0 2px #222, 0 1px 2px #222, 1px 0 2px #222, 0 -1px 2px #222
 }
 .emph3 {
-  opacity:0.4
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"
 }
 .emph4 {
-  color:#9400D3;
-  text-shadow: -2px 0 2px #FFF, 0 2px 2px #FFF, 2px 0 2px #FFF, 0 -2px 2px #FFF;
+  color: #8B00C7;
+  text-shadow: -1px 0 2px #fff, 0 1px 2px #fff, 1px 0 2px #fff, 0 -1px 2px #fff
 }
 .emph5 {
-  background-color:#ffffff;
-  padding-right:3px;
-  color:#000000 
+  background-color: #fff;
+  padding-right: 3px;
+  color: #000 
 }
 .emph6 {
-  background-color:#000;
-  padding-right:3px;
-  color:#fff 
+  background-color: #000;
+  padding-right: 3px;
+  color: #fff 
 }
 .emph7 {
-  background-color:#318FFE;
-  color:#ffffff;
-  padding-right:3px
+  background-color: #0153B2;
+  color: #fff;
+  padding-right: 3px
 }
 .emph8 {
-  background-color:rgba(255,255,0,0.6);
-  color:#000000 ;
-  padding-right:3px;
+  background-color: #ff0;
+  color: #000;
+  padding-right:3px
 }
 .emph9 {
   text-decoration:underline
@@ -161,7 +186,8 @@
   font-size:80%
 }
 .emph11 {
-  text-decoration: wavy underline 
+  -webkit-text-decoration: wavy underline;
+          text-decoration: wavy underline 
 }
 .emph12 {
   margin-left:7px
