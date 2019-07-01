@@ -8,7 +8,7 @@
 
 <a href="https://addons.mozilla.org/fr/firefox/addon/leiaccessible/" target="_blank">Extension Firefox disponible ici</a>
 
-<a href="https://github.com/ANN-MB/LEIA/blob/master/LEIA%202.9%20Firefox.xpi" target="_blank">Extension Chome et Opéra disponible ici (à télécharger et installer manuellement pour le moment)</a>
+<a href="https://github.com/ANN-MB/LEIA/blob/master/LEIA%202.9%20chrome.crx" target="_blank">Extension Chome et Opéra disponible ici (à télécharger et installer manuellement pour le moment)</a>
 
 <hr/>
 
