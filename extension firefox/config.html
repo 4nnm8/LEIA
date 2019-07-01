@@ -3,25 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Préférences LÉIA</title>
-    <link rel="stylesheet" type="text/css" href="leia.css" />
+    <link rel="stylesheet" type="text/css" href="confhelp.css" />
+	<link rel="stylesheet" type="text/css" href="leia.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
   </head>
   <body class="confleia">
+    <a href="help.html" title="Description des fonctionnalités de Léia">Aide</a>
     <form id="form">
       <div class="section">
-        <label for="mode" title="Mode de lecture inclusive" >Mode de lecture inclusive
+        <label for="mode" title="Mode de lecture inclusive">Mode de lecture inclusive
           <span class="custom-sel">
 		  <select id="mode">
             <option value="0">Aucun</option>
             <option value="1">Mots lus aux deux genres</option>
             <option value="2">Mots lus au féminin uniquement</option>
             <option value="3">Mots lus au masculin uniquement</option>
+			<option value="4">Mode inclusif partiel</option>
           </select>
 		  </span>
-        </label>
-        <label for="semi" title="Mode inclusif partiel : Séparateur conservé pour les mots lisibles entièrement au masculin et au féminin. Exemple : content-e">
-		  <span class="sr-only">Mode inclusif partiel : Séparateur conservé pour les mots lisibles entièrement au masculin et au féminin. Exemple : content-e</span>
-          <input type="checkbox" id="semi" /> Mode inclusif partiel <sup aria-hidden="true">&#9432;</sup>
         </label>
       </div>
       <div class="section">
@@ -49,42 +48,81 @@
 		</label>
           <input type="hidden" id="styl" />
           <fieldset id="buttons">
-		    <legend>Choisissez un style de coloration syntaxique</legend>
+		    <legend class="sr-only">Choisissez un style de coloration syntaxique</legend>
 			<input type="radio" id="emph1" name="emph-styles" />
-			<label for="emph1" class="emph1" title="Texte en gras"><span aria-hidden="true">Aa</span><span>Terminaison en gras</span></label>
+			<label for="emph1" class="emph1" title="Texte en gras">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison en gras</span>
+			</label>
 			
 			<input type="radio" id="emph2" name="emph-styles" />
-			<label for="emph2" class="emph2" title="Terminaison en blanc contouré de noir"><span aria-hidden="true">Aa</span><span>Terminaison en blanc contouré de noir</span></label>
+			<label for="emph2" class="emph2" title="Terminaison en blanc contouré de noir">
+			<span aria-hidden="true">Aa</span><span>Terminaison en blanc contouré de noir</span>
+			</label>
 			
 			<input type="radio" id="emph3" name="emph-styles" />
-			<label for="emph3" title="Terminaison plus transparente" style="opacity:1;color:#9bb8cd"><span aria-hidden="true">Aa</span><span>Terminaison plus transparente</span></label>
+			<label for="emph3" title="Terminaison plus transparente" style="opacity:1;color:#9bb8cd">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison plus transparente</span>
+			</label>
 						
 			<input type="radio" id="emph4" name="emph-styles" />
-			<label for="emph4" class="emph4" title="Terminaison colorée"><span aria-hidden="true">Aa</span><span>Terminaison colorée</span></label><br/>	
+			<label for="emph4" class="emph4" title="Terminaison colorée">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison colorée</span>
+			</label>
+			
+			<br/>	
 						
 			<input type="radio" id="emph9" name="emph-styles" />
-			<label for="emph9" class="emph9" title="Terminaison soulignée"><span aria-hidden="true">Aa</span><span>Terminaison soulignée</span></label>
+			<label for="emph9" class="emph9" title="Terminaison soulignée">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison soulignée</span>
+			</label>
 			
 			<input type="radio" id="emph11" name="emph-styles" />
-			<label for="emph11" class="emph11" title="Terminaison soulignée par une vague"><span aria-hidden="true">Aa</span><span>Terminaison soulignée par une vague</span></label>
+			<label for="emph11" class="emph11" title="Terminaison soulignée par une vague">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison soulignée par une vague</span>
+			</label>
 
 			<input type="radio" id="emph12" name="emph-styles" />
-			<label for="emph12" title="Terminaison espacée du mot"><span aria-hidden="true">&rsaquo;&rsaquo;Aa</span><span>Terminaison espacée du mot</span></label>
+			<label for="emph12" title="Terminaison espacée du mot">
+			  <span aria-hidden="true">&rsaquo;&rsaquo;Aa</span>
+			  <span>Terminaison espacée du mot</span>
+			</label>
 			
 			<input type="radio" id="emph10" name="emph-styles" />
-			<label for="emph10" class="emph10" title="Terminaison plus petite" style="padding-bottom:2px;padding-top:6px"><span aria-hidden="true">Aa</span><span>Terminaison plus petite</span></label><br/>
+			<label for="emph10" class="emph10" title="Terminaison plus petite" style="padding-bottom:2px;padding-top:6px">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison plus petite</span>
+			</label>
+			
+			<br/>
 			
 			<input type="radio" id="emph5" name="emph-styles" />
-			<label for="emph5" class="emph5" title="Terminaison noire sur fond blanc" style="border:1px solid #aaa"><span aria-hidden="true">Aa</span><span>Terminaison noire sur fond blanc</span></label>
+			<label for="emph5" class="emph5" title="Terminaison noire sur fond blanc" style="border:1px solid #aaa">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison noire sur fond blanc</span>
+			</label>
 			
 			<input type="radio" id="emph6" name="emph-styles" />
-			<label for="emph6" class="emph6" title="Terminaison blanche sur fond noir"><span aria-hidden="true">Aa</span><span>Terminaison blanche sur fond noir</span></label>
+			<label for="emph6" class="emph6" title="Terminaison blanche sur fond noir">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison blanche sur fond noir</span>
+			</label>
 						
 			<input type="radio" id="emph7" name="emph-styles" />
-			<label for="emph7" class="emph7" title="Terminaison blanche sur fond bleu"><span aria-hidden="true">Aa</span><span>Terminaison blanche sur fond bleu</span></label>
+			<label for="emph7" class="emph7" title="Terminaison blanche sur fond bleu">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison blanche sur fond bleu</span>
+			</label>
 						
 			<input type="radio" id="emph8" name="emph-styles" />
-			<label for="emph8" class="emph8" title="Terminaison noire sur fond jaune" style="border:1px solid #aaa"><span aria-hidden="true">Aa</span><span>Terminaison noire sur fond jaune</span></label>
+			<label for="emph8" class="emph8" title="Terminaison noire sur fond jaune" style="border:1px solid #aaa">
+			  <span aria-hidden="true">Aa</span>
+			  <span>Terminaison noire sur fond jaune</span>
+			</label>
 			
             <span class="exampl" aria-hidden="true">imprimeur<span id="ex">&middot;euse</span></span>
           </fieldset>

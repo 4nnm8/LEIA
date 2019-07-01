@@ -90,7 +90,7 @@ t9 = [
 ["(las|bas|gros|gras|épais)","se"],
 ["[a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+teur","rice","euse"]
 ];
-var mode, pred, high, styl, semi,
+var mode, pred, high, styl,
     term, terml, termp = 1,
     t9l = t9.length,
     bl = false,
@@ -271,7 +271,7 @@ function NxtCE(e) {
 }
 function init() {
  if (0 < mode) {
-	if (semi == 1) dm.length = 22;
+	if (mode == 4) mode = 1, dm.length = 22;
     for (; tree.nextNode();) {
       setTimeout((function(currentNode) {
         Chk(currentNode);
@@ -302,12 +302,11 @@ browser.storage.local.get().then(function(a) {
   pred = a.leia.pred;
   high = a.leia.high;
   styl = a.leia.styl;
-  semi = a.leia.semi;
   init();
 }, function(a) {
   console.error(a);
   mode = 1;
-  pred = high = semi = 0;
+  pred = high = 0;
   styl = "emph4";
   init();
 });
