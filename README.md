@@ -8,17 +8,19 @@
 
 <a href="https://addons.mozilla.org/fr/firefox/addon/leiaccessible/" target="_blank">Extension Firefox disponible ici</a>
 
+<a href="https://github.com/ANN-MB/LEIA/blob/master/leia.crx" target="_blank">Extension Chome et Opéra disponible ici (à télécharger et installer manuellement pour le moment)</a>
+
 <hr/>
 
 ## Dernières mises-à-jour (01/07/2019)
 
+* Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
 * Amélioration de l'accessibilité de la fenêtre de préférences.
 * Ajout d'une page d'aide concernant les préférences.
 * Feuille de style pour la fenêtre de préférences séparée pour que tous les styles ne soient pas chargés avec toutes les pages web visitées.
 
 ## Évolutions à venir
 
-* Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
 * Amélioration de la fonction de stylisation syllabique :
 
      → prendra en compte tous les séparateurs (point, slash, tiret).
