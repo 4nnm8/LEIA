@@ -10,9 +10,11 @@
 
 <hr/>
 
-## Dernières mises-à-jour (30/06/2019)
+## Dernières mises-à-jour (01/07/2019)
 
 * Amélioration de l'accessibilité de la fenêtre de préférences.
+* Ajout d'une page d'aide concernant les préférences.
+* Feuille de style pour la fenêtre de préférences séparée pour que tous les styles ne soient pas chargés avec toutes les pages web visitées.
 
 ## Évolutions à venir
 
