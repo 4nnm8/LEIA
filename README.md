@@ -50,7 +50,7 @@
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
 * Stylisation syllabique des terminaisons inclusives pour faciliter la lecture
 
-<p style="text-align:center"><img src="https://addons.cdn.mozilla.net/user-media/previews/full/221/221580.png" alt="Conversion du texte avant et après activation de LÉIA" /></p>
+<p style="text-align:center"><img src="https://addons.cdn.mozilla.net/user-media/previews/full/221/221580.png" alt="Aperçu de la conversion du texte avant et après activation de LÉIA" /></p>
 
 ### Comment ça marche ? ###
 
