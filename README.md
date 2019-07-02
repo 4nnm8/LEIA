@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.ibb.co/C85LV8p/logo-leia.png" alt="LÉIA - l'écriture inclusive accessible" /></p>
+<p align="center"><img src="https://i.ibb.co/C85LV8p/logo-leia.png" alt="LÉIA - l'écriture inclusive accessible" border="0" /></p>
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZSBRU3M8DXVRS&source=url" target="_blank">Soutenez LÉIA, faites un don !</a>
 
