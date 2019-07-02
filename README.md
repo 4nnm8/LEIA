@@ -29,6 +29,8 @@
      
 * Enrichissement et amélioration de la pertinence du dictionnaire prédictif.
 
+* Pouvoir zoomer dans la fenêtre de préférences (tout navigateur) sans overflow du texte. + Correction de la taille de la fenêtre de préférences pour Chrome et Opéra. 
+
 <hr/>
 
 ## LÉIA, c'est quoi ?
