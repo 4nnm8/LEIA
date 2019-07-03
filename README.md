@@ -66,6 +66,25 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 * Ici, la règle utilisée sera : **racine + suffixe masculin + S + ESPACE + racine + suffixe féminin + S**
 * Le script replace l'expression originale par **artisans artisanes**
 
+### Cas non pris en charge : ###
+
+L'écriture inclusive pour les mots entrant dans les catégories suivantes ne sont pas prises en charge par le LÉIA car :
+* difficilement ou non fusionnables 
+* suffixe féminin unique ou trop rare
+* mot dont le genre féminin et le genre masculin ne sont pas construits à partir de la même racine
+
+**TITRES :** duc / duchesse, roi / reine, abbé / abbesse, empereur / impératrice…
+
+Pris en charge par défaut : baron·ne, époux·ouse, dauphin·e, compte·esse…
+
+**GÉNÉALOGIE :** fils / fille, frère / sœur, parrain / marraine, neveu / nièce…
+
+Pris en charge par défaut : cousin·e, filleul·e, benjamin·e, cadet·te…
+
+**ANIMAUX :** loup / louve, canard / cane, daim / daine, dindon / dinde
+
+Pris en charge par défaut : chien·ne, âne·esse, ours·e, maquereau·elle…
+
 </hr>
 
 ## Qu'est–ce que l'écriture inclusive ?
