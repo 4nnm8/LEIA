@@ -4,7 +4,7 @@ var modeipt = document.getElementById("mode"),
     stylipt = document.getElementById("styl"),
     example = document.getElementById("ex"),
     buttons = document.getElementById("buttons"),
-	bradios = document.getElementsByName("emph-styles");
+    bradios = document.getElementsByName("emph-styles");
 
 browser.storage.local.get().then(function(a) {
   modeipt.selectedIndex = a.leia.mode;
@@ -17,7 +17,6 @@ browser.storage.local.get().then(function(a) {
 });
 
 function storeSettings() {
-	console.log('changed')
   var modeval = modeipt.options[modeipt.selectedIndex].value,
       predval = predipt.options[predipt.selectedIndex].value,
       highval = highipt.options[highipt.selectedIndex].value,
