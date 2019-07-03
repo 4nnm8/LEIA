@@ -1,0 +1,175 @@
+@charset "UTF-8";
+
+* {
+  font-family: Arial, Tahoma, Verdana, Helvetica, Georgia, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 370px;
+  font-size: 20px;
+  background-color: #fff
+}
+
+a { color: #6f446f }
+a:hover, a:active, a:focus { color: #b30000 }
+h1 { font-size: 1.3em }
+h2 { font-size: 1em }
+h2:before { content:"\002937\0000A0" }
+fieldset { border:0 }
+q::before { content: "\0000AB\0000A0" }
+q::after { content: "\0000A0\0000BB" }
+.upper { text-transform: uppercase}
+
+.confleia * { text-align: center }
+
+select { 
+  width: 100%; height: 100%;
+  border:0;
+  background: none repeat scroll 0 0 #fff;
+  font-size: 0.9em;
+  box-shadow: inset 0 0 10px #e8e8e8;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+          appearance: none; 
+  cursor: pointer;
+}
+select:hover {
+  box-shadow: 0 0 5px #0e5d96 inset;
+}
+
+.helpleia kbd { font-weight: bold }
+.confleia kbd {
+  display: inline-block;
+  width: 39px; height: 39px;
+  padding: 8px 4px 0 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #222;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 4px 0px -3px rgba(255, 255, 255, 1), 0px 2px 0px 0px rgba(169, 169, 169, 1);
+  box-sizing: border-box
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #aaa;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fff), to(#f6f6f6));
+  background: -webkit-linear-gradient(top, #fff 5%, #f6f6f6 100%);
+  background: linear-gradient(to bottom, #fff 5%, #f6f6f6 100%);
+}
+.confleia .section { padding: 14px 10px 14px 10px }
+.helpleia .section { padding: 24px 25px 14px 10px }
+
+.confleia a, .helpleia a:first-child {
+  display: block;
+  text-align: right;
+  width: 100%;
+  padding-top: 3px;
+
+}
+.confleia a { padding-right: 5px }
+.helpleia a:first-child { padding-right: 20px }
+  
+.confleia {
+  padding: 0;
+  color: #0e578b;
+  line-height: 1.23em;
+  overflow:hidden;
+  height: 600px;
+}
+
+.helpleia {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.confleia .section:first-child label:nth-of-type(2) {
+ display: inline-block;
+ padding-top: 10px;
+}
+
+.confleia .section:last-child {
+  border:0;
+  min-height: 300px;
+  padding-bottom:0;
+}
+
+.custom-sel {
+  display:block; position: relative;
+  margin-top: 11px;
+  height: 45px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.custom-sel:after {
+  content:"";
+  display : block; position: absolute; 
+  right:14px; top:16px;
+  width: 8px; height: 8px;
+  border-right: 4px solid #898989;
+  border-bottom: 4px solid #898989;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg); 
+  pointer-events:none
+}
+
+.custom-sel:hover:after {
+  border-right: 4px solid #0e5d96;
+  border-bottom: 4px solid #0e5d96;
+}
+
+.confleia .section:nth-of-type(3):before{
+  content:"";
+  border:0;
+}
+
+.confleia .section:hover:before {
+  content:"";
+  border-color: #0E5D96 transparent transparent transparent;
+}
+
+.exampl {
+  display: inline-block;
+  width: 95%;
+  margin-top: 20px; padding: 3px;
+  color: #000;
+  background-color:#dfdfdf;
+}
+
+input[type=radio] + label {
+  display: inline-block;
+  box-sizing: content-box;
+  margin: 3px 2px 3px 2px; padding: 4px;
+  width: 40px; height: 25px;
+  border: none;
+  cursor: pointer;
+}
+input[type=radio]:focus + label, input[type=radio]:active + label {
+  margin: 0px 1px 0px 1px;
+  border: 1px dashed #000 !important
+}
+input[type=radio]:focus + label.emph5, input[type=radio]:active + label.emph5, input[type=radio]:active + label.emph8, input[type=radio]:focus + label.emph8 {
+  margin: 1px 2px 0px 2px;
+  border: 1px dashed #000 !important
+}
+input[type=radio]:focus + label.emph6, input[type=radio]:active + label.emph6, input[type=radio]:focus + label.emph7, input[type=radio]:active + label.emph7  {
+  margin: 1px;
+  border: 1px dashed #fff !important
+}
+
+.sr-only, #buttons label span:nth-of-type(2n), input[type=radio] {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden; 
+}
