@@ -202,8 +202,8 @@ https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
 ## Les initiatives moins sympa
 
-[Désinclusive - Bloqueur d'écriture inclusive](https://github.com/Nitoref/desinclusive) + [Extension Firefox](https://addons.mozilla.org/fr/firefox/addon/d%C3%A9sinclusive/)
+
 
 [No-inclusive](https://addons.mozilla.org/fr/firefox/addon/no-inclusive/)
 
-[Blocut | Bloqueur écriture inclusive](https://addons.mozilla.org/fr/firefox/addon/blocut/)
+[Inclusive Block](https://addons.mozilla.org/fr/firefox/addon/inclusive-block/)
