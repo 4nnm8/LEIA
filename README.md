@@ -135,7 +135,6 @@ Après de longues recherches, j'ai identifié une **soixantaine de terminaisons 
 
 De plus, comme l'écriture inclusive s'emploie parfois avec le tiret (-) ou le point (.), il faut faire en sorte que le script ne modifie pas des mots "ressemblant à de l'écriture inclusive". C'est notamment problématique concernant les mots composés avec tirets et des sigles et acrronymes avec points.
 
-
 ## Remerciements
 
 Merci à [Julie Moynat](https://www.juliemoynat.fr) pour les retours et pour [son article](https://www.lelutinduweb.fr/ecriture-inclusive-accessibilite-solutions/), à l'équipe d'[incluZor·e](http://incluzor.fr/) pour nos échanges, et à plein d'autres ami·e·s anonymes pour leurs conseils et soutiens :)
@@ -202,8 +201,24 @@ https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
 ## Les initiatives moins sympa
 
-
-
 [No-inclusive](https://addons.mozilla.org/fr/firefox/addon/no-inclusive/)
 
 [Inclusive Block](https://addons.mozilla.org/fr/firefox/addon/inclusive-block/)
+
+## D'autres ressources
+
+[Matti Schneider sur Medium - Point médian final : point d’hyphénation ‧](https://medium.com/@matti_sg_fr/point-m%C3%A9dian-final-point-dhyph%C3%A9nation-3f749c32b659)
+
+[bunkerd.fr - L’écriture inclusive : parlons faits et science](https://www.bunkerd.fr/ecriture-inclusive/)
+
+[Camille H. sur Légothèque - Recommandations pour une écriture inclusive et accessible](https://legothequeabf.wordpress.com/2017/11/07/recommandations-pour-une-ecriture-inclusive-et-accessible/)
+
+[Julie Moynat sur Le Lutin du Web - Écriture inclusive au point médian et accessibilité : avançons vers des solutions](https://www.lelutinduweb.fr/ecriture-inclusive-accessibilite-solutions/)
+
+[Chantale Carette, Commission scolaire de Portneuf - La formation du féminin des noms](http://www.csportneuf.qc.ca/sed/ccarette/f%C3%A9m-des%20noms-adj.pdf)
+ 
+[FrancaisFacile.com - Féminin des adjectifs qualificatifs](https://www.francaisfacile.com/exercices/exercice-francais-2/exercice-francais-83779.php)
+ 
+[Framaliste « ecrituresinclusivesaccessibles - Développement de ressources pour une écriture inclusive et accessible »](https://framalistes.org/sympa/info/ecrituresinclusivesaccessibles)
+
+[CRISCO (Centre de recherches inter-langues sur la signification en contexte)](http://crisco.unicaen.fr/)
