@@ -181,6 +181,8 @@ https://qaz.wtf/u/show.cgi - conversion de caractères en code Unicode
 
 https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 
+http://crisco.unicaen.fr - Centre de recherches inter-langues sur la signification en contexte
+
 #### Programmes ####
 
 **[Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/)** - navigateur concerné par l'add-on
@@ -218,10 +220,5 @@ Lingusticae sur Youtube [[1]](https://www.youtube.com/watch?v=Aq2XboD-q_U) [[2]]
 
 [Julie Moynat sur Le Lutin du Web - Écriture inclusive au point médian et accessibilité : avançons vers des solutions](https://www.lelutinduweb.fr/ecriture-inclusive-accessibilite-solutions/)
 
-[Chantale Carette, Commission scolaire de Portneuf - La formation du féminin des noms](http://www.csportneuf.qc.ca/sed/ccarette/f%C3%A9m-des%20noms-adj.pdf)
- 
-[FrancaisFacile.com - Féminin des adjectifs qualificatifs](https://www.francaisfacile.com/exercices/exercice-francais-2/exercice-francais-83779.php)
- 
 [Framaliste « ecrituresinclusivesaccessibles - Développement de ressources pour une écriture inclusive et accessible »](https://framalistes.org/sympa/info/ecrituresinclusivesaccessibles)
-
-[CRISCO (Centre de recherches inter-langues sur la signification en contexte)](http://crisco.unicaen.fr/)
+ 
