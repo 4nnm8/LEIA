@@ -208,7 +208,7 @@ https://developer.mozilla.org/ - documentation sur la création d'add-on Firefox
 ## D'autres ressources
 
 
-Lingusticae sur Youtube [1](https://www.youtube.com/watch?v=Aq2XboD-q_U) [2](https://www.youtube.com/watch?v=y7dR9QRz4t0)
+Lingusticae sur Youtube [[1]](https://www.youtube.com/watch?v=Aq2XboD-q_U) [[2]](https://www.youtube.com/watch?v=y7dR9QRz4t0)
 
 [Matti Schneider sur Medium - Point médian final : point d’hyphénation ‧](https://medium.com/@matti_sg_fr/point-m%C3%A9dian-final-point-dhyph%C3%A9nation-3f749c32b659)
 
