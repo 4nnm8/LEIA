@@ -44,8 +44,7 @@
 
 ## Les fonctionnalités de LÉIA
 
-* Supprimer les séparateurs et réécrire les phrases de façon intelligible par les lecteurs d'écran
-(en lisant le mot aux deux genres, ou au genre choisi par l'utilisateur·rice)
+* Supprimer les séparateurs de l'écriture inclusive (point, tiret, slash, parenthèse, point médian) et réécrire les phrases de façon intelligible par les lecteurs d'écran.
 * Accéder simplement au point médian grâce à un raccourci clavier simple (deux fois la touche point-virgule).
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
 * Stylisation syllabique des terminaisons inclusives pour faciliter la lecture
