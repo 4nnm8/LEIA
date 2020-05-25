@@ -15,7 +15,7 @@ const dico = [
 ["e?aux?","elle|ale","$1$2 $1$3$4","$1$3$4","$1$2"],
 ["a?in|agnon|ou|ut|a","[ia]g?ne|olle|asse|use","$1$2$4 $1$3$4","$1$3$4","$1$2$4"], 
 ["[èe]([rnt])","(?:è[rnt])?e","$1e$3$5 $1è$3e$5","$1è$3e$5","$1e$3$5"], 
-["le|au|du", "(à |de )?l?aquel[-/.\u00b7\u2219\u2022]le","$2quel $4 laquelle","$4 laquelle","$2quel"],
+["le|au|du", "(à |de )?l?aquel[-/.\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb]le","$2quel $4 laquelle","$4 laquelle","$2quel"],
 ["du|au","(?:de|à) la","$2 $3","$3","$2"],
 ["le","l?a","le la","la","le"],
 ["([mts])on","[mts]a","$3on $3a","$3a","$3a","$3on"],
@@ -24,7 +24,7 @@ const dico = [
 ["franc","que","franc$4 franque$4","franque$4","franc$4"],
 ["grec","que","grec$4","grecque$4","grec$4"],
 ["(absou|dissou|tou|tier)s?","(ou)?(te)|(ce)","$3s $3$6$7$8","$3$6$7$8","$3s"],
-["clown|blanc|franc(?![-/.\u00b7\u2219\u2022]que)|long|butor|esquimau|andalou|devin|favori|rigolo|filou|loulou|coi|ce","(?:er)?esse|[hudst]e|tte","$2$4 $2$3$4","$2$3$4","$2$4"],
+["clown|blanc|franc(?![-/.\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb]que)|long|butor|esquimau|andalou|devin|favori|rigolo|filou|loulou|coi|ce","(?:er)?esse|[hudst]e|tte","$2$4 $2$3$4","$2$3$4","$2$4"],
 ["t","te","$1$2$4 $1$2$3$4","$1$2$3$4","$1$2$4"],
 ["n","ne","$1$2$4 $1$2$3$4","$1$2$3$4","$1$2$4"],
 ["pareil|vermeil|bel|nouvel|vieil|fol|mol","le","$2","$2le","$2"],
@@ -94,14 +94,14 @@ var mode, pred, high, styl,
     term, terml, termp = 1,
     t9l = t9.length,
     bl = false,
-    r3 = new RegExp("[\u00b7\u2219\u2022][a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+[\u00b7\u2219\u2022]?(?!e$)([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+)?", "gi"),
+    r3 = new RegExp("[\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb][a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+[\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb]?(?!e$)([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+)?", "gi"),
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
         if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) && "true" !== node.parentNode.contentEditable && 0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
       }
     }, false),
     dm = dico.map((a) => {
-      return [new RegExp("([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+?)?(" + a[0] + ")[-/.\u00b7\u2219\u2022\u0028](" + a[1] + ")(?:[-/.\u00b7\u2219\u2022\u0029](?!$|\\s))?(s)?(?![a-z\u00e0-\u00f6\u00f9-\u00ff\u0153])", "gi"), a[2], a[3], a[4]];
+      return [new RegExp("([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+?)?(" + a[0] + ")[-/.\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb\u0028](" + a[1] + ")(?:[-/.\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb\u0029](?!$|\\s))?(s)?(?![a-z\u00e0-\u00f6\u00f9-\u00ff\u0153])", "gi"), a[2], a[3], a[4]];
     });
 function Chk(a) {
   dm.map(function(b) {
