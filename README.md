@@ -14,7 +14,7 @@
 
 ## Dernières mises-à-jour (01/07/2019)
 
-* Portage de l'extension sur les navigateurs **Chrome** et **Opera**.
+* Création de l'extension sur les navigateurs **Chrome** et **Opera** (installation manuelle)
 * Amélioration de l'accessibilité de la fenêtre de préférences.
 * Ajout d'une page d'aide concernant les préférences.
 * Feuille de style pour la fenêtre de préférences séparée pour que tous les styles ne soient pas chargés avec toutes les pages web visitées.
@@ -23,7 +23,7 @@
 
 * Amélioration de la fonction de stylisation syllabique :
 
-     → prendra en compte tous les séparateurs (point, slash, tiret).
+     → prendra en compte tous les marqueurs (point, slash, tiret).
 
      → la coloration s'adaptera à la couleur de fond
      
@@ -44,10 +44,10 @@
 
 ## Les fonctionnalités de LÉIA
 
-* Supprimer les séparateurs de l'écriture inclusive (point, tiret, slash, parenthèse, point médian) et réécrire les phrases de façon intelligible par les lecteurs d'écran.
+* Supprimer les marqueurs de l'écriture inclusive (plusieurs types de points, tirets, slashs, parenthèses) et réécrire les phrases de façon intelligible par les lecteurs d'écran.
 * Accéder simplement au point médian grâce à un raccourci clavier simple (deux fois la touche point-virgule).
-* Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin
-* Stylisation syllabique des terminaisons inclusives pour faciliter la lecture
+* Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin.
+* Stylisation syllabique des terminaisons inclusives pour faciliter la lecture.
 
 <p style="text-align:center"><img src="https://addons.cdn.mozilla.net/user-media/previews/full/221/221580.png" alt="Aperçu de la conversion du texte avant et après activation de LÉIA" /></p>
 
@@ -60,9 +60,9 @@ Le script parcours l'architecture d'une page web à la recherche de motifs propr
 ##### Exemple : #####
 
 * Le script détecte **artisan·e·s**
-* Il détecte le motif **racine + suffixe masculin + séparateur + e + s**
+* Il détecte le motif **racine + terminaison masculine + marqueur + e + s**
 * Le dictionnaire est convoqué pour retrouver le motif détecté, et propose le motif de sortie adapté.
-* Ici, la règle utilisée sera : **racine + suffixe masculin + S + ESPACE + racine + suffixe féminin + S**
+* Ici, la règle utilisée sera : **racine + terminaison masculine + S + ESPACE + racine + terminaison féminine + S**
 * Le script replace l'expression originale par **artisans artisanes**
 
 ### Cas non pris en charge : ###
@@ -118,15 +118,15 @@ Bien que l'orthographe grammaticale ne soit pas fondamentalement bouleversée, e
 * <a href="https://aides-techniques.handicap.fr/a-ecriture-inclusive-accessible-10358.php" target="_blank">L'écriture inclusive, indéchiffrable pour les non-voyants</a>
 * <a href="https://www.rtl.fr/girls/identites/ecriture-inclusive-la-federation-des-aveugles-denonce-une-langue-illisible-7791065702" target="_blank">Écriture inclusive : la fédération des Aveugles dénonce une "langue illisible"</a>
 
-L'écriture inclusive s'emploie généralement avec des caractères spéciaux - point médian (·) ou puce (•) qui sont mal interprétés, soit le point (.) ou le tiret (-) qui sont déjà voués à d'autres usages syntaxiques. De plus, tous les lecteurs d'écran n'interprètent pas ces séparateurs de la même façon.
+L'écriture inclusive peut se pratiquer sans ajout de caractères typographiques exotiques (accord de proximité, double flexion, mots épicènes, formules englobantes). Cependant, cela peut allourdir le texte et on peut préférer l'emploi des caractères spéciaux : les marqueurs de l'écriture inclusive. Les plus courants sont le point médian (·) et la puce (•) qui sont mal interprétés par les lecteurs d'écran, soit le point (.) ou le tiret (-) qui sont déjà voués à d'autres usages syntaxiques. De plus, tous les lecteurs d'écran n'interprètent pas ces marqueurs de la même façon.
 
-L'accessibilité web a toujours été une surcouche informatique pénible pour les développeur·euse·s qui ne s'en préoccupent que rarement pour de diverses raisons : manque de temps ou d'information à ce sujet, difficultés à trouver des normes universelles acceptées par tous les navigateurs et systèmes d’exploitation, ou encore parce que les personnes malvoyantes sont parfois considérées comme une minorité pour laquelle il est peut intéressant d'accorder du temps et de l'argent.
+L'accessibilité web a toujours été une surcouche informatique pénible pour les développeurs et développeuses qui ne s'en préoccupent que rarement pour de diverses raisons : manque de temps ou d'information à ce sujet, difficultés à trouver des normes universelles acceptées par tous les navigateurs et systèmes d’exploitation, ou encore parce que les personnes malvoyantes sont parfois considérées comme une minorité pour laquelle il est peut intéressant d'accorder du temps et de l'argent.
 
 Partant de ce constat, et après avoir constaté sur internet que de nombreuses personnes malvoyantes regrettaient de ces nouvelles normes, il m'a semblé intéressant de chercher une solution la plus universelle possible pour que l'écriture inclusive soit également accessible pour les personnes malvoyantes. Et donc, **une écriture inclusive réellement inclusive** !
 
 ### Recherche sur les usages populaires de l'écriture inclusive ###
 
-L'élaboration de ce programme, qui a commencé fin 2017 est particulièrement complexe pour diverses raisons :
+L'élaboration de ce programme, qui a commencé fin 2017, fût particulièrement complexe pour diverses raisons :
 
 Les guide de rédaction en écriture inclusive actuellement disponibles, proposent rarement plus de 20 règles de terminaisons. De plus, étant non codifiées officiellement, le même mot peut être retrouvé écrit de diverses façons (exemple : **amoureux·euse**, ou **amoureux·se**).
 
@@ -164,7 +164,7 @@ http://dict.xmatiere.com/ et https://www.listesdemots.net - recherche de suffixe
 
 https://www.feminin-pluriel.exionnaire.com/ - quelques déclinaisons irrégulières au féminin
 
-bertrandboutin.ca (hors ligne) - d'autres exceptions de noms et d'adjectifs au féminin
+http://bertrandboutin.ca/Folder_151_Grammaire/F_a_feminin_noms_adj.htm - Le féminin des noms et des adjectifs
 
 https://www.github.com/ - pour l'hébergement du développement du script
 
@@ -184,11 +184,13 @@ http://crisco.unicaen.fr - Centre de recherches inter-langues sur la significati
 
 #### Programmes ####
 
-**[Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/)** - navigateur concerné par l'add-on
+**[Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/intl/fr_fr/chrome/) et [Opera](https://www.opera.com/fr) ** - navigateurs
 
 **[Notepad++](https://notepad-plus-plus.org/fr/)** - programmation en JavaScript
 
 **[KobaSpeech](https://kobaspeech.com/en/), [NVDA](https://www.nvda-fr.org/), [Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=fr), [JAWS](http://www.accessolutions.fr/Jaws-pour-Windows.html)** - test des synthèses vocales logicielles
+
+**[Table des caractères](https://fr.wikipedia.org/wiki/Table_de_caract%C3%A8res)**
 
 ## Les initiatives sympa
 
@@ -202,12 +204,9 @@ http://crisco.unicaen.fr - Centre de recherches inter-langues sur la significati
 
 ## Les initiatives moins sympa
 
-[No-inclusive](https://addons.mozilla.org/fr/firefox/addon/no-inclusive/)
-
-[Inclusive Block](https://addons.mozilla.org/fr/firefox/addon/inclusive-block/)
+[No-inclusive](https://addons.mozilla.org/fr/firefox/addon/no-inclusive/) et [Inclusive Block](https://addons.mozilla.org/fr/firefox/addon/inclusive-block/)
 
 ## D'autres ressources
-
 
 Lingusticae sur Youtube [[1]](https://www.youtube.com/watch?v=Aq2XboD-q_U) [[2]](https://www.youtube.com/watch?v=y7dR9QRz4t0)
 
