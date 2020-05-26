@@ -184,7 +184,7 @@ http://crisco.unicaen.fr - Centre de recherches inter-langues sur la significati
 
 #### Programmes ####
 
-**[Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/intl/fr_fr/chrome/) et [Opera](https://www.opera.com/fr) ** - navigateurs
+**[Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/intl/fr_fr/chrome/) et [Opera](https://www.opera.com/fr)** - navigateurs web
 
 **[Notepad++](https://notepad-plus-plus.org/fr/)** - programmation en JavaScript
 
