@@ -1,7 +1,5 @@
 <p align="center"><img src="https://i.ibb.co/4MBr2cm/logo-leia.png" alt="LÉIA - l'écriture inclusive accessible" border="0" /></p>
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZSBRU3M8DXVRS&source=url" target="_blank">Soutenez LÉIA, faites un don !</a>
-
 **LÉIA** est sous <a href="https://github.com/ANN-MB/LEIA/blob/master/LICENSE" target="_blank">licence Apache</a>
 
 <a href="https://addons.mozilla.org/fr/firefox/addon/leiaccessible/" target="_blank">Extension Firefox disponible ici</a>
