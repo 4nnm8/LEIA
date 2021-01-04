@@ -190,6 +190,8 @@ http://crisco.unicaen.fr - Centre de recherches inter-langues sur la significati
 
 ## Les initiatives sympa
 
+[Ecriture·Inclusive·Facile](https://addons.mozilla.org/fr/firefox/addon/ecriture-inclusive-facile/)
+
 [Épicène - Normaliser et faciliter l'usage de l'écriture inclusive](https://github.com/MattiSG/epicene.info)
 
 [La disparition est un jeu éducatif textuel qui a pour but l'apprentissage de écriture inclusive](https://github.com/Chrisdml/La-Disparition)
@@ -200,7 +202,13 @@ http://crisco.unicaen.fr - Centre de recherches inter-langues sur la significati
 
 ## Les initiatives moins sympa
 
-[No-inclusive](https://addons.mozilla.org/fr/firefox/addon/no-inclusive/) et [Inclusive Block](https://addons.mozilla.org/fr/firefox/addon/inclusive-block/)
+[No-inclusive](https://addons.mozilla.org/fr/firefox/addon/no-inclusive/)
+
+[Inclusive Block](https://addons.mozilla.org/fr/firefox/addon/inclusive-block/)
+
+[Stop écriture inclusive](https://addons.mozilla.org/fr/firefox/addon/stop-écriture-inclusive/)
+
+[Écriture inclusive ? Non merci.](https://addons.mozilla.org/fr/firefox/addon/écriture-inclusive-non-merci/)
 
 ## D'autres ressources
 
