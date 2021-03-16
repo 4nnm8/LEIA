@@ -6,6 +6,8 @@
 
 <a href="https://github.com/ANN-MB/LEIA/blob/master/LEIA%202.9%20chrome.crx" target="_blank">Extension Chome et Opéra disponible ici (à télécharger et installer manuellement pour le moment)</a>
 
+<a href="https://www.paypal.com/donate?hosted_button_id=DRNCK24Z2C7F6" target="_blank">FAITES-MOI UN DON ! =)</a>
+
 <hr/>
 
 ## Dernières mises-à-jour (01/07/2019)
