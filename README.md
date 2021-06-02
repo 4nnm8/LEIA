@@ -193,6 +193,7 @@ http://crisco.unicaen.fr - Centre de recherches inter-langues sur la significati
 ## Les initiatives sympa
 
 [Ecriture·Inclusive·Facile](https://addons.mozilla.org/fr/firefox/addon/ecriture-inclusive-facile/)
+Remplace les points par des points médians pendant la saisie.
 
 [Épicène - Normaliser et faciliter l'usage de l'écriture inclusive](https://github.com/MattiSG/epicene.info)
 
@@ -201,6 +202,7 @@ http://crisco.unicaen.fr - Centre de recherches inter-langues sur la significati
 [Dictionnaire Français Hunspell compatible avec l'écriture inclusive](https://github.com/RadicaliseesSurInternet/hunspell-inclusif) + [Dictionnaire Firefox](https://addons.mozilla.org/fr/firefox/addon/fr-inclusif)
 
 [Alt0183 - Adoptez un caractère inclusif !](https://github.com/Alt0183/Alt0183)
+Un boitier à fabriquer pour avoir accès rapidement au point médian malheureusement indisponible sur nos claviers.
 
 ## Les initiatives moins sympa
 
