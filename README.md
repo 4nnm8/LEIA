@@ -10,27 +10,6 @@
 
 <hr/>
 
-## Dernières mises-à-jour (01/07/2019)
-
-* Création de l'extension sur les navigateurs **Chrome** et **Opera** (installation manuelle)
-* Amélioration de l'accessibilité de la fenêtre de préférences.
-* Ajout d'une page d'aide concernant les préférences.
-* Feuille de style pour la fenêtre de préférences séparée pour que tous les styles ne soient pas chargés avec toutes les pages web visitées.
-
-## Évolutions à venir
-
-* Amélioration de la fonction de stylisation syllabique :
-
-     → prendra en compte tous les marqueurs (point, slash, tiret).
-
-     → la coloration s'adaptera à la couleur de fond
-     
-* Enrichissement et amélioration de la pertinence du dictionnaire prédictif.
-
-* Pouvoir zoomer dans la fenêtre de préférences (tout navigateur) sans overflow du texte. + Correction de la taille de la fenêtre de préférences pour Chrome et Opéra. 
-
-<hr/>
-
 ## LÉIA, c'est quoi ?
 
 **LÉIA** est une extension pour le navigateur Firefox, Chrome et Opera. Elle est vouée à améliorer l'**accessibilité** des personnes malvoyantes, non-voyantes ou ayant des difficultés de lecture aux sites internet qui auraient choisi de rédiger leur contenu en **écriture inclusive**.
@@ -39,6 +18,8 @@
   <b>LÉIA</b> au <a href="http://hackecritureinclusive.com/" target="_blank">Hackaton Écriture Inclusive 2018</a><br/><br/>
   <a href="https://twitter.com/HackEcritureInc/status/966746253802594307" target="_blank"><img src="https://pbs.twimg.com/media/DWqSlpLW4AAXtDi.jpg" width="420px" alt="Présentation de LÉIA au Hackaton" /></a>                                                                                  
 </p>
+
+Voir aussi : <a href="https://youtu.be/Jz16GvX6aAE?t=11379" target="_blank">extrait de l'intervention de Julie Moynat pendant la conférence des Fédération des Aveugles et Amblyopes de France</a>
 
 ## Les fonctionnalités de LÉIA
 
