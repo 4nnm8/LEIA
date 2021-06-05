@@ -4,9 +4,9 @@
 
 <a href="https://addons.mozilla.org/fr/firefox/addon/leiaccessible/" target="_blank">Extension Firefox disponible ici</a>
 
-<a href="https://github.com/ANN-MB/LEIA/blob/master/LEIA%202.9%20chrome.crx" target="_blank">Extension Chome et Opéra disponible ici (à télécharger et installer manuellement pour le moment)</a>
+Extension Chome et Opéra disponible d'ici quelques jours !
 
-<a href="https://www.paypal.com/donate?hosted_button_id=DRNCK24Z2C7F6" target="_blank">FAITES-MOI UN DON ! =)</a>
+<a href="https://www.paypal.com/donate?hosted_button_id=DRNCK24Z2C7F6" target="_blank">FAITES-MOI UN DON =)</a>
 
 <hr/>
 
