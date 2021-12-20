@@ -1,4 +1,4 @@
-﻿const dico = [
+const dico = [
 ["br[èe]f","è?ve","bref$4 brève$4","brève$4","bref$4"],
 ["s[èe]c","è?c?he","sec$4 sèche$4","sèche$4","sec$4"],
 ["fra[iî]s?","a?[iî]?che","frais fraîche$4","fraîche$4"],
@@ -89,35 +89,37 @@ t9 = [
 var mode, pred, high, styl,
     term, terml, termp = 1,
     t9l = t9.length,
-    bl = false,
-    r3 = new RegExp("[\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb][a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+[\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb]?([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+)?", "gi"),
+    bl = !1,
     tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
         if (!node.parentNode.nodeName.match(/SCRIPT|STYLE|TEXTAREA|INPUT/i) && "true" !== node.parentNode.contentEditable && 0 < node.nodeValue.trim().length) return NodeFilter.FILTER_ACCEPT;
       }
-    }, false),
+    }, !1),
     dm = dico.map((a) => {
       return [new RegExp("([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+?)?(" + a[0] + ")[-/.\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb\u0028](" + a[1] + ")(?:[-/.\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb\u0029](?!$|\\s))?(s)?(?![a-z\u00e0-\u00f6\u00f9-\u00ff\u0153])", "gi"), a[2], a[3], a[4]];
     });
-function Chk(a) {
+const 
+r3 = new RegExp("[\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb][a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+[\u00b7\u2219\u2022\u2027\u30fb\uff65\u0387\u22c5\u16eb]?([a-z\u00e0-\u00f6\u00f9-\u00ff\u0153]+)?", "gi"),
+Chk = (a) => {
   dm.map(function(b) {
     a.nodeValue = a.nodeValue.replace(b[0], b[mode]);
   });
-}
-function Seek(z) {
-  for (let j = 0; j < t9l; j++) {
+},
+Seek = (z) => {
+  for (let j = t9l; j--;) {
     if (-1 != z.search(new RegExp("(^|[\\s\u0028\u005b\u0027\u00ab\u201c\u0022\u002d])(" + t9[j][0] + ")$", "i"))) return t9[j];
   }
-}
-function Mid(a) {
+},
+Mid = (a) => {
   let b = Car(a);
   -1 < a.value.indexOf(";;") && (a.value = a.value.replace(";;", "\u00b7"), Sel(a, b[0] - 1, b[0] - 1));
-}
-function MidCE() {
-  let a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode, b = CarCE(a);
+},
+MidCE = () => {
+  let a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode, 
+    b = CarCE(a);
   -1 < a.innerText.indexOf(";;") && (a.innerText = a.innerText.replace(";;", "\u00b7"), SelCE(a, b[0] - 1, b[0] - 1));  
-}
-function High(a) {
+},
+High = (a) => {
   let b = r3.exec(a.nodeValue);
   if (b) {
     let c = document.createElement("SPAN"), d = a.splitText(b.index);
@@ -126,73 +128,84 @@ function High(a) {
     d.nodeValue = d.nodeValue.substring(b[0].length),
     a.parentNode.insertBefore(c, d);
   }
-}
-function Car(a) {
+},
+Car = (a) => {
   if (document.selection) {
     a.focus();
-    let b = document.selection.createRange(), c = b.text.length;
+    let b = document.selection.createRange(), 
+    c = b.text.length;
     b.moveStart("character", -a.value.length),
     a = b.text.length - c;
     return [a, a + c];
   }
   return a.selectionStart || "0" == a.selectionStart ? [a.selectionStart, a.selectionEnd] : [0, 0];
-}
-function CarCE(a) {
+},
+CarCE = (a) => {
   let b = 0;
   if ("undefined" !== typeof window.getSelection) {
-    let c = window.getSelection().getRangeAt(0), d = c.toString().length, e = c.cloneRange();
+    let c = window.getSelection().getRangeAt(0), 
+    d = c.toString().length, 
+    e = c.cloneRange();
     e.selectNodeContents(a),
     e.setEnd(c.endContainer, c.endOffset),
     b = e.toString().length - d;
     if (d != 0) return [b, b + d];
   }
   return [b,b]
-}
-function Sel(a,b,c) {
+},
+Sel = (a,b,c) => {
   a.setSelectionRange ? (a.focus(), a.setSelectionRange(b, c)) : a.createTextRange && (d = a.createTextRange(), d.collapse(true), d.moveEnd("character", c), d.moveStart("character", b), d.select());
-}
-function SelCE(a,b,c) {
-  let d = document.createRange(), e = window.getSelection();
+},
+SelCE = (a,b,c) => {
+  let d = document.createRange(), 
+    e = window.getSelection();
   d.setStart(a.firstChild, b),
   d.setEnd(a.firstChild, c),
   e.removeAllRanges(),
   e.addRange(d);
-}
-function Fem(a,ev) {
-  let b = Car(a), c = a.value.substring(0, b[1]), d = c.match(/\s/gm), e = d ? (w = c.split(d[d.length - 1]), w[w.length - 1]) : c, f = Seek(e);
-  f && e.indexOf("\u00b7") == -1 && !bl && (
+},
+Fem = (a,ev) => {
+  let b = Car(a), 
+    c = a.value.substring(0, b[1]), 
+    d = c.match(/\s/gm), 
+    e = d ? (w = c.split(d[d.length - 1]), w[w.length - 1]) : c, 
+    f = Seek(e);
+  f && -1 == e.indexOf("\u00b7") && !bl && (
     a.value = a.value.slice(0, b[0]) + "\u00b7" + f[termp] + a.value.slice(b[0]),
     Sel(a, b[0], b[0] + f[termp].length + 1),
     term = f,
     terml = term.length);
-  46 != ev.keyCode && (bl = false);
-}
-function FemCE(ev) {
+  46 != ev.keyCode && (bl = !1);
+},
+FemCE = (ev) => {
   function G(p) {
     let u = a.innerText.substring(0, p);
     return u.indexOf(" ") ? (w = u.split(" "), w[w.length - 1]) : u;
   }
-  let a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode, b = CarCE(a), c = G(b[0]), d = Seek(c);
+  let a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode, 
+    b = CarCE(a), 
+    c = G(b[0]), 
+    d = Seek(c);
   d && G(b[0] + 1).indexOf("\u00b7") == -1 && !bl && (
     a.innerText = a.innerText.slice(0, b[0]) + "\u00b7" + d[termp] + a.innerText.slice(b[0]),
     SelCE(a, b[0], b[0] + d[termp].length + 1),
     term = d,
     terml = term.length
   );
-  46 != ev.keyCode && (bl = false);
-}
-function Nxt(e,h) {
-  let a = Car(h);
-  function F(n, m, b) {
-    1 == n && (termp == terml - 1 ? termp = 1 : termp++);
-    -1 == n && (1 == termp ? termp = terml - 1 : termp--);
-    m.value = m.value.slice(0, b[0]) + "\u00b7" + term[termp] + m.value.slice(b[1]),
-    Sel(m, b[0], b[0] + term[termp].length + 1);
-  }
+  46 != ev.keyCode && (bl = !1);
+},
+Nxt = (e,h) => {
+  var a = Car(h),
+      F = (n, m, b) => {
+        1 == n && (termp == terml - 1 ? termp = 1 : termp++);
+        -1 == n && (1 == termp ? termp = terml - 1 : termp--);
+        m.value = m.value.slice(0, b[0]) + "\u00b7" + term[termp] + m.value.slice(b[1]),
+        Sel(m, b[0], b[0] + term[termp].length + 1);
+     };
   if (term && a[0] != a[1]) {
     switch (e.keyCode) {
       case 8: case 46:
-        bl = true,
+        bl = !0,
         termp = 1;
         break;
       case 37:
@@ -212,29 +225,26 @@ function Nxt(e,h) {
         e.preventDefault(),
         !h.type.match(/SEARCH/i) && F(-1, h, a);
         break;
-      case 46:
-        bl = true,
-        termp = 1;
-        break;
       default:
         term = [],
         terml = void 0,
         termp = 1;
     }
   }
-}
-function NxtCE(e) {
-  var a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode, b = CarCE(a);
-  function F(c, d) {
-    1 == c && (termp == terml - 1 ? termp = 1 : termp++);
-    -1 == c && (1 == termp ? termp = terml - 1 : termp--);
-    a.innerText = a.innerText.slice(0, d[0]) + "\u00b7" + term[termp] + a.innerText.slice(d[1]),
-    SelCE(a, d[0], d[0] + term[termp].length + 1);
-  }
+},
+NxtCE = (e) => {
+  var a = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode, 
+    b = CarCE(a),
+      F = (c, d) => {
+        1 == c && (termp == terml - 1 ? termp = 1 : termp++);
+        -1 == c && (1 == termp ? termp = terml - 1 : termp--);
+        a.innerText = a.innerText.slice(0, d[0]) + "\u00b7" + term[termp] + a.innerText.slice(d[1]),
+        SelCE(a, d[0], d[0] + term[termp].length + 1);
+      };
   if (term && b[0] != b[1]) {
     switch (e.keyCode) {
       case 8: case 46:
-        bl = true,
+        bl = !0,
         termp = 1;
         break;
       case 37:
@@ -254,20 +264,16 @@ function NxtCE(e) {
         e.preventDefault(),
         F(-1, b);
         break;
-      case 46:
-        bl = true,
-        termp = 1;
-        break;
       default:
         term = [],
         terml = void 0,
         termp = 1;
     }
   }
-}
-function init() {
+},
+Init = () => {
  if (0 < mode) {
-	if (mode == 4) mode = 1, dm.length = 22;
+  4 == mode && (mode = 1, dm.length = 22);
     for (; tree.nextNode();) {
       setTimeout((function(currentNode) {
         Chk(currentNode);
@@ -282,13 +288,13 @@ function init() {
   }
   document.addEventListener("keyup", function(e) {
     let t = e.target;
-    if (e.shiftKey) {bl = true ; return false}
+    if (e.shiftKey) {bl = !0 ; return false}
     t.tagName.match(/INPUT|TEXTAREA/i) && t.type.match(/SEARCH|TEXT(AREA)?/i) ? (Mid(t), 1 == pred && Fem(t,e)) : "true" == t.contentEditable && (MidCE(), 1 == pred && FemCE(e));
   });
   
   1 == pred && document.addEventListener("keydown", function(e) {
     let t = e.target;
-    if (e.shiftKey) {term = void 0 ; bl=true}
+    e.shiftKey && (term = void 0, bl = !0)
     t.tagName.match(/INPUT|TEXTAREA/i) && t.type.match(/SEARCH|TEXT(AREA)?/i) ? Nxt(e, t) : "true" == t.contentEditable && NxtCE(e, t);
   });
 }
@@ -298,11 +304,11 @@ browser.storage.local.get().then(function(a) {
   pred = a.leia.pred;
   high = a.leia.high;
   styl = a.leia.styl;
-  init();
+  Init();
 }, function(a) {
   console.error(a);
   mode = 1;
   pred = high = 0;
   styl = "emph4";
-  init();
+  Init();
 });
