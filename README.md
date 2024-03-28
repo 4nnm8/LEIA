@@ -4,9 +4,8 @@
 
 <a href="https://addons.mozilla.org/fr/firefox/addon/leiaccessible/" target="_blank">Extension Firefox disponible ici</a>
 
-Extension Chome et Opéra disponible d'ici quelques jours !
+<a href="https://www.paypal.com/donate/?hosted_button_id=SUE6DABRW4HWY" target="_blank">FAITES-MOI UN DON :)</a>
 
-<a href="https://www.paypal.com/donate?hosted_button_id=DRNCK24Z2C7F6" target="_blank">FAITES-MOI UN DON =)</a>
 
 <hr/>
 
@@ -28,11 +27,10 @@ Voir aussi : <a href="https://youtu.be/Jz16GvX6aAE?t=11379" target="_blank">extr
 * Activer un dictionnaire prédictif permettant de compléter automatiquement des mots au masculin avec la terminaison au féminin.
 * Stylisation syllabique des terminaisons inclusives pour faciliter la lecture.
 
-<p style="text-align:center"><img src="https://addons.cdn.mozilla.net/user-media/previews/full/221/221580.png" alt="Aperçu de la conversion du texte avant et après activation de LÉIA" /></p>
 
 ### Comment ça marche ? ###
 
-**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un <a href="https://github.com/ANN-MB/LEIA/blob/master/extension%20firefox/dico.js" target="_blank">dictionnaire</a>, d'expressions régulières (RegExp), de fonctions itératives et récursives.
+**LÉIA** est programmée en JavaScript. Cette extension se base notamment sur l'utilisation d'un dictionnaire, d'expressions régulières (RegExp), de fonctions itératives et récursives.
 
 Le script parcours l'architecture d'une page web à la recherche de motifs propres à l'écriture inclusive. En fonction du motif identifié, le script applique alors une règle spécifique et modifie la page avec une nouvelle écriture.
 
